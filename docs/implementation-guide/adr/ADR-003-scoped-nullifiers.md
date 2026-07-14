@@ -21,3 +21,16 @@ A nullifier may detect repeated use within a scope and epoch. It does not indepe
 ## Validation
 
 Map this ADR to at least one scenario and one negative conformance test.
+
+## Traceability
+
+- **Scenarios (constrains):** UC-001, UC-002, UC-007, UC-008 — see
+  `matrices/adr-scenario-map.csv`.
+- **Scenarios (validated-by):** UC-023, UC-024, which specifically pressure-test
+  whether scoped-nullifier unlinkability survives a malicious or colluding
+  verifier.
+- **Negative conformance tests:** `CT-UC001-NEG-01` (two legitimate contexts
+  must stay unlinkable under issuer-verifier collusion), `CT-UC023-NEG-01`
+  (one verifier cannot force context reuse across services), `CT-UC024-NEG-01`
+  (an unfalsifiable "collusion resistant" claim with no named adversary or
+  horizon fails) — see `../conformance/test-matrix.csv`.

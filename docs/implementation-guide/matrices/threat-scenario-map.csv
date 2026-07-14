@@ -1,1 +1,47 @@
 adversary_id,scenario_id,claim_or_test
+ADV-V,UC-001,"verifier learns only policy satisfaction, not identity"
+ADV-IV,UC-001,issuer-verifier collusion must not defeat scoped uniqueness
+ADV-V,UC-002,pseudonymous activity not linkable across communities
+ADV-IV,UC-002,platform-issuer collusion must not correlate pseudonyms
+ADV-V,UC-003,verifier cannot infer exact age from range proof
+ADV-IV,UC-003,collusion across repeated threshold queries bounded
+ADV-W,UC-004,malware/compromised wallet cannot substitute transaction fields
+ADV-U,UC-004,replay attacker cannot reuse a step-up proof
+ADV-U,UC-005,attacker with stolen device cannot complete recovery
+ADV-IV,UC-005,issuer-verifier collusion must not create duplicate enrolment
+ADV-U,UC-006,copied wallet key without continuity fails
+ADV-IV,UC-006,service-issuer collusion must not correlate logins
+ADV-U,UC-007,fraudulent claimant cannot bypass scoped uniqueness
+ADV-IV,UC-007,issuer-verifier collusion must not correlate benefit programmes
+ADV-R,UC-008,ballot collector cannot link submission to identity
+ADV-N,UC-008,network observer cannot correlate via timing/metadata
+ADV-A,UC-009,malicious agent cannot exceed delegated scope
+ADV-W,UC-009,compromised wallet cannot fabricate delegation
+ADV-A,UC-010,agent cannot reuse a step-up approval for a different action
+ADV-A,UC-011,agent cannot answer requests outside delegation scope
+ADV-IV,UC-011,agent-verifier collusion cannot expand principal disclosure
+ADV-R,UC-012,compromised registry cannot mask suspension inconsistently
+ADV-V,UC-012,verifier cannot apply non-deterministic status-time semantics
+ADV-I,UC-013,issuer cannot claim new-policy assurance under a stale version
+ADV-N,UC-014,network attacker cannot force acceptance of stale cache
+ADV-R,UC-015,colluding registries cannot enable issuer/context shopping
+ADV-IV,UC-016,cross-border collusion cannot bypass recognition mapping
+ADV-W,UC-017,mediated prover cannot reconstruct protected inputs
+ADV-R,UC-018,malicious cache cannot force acceptance of tampered snapshot
+ADV-U,UC-019,one device user cannot derive a proof from another user's context
+ADV-IV,UC-020,issuer-verifier collusion cannot infer disability from profile choice
+ADV-U,UC-021,key-only attacker fails without learning enrolment membership
+ADV-P,UC-022,"compromised provider's false attestations remain governed by status/redress, not proof validity"
+ADV-V,UC-023,single verifier operating multiple services cannot force context reuse
+ADV-IV,UC-023,colluding verifiers cannot correlate across contexts
+ADV-IV,UC-024,issuer-verifier collusion resistance must be stated with explicit assumptions
+ADV-V,UC-025,verifier cannot combine bundle components to fingerprint the subject
+ADV-IV,UC-025,multi-issuer collusion cannot correlate composed proofs
+ADV-V,UC-026,verifier cannot fingerprint clients via negotiation
+ADV-U,UC-026,downgrade attacker cannot force an obsolete profile
+ADV-V,UC-027,verifier cannot issue non-reproducible rejection reasons
+ADV-IV,UC-027,appeals collusion cannot force biometric resubmission
+ADV-V,UC-028,verifier cannot use emergency profile beyond declared scope
+ADV-R,UC-029,infrastructure operator's analytics cannot build a shadow identity graph
+ADV-U,UC-030,maliciously crafted proofs must fail consistently across implementations
+ADV-V,UC-030,verifier fingerprinting of clients is in-scope for plugfest testing

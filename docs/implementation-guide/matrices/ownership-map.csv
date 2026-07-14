@@ -1,1 +1,11 @@
 concern,primary_owner,contributors,notes
+proof statement/profile,ZKP TF,Credentials TF; Trust Tasks TF,registry work and governance are informed only
+credential semantics,Credentials TF,ZKP TF,"trust tasks, registry work and governance are informed only"
+presentation transcript,ZKP TF,Credentials TF; Trust Tasks TF,registry work and governance are informed only
+agent delegation,Trust Tasks TF,ZKP TF; Credentials TF; Governance,registry work is informed only
+accreditation discovery,Registry work,Governance,"ZKP TF, Credentials TF and Trust Tasks TF are informed only"
+assurance meaning,Governance,ZKP TF; Credentials TF; Registry work,trust tasks TF is informed only
+status and recognition,Registry work,ZKP TF; Credentials TF; Governance,shared primary ownership with Governance
+conformance scenarios,ZKP TF,Credentials TF; Trust Tasks TF; Registry work; Governance,all other workstreams are contributors
+reliance policy,Governance,Registry work,"ZKP TF, Credentials TF and Trust Tasks TF are informed only"
+redress and liability,Governance,,all other workstreams are informed only

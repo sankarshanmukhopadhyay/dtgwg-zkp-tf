@@ -9,6 +9,9 @@ required = [
     GUIDE / "adr" / "ADR-TEMPLATE.md",
     GUIDE / "scenarios" / "SCENARIO-TEMPLATE.md",
     GUIDE / "taxonomy" / "predicates.md",
+    GUIDE / "conformance" / "README.md",
+    GUIDE / "conformance" / "levels.md",
+    GUIDE / "conformance" / "test-matrix.md",
 ]
 errors = []
 for path in required:

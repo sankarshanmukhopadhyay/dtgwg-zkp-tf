@@ -1,0 +1,30 @@
+{
+  "fixture_id": "FX-TRANSCRIPT-001",
+  "non_normative": true,
+  "purpose": "Illustrative canonical transcript for a transaction step-up proof. Field names are descriptive placeholders, not a normative encoding: no canonical encoding has been ratified yet (see architecture/README.md, planned module 'architecture viewpoints').",
+  "used_by_tests": ["CT-UC004-POS-01", "CT-UC004-NEG-01", "CT-UC004-NEG-02"],
+  "scenario_id": "UC-004",
+  "transcript": {
+    "profile_id": "dtg-zkp/minimum-liveness/0.3-draft",
+    "context_id": "example-bank:step-up:v1",
+    "audience": "verifier:example-bank.example",
+    "challenge_nonce": "b64:REPLACE_WITH_FRESH_NONCE",
+    "issued_at": "2026-07-14T09:00:00Z",
+    "expires_at": "2026-07-14T09:05:00Z",
+    "bound_action": {
+      "action_type": "high-value-transfer",
+      "amount": "12500.00",
+      "currency": "USD",
+      "destination_account_hash": "sha256:REPLACE_WITH_ACCOUNT_HASH"
+    },
+    "predicates_requested": ["PR-LIV", "PR-HLD", "PR-FRE"]
+  },
+  "expected_verifier_behaviour": {
+    "on_amount_or_destination_change": "reject: transcript binding mismatch (see CT-UC004-NEG-01)",
+    "on_expiry": "reject: expired, no automatic downgrade (see CT-UC004-NEG-02)"
+  },
+  "known_gaps": [
+    "no normative canonical serialisation (JSON here is illustrative only)",
+    "nonce freshness source (client-generated vs. verifier-issued) not yet decided"
+  ]
+}

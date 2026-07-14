@@ -1,0 +1,29 @@
+{
+  "fixture_id": "FX-DELEGATION-001",
+  "non_normative": true,
+  "purpose": "Illustrative delegation-evidence fixture binding a live human principal to a scoped AI agent. There is no ratified 'delegation evidence' predicate ID yet (see conformance/levels.md, CL-3 open gap) — field names here are illustrative pending that decision.",
+  "used_by_tests": ["CT-UC009-POS-01", "CT-UC009-NEG-01", "CT-UC009-POS-02",
+                     "CT-UC010-POS-01", "CT-UC010-NEG-01"],
+  "scenario_ids": ["UC-009", "UC-010"],
+  "delegation": {
+    "agent_key": "agentkey:REPLACE_WITH_AGENT_PUBLIC_KEY",
+    "relying_party_context": "example-service.example:agent-checkout",
+    "scope": ["read:catalog", "create:order-under-500-USD"],
+    "issued_at": "2026-07-14T09:00:00Z",
+    "expires_at": "2026-07-14T21:00:00Z",
+    "requires_step_up_for": ["create:order-over-500-USD", "change:shipping-address"]
+  },
+  "step_up_event": {
+    "trigger": "create:order-over-500-USD",
+    "action_digest": "sha256:REPLACE_WITH_ACTION_DIGEST",
+    "expected_result": "requires fresh liveness + holder-binding proof bound to action_digest (see CT-UC010-POS-01)"
+  },
+  "negative_cases": {
+    "agent_key_swap_after_issuance": "reject — delegation is bound to the original agent_key, not renewable by substitution (see CT-UC009-NEG-01)",
+    "liveness_proof_alone_no_delegation_evidence": "insufficient — must not be treated as authorisation (see CT-UC009-NEG-02)"
+  },
+  "known_gaps": [
+    "subdelegation semantics undefined",
+    "revocation propagation timing to already-authorised agents undefined"
+  ]
+}

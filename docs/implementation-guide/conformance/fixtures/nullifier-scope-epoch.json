@@ -1,0 +1,35 @@
+{
+  "fixture_id": "FX-NULLIFIER-001",
+  "non_normative": true,
+  "purpose": "Illustrative scoped-nullifier fixture: same principal, two contexts, one repeated attempt. Nullifier values are placeholders — no nullifier construction has been selected (see ADR-003).",
+  "used_by_tests": ["CT-UC001-POS-01", "CT-UC001-NEG-01", "CT-UC002-POS-01", "CT-UC002-POS-02"],
+  "scenario_ids": ["UC-001", "UC-002"],
+  "principal": {
+    "enrolment_root_commitment": "commit:REPLACE_WITH_ROOT_COMMITMENT"
+  },
+  "contexts": [
+    {
+      "context_id": "service-a:account-creation:2026",
+      "epoch": "2026",
+      "attempts": [
+        {"attempt": 1, "nullifier": "null:CTX_A_2026_ATTEMPT", "expected_result": "accepted-first-use"},
+        {"attempt": 2, "nullifier": "null:CTX_A_2026_ATTEMPT", "expected_result": "rejected-duplicate (see CT-UC001-POS-01)"}
+      ]
+    },
+    {
+      "context_id": "community-b:participation:2026",
+      "epoch": "2026",
+      "attempts": [
+        {"attempt": 1, "nullifier": "null:CTX_B_2026_ATTEMPT", "expected_result": "accepted-first-use"}
+      ]
+    }
+  ],
+  "cross_context_check": {
+    "assertion": "null:CTX_A_2026_ATTEMPT and null:CTX_B_2026_ATTEMPT must not be correlatable by an issuer-verifier-colluding adversary under the profile's stated adversary model",
+    "related_test": "CT-UC001-NEG-01"
+  },
+  "known_gaps": [
+    "who assigns and governs context_id is an open question (corpus section 12, item 1)",
+    "whether a context boundary must survive issuer-verifier collusion is the decision this fixture cannot itself resolve"
+  ]
+}

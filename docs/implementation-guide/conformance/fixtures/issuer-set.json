@@ -1,0 +1,41 @@
+{
+  "fixture_id": "FX-ISSUER-SET-001",
+  "non_normative": true,
+  "purpose": "Illustrative accreditation-framework issuer set for interoperability and status tests. Two independent issuer implementations, matching the minimum plugfest topology in README.md.",
+  "used_by_tests": ["CT-UC012-POS-01", "CT-UC012-NEG-01", "CT-UC012-POS-02",
+                     "CT-UC013-POS-01", "CT-UC013-NEG-01", "CT-UC030-POS-01"],
+  "scenario_ids": ["UC-012", "UC-013", "UC-030"],
+  "accreditation_framework": {
+    "framework_id": "example-framework:v1",
+    "policy_versions": ["p1", "p2"],
+    "p2_effective_date": "2026-09-01T00:00:00Z",
+    "p1_deprecation_date": "2026-12-01T00:00:00Z"
+  },
+  "issuers": [
+    {
+      "issuer_id": "issuer-a.example",
+      "implementation": "reference-issuer-A",
+      "status": "accredited",
+      "status_history": [
+        {"status": "accredited", "effective_at": "2026-01-01T00:00:00Z"}
+      ]
+    },
+    {
+      "issuer_id": "issuer-b.example",
+      "implementation": "reference-issuer-B",
+      "status": "suspended",
+      "status_history": [
+        {"status": "accredited", "effective_at": "2026-01-01T00:00:00Z"},
+        {"status": "suspended", "effective_at": "2026-07-14T08:30:00Z", "reason": "incident-under-review"}
+      ]
+    }
+  ],
+  "expected_verifier_behaviour": {
+    "presentation_after_suspension_effective_at": "reject with deterministic reason code (see CT-UC012-POS-01)",
+    "stale_cache_predating_suspension": "documented non-conformance if accepted (see CT-UC012-NEG-01)"
+  },
+  "known_gaps": [
+    "status-time semantics (issuance-time vs presentation-time vs grace period) not yet ratified — this fixture assumes presentation-time",
+    "no privacy-preserving status-query mechanism has been selected (see CT-UC012-NEG-02)"
+  ]
+}

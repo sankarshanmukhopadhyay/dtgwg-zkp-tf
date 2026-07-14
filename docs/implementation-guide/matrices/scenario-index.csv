@@ -1,1 +1,31 @@
 scenario_id,title,status,priority,primary_domain,owner
+UC-001,Privacy-Preserving Account Creation,proposed,P0,identity-and-privacy,ZKP TF
+UC-002,Anonymous or Pseudonymous Community Participation,proposed,P0,identity-and-privacy,ZKP TF
+UC-003,Age-Threshold Access Without Date-of-Birth Disclosure,proposed,P1,credential-semantics,Credentials TF
+UC-004,High-Value Financial Transaction Step-Up,proposed,P0,transaction-assurance,ZKP TF
+UC-005,Sensitive Account Recovery,proposed,P0,lifecycle-and-recovery,ZKP TF
+UC-006,Recurring Login With Same-Human Continuity,proposed,P0,identity-and-privacy,ZKP TF
+UC-007,One-Person-One-Benefit-Claim Per Period,proposed,P1,governance-and-eligibility,ZKP TF
+UC-008,Anonymous Public Consultation or Digital Ballot,proposed,P1,identity-and-privacy,ZKP TF
+UC-009,Human Authorises an AI Agent,proposed,P0,agentic-delegation,Trust Tasks TF
+UC-010,Human Step-Up for Agent Intent Drift,proposed,P0,agentic-delegation,Trust Tasks TF
+UC-011,Agent Presents Proof on Behalf of Principal,proposed,P1,agentic-delegation,Trust Tasks TF
+UC-012,Issuer Suspension After Proof Issuance,proposed,P0,registry-and-status,Registry work
+UC-013,Accreditation Framework or Policy Version Change,proposed,P0,registry-and-status,Registry work
+UC-014,Trust Registry Unavailable or Partitioned,proposed,P1,registry-and-status,Registry work
+UC-015,Multiple Trust Registries Disagree,proposed,P1,registry-and-status,Registry work
+UC-016,Cross-Border Recognition of Liveness Assurance,proposed,P1,reliance-policy,Governance
+UC-017,Low-End or Constrained Consumer Device,proposed,P0,operational-viability,ZKP TF
+UC-018,Intermittent Connectivity and Offline Presentation,proposed,P1,operational-viability,ZKP TF
+UC-019,Shared Device and Multi-User Wallet,proposed,P1,operational-viability,ZKP TF
+UC-020,Accessibility Alternative to Facial Liveness,proposed,P0,accessibility,ZKP TF
+UC-021,Compromised Wallet Key but Live Human Present,proposed,P0,adversarial-resistance,ZKP TF
+UC-022,Malicious or Compromised Biometric Provider,proposed,P0,redress-and-liability,Governance
+UC-023,Malicious Verifier Attempts Cross-Context Correlation,proposed,P0,adversarial-resistance,ZKP TF
+UC-024,Issuer and Verifier Collude,proposed,P0,adversarial-resistance,ZKP TF
+UC-025,Proof Composition Across Credentials and Trust Tasks,proposed,P0,composition,ZKP TF
+UC-026,Algorithm Upgrade and Mixed-Version Ecosystem,proposed,P0,interoperability,ZKP TF
+UC-027,"Verifier Policy Error, Appeal, and Redress",proposed,P0,redress-and-liability,Governance
+UC-028,Emergency or Disaster Operations,proposed,P2,reliance-policy,Governance
+UC-029,Large-Scale Batch Verification,proposed,P1,operational-viability,ZKP TF
+UC-030,Partial Deployment Across Independent Implementations,proposed,P0,interoperability,ZKP TF

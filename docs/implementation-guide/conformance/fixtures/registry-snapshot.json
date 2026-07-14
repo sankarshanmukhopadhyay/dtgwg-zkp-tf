@@ -1,0 +1,27 @@
+{
+  "fixture_id": "FX-REGISTRY-SNAPSHOT-001",
+  "non_normative": true,
+  "purpose": "Illustrative signed registry snapshot and cache-age fixture for stale-cache and status-check conformance tests.",
+  "used_by_tests": ["CT-UC012-NEG-01", "CT-UC012-POS-02"],
+  "scenario_ids": ["UC-012"],
+  "snapshot": {
+    "snapshot_id": "snap:2026-07-14T08:00:00Z",
+    "signed_by": "example-framework:v1",
+    "captured_at": "2026-07-14T08:00:00Z",
+    "issuer_statuses": {
+      "issuer-a.example": "accredited",
+      "issuer-b.example": "accredited"
+    },
+    "note": "This snapshot predates issuer-b.example's suspension at 08:30:00Z (see fixtures/issuer-set.json). It exists specifically to drive CT-UC012-NEG-01."
+  },
+  "verifier_cache_policy_under_test": {
+    "max_staleness_seconds": 900,
+    "at_verification_time": "2026-07-14T09:00:00Z",
+    "snapshot_age_seconds": 3600,
+    "expected_result": "reject or force refresh: snapshot age (3600s) exceeds max_staleness_seconds (900s). Acceptance here is a documented non-conformance."
+  },
+  "known_gaps": [
+    "maximum staleness is illustrative; no normative ceiling has been ratified",
+    "no privacy-preserving refresh mechanism has been selected"
+  ]
+}
