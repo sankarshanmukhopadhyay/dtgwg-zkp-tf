@@ -1,0 +1,4 @@
+docs: scaffold ZKP implementation and interoperability guide
+
+Add an additive documentation workspace for architecture, ADRs, validation
+taxonomies, pressure-test scenarios, living matrices, and conformance planning.

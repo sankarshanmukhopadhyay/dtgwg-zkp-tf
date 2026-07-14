@@ -86,3 +86,10 @@ Inherits the DTGWG [JDF Charter](https://lf-toip.atlassian.net/wiki/spaces/HOME/
 - [DTGWG home](https://lf-toip.atlassian.net/wiki/spaces/HOME/pages/257785857/Decentralized+Trust+Graph+Working+Group)
 - [ZKP background page](https://lf-toip.atlassian.net/wiki/spaces/HOME/pages/257949824/Zero-Knowledge+Proofs+ZKPs)
 - [ToIP meeting calendar](https://zoom-lfx.platform.linuxfoundation.org/meetings/ToIP?view=month)
+
+## Implementation and interoperability guide workspace
+
+An additive, non-normative implementation workspace is available at
+[`docs/implementation-guide/`](./docs/implementation-guide/). It contains architecture notes,
+ADRs, validation taxonomies, pressure-test scenarios, conformance planning, and contributor
+templates intended to pressure-test DTG ZKP profiles against implementation and deployment needs.
