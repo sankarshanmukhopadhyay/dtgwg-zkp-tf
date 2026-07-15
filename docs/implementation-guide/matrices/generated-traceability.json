@@ -1,0 +1,555 @@
+[
+  {
+    "scenario_id": "UC-001",
+    "title": "Privacy-Preserving Account Creation",
+    "predicates": [
+      "PR-FRE",
+      "PR-HLD",
+      "PR-LIV",
+      "PR-PER",
+      "PR-UNQ"
+    ],
+    "adversaries": [
+      "ADV-IV",
+      "ADV-V"
+    ],
+    "adrs": [
+      "ADR-002",
+      "ADR-003"
+    ],
+    "tests": [
+      "CT-UC001-NEG-01",
+      "CT-UC001-NEG-02",
+      "CT-UC001-POS-01",
+      "CT-UC001-POS-02"
+    ]
+  },
+  {
+    "scenario_id": "UC-002",
+    "title": "Anonymous or Pseudonymous Community Participation",
+    "predicates": [
+      "PR-FRE",
+      "PR-LIV",
+      "PR-PER",
+      "PR-UNQ"
+    ],
+    "adversaries": [
+      "ADV-IV",
+      "ADV-V"
+    ],
+    "adrs": [
+      "ADR-002",
+      "ADR-003"
+    ],
+    "tests": [
+      "CT-UC002-NEG-01",
+      "CT-UC002-NEG-02",
+      "CT-UC002-POS-01",
+      "CT-UC002-POS-02"
+    ]
+  },
+  {
+    "scenario_id": "UC-003",
+    "title": "Age-Threshold Access Without Date-of-Birth Disclosure",
+    "predicates": [
+      "PR-FRE",
+      "PR-HLD",
+      "PR-LIV",
+      "PR-RNG"
+    ],
+    "adversaries": [
+      "ADV-IV",
+      "ADV-V"
+    ],
+    "adrs": [
+      "ADR-002"
+    ],
+    "tests": []
+  },
+  {
+    "scenario_id": "UC-004",
+    "title": "High-Value Financial Transaction Step-Up",
+    "predicates": [
+      "PR-FRE",
+      "PR-HLD",
+      "PR-LIV"
+    ],
+    "adversaries": [
+      "ADV-U",
+      "ADV-W"
+    ],
+    "adrs": [
+      "ADR-001"
+    ],
+    "tests": [
+      "CT-UC004-NEG-01",
+      "CT-UC004-NEG-02",
+      "CT-UC004-POS-01",
+      "CT-UC004-POS-02"
+    ]
+  },
+  {
+    "scenario_id": "UC-005",
+    "title": "Sensitive Account Recovery",
+    "predicates": [
+      "PR-FRE",
+      "PR-LIV",
+      "PR-PER",
+      "PR-UNQ"
+    ],
+    "adversaries": [
+      "ADV-IV",
+      "ADV-U"
+    ],
+    "adrs": [],
+    "tests": [
+      "CT-UC005-NEG-01",
+      "CT-UC005-NEG-02",
+      "CT-UC005-POS-01",
+      "CT-UC005-POS-02"
+    ]
+  },
+  {
+    "scenario_id": "UC-006",
+    "title": "Recurring Login With Same-Human Continuity",
+    "predicates": [
+      "PR-FRE",
+      "PR-HLD",
+      "PR-LIV"
+    ],
+    "adversaries": [
+      "ADV-IV",
+      "ADV-U"
+    ],
+    "adrs": [
+      "ADR-001"
+    ],
+    "tests": [
+      "CT-UC006-NEG-01",
+      "CT-UC006-NEG-02",
+      "CT-UC006-POS-01",
+      "CT-UC006-POS-02"
+    ]
+  },
+  {
+    "scenario_id": "UC-007",
+    "title": "One-Person-One-Benefit-Claim Per Period",
+    "predicates": [
+      "PR-FRE",
+      "PR-LIV",
+      "PR-PER",
+      "PR-UNQ"
+    ],
+    "adversaries": [
+      "ADV-IV",
+      "ADV-U"
+    ],
+    "adrs": [
+      "ADR-002",
+      "ADR-003"
+    ],
+    "tests": []
+  },
+  {
+    "scenario_id": "UC-008",
+    "title": "Anonymous Public Consultation or Digital Ballot",
+    "predicates": [
+      "PR-FRE",
+      "PR-LIV",
+      "PR-PER",
+      "PR-UNQ"
+    ],
+    "adversaries": [
+      "ADV-N",
+      "ADV-R"
+    ],
+    "adrs": [
+      "ADR-002",
+      "ADR-003",
+      "ADR-005"
+    ],
+    "tests": []
+  },
+  {
+    "scenario_id": "UC-009",
+    "title": "Human Authorises an AI Agent",
+    "predicates": [
+      "PR-FRE",
+      "PR-HLD",
+      "PR-LIV",
+      "PR-PER"
+    ],
+    "adversaries": [
+      "ADV-A",
+      "ADV-W"
+    ],
+    "adrs": [
+      "ADR-001"
+    ],
+    "tests": [
+      "CT-UC009-NEG-01",
+      "CT-UC009-NEG-02",
+      "CT-UC009-POS-01",
+      "CT-UC009-POS-02"
+    ]
+  },
+  {
+    "scenario_id": "UC-010",
+    "title": "Human Step-Up for Agent Intent Drift",
+    "predicates": [
+      "PR-FRE",
+      "PR-HLD",
+      "PR-LIV"
+    ],
+    "adversaries": [
+      "ADV-A"
+    ],
+    "adrs": [
+      "ADR-001"
+    ],
+    "tests": [
+      "CT-UC010-NEG-01",
+      "CT-UC010-NEG-02",
+      "CT-UC010-POS-01",
+      "CT-UC010-POS-02"
+    ]
+  },
+  {
+    "scenario_id": "UC-011",
+    "title": "Agent Presents Proof on Behalf of Principal",
+    "predicates": [
+      "PR-HLD"
+    ],
+    "adversaries": [
+      "ADV-A",
+      "ADV-IV"
+    ],
+    "adrs": [
+      "ADR-001"
+    ],
+    "tests": []
+  },
+  {
+    "scenario_id": "UC-012",
+    "title": "Issuer Suspension After Proof Issuance",
+    "predicates": [
+      "PR-ISS"
+    ],
+    "adversaries": [
+      "ADV-R",
+      "ADV-V"
+    ],
+    "adrs": [
+      "ADR-004"
+    ],
+    "tests": [
+      "CT-UC012-NEG-01",
+      "CT-UC012-NEG-02",
+      "CT-UC012-POS-01",
+      "CT-UC012-POS-02"
+    ]
+  },
+  {
+    "scenario_id": "UC-013",
+    "title": "Accreditation Framework or Policy Version Change",
+    "predicates": [
+      "PR-ISS"
+    ],
+    "adversaries": [
+      "ADV-I"
+    ],
+    "adrs": [
+      "ADR-004"
+    ],
+    "tests": [
+      "CT-UC013-NEG-01",
+      "CT-UC013-NEG-02",
+      "CT-UC013-POS-01",
+      "CT-UC013-POS-02"
+    ]
+  },
+  {
+    "scenario_id": "UC-014",
+    "title": "Trust Registry Unavailable or Partitioned",
+    "predicates": [
+      "PR-ISS"
+    ],
+    "adversaries": [
+      "ADV-N"
+    ],
+    "adrs": [],
+    "tests": []
+  },
+  {
+    "scenario_id": "UC-015",
+    "title": "Multiple Trust Registries Disagree",
+    "predicates": [
+      "PR-ISS"
+    ],
+    "adversaries": [
+      "ADV-R"
+    ],
+    "adrs": [],
+    "tests": []
+  },
+  {
+    "scenario_id": "UC-016",
+    "title": "Cross-Border Recognition of Liveness Assurance",
+    "predicates": [
+      "PR-FRE",
+      "PR-ISS",
+      "PR-LIV"
+    ],
+    "adversaries": [
+      "ADV-IV"
+    ],
+    "adrs": [
+      "ADR-005"
+    ],
+    "tests": []
+  },
+  {
+    "scenario_id": "UC-017",
+    "title": "Low-End or Constrained Consumer Device",
+    "predicates": [],
+    "adversaries": [
+      "ADV-W"
+    ],
+    "adrs": [],
+    "tests": [
+      "CT-UC017-NEG-01",
+      "CT-UC017-NEG-02",
+      "CT-UC017-POS-01",
+      "CT-UC017-POS-02"
+    ]
+  },
+  {
+    "scenario_id": "UC-018",
+    "title": "Intermittent Connectivity and Offline Presentation",
+    "predicates": [
+      "PR-FRE",
+      "PR-HLD",
+      "PR-LIV"
+    ],
+    "adversaries": [
+      "ADV-R"
+    ],
+    "adrs": [],
+    "tests": []
+  },
+  {
+    "scenario_id": "UC-019",
+    "title": "Shared Device and Multi-User Wallet",
+    "predicates": [
+      "PR-FRE",
+      "PR-HLD",
+      "PR-LIV"
+    ],
+    "adversaries": [
+      "ADV-U"
+    ],
+    "adrs": [],
+    "tests": []
+  },
+  {
+    "scenario_id": "UC-020",
+    "title": "Accessibility Alternative to Facial Liveness",
+    "predicates": [
+      "PR-FRE",
+      "PR-HLD",
+      "PR-LIV"
+    ],
+    "adversaries": [
+      "ADV-IV"
+    ],
+    "adrs": [
+      "ADR-005"
+    ],
+    "tests": [
+      "CT-UC020-NEG-01",
+      "CT-UC020-NEG-02",
+      "CT-UC020-POS-01",
+      "CT-UC020-POS-02"
+    ]
+  },
+  {
+    "scenario_id": "UC-021",
+    "title": "Compromised Wallet Key but Live Human Present",
+    "predicates": [
+      "PR-FRE",
+      "PR-HLD",
+      "PR-LIV"
+    ],
+    "adversaries": [
+      "ADV-U"
+    ],
+    "adrs": [
+      "ADR-001"
+    ],
+    "tests": [
+      "CT-UC021-NEG-01",
+      "CT-UC021-NEG-02",
+      "CT-UC021-POS-01",
+      "CT-UC021-POS-02"
+    ]
+  },
+  {
+    "scenario_id": "UC-022",
+    "title": "Malicious or Compromised Biometric Provider",
+    "predicates": [
+      "PR-ISS"
+    ],
+    "adversaries": [
+      "ADV-P"
+    ],
+    "adrs": [
+      "ADR-004"
+    ],
+    "tests": [
+      "CT-UC022-NEG-01",
+      "CT-UC022-NEG-02",
+      "CT-UC022-POS-01",
+      "CT-UC022-POS-02"
+    ]
+  },
+  {
+    "scenario_id": "UC-023",
+    "title": "Malicious Verifier Attempts Cross-Context Correlation",
+    "predicates": [
+      "PR-UNQ"
+    ],
+    "adversaries": [
+      "ADV-IV",
+      "ADV-V"
+    ],
+    "adrs": [
+      "ADR-003"
+    ],
+    "tests": [
+      "CT-UC023-NEG-01",
+      "CT-UC023-NEG-02",
+      "CT-UC023-POS-01",
+      "CT-UC023-POS-02"
+    ]
+  },
+  {
+    "scenario_id": "UC-024",
+    "title": "Issuer and Verifier Collude",
+    "predicates": [
+      "PR-ISS"
+    ],
+    "adversaries": [
+      "ADV-IV"
+    ],
+    "adrs": [
+      "ADR-003",
+      "ADR-005"
+    ],
+    "tests": [
+      "CT-UC024-NEG-01",
+      "CT-UC024-NEG-02",
+      "CT-UC024-POS-01",
+      "CT-UC024-POS-02"
+    ]
+  },
+  {
+    "scenario_id": "UC-025",
+    "title": "Proof Composition Across Credentials and Trust Tasks",
+    "predicates": [
+      "PR-FRE",
+      "PR-HLD",
+      "PR-LIV",
+      "PR-UNQ"
+    ],
+    "adversaries": [
+      "ADV-IV",
+      "ADV-V"
+    ],
+    "adrs": [],
+    "tests": [
+      "CT-UC025-NEG-01",
+      "CT-UC025-NEG-02",
+      "CT-UC025-POS-01",
+      "CT-UC025-POS-02"
+    ]
+  },
+  {
+    "scenario_id": "UC-026",
+    "title": "Algorithm Upgrade and Mixed-Version Ecosystem",
+    "predicates": [],
+    "adversaries": [
+      "ADV-U",
+      "ADV-V"
+    ],
+    "adrs": [],
+    "tests": [
+      "CT-UC026-NEG-01",
+      "CT-UC026-NEG-02",
+      "CT-UC026-POS-01",
+      "CT-UC026-POS-02"
+    ]
+  },
+  {
+    "scenario_id": "UC-027",
+    "title": "Verifier Policy Error, Appeal, and Redress",
+    "predicates": [],
+    "adversaries": [
+      "ADV-IV",
+      "ADV-V"
+    ],
+    "adrs": [
+      "ADR-004"
+    ],
+    "tests": [
+      "CT-UC027-NEG-01",
+      "CT-UC027-NEG-02",
+      "CT-UC027-POS-01",
+      "CT-UC027-POS-02"
+    ]
+  },
+  {
+    "scenario_id": "UC-028",
+    "title": "Emergency or Disaster Operations",
+    "predicates": [
+      "PR-HLD",
+      "PR-LIV"
+    ],
+    "adversaries": [
+      "ADV-V"
+    ],
+    "adrs": [],
+    "tests": []
+  },
+  {
+    "scenario_id": "UC-029",
+    "title": "Large-Scale Batch Verification",
+    "predicates": [],
+    "adversaries": [
+      "ADV-R"
+    ],
+    "adrs": [],
+    "tests": []
+  },
+  {
+    "scenario_id": "UC-030",
+    "title": "Partial Deployment Across Independent Implementations",
+    "predicates": [
+      "PR-FRE",
+      "PR-HLD",
+      "PR-LIV",
+      "PR-PER",
+      "PR-UNQ"
+    ],
+    "adversaries": [
+      "ADV-U",
+      "ADV-V"
+    ],
+    "adrs": [],
+    "tests": [
+      "CT-UC030-NEG-01",
+      "CT-UC030-NEG-02",
+      "CT-UC030-POS-01",
+      "CT-UC030-POS-02"
+    ]
+  }
+]

@@ -89,10 +89,15 @@ Inherits the DTGWG [JDF Charter](https://lf-toip.atlassian.net/wiki/spaces/HOME/
 
 ## Implementation and interoperability guide workspace
 
-An additive, non-normative implementation workspace is available at
-[`docs/implementation-guide/`](./docs/implementation-guide/). It contains architecture notes,
-ADRs, validation taxonomies, pressure-test scenarios, a four-level conformance test matrix
-(`docs/implementation-guide/conformance/`), and contributor templates intended to pressure-test
-DTG ZKP profiles against implementation and deployment needs. Run
-`python3 scripts/validate_conformance.py` to check the conformance suite and traceability
-matrices for internal consistency.
+The publication-ready, non-normative implementation workspace is available at [`docs/implementation-guide/`](./docs/implementation-guide/). It contains a lifecycle-oriented guide, architecture viewpoints, ADRs, 30 pressure-test scenarios, traceability matrices, a four-level 76-case conformance suite, evidence schemas and GitHub Pages navigation.
+
+Run the complete local quality gate from the repository root:
+
+```sh
+python3 scripts/validate_docs.py
+python3 scripts/validate_conformance.py
+python3 scripts/validate_style.py
+python3 scripts/validate_links.py
+python3 scripts/validate_fixtures.py
+python3 scripts/build_traceability.py
+```

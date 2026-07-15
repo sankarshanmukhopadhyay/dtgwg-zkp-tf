@@ -1,46 +1,50 @@
-# Implementation & Interoperability Guide
+---
+title: Implementation and Interoperability Guide workspace
+status: incubating
+normative_status: non-normative
+owner: DTG ZKP Task Force
+last_reviewed: 2026-07-15
+---
 
-**Status:** Incubating  
-**Normative status:** Non-normative unless explicitly marked
+# Implementation and Interoperability Guide
 
-## Purpose
+This workspace turns proof, credential, policy, delegation and registry assumptions into reviewable implementation guidance and conformance evidence.
 
-This workspace pressure-tests whether DTG ZKP profiles are implementable across
-biometric providers, issuers, wallets, verifiable trust agents, agents, verifiers,
-trust registries, and governance frameworks.
+## Start here
 
-It focuses on semantic interoperability, privacy boundaries, assurance dependencies,
-lifecycle behaviour, operational resilience, accessibility, and conformance.
+- [Main implementation guide](guide/implementation-interoperability-guide.md)
+- [Architecture core](architecture/README.md)
+- [Scenario corpus](scenarios/README.md)
+- [Conformance programme](conformance/README.md)
+- [Style profile](editorial/STYLE-GUIDE.md)
+- [Glossary](appendices/GLOSSARY.md)
 
-## Structure
+## Repository map
 
 | Directory | Purpose |
 |---|---|
-| `architecture/` | principles, layers, trust boundaries, ownership, quality attributes |
-| `adr/` | decisions and rationale |
-| `taxonomy/` | predicates, adversaries, lifecycle and validation classifications |
-| `scenarios/` | structured pressure-test use cases |
-| `matrices/` | traceability and coverage tables (populated: 30 scenarios, 72 predicate mappings, 46 threat mappings) |
-| `conformance/` | conformance levels, 76-case test matrix, fixtures, and plugfest planning |
-| `editorial/` | templates and contribution conventions |
-| `appendices/` | glossary and references |
-| `diagrams/` | Mermaid sources and diagram register |
-
-## Inherited drafting rules
-
-Every privacy claim names its adversary and horizon. Every predicate states what it
-does not establish. Conjecture is labelled as conjecture.
+| `guide/` | coherent implementation lifecycle and implementer checklists |
+| `architecture/` | context, layers, trust boundaries and viewpoints |
+| `adr/` | explicit decisions, alternatives and consequences |
+| `taxonomy/` | stable predicate and adversary identifiers |
+| `scenarios/` | 30 structured pressure-test scenarios |
+| `matrices/` | traceability and maturity data |
+| `conformance/` | four levels, 76 tests, fixtures, schemas and evidence templates |
+| `editorial/` | style profile, terminology and contribution controls |
+| `appendices/` | glossary, errors, references and guidance index |
+| `diagrams/` | Mermaid sources with textual interpretations |
 
 ## Validation
 
-Two scripts validate this workspace, both run from the repository root:
+Run from the repository root:
 
 ```sh
-python3 scripts/validate_docs.py          # doc hygiene: required files, tabs, final newlines
-python3 scripts/validate_conformance.py   # referential integrity of matrices/ and conformance/
+python3 scripts/validate_docs.py
+python3 scripts/validate_conformance.py
+python3 scripts/validate_style.py
+python3 scripts/validate_links.py
+python3 scripts/validate_fixtures.py
+python3 scripts/build_traceability.py
 ```
 
-`validate_conformance.py` fails the build if any matrix is a placeholder
-(header row only), if any predicate/adversary/scenario/ADR reference is
-dangling, or if any conformance level (see `conformance/levels.md`) is
-missing a positive or a negative test case.
+The implementation guide is non-normative by default. Open cryptographic or governance choices remain explicit decision dependencies.

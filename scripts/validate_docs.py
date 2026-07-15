@@ -12,6 +12,10 @@ required = [
     GUIDE / "conformance" / "README.md",
     GUIDE / "conformance" / "levels.md",
     GUIDE / "conformance" / "test-matrix.md",
+    GUIDE / "guide" / "implementation-interoperability-guide.md",
+    GUIDE / "editorial" / "STYLE-GUIDE.md",
+    GUIDE / "appendices" / "ERROR-CATALOGUE.md",
+    GUIDE / "architecture" / "11-operational-viewpoint.md",
 ]
 errors = []
 for path in required:

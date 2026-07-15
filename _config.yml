@@ -1,0 +1,9 @@
+title: DTG ZKP Implementation and Interoperability Guide
+description: Non-normative implementation, assurance and conformance guidance for DTG zero-knowledge proof profiles.
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+exclude:
+  - scripts
+  - "*.zip"

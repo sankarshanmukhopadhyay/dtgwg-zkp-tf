@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Conformance evidence bundle",
+  "type": "object",
+  "required": [
+    "implementation",
+    "environment",
+    "test_manifest_version",
+    "fixture_digests",
+    "results",
+    "generated_at"
+  ],
+  "properties": {
+    "implementation": {
+      "type": "object"
+    },
+    "environment": {
+      "type": "object"
+    },
+    "test_manifest_version": {
+      "type": "string"
+    },
+    "fixture_digests": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "test_id",
+          "outcome"
+        ],
+        "properties": {
+          "test_id": {
+            "type": "string"
+          },
+          "outcome": {
+            "enum": [
+              "pass",
+              "fail",
+              "skip"
+            ]
+          },
+          "details": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "exceptions": {
+      "type": "array"
+    },
+    "generated_at": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}
