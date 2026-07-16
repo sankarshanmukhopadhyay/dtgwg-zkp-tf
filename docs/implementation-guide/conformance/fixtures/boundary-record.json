@@ -1,0 +1,27 @@
+{
+  "assurance_boundary_id": "AB-LIV-001",
+  "disclosure_boundary_id": "DB-LIV-001",
+  "predicate_id": "PR-LIV",
+  "profile_id": "minimum-liveness",
+  "against_whom": [
+    "ADV-V",
+    "ADV-IV"
+  ],
+  "for_how_long": {
+    "proof_window_seconds": 120,
+    "assurance_horizon_days": 365
+  },
+  "alongside_what": [
+    "attestation policy class",
+    "canonical transcript",
+    "status snapshot"
+  ],
+  "threat_ids": [
+    "THR-007",
+    "THR-013",
+    "THR-018"
+  ],
+  "evidence": [
+    "CT-SEC-BOUNDARY-POS-01"
+  ]
+}

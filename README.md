@@ -101,3 +101,12 @@ python3 scripts/validate_links.py
 python3 scripts/validate_fixtures.py
 python3 scripts/build_traceability.py
 ```
+
+## Implementation security maturity workspace
+
+The implementation guide now includes paired assurance and disclosure boundaries, a canonical threat, harm and control model, attestation-schema correlation analysis, cryptoperiod and assurance-horizon guidance, mediated-proving controls and executable migration requirements. These additions remain proof-system agnostic and do not ratify an unresolved construction choice.
+
+## Implementation security maturity workspace
+
+The implementation guide now includes paired assurance and disclosure boundaries, a canonical threat, harm and control model, attestation-schema correlation analysis, cryptoperiod and assurance-horizon guidance, mediated-proving controls and executable migration requirements. These additions remain proof-system agnostic and do not ratify an unresolved construction choice.
+

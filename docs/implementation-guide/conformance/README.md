@@ -69,3 +69,8 @@ conformance level is defined by assertion alone (rule 1 and rule 2 of
 ## Evidence packaging
 
 Use the implementation and profile statement templates and the JSON schemas in `schemas/` to produce portable evidence. A conformance claim identifies a level, profile, source revision, environment, fixture digests, results and exceptions.
+
+## Boundary and threat evidence
+
+A profile evidence bundle includes linked assurance and disclosure records, a field-level attestation schema assessment, applicable canonical threat IDs, control evidence, lifecycle bounds, migration behaviour and residual-risk decisions. The boundary-record schema and fixtures provide portable examples. Run `python3 scripts/validate_threat_model.py` with the existing validation suite.
+

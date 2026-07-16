@@ -1,0 +1,22 @@
+{
+  "profile_id": "minimum-liveness",
+  "schema_version": "1.0",
+  "fields": [
+    {
+      "name": "policy_id",
+      "mode": "proved",
+      "correlation_risk": "medium"
+    },
+    {
+      "name": "assurance_class",
+      "mode": "selectively_disclosed",
+      "correlation_risk": "high"
+    },
+    {
+      "name": "issuance_time",
+      "mode": "range_proved",
+      "correlation_risk": "high"
+    }
+  ],
+  "combination_assessment": "passed"
+}

@@ -11,3 +11,6 @@
 | ADV-R | registry operator or compromised registry |
 | ADV-N | network observer |
 | ADV-U | adversarial presenter |
+| ADV-M | mediated prover or proving-service operator |
+| ADV-G | governance or accreditation authority acting outside mandate |
+| ADV-O | operational insider or log administrator |

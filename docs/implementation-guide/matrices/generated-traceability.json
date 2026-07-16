@@ -227,7 +227,10 @@
     "adrs": [
       "ADR-001"
     ],
-    "tests": []
+    "tests": [
+      "CT-SEC-CTX-NEG-01",
+      "CT-SEC-CTX-POS-01"
+    ]
   },
   {
     "scenario_id": "UC-012",
@@ -387,6 +390,8 @@
       "ADR-001"
     ],
     "tests": [
+      "CT-SEC-BOUNDARY-NEG-01",
+      "CT-SEC-BOUNDARY-POS-01",
       "CT-UC021-NEG-01",
       "CT-UC021-NEG-02",
       "CT-UC021-POS-01",
@@ -446,6 +451,8 @@
       "ADR-005"
     ],
     "tests": [
+      "CT-SEC-SCHEMA-NEG-01",
+      "CT-SEC-SCHEMA-POS-01",
       "CT-UC024-NEG-01",
       "CT-UC024-NEG-02",
       "CT-UC024-POS-01",
@@ -518,7 +525,10 @@
       "ADV-V"
     ],
     "adrs": [],
-    "tests": []
+    "tests": [
+      "CT-SEC-MED-NEG-01",
+      "CT-SEC-MED-POS-01"
+    ]
   },
   {
     "scenario_id": "UC-029",
@@ -528,7 +538,10 @@
       "ADV-R"
     ],
     "adrs": [],
-    "tests": []
+    "tests": [
+      "CT-SEC-LIFE-NEG-01",
+      "CT-SEC-LIFE-POS-01"
+    ]
   },
   {
     "scenario_id": "UC-030",
@@ -546,6 +559,8 @@
     ],
     "adrs": [],
     "tests": [
+      "CT-SEC-MIG-NEG-01",
+      "CT-SEC-MIG-POS-01",
       "CT-UC030-NEG-01",
       "CT-UC030-NEG-02",
       "CT-UC030-POS-01",

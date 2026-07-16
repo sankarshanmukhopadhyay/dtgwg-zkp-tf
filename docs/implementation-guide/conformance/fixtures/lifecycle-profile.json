@@ -1,0 +1,9 @@
+{
+  "profile_id": "extended-personhood",
+  "enrolment_root_cryptoperiod_days": 365,
+  "nullifier_epoch_seconds": 86400,
+  "nullifier_retention_days": 30,
+  "privacy_assurance_horizon_days": 365,
+  "migration_profile": "PSM-001",
+  "downgrade_prevention": true
+}

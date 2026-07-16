@@ -40,6 +40,24 @@
       "items": {
         "type": "string"
       }
+    },
+    "boundary_records": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "threat_model_version": {
+      "type": "string"
+    },
+    "residual_risk_decisions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "cryptoperiod_profile": {
+      "type": "string"
     }
   },
   "additionalProperties": true

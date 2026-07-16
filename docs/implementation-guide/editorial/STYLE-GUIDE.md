@@ -82,3 +82,8 @@ Publication-facing documents should declare title, status, normative status, own
 **Compliant:** “Holder-key control establishes possession of the configured secret. It does not establish agent authority.”
 
 **Non-compliant:** “The holder is authorized because the proof verifies.”
+
+## Claim completeness
+
+Write material claims using the three-part form: against whom, for how long and alongside what. Link assurance statements to an assurance boundary and privacy statements to a disclosure boundary. Use stable `THR-xxx`, `CTL-xxx`, `AB-xxx` and `DB-xxx` identifiers where traceability is required. Do not describe a construction as selected when the task force has not ratified it.
+

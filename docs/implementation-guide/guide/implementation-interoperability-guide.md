@@ -3,7 +3,7 @@ title: DTG ZKP Implementation and Interoperability Guide
 status: incubating
 normative_status: non-normative
 owner: DTG ZKP Task Force
-last_reviewed: 2026-07-15
+last_reviewed: 2026-07-16
 ---
 
 # DTG ZKP Implementation and Interoperability Guide
@@ -46,6 +46,18 @@ A canonical proof request should identify the requester, context, epoch, nonce, 
 
 Delegation evidence is a separate object containing the principal, agent, scope, constraints, validity and revocation reference. It is not inferred from holder-key possession.
 
+## 4. Boundary and assurance model
+
+### 4.0 Paired boundary records
+
+Every material predicate and profile maintains a linked assurance-boundary record and disclosure-boundary record. The assurance record states what a verifier may rely on and who is accountable for upstream correctness. The disclosure record states what each participant can observe or reconstruct. Both records use the issuer attestation schema as a common input and state **against whom**, **for how long** and **alongside what** the claim applies. See the [boundary workspace](../boundaries/README.md).
+
+## 4. Boundary and assurance model
+
+### 4.0 Paired boundary records
+
+Every material predicate and profile maintains a linked assurance-boundary record and disclosure-boundary record. The assurance record states what a verifier may rely on and who is accountable for upstream correctness. The disclosure record states what each participant can observe or reconstruct. Both records use the issuer attestation schema as a common input and state **against whom**, **for how long** and **alongside what** the claim applies. See the [boundary workspace](../boundaries/README.md).
+
 ## 4. Assurance model
 
 ### 4.1 Predicate semantics
@@ -72,11 +84,11 @@ An accepted issuer set is governed state. Registry discovery, publication, accre
 
 A verifier should record the state and policy version used in a decision. Stale or unavailable registry state must not silently become successful verification. The policy may fail closed or invoke a documented degraded path whose lower or different assurance is visible and auditable.
 
-## 5. Privacy model
+## 5. Privacy and disclosure model
 
 ### 5.1 Claim record
 
-A material privacy claim should record the property, protected party, adversary, collusion assumptions, context, horizon, observable transcript, metadata, cryptographic and operational assumptions, exclusions, failure conditions, test method and evidence. This makes claims falsifiable and prevents the word `unlinkable` from being treated as an unconditional property.
+A material privacy claim records the property, protected party, adversary, collusion assumptions, context, horizon, observable transcript, metadata, cryptographic and operational assumptions, exclusions, failure conditions, test method and evidence. Every claim states against whom, for how long and alongside what credentials, metadata, protocols, retained state and observable events it remains valid. This makes claims falsifiable and prevents unlinkability from being treated as an unconditional property.
 
 ### 5.2 Context, epoch and permitted linkability
 
@@ -132,17 +144,17 @@ The [error catalogue](../appendices/ERROR-CATALOGUE.md) defines interoperable er
 
 Logs and receipts should be sufficient to reconstruct the request, policy and governed state used for a decision while minimizing sensitive data. Retention, access, integrity protection, deletion and disclosure authority should be defined. A holder or principal should receive a correlation-safe reference usable for redress.
 
-## 7. Lifecycle and migration
+## 7. Lifecycle, cryptoperiod and migration
 
 Implementations should model issuance, activation, renewal, expiry, suspension, revocation, replacement, recovery, re-enrollment, key rotation, wallet migration, policy change, proof-system upgrade, algorithm deprecation, registry migration and authority transition.
 
-Each transition identifies the responsible authority, effective time, propagation expectation, verifier behavior, cache behavior, evidence and redress. Suspended or revoked state cannot be bypassed by stale cache, offline mode or an older accepted algorithm. Migration plans define overlap periods and protect against downgrade while allowing archived evidence to be interpreted under the policy active at the decision time.
+Each transition identifies the responsible authority, effective time, propagation expectation, verifier behavior, cache behavior, evidence and redress. Profiles separately declare proof validity, attestation lifetime, enrolment-root cryptoperiod, nullifier epoch and retention, privacy assurance horizon, biometric-method review horizon and log retention. Profiles separately declare proof validity, attestation lifetime, enrolment-root cryptoperiod, nullifier epoch and retention, privacy assurance horizon, biometric-method review horizon and log retention. Suspended or revoked state cannot be bypassed by stale cache, offline mode or an older accepted algorithm. Migration plans define overlap periods and protect against downgrade while allowing archived evidence to be interpreted under the policy active at the decision time.
 
 ## 8. Operational readiness
 
-### 8.1 Threat model
+### 8.1 Threat, harm and control model
 
-The threat model includes malicious or compromised issuers, holders, wallets, agents, verifiers and registries; collusion; network observers; replay; correlation; coercion; denial of service; substitution; downgrade; policy confusion; context confusion and governance capture. Each threat maps to an asset, authority boundary, control, detection evidence, residual risk and conformance scenario.
+The [canonical threat matrix](../security/threat-matrix.md) is a central implementation artefact. It covers cryptographic, enrolment, privacy, governance, operational, lifecycle, composition, mediated-proving and human-experience threats. Every row maps the affected property, profile, component, boundary, adversary, capability, collusion assumptions, attack path, context, time horizon, accompanying information, technical effect, human or institutional harm, controls, owner, verification method, conformance requirement, residual risk and deployment disposition. Deployment-specific likelihood and impact are assessed locally, while canonical threats and minimum controls remain common.
 
 ### 8.2 Deployment and resilience
 
@@ -179,7 +191,10 @@ A profile is ready for wider implementation review only when:
 5. independent implementations can reach equivalent outcomes;
 6. operational and accessibility paths are documented;
 7. authority, revocation, evidence and redress are testable;
-8. material expectations map to scenarios and conformance evidence.
+8. material expectations map to scenarios and conformance evidence;
+9. each material claim states against whom, for how long and alongside what it applies;
+10. boundary records, threat controls and high-severity residual-risk decisions are complete;
+11. cryptoperiods, assurance horizons, fallback and migration behaviour are bounded and testable.
 
 Open technical or governance decisions remain visible in ADRs, maturity matrices or issue references. They are not resolved by rhetorical certainty.
 

@@ -12,3 +12,17 @@ This guide is non-normative by default. The index identifies implementation expe
 | IG-006 | make lifecycle and recovery behavior deterministic | lifecycle audit trail | UC-005 and lifecycle scenarios |
 | IG-007 | document alternative paths and assurance differences | accessibility assessment | UC-017, UC-020, UC-021 |
 | IG-008 | package conformance evidence reproducibly | evidence bundle | CL-1 through CL-4 |
+
+## Boundary, threat and lifecycle requirements
+
+| Requirement | Expectation | Evidence |
+|---|---|---|
+| SEC-001 | Every material predicate has linked assurance and disclosure boundary records. | boundary fixture and profile evidence |
+| SEC-002 | Every material claim states against whom, for how long and alongside what it applies. | claim validation and conformance test |
+| SEC-003 | Applicable canonical threats map to controls, owners, tests and residual-risk decisions. | threat matrix and deployment assessment |
+| SEC-004 | Attestation fields receive individual and combination correlation analysis. | field register and assessment report |
+| SEC-005 | Enrolment roots, nullifiers and privacy claims have bounded temporal controls. | lifecycle profile |
+| SEC-006 | Mediated proving is explicit, isolated, non-retaining and auditable. | mediated profile and audit evidence |
+| SEC-007 | Negotiation and migration prevent unauthorized downgrade. | cross-version conformance tests |
+| SEC-008 | Context definitions identify collusion targets and are human-legible. | context decision record and comprehension evidence |
+

@@ -23,3 +23,19 @@
 | Status | Governed lifecycle state such as active, suspended, revoked or expired. |
 | Verifier | Component or relying party that validates a presentation and applies policy. |
 | Zero-knowledge proof | Cryptographic proof that establishes a statement without revealing specified witness information under stated assumptions. |
+
+## Assurance boundary
+The exact proposition a verifier may rely on, its exclusions, dependencies, accountable party and evidence.
+
+## Disclosure boundary
+The information a participant can observe or reconstruct, the recipients, persistence, collusion assumptions and accompanying artefacts.
+
+## Assurance horizon
+The period over which a profile asserts that an assurance or privacy claim remains defensible under its stated assumptions.
+
+## Cryptoperiod
+The authorized lifetime of a cryptographic or enrolment artefact before rotation, retirement or reassessment.
+
+## Observable event
+The externally visible fact, timing or pattern of a request, proof generation, mediation, retry, rejection or step-up, separate from proof-transcript disclosure.
+

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Boundary record",
+  "type": "object",
+  "required": [
+    "assurance_boundary_id",
+    "disclosure_boundary_id",
+    "predicate_id",
+    "profile_id",
+    "against_whom",
+    "for_how_long",
+    "alongside_what",
+    "threat_ids",
+    "evidence"
+  ],
+  "properties": {
+    "assurance_boundary_id": {
+      "pattern": "^AB-[A-Z0-9-]+$"
+    },
+    "disclosure_boundary_id": {
+      "pattern": "^DB-[A-Z0-9-]+$"
+    },
+    "predicate_id": {
+      "pattern": "^PR-[A-Z]{3}$"
+    },
+    "profile_id": {
+      "type": "string"
+    },
+    "against_whom": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "pattern": "^ADV-[A-Z]{1,2}$"
+      }
+    },
+    "for_how_long": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "alongside_what": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "threat_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "pattern": "^THR-[0-9]{3}$"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

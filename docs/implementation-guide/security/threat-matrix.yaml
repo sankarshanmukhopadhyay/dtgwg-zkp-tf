@@ -1,0 +1,943 @@
+version: '1.0'
+last_reviewed: '2026-07-16'
+claim_parameters:
+- against_whom
+- for_how_long
+- alongside_what
+threats:
+- threat_id: THR-001
+  domain: cryptographic
+  title: Forged proof accepted
+  asset_property: soundness
+  profiles: both
+  component: prover/verifier
+  trust_boundary: presentation
+  threat_actor: ADV-U
+  adversary_capability: active computational attacker
+  collusion_assumption: none
+  preconditions: weak or broken proof system or verifier
+  attack_path: construct proof for false statement
+  context_scope: transaction
+  time_horizon: session
+  alongside_information: proof parameters and verifier configuration
+  technical_effect: false predicate accepted
+  human_institutional_harm: impersonation or unauthorized access
+  preventive_detective_corrective_controls: CTL-AGL; independent implementation tests; parameter integrity
+  control_owner: profile authority; verifier
+  verification_method: negative vectors and implementation review
+  conformance_requirement: SEC-001
+  residual_risk: cryptographic assumptions remain
+  deployment_decision: prohibit on broken profile
+  severity: critical
+  harm_ids: HRM-IMP;HRM-ECO
+  status: baseline
+- threat_id: THR-002
+  domain: cryptographic
+  title: Replay across requests
+  asset_property: freshness
+  profiles: both
+  component: wallet/verifier
+  trust_boundary: presentation
+  threat_actor: ADV-U
+  adversary_capability: records valid presentation
+  collusion_assumption: none
+  preconditions: request binding incomplete
+  attack_path: replay proof under new request
+  context_scope: verifier or cross-verifier
+  time_horizon: session to expiry
+  alongside_information: nonce, audience, transaction fields
+  technical_effect: old authorization reused
+  human_institutional_harm: fraud or unauthorized transaction
+  preventive_detective_corrective_controls: CTL-TRN
+  control_owner: wallet; verifier
+  verification_method: cross-request replay tests
+  conformance_requirement: SEC-002
+  residual_risk: clock and storage race
+  deployment_decision: mitigate
+  severity: high
+  harm_ids: HRM-IMP;HRM-ECO
+  status: baseline
+- threat_id: THR-003
+  domain: cryptographic
+  title: Cross-domain transcript substitution
+  asset_property: semantic binding
+  profiles: both
+  component: wallet/verifier
+  trust_boundary: protocol
+  threat_actor: ADV-U
+  adversary_capability: active message substitution
+  collusion_assumption: none
+  preconditions: missing domain separation or profile binding
+  attack_path: move proof between protocol/profile contexts
+  context_scope: cross-protocol
+  time_horizon: session
+  alongside_information: protocol ID, profile ID, audience
+  technical_effect: proof valid for unintended statement
+  human_institutional_harm: authorization bypass
+  preventive_detective_corrective_controls: CTL-TRN
+  control_owner: wallet; verifier
+  verification_method: domain-separation vectors
+  conformance_requirement: SEC-003
+  residual_risk: implementation parser divergence
+  deployment_decision: mitigate
+  severity: high
+  harm_ids: HRM-IMP;HRM-GOV
+  status: baseline
+- threat_id: THR-004
+  domain: cryptographic
+  title: Setup or parameter compromise
+  asset_property: soundness and privacy
+  profiles: both
+  component: parameter distributor
+  trust_boundary: governance-to-runtime
+  threat_actor: ADV-R
+  adversary_capability: privileged parameter substitution
+  collusion_assumption: operator collusion possible
+  preconditions: trusted setup or mutable parameters
+  attack_path: publish compromised parameters
+  context_scope: ecosystem
+  time_horizon: cryptoperiod
+  alongside_information: setup transcript and parameter digests
+  technical_effect: forgery or witness risk
+  human_institutional_harm: system-wide compromise
+  preventive_detective_corrective_controls: CTL-AGL; transparent parameter governance
+  control_owner: profile authority
+  verification_method: parameter provenance audit
+  conformance_requirement: SEC-004
+  residual_risk: unknown retained setup secret
+  deployment_decision: transfer or prohibit
+  severity: critical
+  harm_ids: HRM-IMP;HRM-SYS
+  status: baseline
+- threat_id: THR-005
+  domain: cryptographic
+  title: Prover side-channel leakage
+  asset_property: witness confidentiality
+  profiles: both
+  component: wallet/runtime
+  trust_boundary: holder-runtime
+  threat_actor: ADV-W
+  adversary_capability: local observation or compromised runtime
+  collusion_assumption: none
+  preconditions: secret-dependent execution
+  attack_path: observe timing, memory, power or logs
+  context_scope: device
+  time_horizon: credential lifetime
+  alongside_information: device telemetry and crash reports
+  technical_effect: witness or correlation leakage
+  human_institutional_harm: identity compromise and surveillance
+  preventive_detective_corrective_controls: hardened implementation; CTL-OBS
+  control_owner: wallet provider
+  verification_method: side-channel review and logging inspection
+  conformance_requirement: SEC-005
+  residual_risk: device compromise remains
+  deployment_decision: mitigate
+  severity: high
+  harm_ids: HRM-PRV;HRM-IMP
+  status: baseline
+- threat_id: THR-006
+  domain: holder
+  title: Transferred key treated as human continuity
+  asset_property: holder binding
+  profiles: both
+  component: wallet/verifier
+  trust_boundary: holder-wallet
+  threat_actor: ADV-U
+  adversary_capability: obtains or shares key
+  collusion_assumption: none
+  preconditions: key control conflated with person presence
+  attack_path: use transferred holder key
+  context_scope: account
+  time_horizon: binding lifetime
+  alongside_information: device and recovery records
+  technical_effect: wrong presenter accepted
+  human_institutional_harm: impersonation
+  preventive_detective_corrective_controls: CTL-TRN; separate liveness and holder claims; recovery controls
+  control_owner: issuer; wallet; verifier
+  verification_method: negative semantic tests
+  conformance_requirement: SEC-006
+  residual_risk: coercive sharing
+  deployment_decision: mitigate
+  severity: high
+  harm_ids: HRM-IMP;HRM-AUT
+  status: baseline
+- threat_id: THR-007
+  domain: enrolment
+  title: False biometric determination attested
+  asset_property: assurance correctness
+  profiles: both
+  component: biometric provider/issuer
+  trust_boundary: provider-issuer
+  threat_actor: ADV-P
+  adversary_capability: model error or manipulation
+  collusion_assumption: provider-issuer collusion possible
+  preconditions: poor capture, spoofing or model limits
+  attack_path: issue valid attestation for wrong determination
+  context_scope: enrolment
+  time_horizon: attestation lifetime
+  alongside_information: capture quality and provider evidence
+  technical_effect: valid proof over wrong fact
+  human_institutional_harm: exclusion or impersonation
+  preventive_detective_corrective_controls: issuer governance, audit, CTL-RED
+  control_owner: issuer; accreditation authority
+  verification_method: provider evaluation and redress tests
+  conformance_requirement: SEC-007
+  residual_risk: biometric error cannot be eliminated
+  deployment_decision: mitigate
+  severity: critical
+  harm_ids: HRM-EXC;HRM-IMP;HRM-RED
+  status: baseline
+- threat_id: THR-008
+  domain: enrolment
+  title: Duplicate enrolment under same issuer
+  asset_property: scoped uniqueness
+  profiles: extended
+  component: issuer/enrolment
+  trust_boundary: person-enrolment
+  threat_actor: ADV-U
+  adversary_capability: multiple enrolment attempts
+  collusion_assumption: operator collusion possible
+  preconditions: weak deduplication or recovery
+  attack_path: obtain multiple enrolled secrets
+  context_scope: issuer population
+  time_horizon: root cryptoperiod
+  alongside_information: biometric and recovery records
+  technical_effect: Sybil resistance weakened
+  human_institutional_harm: fraud and unfair access
+  preventive_detective_corrective_controls: CTL-LCM; deduplication controls; recovery continuity
+  control_owner: issuer
+  verification_method: duplicate enrolment scenarios
+  conformance_requirement: SEC-008
+  residual_risk: biometric matching limits
+  deployment_decision: mitigate
+  severity: high
+  harm_ids: HRM-ECO;HRM-GOV
+  status: baseline
+- threat_id: THR-009
+  domain: enrolment
+  title: Cross-issuer duplicate enrolment
+  asset_property: ecosystem uniqueness
+  profiles: extended
+  component: multiple issuers
+  trust_boundary: issuer-issuer
+  threat_actor: ADV-I
+  adversary_capability: enrols independently
+  collusion_assumption: issuers do not coordinate
+  preconditions: no shared root or recognition
+  attack_path: obtain credentials from multiple issuers
+  context_scope: ecosystem
+  time_horizon: credential lifetime
+  alongside_information: issuer sets and root policies
+  technical_effect: ecosystem uniqueness overstated
+  human_institutional_harm: Sybil abuse and legitimacy loss
+  preventive_detective_corrective_controls: CTL-GOV; narrow claims; issuer coordination policy
+  control_owner: governance authority
+  verification_method: cross-issuer scenario review
+  conformance_requirement: SEC-009
+  residual_risk: global uniqueness not established
+  deployment_decision: accept or narrow claim
+  severity: high
+  harm_ids: HRM-GOV;HRM-ECO
+  status: baseline
+- threat_id: THR-010
+  domain: privacy
+  title: Stable enrolment root enables population correlation
+  asset_property: unlinkability
+  profiles: extended
+  component: issuer/root service
+  trust_boundary: enrolment-root
+  threat_actor: ADV-IV
+  adversary_capability: persistent privileged observation
+  collusion_assumption: issuer-verifier collusion
+  preconditions: stable root or member reference exposed
+  attack_path: match presentations to population state
+  context_scope: cross-context
+  time_horizon: root cryptoperiod
+  alongside_information: root references and status traffic
+  technical_effect: cross-context linkage
+  human_institutional_harm: surveillance
+  preventive_detective_corrective_controls: CTL-CTX; CTL-LCM; commitments
+  control_owner: context authority; issuer
+  verification_method: collusion and rotation tests
+  conformance_requirement: SEC-010
+  residual_risk: root operator knowledge remains
+  deployment_decision: mitigate
+  severity: critical
+  harm_ids: HRM-PRV;HRM-SYS
+  status: baseline
+- threat_id: THR-011
+  domain: privacy
+  title: Unbounded nullifier creates permanent identifier
+  asset_property: context-dependent unlinkability
+  profiles: extended
+  component: wallet/verifier
+  trust_boundary: presentation
+  threat_actor: ADV-V
+  adversary_capability: retains nullifiers
+  collusion_assumption: verifier collusion possible
+  preconditions: no epoch or retention bound
+  attack_path: reuse nullifier as stable identifier
+  context_scope: context and cross-context if misderived
+  time_horizon: indefinite
+  alongside_information: nullifier and logs
+  technical_effect: long-term tracking
+  human_institutional_harm: surveillance and exclusion
+  preventive_detective_corrective_controls: CTL-CTX; CTL-LCM; retention controls
+  control_owner: context authority; verifier
+  verification_method: epoch and deletion tests
+  conformance_requirement: SEC-011
+  residual_risk: authorized in-context linkability remains
+  deployment_decision: mitigate
+  severity: critical
+  harm_ids: HRM-PRV;HRM-AUT
+  status: baseline
+- threat_id: THR-012
+  domain: privacy
+  title: Issuer identity inferred despite concealment
+  asset_property: issuer privacy
+  profiles: profile-specific
+  component: credential/proof
+  trust_boundary: issuer-verifier
+  threat_actor: ADV-V
+  adversary_capability: statistical inference
+  collusion_assumption: verifier-verifier collusion
+  preconditions: rare schema, proof or assurance combination
+  attack_path: fingerprint issuer
+  context_scope: ecosystem
+  time_horizon: assurance horizon
+  alongside_information: schema version, assurance class, proof size
+  technical_effect: issuer concealment defeated
+  human_institutional_harm: subject correlation and discrimination
+  preventive_detective_corrective_controls: CTL-SCH; CTL-CMP
+  control_owner: profile authority; issuer
+  verification_method: anonymity-set and combination analysis
+  conformance_requirement: SEC-012
+  residual_risk: small populations remain
+  deployment_decision: mitigate
+  severity: high
+  harm_ids: HRM-PRV;HRM-REP
+  status: baseline
+- threat_id: THR-013
+  domain: privacy
+  title: Attestation metadata correlates presentations
+  asset_property: unlinkability
+  profiles: both
+  component: credential
+  trust_boundary: issuer-holder-verifier
+  threat_actor: ADV-V
+  adversary_capability: observes disclosed fields
+  collusion_assumption: verifier collusion possible
+  preconditions: stable or rare metadata
+  attack_path: join records using field combinations
+  context_scope: cross-verifier/context
+  time_horizon: credential lifetime
+  alongside_information: timestamps, versions, assurance, status index
+  technical_effect: presentation linkage
+  human_institutional_harm: surveillance
+  preventive_detective_corrective_controls: CTL-SCH; selective disclosure
+  control_owner: issuer; profile authority
+  verification_method: field and combination analysis
+  conformance_requirement: SEC-013
+  residual_risk: necessary coarse fields remain
+  deployment_decision: mitigate
+  severity: critical
+  harm_ids: HRM-PRV
+  status: baseline
+- threat_id: THR-014
+  domain: privacy
+  title: Registry or status lookup reveals subject activity
+  asset_property: query privacy
+  profiles: both
+  component: verifier/registry
+  trust_boundary: verifier-registry
+  threat_actor: ADV-R
+  adversary_capability: observes lookup timing and key
+  collusion_assumption: registry-verifier collusion
+  preconditions: subject-specific or rare status query
+  attack_path: correlate presentation with registry traffic
+  context_scope: cross-verifier
+  time_horizon: retention period
+  alongside_information: lookup key, timing, network metadata
+  technical_effect: activity correlation
+  human_institutional_harm: surveillance
+  preventive_detective_corrective_controls: privacy-preserving status; CTL-OBS
+  control_owner: registry; verifier
+  verification_method: traffic analysis and cache tests
+  conformance_requirement: SEC-014
+  residual_risk: availability/privacy trade remains
+  deployment_decision: mitigate
+  severity: high
+  harm_ids: HRM-PRV;HRM-SYS
+  status: baseline
+- threat_id: THR-015
+  domain: privacy
+  title: Issuer-verifier collusion crosses context boundary
+  asset_property: context unlinkability
+  profiles: extended
+  component: issuer/verifier
+  trust_boundary: issuer-verifier
+  threat_actor: ADV-IV
+  adversary_capability: shares enrolment and presentation data
+  collusion_assumption: explicit collusion
+  preconditions: context claim excludes or under-models issuer data
+  attack_path: join issuer records with verifier observations
+  context_scope: cross-context
+  time_horizon: assurance horizon
+  alongside_information: enrolment records, schema, timing
+  technical_effect: context boundary defeated
+  human_institutional_harm: surveillance and power concentration
+  preventive_detective_corrective_controls: CTL-CTX; CTL-SCH; minimization
+  control_owner: context authority; governance body
+  verification_method: collusion-resistance assessment
+  conformance_requirement: SEC-015
+  residual_risk: some issuer knowledge unavoidable
+  deployment_decision: accept only if disclosed or mitigate
+  severity: critical
+  harm_ids: HRM-PRV;HRM-SYS
+  status: baseline
+- threat_id: THR-016
+  domain: composition
+  title: Rare predicate bundle fingerprints subject
+  asset_property: data minimization
+  profiles: both
+  component: wallet/verifier
+  trust_boundary: presentation
+  threat_actor: ADV-V
+  adversary_capability: observes requested and satisfied predicates
+  collusion_assumption: verifier collusion possible
+  preconditions: joint combination is rare
+  attack_path: identify or classify subject from bundle
+  context_scope: cross-session
+  time_horizon: assurance horizon
+  alongside_information: predicate set, proof shape, policy
+  technical_effect: re-identification
+  human_institutional_harm: discrimination or surveillance
+  preventive_detective_corrective_controls: CTL-CMP; request minimization
+  control_owner: verifier; profile authority
+  verification_method: joint leakage testing
+  conformance_requirement: SEC-016
+  residual_risk: business need may require rare claims
+  deployment_decision: mitigate
+  severity: high
+  harm_ids: HRM-PRV;HRM-REP
+  status: baseline
+- threat_id: THR-017
+  domain: composition
+  title: Individually safe proofs leak jointly
+  asset_property: compositional privacy
+  profiles: both
+  component: wallet/verifier
+  trust_boundary: presentation
+  threat_actor: ADV-V
+  adversary_capability: combines multiple transcripts
+  collusion_assumption: verifier collusion possible
+  preconditions: proofs share hidden relation or metadata
+  attack_path: correlate bundled or sequential proofs
+  context_scope: transaction/session
+  time_horizon: assurance horizon
+  alongside_information: proof bundle and credential fields
+  technical_effect: joint leakage
+  human_institutional_harm: surveillance
+  preventive_detective_corrective_controls: CTL-CMP; single-statement composition where viable
+  control_owner: profile authority; wallet
+  verification_method: composition review and vectors
+  conformance_requirement: SEC-017
+  residual_risk: advanced composition cost
+  deployment_decision: mitigate
+  severity: high
+  harm_ids: HRM-PRV
+  status: baseline
+- threat_id: THR-018
+  domain: observable-event
+  title: Presentation timing and frequency reveal behaviour
+  asset_property: behavioural privacy
+  profiles: both
+  component: verifier/network
+  trust_boundary: network/presentation
+  threat_actor: ADV-N
+  adversary_capability: passive observation
+  collusion_assumption: verifier-network collusion possible
+  preconditions: events are externally observable
+  attack_path: infer activity from proof requests and step-ups
+  context_scope: cross-session
+  time_horizon: retention period
+  alongside_information: timing, frequency, retries, verifier identity
+  technical_effect: behavioural profiling
+  human_institutional_harm: surveillance and chilling effects
+  preventive_detective_corrective_controls: CTL-OBS; batching; retention limits
+  control_owner: verifier; protocol operator
+  verification_method: traffic and log analysis
+  conformance_requirement: SEC-018
+  residual_risk: event occurrence often unavoidable
+  deployment_decision: accept with bounded claim
+  severity: medium
+  harm_ids: HRM-PRV;HRM-AUT
+  status: baseline
+- threat_id: THR-019
+  domain: observable-event
+  title: Error and retry behaviour becomes oracle
+  asset_property: privacy and policy confidentiality
+  profiles: both
+  component: verifier
+  trust_boundary: presentation
+  threat_actor: ADV-U
+  adversary_capability: adaptive queries
+  collusion_assumption: none
+  preconditions: distinct errors or timing expose state
+  attack_path: probe validity, status or policy
+  context_scope: account
+  time_horizon: session
+  alongside_information: error codes, latency, retry count
+  technical_effect: state inference and enumeration
+  human_institutional_harm: targeting or denial
+  preventive_detective_corrective_controls: CTL-OBS; uniform external errors; bounded retries
+  control_owner: verifier
+  verification_method: oracle and timing tests
+  conformance_requirement: SEC-019
+  residual_risk: diagnosability tradeoff
+  deployment_decision: mitigate
+  severity: medium
+  harm_ids: HRM-PRV;HRM-SYS
+  status: baseline
+- threat_id: THR-020
+  domain: governance
+  title: Unauthorized issuer accepted
+  asset_property: reliance integrity
+  profiles: both
+  component: registry/verifier
+  trust_boundary: governance-registry
+  threat_actor: ADV-R
+  adversary_capability: modify or exploit registry
+  collusion_assumption: registry-issuer collusion possible
+  preconditions: weak authority or stale recognition
+  attack_path: insert or retain issuer
+  context_scope: ecosystem
+  time_horizon: record validity
+  alongside_information: registry records and caches
+  technical_effect: unqualified attestation accepted
+  human_institutional_harm: fraud and legitimacy loss
+  preventive_detective_corrective_controls: CTL-GOV; signed versioned records
+  control_owner: governance authority; registry
+  verification_method: registry conflict and signature tests
+  conformance_requirement: SEC-020
+  residual_risk: governance capture remains
+  deployment_decision: mitigate
+  severity: critical
+  harm_ids: HRM-GOV;HRM-IMP
+  status: baseline
+- threat_id: THR-021
+  domain: governance
+  title: Policy version substitution
+  asset_property: semantic integrity
+  profiles: both
+  component: issuer/verifier
+  trust_boundary: governance-runtime
+  threat_actor: ADV-I
+  adversary_capability: selects favourable policy version
+  collusion_assumption: issuer-verifier collusion possible
+  preconditions: ambiguous effective time or downgrade
+  attack_path: present old or weak policy as current
+  context_scope: transaction
+  time_horizon: policy lifetime
+  alongside_information: policy IDs, caches, receipts
+  technical_effect: weaker claim accepted
+  human_institutional_harm: unfair or unsafe decisions
+  preventive_detective_corrective_controls: CTL-GOV; CTL-AGL
+  control_owner: governance authority; verifier
+  verification_method: version and rollback tests
+  conformance_requirement: SEC-021
+  residual_risk: historical evidence complexity
+  deployment_decision: mitigate
+  severity: high
+  harm_ids: HRM-GOV;HRM-ECO
+  status: baseline
+- threat_id: THR-022
+  domain: governance
+  title: Revoked or suspended state accepted
+  asset_property: status integrity
+  profiles: both
+  component: issuer/registry/verifier
+  trust_boundary: status-resolution
+  threat_actor: ADV-R
+  adversary_capability: serve stale or false state
+  collusion_assumption: registry-verifier collusion possible
+  preconditions: cache or outage policy weak
+  attack_path: use stale status to accept presentation
+  context_scope: transaction
+  time_horizon: status freshness window
+  alongside_information: cache age and network state
+  technical_effect: revoked credential accepted
+  human_institutional_harm: fraud or safety harm
+  preventive_detective_corrective_controls: CTL-GOV; deterministic unavailable behaviour
+  control_owner: verifier; registry
+  verification_method: revocation and stale-cache tests
+  conformance_requirement: SEC-022
+  residual_risk: offline window remains
+  deployment_decision: mitigate
+  severity: critical
+  harm_ids: HRM-IMP;HRM-ECO
+  status: baseline
+- threat_id: THR-023
+  domain: governance
+  title: Assurance class inflation
+  asset_property: assurance integrity
+  profiles: both
+  component: issuer
+  trust_boundary: issuer-governance
+  threat_actor: ADV-I
+  adversary_capability: mislabels process
+  collusion_assumption: accreditor collusion possible
+  preconditions: weak audit or vague classes
+  attack_path: issue high class for low process
+  context_scope: ecosystem
+  time_horizon: credential lifetime
+  alongside_information: assurance metadata and audit evidence
+  technical_effect: verifier over-relies
+  human_institutional_harm: exclusion, fraud, legitimacy loss
+  preventive_detective_corrective_controls: issuer audit; CTL-GOV; CTL-RED
+  control_owner: accreditation authority
+  verification_method: assurance evidence review
+  conformance_requirement: SEC-023
+  residual_risk: audit sampling limits
+  deployment_decision: mitigate
+  severity: high
+  harm_ids: HRM-GOV;HRM-ECO
+  status: baseline
+- threat_id: THR-024
+  domain: governance
+  title: Agent key control mistaken for delegated authority
+  asset_property: authorization integrity
+  profiles: delegated use
+  component: agent/verifier
+  trust_boundary: principal-agent-verifier
+  threat_actor: ADV-A
+  adversary_capability: controls agent key
+  collusion_assumption: agent-verifier collusion possible
+  preconditions: delegation evidence absent or weak
+  attack_path: perform out-of-scope action
+  context_scope: transaction
+  time_horizon: delegation validity
+  alongside_information: holder proof and agent metadata
+  technical_effect: unauthorized action accepted
+  human_institutional_harm: economic loss and autonomy harm
+  preventive_detective_corrective_controls: CTL-GOV; separate delegation object; scope checks
+  control_owner: principal; verifier
+  verification_method: delegation negative tests
+  conformance_requirement: SEC-024
+  residual_risk: principal coercion or key compromise
+  deployment_decision: mitigate
+  severity: critical
+  harm_ids: HRM-AUT;HRM-ECO;HRM-IMP
+  status: baseline
+- threat_id: THR-025
+  domain: lifecycle
+  title: Algorithm downgrade during negotiation
+  asset_property: cryptographic security
+  profiles: both
+  component: wallet/verifier
+  trust_boundary: protocol negotiation
+  threat_actor: ADV-U
+  adversary_capability: modifies negotiation
+  collusion_assumption: operator collusion possible
+  preconditions: fallback order or deprecation unclear
+  attack_path: force obsolete proof system
+  context_scope: transaction
+  time_horizon: migration window
+  alongside_information: supported profile list and errors
+  technical_effect: weak algorithm accepted
+  human_institutional_harm: forgery or privacy loss
+  preventive_detective_corrective_controls: CTL-AGL; signed policy and downgrade prevention
+  control_owner: profile authority; wallet; verifier
+  verification_method: negotiation downgrade tests
+  conformance_requirement: SEC-025
+  residual_risk: legacy interoperability pressure
+  deployment_decision: mitigate
+  severity: critical
+  harm_ids: HRM-IMP;HRM-PRV
+  status: baseline
+- threat_id: THR-026
+  domain: lifecycle
+  title: Enrolment root outlives defensible protection
+  asset_property: long-term privacy
+  profiles: extended
+  component: issuer/root service
+  trust_boundary: enrolment-root
+  threat_actor: ADV-R
+  adversary_capability: retains root and related data
+  collusion_assumption: operator collusion possible
+  preconditions: no cryptoperiod or deletion
+  attack_path: retain root through algorithm or governance change
+  context_scope: ecosystem
+  time_horizon: long-term
+  alongside_information: roots, backups, logs
+  technical_effect: future correlation or compromise
+  human_institutional_harm: surveillance and systemic compromise
+  preventive_detective_corrective_controls: CTL-LCM; rotation and deletion evidence
+  control_owner: issuer; governance authority
+  verification_method: cryptoperiod and backup audit
+  conformance_requirement: SEC-026
+  residual_risk: biometric cannot be reissued cleanly
+  deployment_decision: mitigate or prohibit unbounded use
+  severity: critical
+  harm_ids: HRM-PRV;HRM-SYS
+  status: baseline
+- threat_id: THR-027
+  domain: lifecycle
+  title: Migration splits verification state
+  asset_property: availability and consistency
+  profiles: both
+  component: issuers/verifiers/registries
+  trust_boundary: multi-party migration
+  threat_actor: ADV-R
+  adversary_capability: induces inconsistent versions
+  collusion_assumption: none
+  preconditions: overlap and precedence undefined
+  attack_path: present different state to participants
+  context_scope: ecosystem
+  time_horizon: migration window
+  alongside_information: profile versions, caches, roots
+  technical_effect: inconsistent accept/reject outcomes
+  human_institutional_harm: exclusion and dispute
+  preventive_detective_corrective_controls: CTL-LCM; coordinated effective times
+  control_owner: profile authority
+  verification_method: cross-version migration tests
+  conformance_requirement: SEC-027
+  residual_risk: distributed clock and outage risk
+  deployment_decision: mitigate
+  severity: high
+  harm_ids: HRM-EXC;HRM-RED
+  status: baseline
+- threat_id: THR-028
+  domain: lifecycle
+  title: Recovery resets reuse protections
+  asset_property: scoped uniqueness
+  profiles: extended
+  component: issuer/wallet
+  trust_boundary: recovery
+  threat_actor: ADV-U
+  adversary_capability: invokes recovery repeatedly
+  collusion_assumption: operator collusion possible
+  preconditions: new secret not linked to prior state
+  attack_path: gain new nullifier eligibility
+  context_scope: context
+  time_horizon: credential/root lifetime
+  alongside_information: recovery and prior nullifiers
+  technical_effect: duplicate action accepted
+  human_institutional_harm: fraud and unfair allocation
+  preventive_detective_corrective_controls: CTL-LCM; recovery continuity and adjudication
+  control_owner: issuer; context authority
+  verification_method: recovery/epoch tests
+  conformance_requirement: SEC-028
+  residual_risk: legitimate privacy-preserving recovery is hard
+  deployment_decision: mitigate
+  severity: critical
+  harm_ids: HRM-ECO;HRM-GOV
+  status: baseline
+- threat_id: THR-029
+  domain: mediated-proving
+  title: Mediator retains witness-related data
+  asset_property: witness and behavioural privacy
+  profiles: mediated
+  component: mediator
+  trust_boundary: wallet-mediator
+  threat_actor: ADV-P
+  adversary_capability: privileged service observation
+  collusion_assumption: mediator-verifier collusion possible
+  preconditions: remote proving receives sensitive inputs
+  attack_path: retain inputs, traces or mappings
+  context_scope: cross-session/context
+  time_horizon: retention period
+  alongside_information: witness fragments, requests, IP/device data
+  technical_effect: central correlation and breach risk
+  human_institutional_harm: surveillance and concentration harm
+  preventive_detective_corrective_controls: CTL-MED; data minimization; audit
+  control_owner: mediator operator; governance authority
+  verification_method: retention and isolation audit
+  conformance_requirement: SEC-029
+  residual_risk: service sees some operational metadata
+  deployment_decision: mitigate or prohibit
+  severity: critical
+  harm_ids: HRM-PRV;HRM-SYS
+  status: baseline
+- threat_id: THR-030
+  domain: operational
+  title: Silent fallback lowers assurance or increases disclosure
+  asset_property: assurance and autonomy
+  profiles: both
+  component: wallet/verifier
+  trust_boundary: fallback
+  threat_actor: ADV-V
+  adversary_capability: controls available path
+  collusion_assumption: provider-verifier collusion possible
+  preconditions: preferred mode unavailable
+  attack_path: switch to weaker or more revealing path
+  context_scope: transaction
+  time_horizon: session
+  alongside_information: fallback reason and mode
+  technical_effect: user and verifier misinterpret result
+  human_institutional_harm: exclusion, surveillance or unsafe acceptance
+  preventive_detective_corrective_controls: CTL-FBK; explicit consent and receipts
+  control_owner: wallet; verifier
+  verification_method: fallback positive/negative tests
+  conformance_requirement: SEC-030
+  residual_risk: availability pressure remains
+  deployment_decision: mitigate
+  severity: high
+  harm_ids: HRM-AUT;HRM-EXC;HRM-PRV
+  status: baseline
+- threat_id: THR-031
+  domain: operational
+  title: Offline verification uses stale governance state
+  asset_property: status and policy integrity
+  profiles: both
+  component: verifier
+  trust_boundary: offline boundary
+  threat_actor: ADV-V
+  adversary_capability: chooses offline mode
+  collusion_assumption: none
+  preconditions: cache policy permissive
+  attack_path: accept with stale accreditation or status
+  context_scope: transaction
+  time_horizon: offline window
+  alongside_information: cached registry and policy state
+  technical_effect: invalid claim accepted
+  human_institutional_harm: fraud or inconsistent treatment
+  preventive_detective_corrective_controls: bounded offline policy; CTL-GOV
+  control_owner: verifier; governance authority
+  verification_method: offline stale-state tests
+  conformance_requirement: SEC-031
+  residual_risk: connectivity constraints
+  deployment_decision: mitigate
+  severity: high
+  harm_ids: HRM-ECO;HRM-GOV
+  status: baseline
+- threat_id: THR-032
+  domain: operational
+  title: Logs become cross-context correlation store
+  asset_property: privacy
+  profiles: both
+  component: operators/auditors
+  trust_boundary: operations
+  threat_actor: ADV-R
+  adversary_capability: privileged log access
+  collusion_assumption: operator collusion possible
+  preconditions: over-collection or indefinite retention
+  attack_path: join requests, decisions and identifiers
+  context_scope: cross-context
+  time_horizon: retention period
+  alongside_information: request digests, errors, IP, timestamps
+  technical_effect: operational surveillance
+  human_institutional_harm: persistent tracking and institutional misuse
+  preventive_detective_corrective_controls: CTL-OBS; minimization; access controls
+  control_owner: all operators
+  verification_method: log schema and retention audit
+  conformance_requirement: SEC-032
+  residual_risk: some evidence required for redress
+  deployment_decision: mitigate
+  severity: critical
+  harm_ids: HRM-PRV;HRM-SYS
+  status: baseline
+- threat_id: THR-033
+  domain: human-experience
+  title: Context boundary is unintelligible to affected person
+  asset_property: meaningful control
+  profiles: extended
+  component: wallet/verifier
+  trust_boundary: human-system
+  threat_actor: ADV-V
+  adversary_capability: uses opaque terminology
+  collusion_assumption: none
+  preconditions: context defined only technically
+  attack_path: obtain presentation without understandable boundary
+  context_scope: cross-context
+  time_horizon: assurance horizon
+  alongside_information: user notice and verifier relationships
+  technical_effect: person cannot anticipate linkage
+  human_institutional_harm: autonomy and privacy harm
+  preventive_detective_corrective_controls: CTL-HUM; user-facing context test
+  control_owner: product and governance owners
+  verification_method: comprehension and redress exercises
+  conformance_requirement: SEC-033
+  residual_risk: complex ecosystems remain difficult
+  deployment_decision: mitigate
+  severity: high
+  harm_ids: HRM-AUT;HRM-PRV
+  status: baseline
+- threat_id: THR-034
+  domain: human-experience
+  title: Accessibility path creates disproportionate disclosure
+  asset_property: equitable access
+  profiles: both
+  component: wallet/support operator
+  trust_boundary: assisted operation
+  threat_actor: ADV-P
+  adversary_capability: observes assisted flow
+  collusion_assumption: support-verifier collusion possible
+  preconditions: accessible path depends on human mediation
+  attack_path: collect extra identity or biometric data
+  context_scope: transaction/account
+  time_horizon: retention period
+  alongside_information: support records and alternative credentials
+  technical_effect: privacy loss or exclusion
+  human_institutional_harm: disproportionate exclusion and surveillance
+  preventive_detective_corrective_controls: accessible equivalent path; CTL-FBK; CTL-HUM
+  control_owner: service operator
+  verification_method: accessibility and disclosure comparison
+  conformance_requirement: SEC-034
+  residual_risk: some assistance may expose presence
+  deployment_decision: mitigate
+  severity: high
+  harm_ids: HRM-EXC;HRM-PRV
+  status: baseline
+- threat_id: THR-035
+  domain: redress
+  title: Decision cannot be contested or corrected
+  asset_property: accountability
+  profiles: both
+  component: verifier/governance
+  trust_boundary: decision-redress
+  threat_actor: ADV-V
+  adversary_capability: withholds evidence or authority
+  collusion_assumption: none
+  preconditions: receipt or ownership unclear
+  attack_path: deny review or fail to propagate correction
+  context_scope: account/ecosystem
+  time_horizon: record lifetime
+  alongside_information: decision receipt, policy and status versions
+  technical_effect: wrong result persists
+  human_institutional_harm: economic, reputational and legitimacy harm
+  preventive_detective_corrective_controls: CTL-RED; ownership model
+  control_owner: verifier; redress authority
+  verification_method: redress tabletop and correction propagation test
+  conformance_requirement: SEC-035
+  residual_risk: evidence minimization tension
+  deployment_decision: mitigate
+  severity: critical
+  harm_ids: HRM-RED;HRM-ECO;HRM-REP
+  status: baseline
+- threat_id: THR-036
+  domain: governance
+  title: Context silently expands through organizational change
+  asset_property: context integrity
+  profiles: extended
+  component: governance/verifiers
+  trust_boundary: context-governance
+  threat_actor: ADV-V
+  adversary_capability: changes affiliation or policy
+  collusion_assumption: verifier-governance collusion possible
+  preconditions: context change lacks notice and versioning
+  attack_path: merge contexts or share historical nullifiers
+  context_scope: cross-context
+  time_horizon: long-term
+  alongside_information: organizational relationships and context IDs
+  technical_effect: retroactive linkage
+  human_institutional_harm: surveillance and autonomy loss
+  preventive_detective_corrective_controls: CTL-CTX; versioned change and migration
+  control_owner: context authority
+  verification_method: change-control and historical-linkage review
+  conformance_requirement: SEC-036
+  residual_risk: legal reorganization complexity
+  deployment_decision: prohibit retroactive expansion
+  severity: critical
+  harm_ids: HRM-PRV;HRM-AUT;HRM-GOV
+  status: baseline

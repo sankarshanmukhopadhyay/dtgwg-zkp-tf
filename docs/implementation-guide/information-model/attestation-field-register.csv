@@ -1,0 +1,11 @@
+field,assurance_purpose,disclosure_mode,correlation_risk,stability,required_control,threat_ids
+schema_profile_version,interpretation and negotiation,disclosed,low,profile lifetime,coarse shared versions,THR-013;THR-025
+policy_id,reliance policy,proved or selectively disclosed,medium,policy lifetime,use governed identifiers; avoid issuer-local aliases,THR-012;THR-021
+policy_version,effective policy,proved or disclosed,medium,policy lifetime,bounded version families and effective-time checks,THR-021;THR-030
+assurance_class,risk decision,proved or selectively disclosed,high,credential lifetime,small shared vocabulary; combination testing,THR-013;THR-016
+issuance_time,validity,range proof or coarse disclosure,high,credential lifetime,avoid exact timestamps unless required,THR-013;THR-018
+expiry_time,validity,range proof or coarse disclosure,medium,credential lifetime,coarse intervals,THR-013
+holder_binding_commitment,holder continuity,committed,high,binding lifetime,domain separation and rotation rules,THR-006;THR-028
+status_reference,revocation,verifier-resolved,high,credential lifetime,privacy-preserving status and bounded caching,THR-014;THR-022
+issuer_accreditation_ref,issuer qualification,set proof or disclosed,medium,accreditation period,profile-specific issuer concealment,THR-012;THR-020
+enrolment_root_ref,scoped uniqueness,committed,critical,cryptoperiod,context governance and rotation,THR-010;THR-011;THR-026

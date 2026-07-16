@@ -16,6 +16,11 @@ required = [
     GUIDE / "editorial" / "STYLE-GUIDE.md",
     GUIDE / "appendices" / "ERROR-CATALOGUE.md",
     GUIDE / "architecture" / "11-operational-viewpoint.md",
+    GUIDE / "security" / "threat-matrix.md",
+    GUIDE / "security" / "threat-matrix.yaml",
+    GUIDE / "boundaries" / "README.md",
+    GUIDE / "information-model" / "attestation-schema-profile.md",
+    GUIDE / "lifecycle" / "cryptoperiod-and-assurance-horizon.md",
 ]
 errors = []
 for path in required:

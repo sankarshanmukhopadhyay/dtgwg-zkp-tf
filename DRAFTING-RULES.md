@@ -31,3 +31,14 @@ With a confidence where we can give one. It is much easier to change your mind a
 Most ZKP specifications describe what a proof *hides*. Far fewer state what it **leaks, to whom, and for how long** — and that is the axis on which they mislead. These rules force the negative space onto the page.
 
 If you think a rule is wrong, say so in a discussion. They bind contributors, including the chairs, and they should be argued with rather than inherited.
+
+## System-level claim rule
+
+Every material assurance, privacy, security or interoperability claim must state:
+
+1. against whom it is asserted, including collusion assumptions;
+2. for how long it is asserted, including epoch, retention, cryptoperiod and assurance horizon;
+3. alongside which credentials, metadata, protocols, logs, registry state and observable events it remains valid.
+
+Claims must link to applicable assurance and disclosure boundaries, canonical threat identifiers, controls and conformance evidence. A proof-system property must not be presented as a system property without this restatement.
+

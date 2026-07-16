@@ -1,0 +1,9 @@
+{
+  "profile_id": "mediated-proving",
+  "non_retention_required": true,
+  "witness_logging": false,
+  "request_mapping_retention_seconds": 0,
+  "user_disclosure_required": true,
+  "silent_fallback_allowed": false,
+  "audit_evidence": "MED-AUDIT-001"
+}
