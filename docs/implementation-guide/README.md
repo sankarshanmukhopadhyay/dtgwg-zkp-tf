@@ -19,9 +19,6 @@ This workspace turns proof, credential, policy, delegation and registry assumpti
 - [Boundary model](boundaries/README.md)
 - [Threat, harm and control model](security/README.md)
 - [Attestation information model](information-model/README.md)
-- [Boundary model](boundaries/README.md)
-- [Threat, harm and control model](security/README.md)
-- [Attestation information model](information-model/README.md)
 - [Style profile](editorial/STYLE-GUIDE.md)
 - [Glossary](appendices/GLOSSARY.md)
 
@@ -29,25 +26,25 @@ This workspace turns proof, credential, policy, delegation and registry assumpti
 
 | Directory | Purpose |
 |---|---|
-| `guide/` | coherent implementation lifecycle and implementer checklists |
-| `architecture/` | context, layers, trust boundaries and viewpoints |
-| `adr/` | explicit decisions, alternatives and consequences |
-| `taxonomy/` | stable predicate and adversary identifiers |
-| `scenarios/` | 30 structured pressure-test scenarios |
-| `matrices/` | traceability and maturity data |
-| `conformance/` | four levels, machine-checkable tests, fixtures, schemas and evidence templates |
-| `boundaries/` | paired assurance and disclosure boundaries plus context decisions |
-| `security/` | canonical threat matrix, harms, controls and residual-risk process |
-| `information-model/` | attestation schema and correlation analysis |
-| `privacy/` | composition, observable-event and mediated-proving analysis |
-| `lifecycle/` | cryptoperiod, assurance-horizon and migration guidance |
-| `editorial/` | style profile, terminology and contribution controls |
-| `appendices/` | glossary, errors, references and guidance index |
-| `diagrams/` | Mermaid sources with textual interpretations |
+| `guide/` | Coherent implementation lifecycle and implementer checklists |
+| `architecture/` | Context, layers, trust boundaries, ownership and architectural viewpoints |
+| `adr/` | Explicit decisions, alternatives and consequences |
+| `taxonomy/` | Stable predicate, adversary and supporting classification identifiers |
+| `scenarios/` | Structured pressure-test scenarios |
+| `matrices/` | Traceability and maturity data |
+| `conformance/` | Conformance levels, machine-checkable tests, fixtures, schemas and evidence templates |
+| `boundaries/` | Paired assurance and disclosure boundaries, together with context decisions |
+| `security/` | Canonical threat matrix, harm taxonomy, control catalogue and residual-risk process |
+| `information-model/` | Attestation schema and field-level correlation analysis |
+| `privacy/` | Composition, reconstruction, observable-event and mediated-proving analysis |
+| `lifecycle/` | Cryptoperiod, assurance-horizon and migration guidance |
+| `editorial/` | Style profile, terminology and contribution controls |
+| `appendices/` | Glossary, errors, references and guidance index |
+| `diagrams/` | Mermaid sources with accompanying textual interpretations |
 
 ## Validation
 
-Run from the repository root:
+Run the following commands from the repository root:
 
 ```sh
 python3 scripts/validate_docs.py
@@ -56,8 +53,4 @@ python3 scripts/validate_style.py
 python3 scripts/validate_links.py
 python3 scripts/validate_fixtures.py
 python3 scripts/validate_threat_model.py
-python3 scripts/validate_threat_model.py
 python3 scripts/build_traceability.py
-```
-
-The implementation guide is non-normative by default. Open cryptographic or governance choices remain explicit decision dependencies.
