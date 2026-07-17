@@ -3,7 +3,7 @@ title: DTG ZKP Implementation and Interoperability Guide
 status: incubating
 normative_status: non-normative
 owner: DTG ZKP Task Force
-last_reviewed: 2026-07-16
+last_reviewed: 2026-07-17
 ---
 
 # DTG ZKP Implementation and Interoperability Guide
@@ -52,14 +52,6 @@ Delegation evidence is a separate object containing the principal, agent, scope,
 
 Every material predicate and profile maintains a linked assurance-boundary record and disclosure-boundary record. The assurance record states what a verifier may rely on and who is accountable for upstream correctness. The disclosure record states what each participant can observe or reconstruct. Both records use the issuer attestation schema as a common input and state **against whom**, **for how long** and **alongside what** the claim applies. See the [boundary workspace](../boundaries/README.md).
 
-## 4. Boundary and assurance model
-
-### 4.0 Paired boundary records
-
-Every material predicate and profile maintains a linked assurance-boundary record and disclosure-boundary record. The assurance record states what a verifier may rely on and who is accountable for upstream correctness. The disclosure record states what each participant can observe or reconstruct. Both records use the issuer attestation schema as a common input and state **against whom**, **for how long** and **alongside what** the claim applies. See the [boundary workspace](../boundaries/README.md).
-
-## 4. Assurance model
-
 ### 4.1 Predicate semantics
 
 Every predicate has a stable identifier and records what it establishes, what it does not establish, its inputs, disclosure, evidence dependencies, governance dependencies, lifecycle behavior and conformance references. The current catalogue is maintained in [`taxonomy/predicates.md`](../taxonomy/predicates.md).
@@ -94,7 +86,9 @@ A material privacy claim records the property, protected party, adversary, collu
 
 A context authority determines the identifier or derivation rules used to scope linkability. The epoch authority determines time boundaries and rollover behavior. Both authorities should be explicit because an implementer cannot select a nullifier or pseudonym construction without knowing against whom and across which boundaries correlation must be resisted.
 
-Open issue: the task force must ratify the authoritative context model and required resistance to issuer-verifier collusion before a construction can be selected as a normative profile.
+A draft V1 context definition, its required descriptor inputs, delimitation guidance and collusion-target requirements are recorded in [`boundaries/predicate-assurance-boundary-decision.md`](../boundaries/predicate-assurance-boundary-decision.md#6-foundational-context-decision) §6 and operationalized per instance in the [context decision record](../boundaries/context-decision-record.md). This is decision input, not yet a ratified specification (see the document's `normative_status`).
+
+Open issue: the task force has a draft context model on the table but has not yet ratified it, and has not yet ratified the required resistance to issuer-verifier collusion, as raised in [Discussion #8](https://github.com/trustoverip/dtgwg-zkp-tf/discussions/8). A construction should not be selected as a normative profile ahead of that ratification.
 
 ### 5.3 Metadata and correlation
 
@@ -208,7 +202,7 @@ Every new predicate, profile or material behavior should map to at least one pre
 
 The following remain deliberate task-force decisions rather than implementation assumptions:
 
-- the authoritative context and epoch model;
+- ratification of the context and epoch model (a draft V1 definition exists, see §5.2, and is not yet ratified);
 - the required privacy horizon and collusion resistance for each profile;
 - the selected proof constructions and algorithm agility rules;
 - normative delegation predicate identifiers and wire semantics;

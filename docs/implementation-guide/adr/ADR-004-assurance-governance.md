@@ -17,6 +17,7 @@ The proof carries privacy and integrity. Accreditation, policy, audit, and accou
 - profiles must preserve the distinction;
 - conformance tests require negative cases;
 - governance dependencies remain explicit.
+- a profile may aggregate confidence across multiple independent issuers rather than treating accreditation as single-issuer pass/fail; see `boundaries/predicate-assurance-boundary-decision.md` §12.5 (non-normative, decision input).
 
 ## Validation
 

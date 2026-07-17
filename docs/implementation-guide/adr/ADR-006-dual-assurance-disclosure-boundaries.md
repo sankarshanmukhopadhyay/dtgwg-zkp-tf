@@ -3,14 +3,14 @@ title: Dual assurance and disclosure boundaries
 status: accepted
 normative_status: non-normative
 owner: DTG ZKP Task Force
-last_reviewed: 2026-07-16
+last_reviewed: 2026-07-17
 ---
 
 # Dual assurance and disclosure boundaries
 
 ## Context
 
-The implementation guide requires a system-level decision that can be tested across independent deployments.
+The implementation guide requires a system-level decision that can be tested across independent deployments. The underlying separation between what a proof carries and what accreditation and governance carry reflects the credential/attestation model in the normative reference — see [`appendices/REFERENCES.md`](../appendices/REFERENCES.md).
 
 ## Decision
 

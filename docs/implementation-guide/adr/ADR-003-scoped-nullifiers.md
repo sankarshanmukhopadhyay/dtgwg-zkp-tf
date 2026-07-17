@@ -5,7 +5,7 @@
 
 ## Context
 
-A stable architectural interpretation is required before selecting or composing proof constructions.
+A stable architectural interpretation is required before selecting or composing proof constructions. The impossibility of combining full unlinkability with Sybil resistance, and the resulting context-dependent unlinkability target, are established in the normative reference — see [`appendices/REFERENCES.md`](../appendices/REFERENCES.md).
 
 ## Decision
 

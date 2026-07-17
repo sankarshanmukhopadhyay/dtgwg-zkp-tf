@@ -1,6 +1,6 @@
 # Validation report
 
-This report is generated for the Implementation and Interoperability Guide Maturity Programme. The release preserves the existing scenario and conformance semantics while adding architecture, editorial governance, evidence packaging, traceability and publication controls.
+This report is generated for the Implementation and Interoperability Guide Maturity Programme. The v0.2.2 release preserves existing scenario and conformance semantics while fixing a documentation defect and carrying the normative reference (IACR ePrint 2026/333) into the implementation guide. See `RELEASE_NOTES_NORMATIVE_REFERENCE_AND_CONTEXT_ALIGNMENT.md`.
 
 ## Required checks
 
@@ -12,6 +12,12 @@ python3 scripts/validate_conformance.py
 python3 scripts/validate_style.py
 python3 scripts/validate_links.py
 python3 scripts/validate_fixtures.py
+python3 scripts/validate_navigation.py
+python3 scripts/validate_diagrams.py
+python3 scripts/validate_operations.py
+python3 scripts/validate_threat_model.py
+python3 scripts/validate_deployment_profiles.py
+python3 scripts/validate_generated_counts.py
 python3 scripts/build_traceability.py
 ```
 
@@ -26,11 +32,11 @@ The context and epoch authority model, proof construction selection, normative d
 ```text
 Documentation validation passed.
 Conformance validation passed.
-76/76 test rows OK across 4 conformance levels.
+88/88 test rows OK across 4 conformance levels.
 Style validation passed.
 Link validation passed.
-Fixture validation passed: 8 JSON files parsed.
-Traceability generated: 30 scenarios, 76 test references.
+Fixture validation passed: 26 JSON files parsed.
+Traceability generated: 48 scenarios, 88 conformance references and 26 assurance references.
 ```
 
-Eleven pressure-test scenarios currently have no dedicated conformance case: UC-003, UC-007, UC-008, UC-011, UC-014, UC-015, UC-016, UC-018, UC-019, UC-028 and UC-029. The release exposes this as future conformance expansion work and does not misrepresent it as complete test coverage.
+This release also ran `validate_navigation.py`, `validate_diagrams.py`, `validate_operations.py`, `validate_threat_model.py`, `validate_deployment_profiles.py` and `validate_generated_counts.py`; all passed. Residual conformance-coverage gaps are tracked as before and are not affected by this release, which changes reference and boundary-decision documentation rather than scenario or test-matrix content.

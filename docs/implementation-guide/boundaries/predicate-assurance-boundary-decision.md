@@ -5,7 +5,7 @@ version: 0.1.0-draft
 status: first-draft-for-task-force-review
 normative_status: decision input; not yet a ratified specification
 owner: DTG ZKP Task Force
-last_reviewed: 2026-07-16
+last_reviewed: 2026-07-17
 ---
 
 # Predicate & Assurance-Boundary Decision Document
@@ -478,6 +478,16 @@ The selected mode MUST be justified by the relying purpose and correlation analy
 ### 12.4 Registry and snapshot semantics
 
 Issuer qualification MUST be evaluated against a named registry, set commitment, or governance snapshot with explicit effective time, cache rules, update semantics, and failure behaviour. Network lookup patterns that reveal the issuer or holder MUST be included in the disclosure analysis.
+
+### 12.5 Multi-issuer assurance aggregation (non-normative)
+
+PR-ISS as stated in §12.1 is a binary set-membership statement and remains so. Where a show combines credentials or attestations from multiple named issuers, a profile MAY additionally reason about aggregate confidence rather than treating membership as a single pass/fail signal.
+
+The normative reference models each issuer's attribute-validation process as bounded by a one-sided error parameter and shows that, when issuers validate independently, a verifier's confidence against mis-issuance increases multiplicatively with the number of honest, independent issuers contributing to a show; a corrupted or negligent issuer degrades only its own contribution and does not weaken the assurance carried by the other issuers involved (see [`appendices/REFERENCES.md`](../appendices/REFERENCES.md)).
+
+This gives an accreditation framework a purpose beyond maintaining a list: a profile MAY define, per issuer, a documented confidence parameter and MAY require or permit a verifier to combine that parameter with independence assumptions when a show cites more than one issuer. A profile that does this MUST still satisfy the disclosure requirements of §12.3 and MUST state the independence assumption itself as a claim under §2.4 (against whom, for how long, alongside what) — issuer independence is asserted, not derived from set membership alone.
+
+Open issue: whether, and how, multi-issuer confidence aggregation is required by any profile is a task-force decision. This subsection records the mechanism as decision input; it does not select or mandate it.
 
 ## 13. PR-UNQ: scoped reuse detection
 

@@ -3,14 +3,14 @@ title: Cryptoperiod and assurance horizon
 status: accepted
 normative_status: non-normative
 owner: DTG ZKP Task Force
-last_reviewed: 2026-07-16
+last_reviewed: 2026-07-17
 ---
 
 # Cryptoperiod and assurance horizon
 
 ## Context
 
-The implementation guide requires a system-level decision that can be tested across independent deployments.
+The implementation guide requires a system-level decision that can be tested across independent deployments. Enrolment-root and epoch treatment follow the bounded-epoch nullifier and cryptoperiod framing discussed against the normative reference — see [`appendices/REFERENCES.md`](../appendices/REFERENCES.md).
 
 ## Decision
 

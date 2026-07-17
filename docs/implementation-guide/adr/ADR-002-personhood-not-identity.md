@@ -5,7 +5,7 @@
 
 ## Context
 
-A stable architectural interpretation is required before selecting or composing proof constructions.
+A stable architectural interpretation is required before selecting or composing proof constructions. This distinction follows the personhood credential (PHC) model in the normative reference — see [`appendices/REFERENCES.md`](../appendices/REFERENCES.md).
 
 ## Decision
 

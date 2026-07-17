@@ -3,14 +3,14 @@ title: Attestation schema sets both boundaries
 status: accepted
 normative_status: non-normative
 owner: DTG ZKP Task Force
-last_reviewed: 2026-07-16
+last_reviewed: 2026-07-17
 ---
 
 # Attestation schema sets both boundaries
 
 ## Context
 
-The implementation guide requires a system-level decision that can be tested across independent deployments.
+The implementation guide requires a system-level decision that can be tested across independent deployments. The attestation fields modelled here correspond to the revealed-attribute mechanism of verifiable relationship credentials (VRCs) in the normative reference — see [`appendices/REFERENCES.md`](../appendices/REFERENCES.md).
 
 ## Decision
 
