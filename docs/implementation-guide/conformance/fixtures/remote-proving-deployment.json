@@ -1,0 +1,15 @@
+{
+  "profile_id": "DP-REMOTE-001",
+  "proving_mode": "remote",
+  "trust_zones": [
+    "holder",
+    "remote-prover",
+    "verifier",
+    "registry"
+  ],
+  "controls": [
+    "job-isolation",
+    "non-retention",
+    "tenant-separation"
+  ]
+}

@@ -22,7 +22,8 @@
       "CT-UC001-NEG-02",
       "CT-UC001-POS-01",
       "CT-UC001-POS-02"
-    ]
+    ],
+    "assurance_tests": []
   },
   {
     "scenario_id": "UC-002",
@@ -46,7 +47,8 @@
       "CT-UC002-NEG-02",
       "CT-UC002-POS-01",
       "CT-UC002-POS-02"
-    ]
+    ],
+    "assurance_tests": []
   },
   {
     "scenario_id": "UC-003",
@@ -64,7 +66,10 @@
     "adrs": [
       "ADR-002"
     ],
-    "tests": []
+    "tests": [],
+    "assurance_tests": [
+      "AT-UC003-01"
+    ]
   },
   {
     "scenario_id": "UC-004",
@@ -86,7 +91,8 @@
       "CT-UC004-NEG-02",
       "CT-UC004-POS-01",
       "CT-UC004-POS-02"
-    ]
+    ],
+    "assurance_tests": []
   },
   {
     "scenario_id": "UC-005",
@@ -107,7 +113,8 @@
       "CT-UC005-NEG-02",
       "CT-UC005-POS-01",
       "CT-UC005-POS-02"
-    ]
+    ],
+    "assurance_tests": []
   },
   {
     "scenario_id": "UC-006",
@@ -129,7 +136,8 @@
       "CT-UC006-NEG-02",
       "CT-UC006-POS-01",
       "CT-UC006-POS-02"
-    ]
+    ],
+    "assurance_tests": []
   },
   {
     "scenario_id": "UC-007",
@@ -148,7 +156,10 @@
       "ADR-002",
       "ADR-003"
     ],
-    "tests": []
+    "tests": [],
+    "assurance_tests": [
+      "AT-UC007-01"
+    ]
   },
   {
     "scenario_id": "UC-008",
@@ -168,7 +179,10 @@
       "ADR-003",
       "ADR-005"
     ],
-    "tests": []
+    "tests": [],
+    "assurance_tests": [
+      "AT-UC008-01"
+    ]
   },
   {
     "scenario_id": "UC-009",
@@ -191,7 +205,8 @@
       "CT-UC009-NEG-02",
       "CT-UC009-POS-01",
       "CT-UC009-POS-02"
-    ]
+    ],
+    "assurance_tests": []
   },
   {
     "scenario_id": "UC-010",
@@ -212,7 +227,8 @@
       "CT-UC010-NEG-02",
       "CT-UC010-POS-01",
       "CT-UC010-POS-02"
-    ]
+    ],
+    "assurance_tests": []
   },
   {
     "scenario_id": "UC-011",
@@ -230,7 +246,8 @@
     "tests": [
       "CT-SEC-CTX-NEG-01",
       "CT-SEC-CTX-POS-01"
-    ]
+    ],
+    "assurance_tests": []
   },
   {
     "scenario_id": "UC-012",
@@ -250,7 +267,8 @@
       "CT-UC012-NEG-02",
       "CT-UC012-POS-01",
       "CT-UC012-POS-02"
-    ]
+    ],
+    "assurance_tests": []
   },
   {
     "scenario_id": "UC-013",
@@ -269,7 +287,8 @@
       "CT-UC013-NEG-02",
       "CT-UC013-POS-01",
       "CT-UC013-POS-02"
-    ]
+    ],
+    "assurance_tests": []
   },
   {
     "scenario_id": "UC-014",
@@ -281,7 +300,10 @@
       "ADV-N"
     ],
     "adrs": [],
-    "tests": []
+    "tests": [],
+    "assurance_tests": [
+      "AT-UC014-01"
+    ]
   },
   {
     "scenario_id": "UC-015",
@@ -293,7 +315,10 @@
       "ADV-R"
     ],
     "adrs": [],
-    "tests": []
+    "tests": [],
+    "assurance_tests": [
+      "AT-UC015-01"
+    ]
   },
   {
     "scenario_id": "UC-016",
@@ -309,7 +334,10 @@
     "adrs": [
       "ADR-005"
     ],
-    "tests": []
+    "tests": [],
+    "assurance_tests": [
+      "AT-UC016-01"
+    ]
   },
   {
     "scenario_id": "UC-017",
@@ -324,7 +352,8 @@
       "CT-UC017-NEG-02",
       "CT-UC017-POS-01",
       "CT-UC017-POS-02"
-    ]
+    ],
+    "assurance_tests": []
   },
   {
     "scenario_id": "UC-018",
@@ -338,7 +367,10 @@
       "ADV-R"
     ],
     "adrs": [],
-    "tests": []
+    "tests": [],
+    "assurance_tests": [
+      "AT-UC018-01"
+    ]
   },
   {
     "scenario_id": "UC-019",
@@ -352,7 +384,10 @@
       "ADV-U"
     ],
     "adrs": [],
-    "tests": []
+    "tests": [],
+    "assurance_tests": [
+      "AT-UC019-01"
+    ]
   },
   {
     "scenario_id": "UC-020",
@@ -373,7 +408,8 @@
       "CT-UC020-NEG-02",
       "CT-UC020-POS-01",
       "CT-UC020-POS-02"
-    ]
+    ],
+    "assurance_tests": []
   },
   {
     "scenario_id": "UC-021",
@@ -396,7 +432,8 @@
       "CT-UC021-NEG-02",
       "CT-UC021-POS-01",
       "CT-UC021-POS-02"
-    ]
+    ],
+    "assurance_tests": []
   },
   {
     "scenario_id": "UC-022",
@@ -415,7 +452,8 @@
       "CT-UC022-NEG-02",
       "CT-UC022-POS-01",
       "CT-UC022-POS-02"
-    ]
+    ],
+    "assurance_tests": []
   },
   {
     "scenario_id": "UC-023",
@@ -435,7 +473,8 @@
       "CT-UC023-NEG-02",
       "CT-UC023-POS-01",
       "CT-UC023-POS-02"
-    ]
+    ],
+    "assurance_tests": []
   },
   {
     "scenario_id": "UC-024",
@@ -457,7 +496,8 @@
       "CT-UC024-NEG-02",
       "CT-UC024-POS-01",
       "CT-UC024-POS-02"
-    ]
+    ],
+    "assurance_tests": []
   },
   {
     "scenario_id": "UC-025",
@@ -478,7 +518,8 @@
       "CT-UC025-NEG-02",
       "CT-UC025-POS-01",
       "CT-UC025-POS-02"
-    ]
+    ],
+    "assurance_tests": []
   },
   {
     "scenario_id": "UC-026",
@@ -494,7 +535,8 @@
       "CT-UC026-NEG-02",
       "CT-UC026-POS-01",
       "CT-UC026-POS-02"
-    ]
+    ],
+    "assurance_tests": []
   },
   {
     "scenario_id": "UC-027",
@@ -512,7 +554,8 @@
       "CT-UC027-NEG-02",
       "CT-UC027-POS-01",
       "CT-UC027-POS-02"
-    ]
+    ],
+    "assurance_tests": []
   },
   {
     "scenario_id": "UC-028",
@@ -528,7 +571,8 @@
     "tests": [
       "CT-SEC-MED-NEG-01",
       "CT-SEC-MED-POS-01"
-    ]
+    ],
+    "assurance_tests": []
   },
   {
     "scenario_id": "UC-029",
@@ -541,7 +585,8 @@
     "tests": [
       "CT-SEC-LIFE-NEG-01",
       "CT-SEC-LIFE-POS-01"
-    ]
+    ],
+    "assurance_tests": []
   },
   {
     "scenario_id": "UC-030",
@@ -565,6 +610,205 @@
       "CT-UC030-NEG-02",
       "CT-UC030-POS-01",
       "CT-UC030-POS-02"
+    ],
+    "assurance_tests": []
+  },
+  {
+    "scenario_id": "UC-031",
+    "title": "Migration from Conventional Identity Checks",
+    "predicates": [],
+    "adversaries": [],
+    "adrs": [],
+    "tests": [],
+    "assurance_tests": [
+      "AT-UC031-01"
+    ]
+  },
+  {
+    "scenario_id": "UC-032",
+    "title": "Managed Enterprise Wallet Deployment",
+    "predicates": [],
+    "adversaries": [],
+    "adrs": [],
+    "tests": [],
+    "assurance_tests": [
+      "AT-UC032-01"
+    ]
+  },
+  {
+    "scenario_id": "UC-033",
+    "title": "Multi-Tenant Verifier Isolation",
+    "predicates": [],
+    "adversaries": [],
+    "adrs": [],
+    "tests": [],
+    "assurance_tests": [
+      "AT-UC033-01"
+    ]
+  },
+  {
+    "scenario_id": "UC-034",
+    "title": "Federated Issuer Ecosystem",
+    "predicates": [],
+    "adversaries": [],
+    "adrs": [],
+    "tests": [],
+    "assurance_tests": [
+      "AT-UC034-01"
+    ]
+  },
+  {
+    "scenario_id": "UC-035",
+    "title": "Registry Federation and Authority Transition",
+    "predicates": [],
+    "adversaries": [],
+    "adrs": [],
+    "tests": [],
+    "assurance_tests": [
+      "AT-UC035-01"
+    ]
+  },
+  {
+    "scenario_id": "UC-036",
+    "title": "Multi-Region Verifier Deployment",
+    "predicates": [],
+    "adversaries": [],
+    "adrs": [],
+    "tests": [],
+    "assurance_tests": [
+      "AT-UC036-01"
+    ]
+  },
+  {
+    "scenario_id": "UC-037",
+    "title": "Proof Service or Cloud-Region Outage",
+    "predicates": [],
+    "adversaries": [],
+    "adrs": [],
+    "tests": [],
+    "assurance_tests": [
+      "AT-UC037-01"
+    ]
+  },
+  {
+    "scenario_id": "UC-038",
+    "title": "Software Supply-Chain Compromise",
+    "predicates": [],
+    "adversaries": [],
+    "adrs": [],
+    "tests": [],
+    "assurance_tests": [
+      "AT-UC038-01"
+    ]
+  },
+  {
+    "scenario_id": "UC-039",
+    "title": "Emergency Signing-Key Rotation",
+    "predicates": [],
+    "adversaries": [],
+    "adrs": [],
+    "tests": [],
+    "assurance_tests": [
+      "AT-UC039-01"
+    ]
+  },
+  {
+    "scenario_id": "UC-040",
+    "title": "Incorrect Policy Rollout and Rollback",
+    "predicates": [],
+    "adversaries": [],
+    "adrs": [],
+    "tests": [],
+    "assurance_tests": [
+      "AT-UC040-01"
+    ]
+  },
+  {
+    "scenario_id": "UC-041",
+    "title": "Audit or Regulatory Evidence Request",
+    "predicates": [],
+    "adversaries": [],
+    "adrs": [],
+    "tests": [],
+    "assurance_tests": [
+      "AT-UC041-01"
+    ]
+  },
+  {
+    "scenario_id": "UC-042",
+    "title": "Data-Subject Challenge and State Correction",
+    "predicates": [],
+    "adversaries": [],
+    "adrs": [],
+    "tests": [],
+    "assurance_tests": [
+      "AT-UC042-01"
+    ]
+  },
+  {
+    "scenario_id": "UC-043",
+    "title": "High-Volume Burst and Abuse Traffic",
+    "predicates": [],
+    "adversaries": [],
+    "adrs": [],
+    "tests": [],
+    "assurance_tests": [
+      "AT-UC043-01"
+    ]
+  },
+  {
+    "scenario_id": "UC-044",
+    "title": "Compromised Administrative Operator",
+    "predicates": [],
+    "adversaries": [],
+    "adrs": [],
+    "tests": [],
+    "assurance_tests": [
+      "AT-UC044-01"
+    ]
+  },
+  {
+    "scenario_id": "UC-045",
+    "title": "Expired Privacy or Assurance Horizon",
+    "predicates": [],
+    "adversaries": [],
+    "adrs": [],
+    "tests": [],
+    "assurance_tests": [
+      "AT-UC045-01"
+    ]
+  },
+  {
+    "scenario_id": "UC-046",
+    "title": "Cross-Organization Plugfest Onboarding",
+    "predicates": [],
+    "adversaries": [],
+    "adrs": [],
+    "tests": [],
+    "assurance_tests": [
+      "AT-UC046-01"
+    ]
+  },
+  {
+    "scenario_id": "UC-047",
+    "title": "Cryptographic Library Vulnerability",
+    "predicates": [],
+    "adversaries": [],
+    "adrs": [],
+    "tests": [],
+    "assurance_tests": [
+      "AT-UC047-01"
+    ]
+  },
+  {
+    "scenario_id": "UC-048",
+    "title": "Partial Rollback During Ecosystem Upgrade",
+    "predicates": [],
+    "adversaries": [],
+    "adrs": [],
+    "tests": [],
+    "assurance_tests": [
+      "AT-UC048-01"
     ]
   }
 ]

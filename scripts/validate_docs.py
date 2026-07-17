@@ -32,6 +32,12 @@ for path in GUIDE.rglob("*.md"):
         errors.append(f"Tab character found: {path.relative_to(ROOT)}")
     if text and not text.endswith("\n"):
         errors.append(f"Missing final newline: {path.relative_to(ROOT)}")
+    if text.count("```") % 2:
+        errors.append(f"Unbalanced fenced code block: {path.relative_to(ROOT)}")
+    headings = [line.strip() for line in text.splitlines() if line.startswith("#")]
+    for left, right in zip(headings, headings[1:]):
+        if left == right:
+            errors.append(f"Duplicate adjacent heading '{left}': {path.relative_to(ROOT)}")
 if errors:
     print("Documentation validation failed:")
     for error in errors:

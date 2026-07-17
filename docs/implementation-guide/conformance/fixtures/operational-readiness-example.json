@@ -1,0 +1,13 @@
+{
+  "runbooks": [
+    "issuer-compromise",
+    "policy-update",
+    "key-rotation"
+  ],
+  "exercises": [
+    "recovery-2026-07",
+    "rotation-2026-07"
+  ],
+  "on_call_authority": "operations-duty-authority",
+  "status": "ready"
+}

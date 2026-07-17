@@ -1,3 +1,10 @@
+---
+layout: default
+title: Agent delegation and step-up flow
+nav_order: 4
+parent: Diagrams
+has_toc: true
+---
 # Agent delegation and step-up flow
 
 ```mermaid

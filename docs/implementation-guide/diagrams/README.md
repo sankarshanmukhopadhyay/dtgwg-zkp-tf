@@ -1,14 +1,38 @@
+---
+layout: default
+title: Diagrams
+nav_order: 10
+parent: Implementation Guide
+has_children: true
+has_toc: true
+---
 # Diagram register
 
-Planned Mermaid sources:
+Diagrams are implementation and assurance artefacts. Each source includes a textual interpretation.
 
-- D-001 system context;
-- D-002 architecture layers;
-- D-003 trust boundaries;
-- D-004 proof request and presentation;
-- D-005 liveness issuance;
-- D-006 agent authorisation;
-- D-007 lifecycle state model;
-- D-008 registry and recognition;
-- D-009 offline verification;
-- D-010 plugfest topology.
+| ID | Diagram | File |
+|---|---|---|
+| D-001 | System Context | [D-001-system-context.md](D-001-system-context.md) |
+| D-002 | Issuance Flow | [D-002-issuance-flow.md](D-002-issuance-flow.md) |
+| D-003 | Presentation Flow | [D-003-presentation-flow.md](D-003-presentation-flow.md) |
+| D-004 | Agent Delegation Flow | [D-004-agent-delegation-flow.md](D-004-agent-delegation-flow.md) |
+| D-005 | Registry Resolution Flow | [D-005-registry-resolution-flow.md](D-005-registry-resolution-flow.md) |
+| D-006 | Lifecycle Flow | [D-006-lifecycle-flow.md](D-006-lifecycle-flow.md) |
+| D-007 | Conformance Evidence Flow | [D-007-conformance-evidence-flow.md](D-007-conformance-evidence-flow.md) |
+| D-008 | Adoption Maturity Pathway | [D-008-adoption-maturity-pathway.md](D-008-adoption-maturity-pathway.md) |
+| D-009 | Local Proving Deployment | [D-009-local-proving-deployment.md](D-009-local-proving-deployment.md) |
+| D-010 | Remote Proving Deployment | [D-010-remote-proving-deployment.md](D-010-remote-proving-deployment.md) |
+| D-011 | Hybrid Proving Deployment | [D-011-hybrid-proving-deployment.md](D-011-hybrid-proving-deployment.md) |
+| D-012 | Secure Verifier Topology | [D-012-secure-verifier-topology.md](D-012-secure-verifier-topology.md) |
+| D-013 | Federated Registry Topology | [D-013-federated-registry-topology.md](D-013-federated-registry-topology.md) |
+| D-014 | Key Lifecycle | [D-014-key-lifecycle.md](D-014-key-lifecycle.md) |
+| D-015 | Incident Authority Escalation | [D-015-incident-authority-escalation.md](D-015-incident-authority-escalation.md) |
+| D-016 | Policy Update Rollback | [D-016-policy-update-rollback.md](D-016-policy-update-rollback.md) |
+| D-017 | Revocation Propagation | [D-017-revocation-propagation.md](D-017-revocation-propagation.md) |
+| D-018 | Plugfest Topology | [D-018-plugfest-topology.md](D-018-plugfest-topology.md) |
+| D-019 | Deployment Evidence Flow | [D-019-deployment-evidence-flow.md](D-019-deployment-evidence-flow.md) |
+| D-020 | Proof System Migration | [D-020-proof-system-migration.md](D-020-proof-system-migration.md) |
+| D-021 | Offline Verification Boundary | [D-021-offline-verification-boundary.md](D-021-offline-verification-boundary.md) |
+| D-022 | Correlation Surface Map | [D-022-correlation-surface-map.md](D-022-correlation-surface-map.md) |
+| D-023 | Shared Device Boundaries | [D-023-shared-device-boundaries.md](D-023-shared-device-boundaries.md) |
+| D-024 | Redress Correction Flow | [D-024-redress-correction-flow.md](D-024-redress-correction-flow.md) |

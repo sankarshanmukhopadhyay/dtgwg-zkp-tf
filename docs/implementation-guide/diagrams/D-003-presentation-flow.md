@@ -1,3 +1,10 @@
+---
+layout: default
+title: Presentation and verification flow
+nav_order: 3
+parent: Diagrams
+has_toc: true
+---
 # Presentation and verification flow
 
 ```mermaid

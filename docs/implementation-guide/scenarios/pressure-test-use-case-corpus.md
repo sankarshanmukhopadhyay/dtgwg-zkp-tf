@@ -1410,3 +1410,150 @@ The core test is straightforward:
 > Can two independent teams implement the same profile, apply it to the same pressure-test scenario, and reach the same verifier result without making hidden assumptions about privacy, assurance, lifecycle, or governance?
 
 If the answer is no, the profile is not yet interoperable, even if the underlying proof verifies.
+
+
+# Deployment and adoption scenarios
+
+## UC-031 — Migration from conventional identity checks
+
+**Objective.** Pressure-test authority, enforcement, revocation and evidence under migration from conventional identity checks.
+
+**Required outcome.** The implementation produces a deterministic decision, identifies the accountable authority, preserves minimized evidence and invokes the applicable deployment control or operational runbook.
+
+**Failure condition.** The system silently broadens authority, accepts stale or downgraded state, loses revocation history, crosses tenant boundaries or cannot explain the decision.
+
+## UC-032 — Managed enterprise wallet deployment
+
+**Objective.** Pressure-test authority, enforcement, revocation and evidence under managed enterprise wallet deployment.
+
+**Required outcome.** The implementation produces a deterministic decision, identifies the accountable authority, preserves minimized evidence and invokes the applicable deployment control or operational runbook.
+
+**Failure condition.** The system silently broadens authority, accepts stale or downgraded state, loses revocation history, crosses tenant boundaries or cannot explain the decision.
+
+## UC-033 — Multi-tenant verifier isolation
+
+**Objective.** Pressure-test authority, enforcement, revocation and evidence under multi-tenant verifier isolation.
+
+**Required outcome.** The implementation produces a deterministic decision, identifies the accountable authority, preserves minimized evidence and invokes the applicable deployment control or operational runbook.
+
+**Failure condition.** The system silently broadens authority, accepts stale or downgraded state, loses revocation history, crosses tenant boundaries or cannot explain the decision.
+
+## UC-034 — Federated issuer ecosystem
+
+**Objective.** Pressure-test authority, enforcement, revocation and evidence under federated issuer ecosystem.
+
+**Required outcome.** The implementation produces a deterministic decision, identifies the accountable authority, preserves minimized evidence and invokes the applicable deployment control or operational runbook.
+
+**Failure condition.** The system silently broadens authority, accepts stale or downgraded state, loses revocation history, crosses tenant boundaries or cannot explain the decision.
+
+## UC-035 — Registry federation and authority transition
+
+**Objective.** Pressure-test authority, enforcement, revocation and evidence under registry federation and authority transition.
+
+**Required outcome.** The implementation produces a deterministic decision, identifies the accountable authority, preserves minimized evidence and invokes the applicable deployment control or operational runbook.
+
+**Failure condition.** The system silently broadens authority, accepts stale or downgraded state, loses revocation history, crosses tenant boundaries or cannot explain the decision.
+
+## UC-036 — Multi-region verifier deployment
+
+**Objective.** Pressure-test authority, enforcement, revocation and evidence under multi-region verifier deployment.
+
+**Required outcome.** The implementation produces a deterministic decision, identifies the accountable authority, preserves minimized evidence and invokes the applicable deployment control or operational runbook.
+
+**Failure condition.** The system silently broadens authority, accepts stale or downgraded state, loses revocation history, crosses tenant boundaries or cannot explain the decision.
+
+## UC-037 — Proof service or cloud-region outage
+
+**Objective.** Pressure-test authority, enforcement, revocation and evidence under proof service or cloud-region outage.
+
+**Required outcome.** The implementation produces a deterministic decision, identifies the accountable authority, preserves minimized evidence and invokes the applicable deployment control or operational runbook.
+
+**Failure condition.** The system silently broadens authority, accepts stale or downgraded state, loses revocation history, crosses tenant boundaries or cannot explain the decision.
+
+## UC-038 — Software supply-chain compromise
+
+**Objective.** Pressure-test authority, enforcement, revocation and evidence under software supply-chain compromise.
+
+**Required outcome.** The implementation produces a deterministic decision, identifies the accountable authority, preserves minimized evidence and invokes the applicable deployment control or operational runbook.
+
+**Failure condition.** The system silently broadens authority, accepts stale or downgraded state, loses revocation history, crosses tenant boundaries or cannot explain the decision.
+
+## UC-039 — Emergency signing-key rotation
+
+**Objective.** Pressure-test authority, enforcement, revocation and evidence under emergency signing-key rotation.
+
+**Required outcome.** The implementation produces a deterministic decision, identifies the accountable authority, preserves minimized evidence and invokes the applicable deployment control or operational runbook.
+
+**Failure condition.** The system silently broadens authority, accepts stale or downgraded state, loses revocation history, crosses tenant boundaries or cannot explain the decision.
+
+## UC-040 — Incorrect policy rollout and rollback
+
+**Objective.** Pressure-test authority, enforcement, revocation and evidence under incorrect policy rollout and rollback.
+
+**Required outcome.** The implementation produces a deterministic decision, identifies the accountable authority, preserves minimized evidence and invokes the applicable deployment control or operational runbook.
+
+**Failure condition.** The system silently broadens authority, accepts stale or downgraded state, loses revocation history, crosses tenant boundaries or cannot explain the decision.
+
+## UC-041 — Audit or regulatory evidence request
+
+**Objective.** Pressure-test authority, enforcement, revocation and evidence under audit or regulatory evidence request.
+
+**Required outcome.** The implementation produces a deterministic decision, identifies the accountable authority, preserves minimized evidence and invokes the applicable deployment control or operational runbook.
+
+**Failure condition.** The system silently broadens authority, accepts stale or downgraded state, loses revocation history, crosses tenant boundaries or cannot explain the decision.
+
+## UC-042 — Data-subject challenge and state correction
+
+**Objective.** Pressure-test authority, enforcement, revocation and evidence under data-subject challenge and state correction.
+
+**Required outcome.** The implementation produces a deterministic decision, identifies the accountable authority, preserves minimized evidence and invokes the applicable deployment control or operational runbook.
+
+**Failure condition.** The system silently broadens authority, accepts stale or downgraded state, loses revocation history, crosses tenant boundaries or cannot explain the decision.
+
+## UC-043 — High-volume burst and abuse traffic
+
+**Objective.** Pressure-test authority, enforcement, revocation and evidence under high-volume burst and abuse traffic.
+
+**Required outcome.** The implementation produces a deterministic decision, identifies the accountable authority, preserves minimized evidence and invokes the applicable deployment control or operational runbook.
+
+**Failure condition.** The system silently broadens authority, accepts stale or downgraded state, loses revocation history, crosses tenant boundaries or cannot explain the decision.
+
+## UC-044 — Compromised administrative operator
+
+**Objective.** Pressure-test authority, enforcement, revocation and evidence under compromised administrative operator.
+
+**Required outcome.** The implementation produces a deterministic decision, identifies the accountable authority, preserves minimized evidence and invokes the applicable deployment control or operational runbook.
+
+**Failure condition.** The system silently broadens authority, accepts stale or downgraded state, loses revocation history, crosses tenant boundaries or cannot explain the decision.
+
+## UC-045 — Expired privacy or assurance horizon
+
+**Objective.** Pressure-test authority, enforcement, revocation and evidence under expired privacy or assurance horizon.
+
+**Required outcome.** The implementation produces a deterministic decision, identifies the accountable authority, preserves minimized evidence and invokes the applicable deployment control or operational runbook.
+
+**Failure condition.** The system silently broadens authority, accepts stale or downgraded state, loses revocation history, crosses tenant boundaries or cannot explain the decision.
+
+## UC-046 — Cross-organization plugfest onboarding
+
+**Objective.** Pressure-test authority, enforcement, revocation and evidence under cross-organization plugfest onboarding.
+
+**Required outcome.** The implementation produces a deterministic decision, identifies the accountable authority, preserves minimized evidence and invokes the applicable deployment control or operational runbook.
+
+**Failure condition.** The system silently broadens authority, accepts stale or downgraded state, loses revocation history, crosses tenant boundaries or cannot explain the decision.
+
+## UC-047 — Cryptographic library vulnerability
+
+**Objective.** Pressure-test authority, enforcement, revocation and evidence under cryptographic library vulnerability.
+
+**Required outcome.** The implementation produces a deterministic decision, identifies the accountable authority, preserves minimized evidence and invokes the applicable deployment control or operational runbook.
+
+**Failure condition.** The system silently broadens authority, accepts stale or downgraded state, loses revocation history, crosses tenant boundaries or cannot explain the decision.
+
+## UC-048 — Partial rollback during ecosystem upgrade
+
+**Objective.** Pressure-test authority, enforcement, revocation and evidence under partial rollback during ecosystem upgrade.
+
+**Required outcome.** The implementation produces a deterministic decision, identifies the accountable authority, preserves minimized evidence and invokes the applicable deployment control or operational runbook.
+
+**Failure condition.** The system silently broadens authority, accepts stale or downgraded state, loses revocation history, crosses tenant boundaries or cannot explain the decision.

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "title": "Deployment profile",
+  "additionalProperties": false,
+  "required": [
+    "profile_id",
+    "proving_mode",
+    "trust_zones",
+    "controls"
+  ],
+  "properties": {
+    "profile_id": {
+      "type": "string"
+    },
+    "proving_mode": {
+      "enum": [
+        "local",
+        "remote",
+        "hybrid"
+      ]
+    },
+    "trust_zones": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "controls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

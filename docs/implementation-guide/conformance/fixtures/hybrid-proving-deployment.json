@@ -1,0 +1,15 @@
+{
+  "profile_id": "DP-HYBRID-001",
+  "proving_mode": "hybrid",
+  "trust_zones": [
+    "holder",
+    "remote-prover",
+    "verifier",
+    "registry"
+  ],
+  "controls": [
+    "mode-disclosure",
+    "downgrade-prevention",
+    "fallback-evidence"
+  ]
+}

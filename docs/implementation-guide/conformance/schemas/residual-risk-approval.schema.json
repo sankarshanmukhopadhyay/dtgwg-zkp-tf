@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "title": "Residual risk approval",
+  "additionalProperties": false,
+  "required": [
+    "risk_id",
+    "description",
+    "owner",
+    "decision",
+    "review_date"
+  ],
+  "properties": {
+    "risk_id": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "accept",
+        "mitigate",
+        "transfer",
+        "reject"
+      ]
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date"
+    }
+  }
+}

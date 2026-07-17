@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "title": "Adoption readiness",
+  "additionalProperties": false,
+  "required": [
+    "stage",
+    "authority",
+    "evidence",
+    "decision"
+  ],
+  "properties": {
+    "stage": {
+      "enum": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ]
+    },
+    "authority": {
+      "type": "string"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "decision": {
+      "enum": [
+        "hold",
+        "advance",
+        "approve"
+      ]
+    }
+  }
+}

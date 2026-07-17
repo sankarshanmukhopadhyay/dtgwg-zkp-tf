@@ -12,10 +12,15 @@ for r in rows('adr-scenario-map.csv'): adrs.setdefault(r['scenario_id'],[]).appe
 tests={}
 with (G/'conformance/test-matrix.csv').open(encoding='utf-8') as f:
  for r in csv.DictReader(f): tests.setdefault(r['scenario_id'],[]).append(r['test_id'])
+assurance={}
+assurance_path=G/'conformance/assurance-test-dispositions.csv'
+if assurance_path.exists():
+ with assurance_path.open(encoding='utf-8') as f:
+  for r in csv.DictReader(f): assurance.setdefault(r['scenario_id'],[]).append(r['assurance_test_id'])
 out=[]
 for sid in sorted(scenarios):
- out.append({'scenario_id':sid,'title':scenarios[sid]['title'],'predicates':sorted(set(preds.get(sid,[]))),'adversaries':sorted(set(threats.get(sid,[]))),'adrs':sorted(set(adrs.get(sid,[]))),'tests':sorted(set(tests.get(sid,[])))})
+ out.append({'scenario_id':sid,'title':scenarios[sid]['title'],'predicates':sorted(set(preds.get(sid,[]))),'adversaries':sorted(set(threats.get(sid,[]))),'adrs':sorted(set(adrs.get(sid,[]))),'tests':sorted(set(tests.get(sid,[]))),'assurance_tests':sorted(set(assurance.get(sid,[])))})
 path=G/'matrices/generated-traceability.json'; path.write_text(json.dumps(out,indent=2)+"\n")
-missing=[x['scenario_id'] for x in out if not x['tests']]
-print(f'Traceability generated: {len(out)} scenarios, {sum(len(x["tests"]) for x in out)} test references.')
+missing=[x['scenario_id'] for x in out if not x['tests'] and not x['assurance_tests']]
+print(f'Traceability generated: {len(out)} scenarios, {sum(len(x["tests"]) for x in out)} conformance references and {sum(len(x["assurance_tests"]) for x in out)} assurance references.')
 if missing: print('Informational: scenarios without conformance cases: '+', '.join(missing))

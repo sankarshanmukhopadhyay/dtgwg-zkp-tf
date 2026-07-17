@@ -1,3 +1,10 @@
+---
+layout: default
+title: Registry resolution flow
+nav_order: 5
+parent: Diagrams
+has_toc: true
+---
 # Registry resolution flow
 
 ```mermaid

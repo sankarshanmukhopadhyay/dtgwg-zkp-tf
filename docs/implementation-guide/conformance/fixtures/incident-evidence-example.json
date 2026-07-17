@@ -1,0 +1,15 @@
+{
+  "incident_id": "INC-EXAMPLE-001",
+  "trigger": "issuer key compromise indicator",
+  "authority": "issuer-security-authority",
+  "scope": "issuer-key-2026-a",
+  "actions": [
+    "suspend",
+    "publish-status",
+    "rotate"
+  ],
+  "evidence_refs": [
+    "EV-001"
+  ],
+  "closure": "replacement propagated and independently verified"
+}

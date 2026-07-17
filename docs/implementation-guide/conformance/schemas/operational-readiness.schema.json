@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "title": "Operational readiness",
+  "additionalProperties": false,
+  "required": [
+    "runbooks",
+    "exercises",
+    "on_call_authority",
+    "status"
+  ],
+  "properties": {
+    "runbooks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "exercises": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "on_call_authority": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "not-ready",
+        "conditional",
+        "ready"
+      ]
+    }
+  }
+}

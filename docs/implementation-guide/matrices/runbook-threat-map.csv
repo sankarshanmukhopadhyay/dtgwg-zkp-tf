@@ -1,0 +1,6 @@
+runbook,threat_or_event,evidence
+issuer-compromise,issuer signing authority compromise,suspension and propagation record
+policy-update,incorrect or unauthorized policy,approval and rollback record
+key-rotation,key exposure or expiry,rotation and propagation record
+degraded-mode,dependency outage,bounded decision receipts
+redress-and-correction,incorrect source state,contest and correction record

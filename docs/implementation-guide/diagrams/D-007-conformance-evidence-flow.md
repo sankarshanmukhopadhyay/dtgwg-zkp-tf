@@ -1,3 +1,10 @@
+---
+layout: default
+title: Conformance evidence flow
+nav_order: 7
+parent: Diagrams
+has_toc: true
+---
 # Conformance evidence flow
 
 ```mermaid

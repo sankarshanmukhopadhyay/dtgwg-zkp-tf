@@ -1,0 +1,25 @@
+{
+  "deployment_id": "DEP-EXAMPLE-001",
+  "topology": "D-012",
+  "components": [
+    {
+      "name": "verifier",
+      "version": "1.0.0"
+    }
+  ],
+  "profiles": [
+    "DP-LOCAL-001"
+  ],
+  "key_custody": "hardware-backed service keys and holder-controlled keys",
+  "controls": [
+    "least-privilege",
+    "signed-releases",
+    "recovery-test"
+  ],
+  "owners": [
+    "deployment-owner"
+  ],
+  "residual_risks": [
+    "RR-EXAMPLE-001"
+  ]
+}

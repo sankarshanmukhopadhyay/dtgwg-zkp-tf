@@ -1,0 +1,6 @@
+scenario_id,deployment_profile,validation
+UC-032,hybrid,managed-wallet boundary review
+UC-033,enterprise verifier,cross-tenant negative tests
+UC-035,federated registry,conflict and transition tests
+UC-037,remote,degraded-mode exercise
+UC-043,enterprise verifier,load and abuse tests

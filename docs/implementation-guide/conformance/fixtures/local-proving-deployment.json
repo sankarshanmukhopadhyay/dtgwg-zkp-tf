@@ -1,0 +1,14 @@
+{
+  "profile_id": "DP-LOCAL-001",
+  "proving_mode": "local",
+  "trust_zones": [
+    "holder",
+    "verifier",
+    "registry"
+  ],
+  "controls": [
+    "protected-key-storage",
+    "transcript-binding",
+    "bounded-registry-cache"
+  ]
+}

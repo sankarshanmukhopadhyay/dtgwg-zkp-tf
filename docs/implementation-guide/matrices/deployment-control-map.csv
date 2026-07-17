@@ -1,0 +1,6 @@
+deployment_profile,control,evidence
+local,protected key storage,device security statement
+remote,job isolation and non-retention,prover assurance report
+hybrid,mode disclosure and downgrade prevention,mode decision receipt
+enterprise verifier,tenant and authority isolation,topology and access review
+federated registry,signed provenance and conflict policy,resolver trace

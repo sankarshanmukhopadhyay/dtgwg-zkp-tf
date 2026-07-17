@@ -1,3 +1,10 @@
+---
+layout: default
+title: D-001 — System context
+nav_order: 1
+parent: Diagrams
+has_toc: true
+---
 # D-001 — System context
 
 ```mermaid

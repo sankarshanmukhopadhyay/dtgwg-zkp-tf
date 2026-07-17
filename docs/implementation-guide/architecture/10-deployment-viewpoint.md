@@ -1,14 +1,23 @@
+---
+layout: default
+title: Deployment viewpoint
+nav_order: 10
+parent: Architecture
+has_toc: true
+---
 # Deployment viewpoint
 
-Implementations may deploy proof generation locally, remotely or as a hybrid, but trust boundaries and retained data must remain explicit.
+Deployment architecture separates authority, data exposure and operational control.
 
-| Zone | Typical components | Principal controls |
-|---|---|---|
-| Holder device | wallet, secure storage, local proof runtime | consent, key protection, request display |
-| Agent runtime | delegated task logic, agent key | scope enforcement and step-up |
-| Issuer environment | enrollment, attestation and status services | separation of duties and audit |
-| Verifier environment | request, verification and policy engine | policy versioning and decision receipts |
-| Registry infrastructure | publication, status and recognition records | signed state, time semantics and availability |
-| Assurance operations | monitoring, incident response and redress | evidence preservation and accountable decisions |
+| Zone | Components | Principal controls | Evidence |
+|---|---|---|---|
+| Holder | wallet, protected storage, local prover | consent, key protection, request rendering | device/profile statement |
+| Proving service | isolated proof workers | job isolation, non-retention, tenant separation | deletion and isolation evidence |
+| Issuer | enrollment, approval, signing, status | separation of duties, protected keys | issuance and status audit |
+| Verifier | edge, verifier, policy, resolver | staged decisions, policy versioning | decision receipt |
+| Registry | publication, recognition, cache | signed state, freshness, conflict policy | resolver trace |
+| Assurance | monitoring, incident, evidence | restricted access, integrity, redress | evidence package |
 
-Remote proof services create an additional exposure surface because they may observe credentials, requests or timing. Their role, authority and data retention must be documented. Cache entries require source, version, effective time and expiry metadata.
+Reference deployment profiles are maintained under [secure deployment](../deployment/README.md). Local, remote and hybrid proving are distinct profiles because they expose different actors to credential, witness, request and timing data.
+
+Production deployments document key custody, network boundaries, administrative identities, supply-chain controls, observability, recovery and residual-risk authority.

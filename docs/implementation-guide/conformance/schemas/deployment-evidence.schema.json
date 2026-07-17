@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "title": "Deployment evidence",
+  "additionalProperties": false,
+  "required": [
+    "deployment_id",
+    "topology",
+    "components",
+    "profiles",
+    "key_custody",
+    "controls",
+    "owners",
+    "residual_risks"
+  ],
+  "properties": {
+    "deployment_id": {
+      "type": "string"
+    },
+    "topology": {
+      "type": "string"
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "profiles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "key_custody": {
+      "type": "string"
+    },
+    "controls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "owners": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "residual_risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

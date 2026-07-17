@@ -1,3 +1,10 @@
+---
+layout: default
+title: Lifecycle flow
+nav_order: 6
+parent: Diagrams
+has_toc: true
+---
 # Lifecycle flow
 
 ```mermaid

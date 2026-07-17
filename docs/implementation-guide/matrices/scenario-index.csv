@@ -29,3 +29,21 @@ UC-027,"Verifier Policy Error, Appeal, and Redress",proposed,P0,redress-and-liab
 UC-028,Emergency or Disaster Operations,proposed,P2,reliance-policy,Governance
 UC-029,Large-Scale Batch Verification,proposed,P1,operational-viability,ZKP TF
 UC-030,Partial Deployment Across Independent Implementations,proposed,P0,interoperability,ZKP TF
+UC-031,Migration from Conventional Identity Checks,proposed,P1,adoption,Governance
+UC-032,Managed Enterprise Wallet Deployment,proposed,P0,deployment,Wallet
+UC-033,Multi-Tenant Verifier Isolation,proposed,P0,deployment-security,Verifier
+UC-034,Federated Issuer Ecosystem,proposed,P1,interoperability,Issuer
+UC-035,Registry Federation and Authority Transition,proposed,P0,registry-governance,Registry
+UC-036,Multi-Region Verifier Deployment,proposed,P1,resilience,Verifier
+UC-037,Proof Service or Cloud-Region Outage,proposed,P0,availability,Operations
+UC-038,Software Supply-Chain Compromise,proposed,P0,supply-chain-security,Operations
+UC-039,Emergency Signing-Key Rotation,proposed,P0,key-management,Issuer
+UC-040,Incorrect Policy Rollout and Rollback,proposed,P0,policy-operations,Verifier
+UC-041,Audit or Regulatory Evidence Request,proposed,P1,assurance-evidence,Governance
+UC-042,Data-Subject Challenge and State Correction,proposed,P0,redress,Governance
+UC-043,High-Volume Burst and Abuse Traffic,proposed,P1,operational-security,Verifier
+UC-044,Compromised Administrative Operator,proposed,P0,administrative-security,Operations
+UC-045,Expired Privacy or Assurance Horizon,proposed,P0,lifecycle,Governance
+UC-046,Cross-Organization Plugfest Onboarding,proposed,P1,adoption,ZKP TF
+UC-047,Cryptographic Library Vulnerability,proposed,P0,supply-chain-security,ZKP TF
+UC-048,Partial Rollback During Ecosystem Upgrade,proposed,P0,migration,Operations

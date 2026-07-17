@@ -1,0 +1,7 @@
+{
+  "risk_id": "RR-EXAMPLE-001",
+  "description": "bounded registry outage exposure",
+  "owner": "risk-acceptance-authority",
+  "decision": "accept",
+  "review_date": "2026-12-31"
+}

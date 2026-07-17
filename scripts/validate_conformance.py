@@ -140,6 +140,21 @@ def main() -> int:
                 errors.append(f"{scenario_index_path.name}:{i}: priority must be P0/P1/P2, "
                                f"got '{row.get('priority')}'")
 
+
+    # --- assurance-test dispositions ---
+    assurance_path = CONFORMANCE_DIR / "assurance-test-dispositions.csv"
+    if assurance_path.exists():
+        seen_assurance = set()
+        for i, row in enumerate(read_csv_rows(assurance_path), start=2):
+            aid, sid = row.get("assurance_test_id", ""), row.get("scenario_id", "")
+            if not aid or aid in seen_assurance:
+                errors.append(f"{assurance_path.name}:{i}: missing or duplicate assurance_test_id '{aid}'")
+            seen_assurance.add(aid)
+            if sid not in known_scenarios:
+                errors.append(f"{assurance_path.name}:{i}: unknown scenario_id '{sid}'")
+            if row.get("status") not in ("defined", "executed", "passed", "failed"):
+                errors.append(f"{assurance_path.name}:{i}: invalid status '{row.get('status')}'")
+
     # --- test-matrix.csv: referential integrity, uniqueness, level coverage ---
     test_rows = read_csv_rows(TEST_MATRIX)
     if not test_rows:

@@ -1,3 +1,10 @@
+---
+layout: default
+title: Issuance flow
+nav_order: 2
+parent: Diagrams
+has_toc: true
+---
 # Issuance flow
 
 ```mermaid

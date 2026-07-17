@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "title": "Incident evidence",
+  "additionalProperties": false,
+  "required": [
+    "incident_id",
+    "trigger",
+    "authority",
+    "scope",
+    "actions",
+    "evidence_refs",
+    "closure"
+  ],
+  "properties": {
+    "incident_id": {
+      "type": "string"
+    },
+    "trigger": {
+      "type": "string"
+    },
+    "authority": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "closure": {
+      "type": "string"
+    }
+  }
+}
