@@ -1,11 +1,11 @@
 ---
-title: Threat profile views
-status: incubating
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-16
+layout: default
+title: "Threat profile views"
+parent: "Threats, Harms and Controls"
+grand_parent: "Implementation Guide"
+nav_order: 7
+has_toc: true
 ---
-
 # Threat profile views
 
 - [Minimum Liveness](minimum-liveness-threat-profile.md)

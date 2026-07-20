@@ -1,3 +1,11 @@
+---
+layout: default
+title: "ADR-004 — Assurance is governance-backed"
+parent: "Architecture Decision Records"
+grand_parent: "Implementation Guide"
+nav_order: 4
+has_toc: true
+---
 # ADR-004 — Assurance is governance-backed
 
 - **Status:** proposed

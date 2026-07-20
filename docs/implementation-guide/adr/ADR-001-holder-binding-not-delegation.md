@@ -1,3 +1,11 @@
+---
+layout: default
+title: "ADR-001 — Holder binding is not agent delegation"
+parent: "Architecture Decision Records"
+grand_parent: "Implementation Guide"
+nav_order: 1
+has_toc: true
+---
 # ADR-001 — Holder binding is not agent delegation
 
 - **Status:** proposed

@@ -1,12 +1,11 @@
 ---
-title: Threat, harm and control model
-status: incubating
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-16
+layout: default
+title: "Threats, Harms and Controls"
+parent: "Implementation Guide"
+nav_order: 11
+has_children: true
+has_toc: true
 ---
-
-
 # Threat, harm and control model
 
 The security model connects system claims to adversaries, attack paths, harms, controls and evidence. It complements cryptographic security definitions by covering persistent artefacts, governance state, implementation behaviour and information observed outside the proof transcript.

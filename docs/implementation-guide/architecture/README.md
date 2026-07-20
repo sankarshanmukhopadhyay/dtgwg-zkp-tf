@@ -1,3 +1,11 @@
+---
+layout: default
+title: "Architecture"
+parent: "Implementation Guide"
+nav_order: 7
+has_children: true
+has_toc: true
+---
 # Architecture core
 
 The architecture is proof-system agnostic and exposes the authority, information, protocol, deployment and operational decisions that implementations must align.

@@ -1,3 +1,11 @@
+---
+layout: default
+title: "Glossary"
+parent: "Appendices"
+grand_parent: "Implementation Guide"
+nav_order: 2
+has_toc: true
+---
 # Glossary
 
 | Term | Definition |

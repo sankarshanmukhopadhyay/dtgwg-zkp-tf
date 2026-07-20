@@ -1,8 +1,9 @@
 ---
 layout: default
-title: D-001 — System context
+title: "D-001 — System context"
+parent: "Diagrams"
+grand_parent: "Implementation Guide"
 nav_order: 1
-parent: Diagrams
 has_toc: true
 ---
 # D-001 — System context

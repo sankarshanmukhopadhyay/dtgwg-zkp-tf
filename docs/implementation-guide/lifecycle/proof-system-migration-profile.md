@@ -1,12 +1,11 @@
 ---
-title: Proof-system and profile migration
-status: incubating
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-16
+layout: default
+title: "Proof-system and profile migration"
+parent: "Lifecycle and Migration"
+grand_parent: "Implementation Guide"
+nav_order: 2
+has_toc: true
 ---
-
-
 # Proof-system and profile migration
 
 Algorithm agility is operational only when a profile defines separable cryptographic and semantic layers, signed negotiation, overlap, deprecation, downgrade prevention and evidence continuity.

@@ -1,11 +1,11 @@
 ---
 layout: default
-title: Assurance test dispositions
-parent: Conformance
-nav_order: 6
+title: "Assurance test dispositions"
+parent: "Conformance"
+grand_parent: "Implementation Guide"
+nav_order: 1
 has_toc: true
 ---
-
 # Assurance test dispositions
 
 Not every scenario is best validated as a cryptographic test vector. Governance, deployment and operational scenarios use assurance tests that require a documented procedure, accountable authority, observed outcome and retained evidence.

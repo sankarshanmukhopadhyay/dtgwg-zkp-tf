@@ -1,3 +1,11 @@
+---
+layout: default
+title: "Implementer checklist"
+parent: "Core Guide"
+grand_parent: "Implementation Guide"
+nav_order: 3
+has_toc: true
+---
 # Implementer checklist
 
 ## Authority and semantics

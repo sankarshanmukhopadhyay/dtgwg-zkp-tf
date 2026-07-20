@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Remote proving deployment profile
-nav_order: 4
-parent: Implementation Guide
+title: "Remote proving deployment profile"
+parent: "Secure Deployment"
+grand_parent: "Implementation Guide"
+nav_order: 8
 has_toc: true
 ---
 # Remote proving deployment profile

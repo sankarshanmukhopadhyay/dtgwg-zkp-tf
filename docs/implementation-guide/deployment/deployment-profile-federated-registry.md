@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Federated registry deployment profile
-nav_order: 7
-parent: Implementation Guide
+title: "Federated registry deployment profile"
+parent: "Secure Deployment"
+grand_parent: "Implementation Guide"
+nav_order: 5
 has_toc: true
 ---
 # Federated registry deployment profile

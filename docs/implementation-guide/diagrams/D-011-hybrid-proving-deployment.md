@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Hybrid proving deployment
+title: "Hybrid proving deployment"
+parent: "Diagrams"
+grand_parent: "Implementation Guide"
 nav_order: 11
-parent: Diagrams
 has_toc: true
 ---
 # Hybrid proving deployment

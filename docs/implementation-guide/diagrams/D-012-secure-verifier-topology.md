@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Secure verifier topology
+title: "Secure verifier topology"
+parent: "Diagrams"
+grand_parent: "Implementation Guide"
 nav_order: 12
-parent: Diagrams
 has_toc: true
 ---
 # Secure verifier topology

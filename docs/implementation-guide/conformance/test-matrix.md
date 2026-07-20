@@ -1,11 +1,11 @@
 ---
-title: Conformance test matrix
-status: incubating
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-16
+layout: default
+title: "Conformance test matrix"
+parent: "Conformance"
+grand_parent: "Implementation Guide"
+nav_order: 5
+has_toc: true
 ---
-
 # Conformance test matrix
 
 The CSV source is authoritative. This view contains all current positive and negative tests.

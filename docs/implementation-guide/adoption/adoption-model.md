@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Adoption model
-nav_order: 2
-parent: Implementation Guide
+title: "Adoption model"
+parent: "Adoption"
+grand_parent: "Implementation Guide"
+nav_order: 1
 has_toc: true
 ---
 # Adoption model

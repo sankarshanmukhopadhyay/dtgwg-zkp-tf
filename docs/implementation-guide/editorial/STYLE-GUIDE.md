@@ -1,11 +1,11 @@
 ---
-title: Repository documentation style profile
-status: stable
-normative_status: repository-process
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-15
+layout: default
+title: "Repository documentation style profile"
+parent: "Editorial and Contribution Guidance"
+grand_parent: "Implementation Guide"
+nav_order: 4
+has_toc: true
 ---
-
 # Repository documentation style profile
 
 ## 1. Authority and precedence

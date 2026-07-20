@@ -1,3 +1,11 @@
+---
+layout: default
+title: "Information viewpoint"
+parent: "Architecture"
+grand_parent: "Implementation Guide"
+nav_order: 8
+has_toc: true
+---
 # Information viewpoint
 
 The architecture distinguishes evidence, policy and transaction objects so that proof verification cannot silently stand in for governance authorization.

@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Diagrams
-nav_order: 10
-parent: Implementation Guide
+title: "Diagrams"
+parent: "Implementation Guide"
+nav_order: 18
 has_children: true
 has_toc: true
 ---

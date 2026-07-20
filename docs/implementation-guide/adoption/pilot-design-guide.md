@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Pilot design guide
+title: "Pilot design guide"
+parent: "Adoption"
+grand_parent: "Implementation Guide"
 nav_order: 5
-parent: Implementation Guide
 has_toc: true
 ---
 # Pilot design guide

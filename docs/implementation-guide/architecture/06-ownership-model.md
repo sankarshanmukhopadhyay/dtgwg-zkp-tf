@@ -1,3 +1,11 @@
+---
+layout: default
+title: "Concern ownership model"
+parent: "Architecture"
+grand_parent: "Implementation Guide"
+nav_order: 6
+has_toc: true
+---
 # Concern ownership model
 
 | Concern | ZKP TF | Credentials TF | Trust Tasks TF | Registry work | Human Experience | Governance |

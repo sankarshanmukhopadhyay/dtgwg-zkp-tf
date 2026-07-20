@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Deployment viewpoint
+title: "Deployment viewpoint"
+parent: "Architecture"
+grand_parent: "Implementation Guide"
 nav_order: 10
-parent: Architecture
 has_toc: true
 ---
 # Deployment viewpoint

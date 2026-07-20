@@ -1,3 +1,12 @@
+---
+layout: default
+title: "DTG ZKP Implementation & Interoperability Guide Workspace"
+parent: "Maintenance Notes"
+grand_parent: "Implementation Guide"
+nav_order: 2
+has_toc: true
+nav_exclude: true
+---
 # DTG ZKP Implementation & Interoperability Guide Workspace
 
 Branch-ready documentation package for addition to a fork of

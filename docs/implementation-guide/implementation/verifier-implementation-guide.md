@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Verifier implementation guide
-nav_order: 4
-parent: Implementation Guide
+title: "Verifier implementation guide"
+parent: "Implementation"
+grand_parent: "Implementation Guide"
+nav_order: 5
 has_toc: true
 ---
 # Verifier implementation guide

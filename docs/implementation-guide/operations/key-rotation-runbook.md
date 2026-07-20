@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Key rotation runbook
-nav_order: 9
-parent: Implementation Guide
+title: "Key rotation runbook"
+parent: "Operations"
+grand_parent: "Implementation Guide"
+nav_order: 4
 has_toc: true
 ---
 # Key rotation runbook

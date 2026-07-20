@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Shared-device threat boundaries
+title: "Shared-device threat boundaries"
+parent: "Diagrams"
+grand_parent: "Implementation Guide"
 nav_order: 23
-parent: Diagrams
 has_toc: true
 ---
 # Shared-device threat boundaries

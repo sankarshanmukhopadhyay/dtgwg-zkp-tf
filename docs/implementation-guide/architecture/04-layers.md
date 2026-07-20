@@ -1,3 +1,11 @@
+---
+layout: default
+title: "Architectural layers"
+parent: "Architecture"
+grand_parent: "Implementation Guide"
+nav_order: 4
+has_toc: true
+---
 # Architectural layers
 
 | Layer | Responsibility | Must not silently absorb |

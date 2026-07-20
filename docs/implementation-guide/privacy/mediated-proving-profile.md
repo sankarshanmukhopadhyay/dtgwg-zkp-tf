@@ -1,12 +1,11 @@
 ---
-title: Mediated proving profile
-status: incubating
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-16
+layout: default
+title: "Mediated proving profile"
+parent: "Privacy Engineering"
+grand_parent: "Implementation Guide"
+nav_order: 2
+has_toc: true
 ---
-
-
 # Mediated proving profile
 
 Mediated proving is a separate deployment profile, not a transparent substitute for local proving.

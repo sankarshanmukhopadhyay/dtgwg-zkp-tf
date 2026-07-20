@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Registry resolution flow
+title: "Registry resolution flow"
+parent: "Diagrams"
+grand_parent: "Implementation Guide"
 nav_order: 5
-parent: Diagrams
 has_toc: true
 ---
 # Registry resolution flow

@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Policy update runbook
-nav_order: 3
-parent: Implementation Guide
+title: "Policy update runbook"
+parent: "Operations"
+grand_parent: "Implementation Guide"
+nav_order: 6
 has_toc: true
 ---
 # Policy update runbook

@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Software supply-chain security
-nav_order: 11
-parent: Implementation Guide
+title: "Software supply-chain security"
+parent: "Secure Deployment"
+grand_parent: "Implementation Guide"
+nav_order: 13
 has_toc: true
 ---
 # Software supply-chain security

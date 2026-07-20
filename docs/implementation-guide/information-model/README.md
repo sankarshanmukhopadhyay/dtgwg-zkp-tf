@@ -1,12 +1,11 @@
 ---
-title: Attestation information model
-status: incubating
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-16
+layout: default
+title: "Information Model"
+parent: "Implementation Guide"
+nav_order: 13
+has_children: true
+has_toc: true
 ---
-
-
 # Attestation information model
 
 The attestation schema is a controlled interoperability and privacy artefact. It carries the fields that support reliance and can also create cross-context correlators. Schema review therefore combines semantic necessity, disclosure mode, cardinality, stability, retention and migration analysis.

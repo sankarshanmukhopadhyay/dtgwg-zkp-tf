@@ -1,3 +1,11 @@
+---
+layout: default
+title: "Pressure-Test Use Case Corpus for DTG Privacy-Preserving ZK Proofs"
+parent: "Scenarios"
+grand_parent: "Implementation Guide"
+nav_order: 2
+has_toc: true
+---
 # Pressure-Test Use Case Corpus for DTG Privacy-Preserving ZK Proofs
 
 **Status:** Draft for task-force discussion  

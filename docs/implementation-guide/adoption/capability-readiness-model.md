@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Capability readiness model
-nav_order: 3
-parent: Implementation Guide
+title: "Capability readiness model"
+parent: "Adoption"
+grand_parent: "Implementation Guide"
+nav_order: 2
 has_toc: true
 ---
 # Capability readiness model

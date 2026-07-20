@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Local proving deployment profile
-nav_order: 3
-parent: Implementation Guide
+title: "Local proving deployment profile"
+parent: "Secure Deployment"
+grand_parent: "Implementation Guide"
+nav_order: 7
 has_toc: true
 ---
 # Local proving deployment profile

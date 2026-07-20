@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Wallet compromise and recovery runbook
-nav_order: 8
-parent: Implementation Guide
+title: "Wallet compromise and recovery runbook"
+parent: "Operations"
+grand_parent: "Implementation Guide"
+nav_order: 12
 has_toc: true
 ---
 # Wallet compromise and recovery runbook

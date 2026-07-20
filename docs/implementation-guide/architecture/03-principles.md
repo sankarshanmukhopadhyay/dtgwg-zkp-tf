@@ -1,3 +1,11 @@
+---
+layout: default
+title: "Architectural principles"
+parent: "Architecture"
+grand_parent: "Implementation Guide"
+nav_order: 3
+has_toc: true
+---
 # Architectural principles
 
 ## AP-01 — Privacy is contextual

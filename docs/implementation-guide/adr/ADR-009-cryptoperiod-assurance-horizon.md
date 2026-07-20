@@ -1,11 +1,11 @@
 ---
-title: Cryptoperiod and assurance horizon
-status: accepted
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-17
+layout: default
+title: "Cryptoperiod and assurance horizon"
+parent: "Architecture Decision Records"
+grand_parent: "Implementation Guide"
+nav_order: 9
+has_toc: true
 ---
-
 # Cryptoperiod and assurance horizon
 
 ## Context

@@ -1,3 +1,12 @@
+---
+layout: default
+title: "Proposed pull request"
+parent: "Maintenance Notes"
+grand_parent: "Implementation Guide"
+nav_order: 1
+has_toc: true
+nav_exclude: true
+---
 # Proposed pull request
 
 ## Title

@@ -1,12 +1,11 @@
 ---
-title: Composition and reconstruction assessment
-status: incubating
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-16
+layout: default
+title: "Composition and reconstruction assessment"
+parent: "Privacy Engineering"
+grand_parent: "Implementation Guide"
+nav_order: 1
+has_toc: true
 ---
-
-
 # Composition and reconstruction assessment
 
 A proof is assessed together with every credential field, protocol element, registry query, error path and retained record presented or produced in the same transaction.

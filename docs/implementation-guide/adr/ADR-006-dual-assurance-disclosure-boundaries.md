@@ -1,11 +1,11 @@
 ---
-title: Dual assurance and disclosure boundaries
-status: accepted
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-17
+layout: default
+title: "Dual assurance and disclosure boundaries"
+parent: "Architecture Decision Records"
+grand_parent: "Implementation Guide"
+nav_order: 6
+has_toc: true
 ---
-
 # Dual assurance and disclosure boundaries
 
 ## Context

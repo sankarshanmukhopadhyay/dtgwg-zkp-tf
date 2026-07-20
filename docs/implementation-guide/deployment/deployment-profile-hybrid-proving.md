@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Hybrid proving deployment profile
-nav_order: 5
-parent: Implementation Guide
+title: "Hybrid proving deployment profile"
+parent: "Secure Deployment"
+grand_parent: "Implementation Guide"
+nav_order: 6
 has_toc: true
 ---
 # Hybrid proving deployment profile

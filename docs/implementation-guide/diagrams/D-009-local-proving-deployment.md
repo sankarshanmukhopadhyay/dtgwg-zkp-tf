@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Local proving deployment
+title: "Local proving deployment"
+parent: "Diagrams"
+grand_parent: "Implementation Guide"
 nav_order: 9
-parent: Diagrams
 has_toc: true
 ---
 # Local proving deployment

@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Wallet and holder implementation guide
-nav_order: 3
-parent: Implementation Guide
+title: "Wallet and holder implementation guide"
+parent: "Implementation"
+grand_parent: "Implementation Guide"
+nav_order: 6
 has_toc: true
 ---
 # Wallet and holder implementation guide

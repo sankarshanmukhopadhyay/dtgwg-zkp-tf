@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Redress and correction flow
+title: "Redress and correction flow"
+parent: "Diagrams"
+grand_parent: "Implementation Guide"
 nav_order: 24
-parent: Diagrams
 has_toc: true
 ---
 # Redress and correction flow

@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Conformance evidence flow
+title: "Conformance evidence flow"
+parent: "Diagrams"
+grand_parent: "Implementation Guide"
 nav_order: 7
-parent: Diagrams
 has_toc: true
 ---
 # Conformance evidence flow

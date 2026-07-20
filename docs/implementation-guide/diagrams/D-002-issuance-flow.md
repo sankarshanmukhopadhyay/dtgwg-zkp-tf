@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Issuance flow
+title: "Issuance flow"
+parent: "Diagrams"
+grand_parent: "Implementation Guide"
 nav_order: 2
-parent: Diagrams
 has_toc: true
 ---
 # Issuance flow

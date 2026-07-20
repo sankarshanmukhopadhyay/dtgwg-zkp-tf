@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Correlation surface map
+title: "Correlation surface map"
+parent: "Diagrams"
+grand_parent: "Implementation Guide"
 nav_order: 22
-parent: Diagrams
 has_toc: true
 ---
 # Correlation surface map

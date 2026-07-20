@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Agent delegation and step-up flow
+title: "Agent delegation and step-up flow"
+parent: "Diagrams"
+grand_parent: "Implementation Guide"
 nav_order: 4
-parent: Diagrams
 has_toc: true
 ---
 # Agent delegation and step-up flow

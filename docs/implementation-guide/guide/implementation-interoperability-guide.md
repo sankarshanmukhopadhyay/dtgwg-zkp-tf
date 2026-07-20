@@ -1,11 +1,11 @@
 ---
-title: DTG ZKP Implementation and Interoperability Guide
-status: incubating
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-17
+layout: default
+title: "DTG ZKP Implementation and Interoperability Guide"
+parent: "Core Guide"
+grand_parent: "Implementation Guide"
+nav_order: 2
+has_toc: true
 ---
-
 # DTG ZKP Implementation and Interoperability Guide
 
 ## Status and use of this guide

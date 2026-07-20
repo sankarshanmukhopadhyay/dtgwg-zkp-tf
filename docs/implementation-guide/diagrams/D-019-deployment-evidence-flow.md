@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Deployment evidence flow
+title: "Deployment evidence flow"
+parent: "Diagrams"
+grand_parent: "Implementation Guide"
 nav_order: 19
-parent: Diagrams
 has_toc: true
 ---
 # Deployment evidence flow

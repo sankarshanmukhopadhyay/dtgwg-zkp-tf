@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Adoption maturity pathway
+title: "Adoption maturity pathway"
+parent: "Diagrams"
+grand_parent: "Implementation Guide"
 nav_order: 8
-parent: Diagrams
 has_toc: true
 ---
 # Adoption maturity pathway

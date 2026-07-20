@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Key and secret management
+title: "Key and secret management"
+parent: "Secure Deployment"
+grand_parent: "Implementation Guide"
 nav_order: 9
-parent: Implementation Guide
 has_toc: true
 ---
 # Key and secret management

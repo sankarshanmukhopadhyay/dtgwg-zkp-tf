@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Production security baseline
-nav_order: 8
-parent: Implementation Guide
+title: "Production security baseline"
+parent: "Secure Deployment"
+grand_parent: "Implementation Guide"
+nav_order: 12
 has_toc: true
 ---
 # Production security baseline

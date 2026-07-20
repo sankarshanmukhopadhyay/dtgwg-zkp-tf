@@ -1,12 +1,11 @@
 ---
-title: Control catalogue
-status: incubating
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-16
+layout: default
+title: "Control catalogue"
+parent: "Threats, Harms and Controls"
+grand_parent: "Implementation Guide"
+nav_order: 1
+has_toc: true
 ---
-
-
 # Control catalogue
 
 | Control ID | Control | Primary owner | Evidence |

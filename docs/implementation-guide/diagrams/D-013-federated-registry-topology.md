@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Federated registry topology
+title: "Federated registry topology"
+parent: "Diagrams"
+grand_parent: "Implementation Guide"
 nav_order: 13
-parent: Diagrams
 has_toc: true
 ---
 # Federated registry topology

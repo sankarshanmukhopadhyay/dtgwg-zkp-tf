@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Issuer compromise runbook
-nav_order: 6
-parent: Implementation Guide
+title: "Issuer compromise runbook"
+parent: "Operations"
+grand_parent: "Implementation Guide"
+nav_order: 3
 has_toc: true
 ---
 # Issuer compromise runbook

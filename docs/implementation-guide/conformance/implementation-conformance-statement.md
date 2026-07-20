@@ -1,3 +1,11 @@
+---
+layout: default
+title: "Implementation conformance statement"
+parent: "Conformance"
+grand_parent: "Implementation Guide"
+nav_order: 2
+has_toc: true
+---
 # Implementation conformance statement
 
 | Field | Value |

@@ -1,12 +1,11 @@
 ---
-title: Assurance and disclosure boundaries
-status: incubating
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-16
+layout: default
+title: "Assurance and Disclosure Boundaries"
+parent: "Implementation Guide"
+nav_order: 12
+has_children: true
+has_toc: true
 ---
-
-
 # Assurance and disclosure boundaries
 
 A conformant profile analyses every predicate through two linked views.

@@ -1,3 +1,11 @@
+---
+layout: default
+title: "References"
+parent: "Appendices"
+grand_parent: "Implementation Guide"
+nav_order: 3
+has_toc: true
+---
 # References
 
 ## Repository authorities

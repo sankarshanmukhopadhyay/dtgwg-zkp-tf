@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Implementation sequencing
-nav_order: 4
-parent: Implementation Guide
+title: "Implementation sequencing"
+parent: "Adoption"
+grand_parent: "Implementation Guide"
+nav_order: 3
 has_toc: true
 ---
 # Implementation sequencing

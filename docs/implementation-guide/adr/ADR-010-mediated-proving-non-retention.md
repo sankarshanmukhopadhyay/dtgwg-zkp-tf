@@ -1,11 +1,11 @@
 ---
-title: Mediated proving non-retention
-status: accepted
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-16
+layout: default
+title: "Mediated proving non-retention"
+parent: "Architecture Decision Records"
+grand_parent: "Implementation Guide"
+nav_order: 10
+has_toc: true
 ---
-
 # Mediated proving non-retention
 
 ## Context

@@ -1,3 +1,11 @@
+---
+layout: default
+title: "ADR-003 — Nullifiers provide scoped reuse detection"
+parent: "Architecture Decision Records"
+grand_parent: "Implementation Guide"
+nav_order: 3
+has_toc: true
+---
 # ADR-003 — Nullifiers provide scoped reuse detection
 
 - **Status:** proposed

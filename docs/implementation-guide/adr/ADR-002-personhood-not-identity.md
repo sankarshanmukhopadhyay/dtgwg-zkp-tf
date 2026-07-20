@@ -1,3 +1,11 @@
+---
+layout: default
+title: "ADR-002 — Personhood is distinct from civil identity"
+parent: "Architecture Decision Records"
+grand_parent: "Implementation Guide"
+nav_order: 2
+has_toc: true
+---
 # ADR-002 — Personhood is distinct from civil identity
 
 - **Status:** proposed

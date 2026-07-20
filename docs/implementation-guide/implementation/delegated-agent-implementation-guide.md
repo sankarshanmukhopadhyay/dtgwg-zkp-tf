@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Delegated-agent implementation guide
-nav_order: 6
-parent: Implementation Guide
+title: "Delegated-agent implementation guide"
+parent: "Implementation"
+grand_parent: "Implementation Guide"
+nav_order: 2
 has_toc: true
 ---
 # Delegated-agent implementation guide

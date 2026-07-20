@@ -1,3 +1,11 @@
+---
+layout: default
+title: "Error catalogue"
+parent: "Appendices"
+grand_parent: "Implementation Guide"
+nav_order: 1
+has_toc: true
+---
 # Error catalogue
 
 | ID | Condition | Retry or fallback | Audit requirement |

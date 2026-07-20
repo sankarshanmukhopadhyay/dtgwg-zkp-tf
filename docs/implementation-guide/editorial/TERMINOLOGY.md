@@ -1,3 +1,11 @@
+---
+layout: default
+title: "Controlled terminology"
+parent: "Editorial and Contribution Guidance"
+grand_parent: "Implementation Guide"
+nav_order: 5
+has_toc: true
+---
 # Controlled terminology
 
 | Preferred term | Avoid or qualify | Rule |

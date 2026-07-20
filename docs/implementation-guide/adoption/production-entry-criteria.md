@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Production entry criteria
-nav_order: 8
-parent: Implementation Guide
+title: "Production entry criteria"
+parent: "Adoption"
+grand_parent: "Implementation Guide"
+nav_order: 6
 has_toc: true
 ---
 # Production entry criteria

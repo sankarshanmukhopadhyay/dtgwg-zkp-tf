@@ -1,11 +1,11 @@
 ---
-title: Attestation schema sets both boundaries
-status: accepted
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-17
+layout: default
+title: "Attestation schema sets both boundaries"
+parent: "Architecture Decision Records"
+grand_parent: "Implementation Guide"
+nav_order: 7
+has_toc: true
 ---
-
 # Attestation schema sets both boundaries
 
 ## Context

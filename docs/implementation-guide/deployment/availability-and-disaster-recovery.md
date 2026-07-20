@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Availability and disaster recovery
-nav_order: 13
-parent: Implementation Guide
+title: "Availability and disaster recovery"
+parent: "Secure Deployment"
+grand_parent: "Implementation Guide"
+nav_order: 1
 has_toc: true
 ---
 # Availability and disaster recovery

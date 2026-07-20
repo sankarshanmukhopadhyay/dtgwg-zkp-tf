@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Revocation propagation
+title: "Revocation propagation"
+parent: "Diagrams"
+grand_parent: "Implementation Guide"
 nav_order: 17
-parent: Diagrams
 has_toc: true
 ---
 # Revocation propagation

@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Remote proving deployment
+title: "Remote proving deployment"
+parent: "Diagrams"
+grand_parent: "Implementation Guide"
 nav_order: 10
-parent: Diagrams
 has_toc: true
 ---
 # Remote proving deployment

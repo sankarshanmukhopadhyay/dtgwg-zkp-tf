@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Implementation
+title: "Implementation"
+parent: "Implementation Guide"
 nav_order: 4
-parent: Implementation Guide
+has_children: true
 has_toc: true
 ---
 # Component implementation guides

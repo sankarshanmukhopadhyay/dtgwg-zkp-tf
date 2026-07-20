@@ -1,12 +1,11 @@
 ---
-title: Predicate boundary register
-status: incubating
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-16
+layout: default
+title: "Predicate boundary register"
+parent: "Assurance and Disclosure Boundaries"
+grand_parent: "Implementation Guide"
+nav_order: 5
+has_toc: true
 ---
-
-
 # Predicate boundary register
 
 | Predicate | Assurance boundary | Disclosure boundary | Required profile treatment |

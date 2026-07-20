@@ -1,3 +1,12 @@
+---
+layout: default
+title: "ADR-NNN — Decision title"
+parent: "Architecture Decision Records"
+grand_parent: "Implementation Guide"
+nav_order: 12
+has_toc: true
+nav_exclude: true
+---
 # ADR-NNN — Decision title
 
 - **Status:** proposed

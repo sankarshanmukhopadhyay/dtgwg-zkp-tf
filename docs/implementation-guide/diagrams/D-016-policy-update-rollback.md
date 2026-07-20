@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Policy update and rollback
+title: "Policy update and rollback"
+parent: "Diagrams"
+grand_parent: "Implementation Guide"
 nav_order: 16
-parent: Diagrams
 has_toc: true
 ---
 # Policy update and rollback

@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Incident evidence guide
-nav_order: 12
-parent: Implementation Guide
+title: "Incident evidence guide"
+parent: "Operations"
+grand_parent: "Implementation Guide"
+nav_order: 2
 has_toc: true
 ---
 # Incident evidence guide

@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Deployment principles
-nav_order: 2
-parent: Implementation Guide
+title: "Deployment principles"
+parent: "Secure Deployment"
+grand_parent: "Implementation Guide"
+nav_order: 3
 has_toc: true
 ---
 # Deployment principles

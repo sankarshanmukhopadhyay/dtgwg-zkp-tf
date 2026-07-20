@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Revocation propagation runbook
-nav_order: 5
-parent: Implementation Guide
+title: "Revocation propagation runbook"
+parent: "Operations"
+grand_parent: "Implementation Guide"
+nav_order: 10
 has_toc: true
 ---
 # Revocation propagation runbook

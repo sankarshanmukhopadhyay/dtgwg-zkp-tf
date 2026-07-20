@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Operations
+title: "Operations"
+parent: "Implementation Guide"
 nav_order: 6
-parent: Implementation Guide
+has_children: true
 has_toc: true
 ---
 # Operational playbooks

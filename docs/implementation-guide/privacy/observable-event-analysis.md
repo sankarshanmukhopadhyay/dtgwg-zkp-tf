@@ -1,12 +1,11 @@
 ---
-title: Observable event analysis
-status: incubating
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-16
+layout: default
+title: "Observable event analysis"
+parent: "Privacy Engineering"
+grand_parent: "Implementation Guide"
+nav_order: 3
+has_toc: true
 ---
-
-
 # Observable event analysis
 
 The presentation event remains observable even when the proof transcript is zero knowledge. Deployments analyse who can observe that a proof was requested, generated, mediated, retried, rejected or stepped up.

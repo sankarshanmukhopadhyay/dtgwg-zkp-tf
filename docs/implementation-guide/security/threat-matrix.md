@@ -1,11 +1,11 @@
 ---
-title: Canonical threat matrix
-status: incubating
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-16
+layout: default
+title: "Canonical threat matrix"
+parent: "Threats, Harms and Controls"
+grand_parent: "Implementation Guide"
+nav_order: 9
+has_toc: true
 ---
-
 # Canonical threat matrix
 
 This generated view summarizes the authoritative `threat-matrix.yaml`. Detailed attack paths, controls and evidence are available in the YAML and CSV views.

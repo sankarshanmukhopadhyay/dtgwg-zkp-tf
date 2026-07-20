@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Verifier compromise runbook
-nav_order: 7
-parent: Implementation Guide
+title: "Verifier compromise runbook"
+parent: "Operations"
+grand_parent: "Implementation Guide"
+nav_order: 11
 has_toc: true
 ---
 # Verifier compromise runbook

@@ -1,3 +1,11 @@
+---
+layout: default
+title: "Quality attributes"
+parent: "Architecture"
+grand_parent: "Implementation Guide"
+nav_order: 7
+has_toc: true
+---
 # Quality attributes
 
 | Attribute | Objective | Test or review method | Evidence |

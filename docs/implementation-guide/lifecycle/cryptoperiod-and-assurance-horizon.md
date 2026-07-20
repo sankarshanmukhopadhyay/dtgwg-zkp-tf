@@ -1,12 +1,11 @@
 ---
-title: Cryptoperiods and assurance horizons
-status: incubating
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-16
+layout: default
+title: "Cryptoperiods and assurance horizons"
+parent: "Lifecycle and Migration"
+grand_parent: "Implementation Guide"
+nav_order: 1
+has_toc: true
 ---
-
-
 # Cryptoperiods and assurance horizons
 
 Different artefacts operate on different clocks. Each profile records at least:

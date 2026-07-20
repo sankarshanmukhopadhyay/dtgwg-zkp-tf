@@ -110,3 +110,11 @@ The implementation guide now includes paired assurance and disclosure boundaries
 
 The implementation guide now includes paired assurance and disclosure boundaries, a canonical threat, harm and control model, attestation-schema correlation analysis, cryptoperiod and assurance-horizon guidance, mediated-proving controls and executable migration requirements. These additions remain proof-system agnostic and do not ratify an unresolved construction choice.
 
+
+## Documentation site
+
+The complete implementation guide is published with GitHub Pages and the Just the Docs theme at:
+
+<https://sankarshanmukhopadhyay.github.io/dtgwg-zkp-tf/>
+
+Every Markdown document under `docs/implementation-guide/` is required to contain Jekyll front matter and to produce a corresponding themed HTML page. The Pages workflow enforces this through `scripts/validate_navigation.py` before the build and `scripts/validate_site_output.py` after the build. Mermaid diagrams are transformed from fenced `mermaid` blocks and rendered client-side using the repository's Mermaid initialization asset.

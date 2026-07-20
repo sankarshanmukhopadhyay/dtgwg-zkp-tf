@@ -1,11 +1,11 @@
 ---
-title: Extended Personhood threat profile
-status: incubating
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-16
+layout: default
+title: "Extended Personhood threat profile"
+parent: "Threats, Harms and Controls"
+grand_parent: "Implementation Guide"
+nav_order: 4
+has_toc: true
 ---
-
 # Extended Personhood threat profile
 
 Adds scoped nullifiers, enrolment roots, context-dependent unlinkability, recovery continuity and collusion analysis.

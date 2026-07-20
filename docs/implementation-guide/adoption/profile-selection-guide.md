@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Profile selection guide
-nav_order: 6
-parent: Implementation Guide
+title: "Profile selection guide"
+parent: "Adoption"
+grand_parent: "Implementation Guide"
+nav_order: 7
 has_toc: true
 ---
 # Profile selection guide

@@ -1,12 +1,11 @@
 ---
-title: Residual risk register
-status: incubating
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-16
+layout: default
+title: "Residual risk register"
+parent: "Threats, Harms and Controls"
+grand_parent: "Implementation Guide"
+nav_order: 8
+has_toc: true
 ---
-
-
 # Residual risk register
 
 | Risk ID | Threat ID | Residual condition | Severity | Disposition | Decision authority | Expiry/review | Evidence |

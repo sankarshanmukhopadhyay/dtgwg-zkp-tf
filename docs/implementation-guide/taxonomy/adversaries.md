@@ -1,3 +1,11 @@
+---
+layout: default
+title: "Adversary taxonomy"
+parent: "Taxonomy"
+grand_parent: "Implementation Guide"
+nav_order: 1
+has_toc: true
+---
 # Adversary taxonomy
 
 | ID | Adversary |

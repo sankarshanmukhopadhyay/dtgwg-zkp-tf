@@ -1,3 +1,12 @@
+---
+layout: default
+title: "UC-NNN — Scenario title"
+parent: "Scenarios"
+grand_parent: "Implementation Guide"
+nav_order: 3
+has_toc: true
+nav_exclude: true
+---
 # UC-NNN — Scenario title
 
 | Field | Content |

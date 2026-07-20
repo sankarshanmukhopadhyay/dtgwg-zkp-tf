@@ -1,3 +1,11 @@
+---
+layout: default
+title: "Conformance evidence guide"
+parent: "Core Guide"
+grand_parent: "Implementation Guide"
+nav_order: 1
+has_toc: true
+---
 # Conformance evidence guide
 
 A portable evidence bundle supports independent review and repeatable plugfest results. It should contain implementation metadata, profile declarations, environment information, the test-manifest version, fixture digests, per-test outcomes, skipped cases, exceptions and generation time.

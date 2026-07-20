@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Operational viewpoint
+title: "Operational viewpoint"
+parent: "Architecture"
+grand_parent: "Implementation Guide"
 nav_order: 11
-parent: Architecture
 has_toc: true
 ---
 # Operational viewpoint

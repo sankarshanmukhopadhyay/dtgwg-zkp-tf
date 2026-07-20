@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Presentation and verification flow
+title: "Presentation and verification flow"
+parent: "Diagrams"
+grand_parent: "Implementation Guide"
 nav_order: 3
-parent: Diagrams
 has_toc: true
 ---
 # Presentation and verification flow

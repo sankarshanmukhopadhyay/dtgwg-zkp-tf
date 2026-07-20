@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Network and trust-zone controls
+title: "Network and trust-zone controls"
+parent: "Secure Deployment"
+grand_parent: "Implementation Guide"
 nav_order: 10
-parent: Implementation Guide
 has_toc: true
 ---
 # Network and trust-zone controls

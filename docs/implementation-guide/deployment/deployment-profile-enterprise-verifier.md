@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Enterprise verifier deployment profile
-nav_order: 6
-parent: Implementation Guide
+title: "Enterprise verifier deployment profile"
+parent: "Secure Deployment"
+grand_parent: "Implementation Guide"
+nav_order: 4
 has_toc: true
 ---
 # Enterprise verifier deployment profile

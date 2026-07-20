@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Degraded mode runbook
-nav_order: 11
-parent: Implementation Guide
+title: "Degraded mode runbook"
+parent: "Operations"
+grand_parent: "Implementation Guide"
+nav_order: 1
 has_toc: true
 ---
 # Degraded mode runbook

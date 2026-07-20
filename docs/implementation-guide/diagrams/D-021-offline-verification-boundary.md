@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Offline verification boundary
+title: "Offline verification boundary"
+parent: "Diagrams"
+grand_parent: "Implementation Guide"
 nav_order: 21
-parent: Diagrams
 has_toc: true
 ---
 # Offline verification boundary

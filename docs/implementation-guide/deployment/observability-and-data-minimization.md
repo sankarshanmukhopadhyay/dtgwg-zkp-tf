@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Observability and data minimization
-nav_order: 12
-parent: Implementation Guide
+title: "Observability and data minimization"
+parent: "Secure Deployment"
+grand_parent: "Implementation Guide"
+nav_order: 11
 has_toc: true
 ---
 # Observability and data minimization

@@ -1,3 +1,11 @@
+---
+layout: default
+title: "Profile conformance statement"
+parent: "Conformance"
+grand_parent: "Implementation Guide"
+nav_order: 4
+has_toc: true
+---
 # Profile conformance statement
 
 A profile declaration records its predicate semantics, authority dependencies and test obligations.

@@ -1,11 +1,11 @@
 ---
-title: Three-part claim parameterization
-status: accepted
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-17
+layout: default
+title: "Three-part claim parameterization"
+parent: "Architecture Decision Records"
+grand_parent: "Implementation Guide"
+nav_order: 8
+has_toc: true
 ---
-
 # Three-part claim parameterization
 
 ## Context

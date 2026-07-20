@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Registry implementation guide
-nav_order: 5
-parent: Implementation Guide
+title: "Registry implementation guide"
+parent: "Implementation"
+grand_parent: "Implementation Guide"
+nav_order: 4
 has_toc: true
 ---
 # Registry implementation guide

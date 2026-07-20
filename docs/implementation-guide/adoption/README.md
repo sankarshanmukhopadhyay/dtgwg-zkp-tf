@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Adoption
+title: "Adoption"
+parent: "Implementation Guide"
 nav_order: 3
-parent: Implementation Guide
+has_children: true
 has_toc: true
 ---
 # Adoption pathway

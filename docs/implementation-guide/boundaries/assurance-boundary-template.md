@@ -1,12 +1,12 @@
 ---
-title: Assurance boundary template
-status: incubating
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-16
+layout: default
+title: "Assurance boundary template"
+parent: "Assurance and Disclosure Boundaries"
+grand_parent: "Implementation Guide"
+nav_order: 1
+has_toc: true
+nav_exclude: true
 ---
-
-
 # Assurance boundary template
 
 | Field | Required content |

@@ -1,11 +1,12 @@
 ---
-title: Document title
-status: proposed
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: YYYY-MM-DD
+layout: default
+title: "Document title"
+parent: "Editorial and Contribution Guidance"
+grand_parent: "Implementation Guide"
+nav_order: 2
+has_toc: true
+nav_exclude: true
 ---
-
 # Document title
 
 ## Purpose

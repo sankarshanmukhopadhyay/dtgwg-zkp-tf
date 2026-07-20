@@ -1,12 +1,11 @@
 ---
-title: Attestation schema and correlation profile
-status: incubating
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-16
+layout: default
+title: "Attestation schema and correlation profile"
+parent: "Information Model"
+grand_parent: "Implementation Guide"
+nav_order: 1
+has_toc: true
 ---
-
-
 # Attestation schema and correlation profile
 
 A profile identifies each attestation field as one of: disclosed, selectively disclosed, committed, derived in proof, verifier-resolved, or prohibited. The schema must not include issuer-local tracking values merely because they are convenient for operations.

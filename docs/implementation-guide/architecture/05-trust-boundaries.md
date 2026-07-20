@@ -1,3 +1,11 @@
+---
+layout: default
+title: "Trust boundaries"
+parent: "Architecture"
+grand_parent: "Implementation Guide"
+nav_order: 5
+has_toc: true
+---
 # Trust boundaries
 
 | Boundary | Principal risk | Required treatment |

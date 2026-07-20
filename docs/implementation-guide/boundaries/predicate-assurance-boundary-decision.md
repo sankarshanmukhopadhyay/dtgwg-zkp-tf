@@ -1,13 +1,11 @@
 ---
-title: Predicate and Assurance-Boundary Decision Document
-short_title: Predicate & Assurance-Boundary Decision Document
-version: 0.1.0-draft
-status: first-draft-for-task-force-review
-normative_status: decision input; not yet a ratified specification
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-17
+layout: default
+title: "Predicate and Assurance-Boundary Decision Document"
+parent: "Assurance and Disclosure Boundaries"
+grand_parent: "Implementation Guide"
+nav_order: 4
+has_toc: true
 ---
-
 # Predicate & Assurance-Boundary Decision Document
 
 ## Document status

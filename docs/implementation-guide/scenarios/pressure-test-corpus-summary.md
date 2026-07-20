@@ -1,3 +1,11 @@
+---
+layout: default
+title: "DTG ZKP Pressure-Test Corpus (Enhanced)"
+parent: "Scenarios"
+grand_parent: "Implementation Guide"
+nav_order: 1
+has_toc: true
+---
 # DTG ZKP Pressure-Test Corpus (Enhanced)
 
 ## Executive Summary

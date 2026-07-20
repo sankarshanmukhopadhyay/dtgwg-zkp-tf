@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Multi-implementation plugfest
+title: "Multi-implementation plugfest"
+parent: "Diagrams"
+grand_parent: "Implementation Guide"
 nav_order: 18
-parent: Diagrams
 has_toc: true
 ---
 # Multi-implementation plugfest

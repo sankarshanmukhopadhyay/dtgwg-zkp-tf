@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Issuer implementation guide
-nav_order: 2
-parent: Implementation Guide
+title: "Issuer implementation guide"
+parent: "Implementation"
+grand_parent: "Implementation Guide"
+nav_order: 3
 has_toc: true
 ---
 # Issuer implementation guide

@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Redress and correction runbook
-nav_order: 13
-parent: Implementation Guide
+title: "Redress and correction runbook"
+parent: "Operations"
+grand_parent: "Implementation Guide"
+nav_order: 8
 has_toc: true
 ---
 # Redress and correction runbook

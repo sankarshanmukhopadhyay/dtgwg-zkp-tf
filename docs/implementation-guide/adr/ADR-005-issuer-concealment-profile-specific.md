@@ -1,3 +1,11 @@
+---
+layout: default
+title: "ADR-005 — Issuer concealment is profile-specific"
+parent: "Architecture Decision Records"
+grand_parent: "Implementation Guide"
+nav_order: 5
+has_toc: true
+---
 # ADR-005 — Issuer concealment is profile-specific
 
 - **Status:** proposed

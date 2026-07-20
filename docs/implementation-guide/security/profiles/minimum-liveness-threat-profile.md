@@ -1,11 +1,11 @@
 ---
-title: Minimum Liveness threat profile
-status: incubating
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-16
+layout: default
+title: "Minimum Liveness threat profile"
+parent: "Threats, Harms and Controls"
+grand_parent: "Implementation Guide"
+nav_order: 6
+has_toc: true
 ---
-
 # Minimum Liveness threat profile
 
 Covers proof validity, attestation reliance, holder and freshness binding, metadata, status, fallback and redress. It makes no scoped-uniqueness claim.

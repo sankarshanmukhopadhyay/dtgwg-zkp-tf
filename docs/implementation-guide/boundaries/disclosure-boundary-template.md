@@ -1,12 +1,12 @@
 ---
-title: Disclosure boundary template
-status: incubating
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-16
+layout: default
+title: "Disclosure boundary template"
+parent: "Assurance and Disclosure Boundaries"
+grand_parent: "Implementation Guide"
+nav_order: 3
+has_toc: true
+nav_exclude: true
 ---
-
-
 # Disclosure boundary template
 
 | Field | Required content |

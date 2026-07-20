@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Integration readiness checklist
-nav_order: 7
-parent: Implementation Guide
+title: "Integration readiness checklist"
+parent: "Adoption"
+grand_parent: "Implementation Guide"
+nav_order: 4
 has_toc: true
 ---
 # Integration readiness checklist

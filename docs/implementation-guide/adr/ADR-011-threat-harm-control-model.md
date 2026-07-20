@@ -1,11 +1,11 @@
 ---
-title: Canonical threat, harm and control model
-status: accepted
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-16
+layout: default
+title: "Canonical threat, harm and control model"
+parent: "Architecture Decision Records"
+grand_parent: "Implementation Guide"
+nav_order: 11
+has_toc: true
 ---
-
 # Canonical threat, harm and control model
 
 ## Context

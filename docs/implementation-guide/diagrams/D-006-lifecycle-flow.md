@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Lifecycle flow
+title: "Lifecycle flow"
+parent: "Diagrams"
+grand_parent: "Implementation Guide"
 nav_order: 6
-parent: Diagrams
 has_toc: true
 ---
 # Lifecycle flow

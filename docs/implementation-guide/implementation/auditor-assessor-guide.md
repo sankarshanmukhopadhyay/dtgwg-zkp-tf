@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Auditor and assessor guide
-nav_order: 7
-parent: Implementation Guide
+title: "Auditor and assessor guide"
+parent: "Implementation"
+grand_parent: "Implementation Guide"
+nav_order: 1
 has_toc: true
 ---
 # Auditor and assessor guide

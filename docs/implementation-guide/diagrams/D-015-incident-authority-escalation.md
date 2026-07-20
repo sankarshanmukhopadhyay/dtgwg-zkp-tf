@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Incident authority and escalation
+title: "Incident authority and escalation"
+parent: "Diagrams"
+grand_parent: "Implementation Guide"
 nav_order: 15
-parent: Diagrams
 has_toc: true
 ---
 # Incident authority and escalation

@@ -1,12 +1,11 @@
 ---
-title: Attestation correlation-surface assessment
-status: incubating
-normative_status: non-normative
-owner: DTG ZKP Task Force
-last_reviewed: 2026-07-16
+layout: default
+title: "Attestation correlation-surface assessment"
+parent: "Information Model"
+grand_parent: "Implementation Guide"
+nav_order: 2
+has_toc: true
 ---
-
-
 # Attestation correlation-surface assessment
 
 The assessment evaluates individual fields and combinations. A field with modest standalone risk may become identifying when combined with a rare assurance class, exact issuance time, schema version and verifier-visible status index.

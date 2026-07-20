@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Proof-system migration
+title: "Proof-system migration"
+parent: "Diagrams"
+grand_parent: "Implementation Guide"
 nav_order: 20
-parent: Diagrams
 has_toc: true
 ---
 # Proof-system migration

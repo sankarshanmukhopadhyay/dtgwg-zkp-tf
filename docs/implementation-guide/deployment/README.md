@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Secure Deployment
+title: "Secure Deployment"
+parent: "Implementation Guide"
 nav_order: 5
-parent: Implementation Guide
+has_children: true
 has_toc: true
 ---
 # Secure deployment

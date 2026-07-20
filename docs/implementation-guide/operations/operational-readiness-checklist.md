@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Operational readiness checklist
-nav_order: 2
-parent: Implementation Guide
+title: "Operational readiness checklist"
+parent: "Operations"
+grand_parent: "Implementation Guide"
+nav_order: 5
 has_toc: true
 ---
 # Operational readiness checklist

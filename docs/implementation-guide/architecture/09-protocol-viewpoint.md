@@ -1,3 +1,11 @@
+---
+layout: default
+title: "Protocol viewpoint"
+parent: "Architecture"
+grand_parent: "Implementation Guide"
+nav_order: 9
+has_toc: true
+---
 # Protocol viewpoint
 
 A typical transaction proceeds through request construction, authorization, proof generation, presentation, verification, policy evaluation and evidence recording.

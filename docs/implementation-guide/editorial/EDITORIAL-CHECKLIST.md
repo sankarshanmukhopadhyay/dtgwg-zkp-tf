@@ -1,3 +1,11 @@
+---
+layout: default
+title: "Editorial review checklist"
+parent: "Editorial and Contribution Guidance"
+grand_parent: "Implementation Guide"
+nav_order: 3
+has_toc: true
+---
 # Editorial review checklist
 
 - [ ] Status and normative status are explicit.

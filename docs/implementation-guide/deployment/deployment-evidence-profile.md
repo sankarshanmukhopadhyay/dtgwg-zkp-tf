@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Deployment evidence profile
-nav_order: 14
-parent: Implementation Guide
+title: "Deployment evidence profile"
+parent: "Secure Deployment"
+grand_parent: "Implementation Guide"
+nav_order: 2
 has_toc: true
 ---
 # Deployment evidence profile

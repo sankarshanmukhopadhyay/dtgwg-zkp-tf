@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Proof-system migration runbook
-nav_order: 10
-parent: Implementation Guide
+title: "Proof-system migration runbook"
+parent: "Operations"
+grand_parent: "Implementation Guide"
+nav_order: 7
 has_toc: true
 ---
 # Proof-system migration runbook

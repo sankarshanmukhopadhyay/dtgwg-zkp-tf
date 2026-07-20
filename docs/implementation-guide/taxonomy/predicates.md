@@ -1,3 +1,11 @@
+---
+layout: default
+title: "Predicate taxonomy"
+parent: "Taxonomy"
+grand_parent: "Implementation Guide"
+nav_order: 2
+has_toc: true
+---
 # Predicate taxonomy
 
 | ID | Predicate | Establishes | Does not establish |

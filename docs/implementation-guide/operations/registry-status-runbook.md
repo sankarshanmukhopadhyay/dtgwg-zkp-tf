@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Registry and status runbook
-nav_order: 4
-parent: Implementation Guide
+title: "Registry and status runbook"
+parent: "Operations"
+grand_parent: "Implementation Guide"
+nav_order: 9
 has_toc: true
 ---
 # Registry and status runbook

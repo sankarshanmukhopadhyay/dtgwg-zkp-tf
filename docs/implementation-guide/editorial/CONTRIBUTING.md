@@ -1,3 +1,11 @@
+---
+layout: default
+title: "Contributing"
+parent: "Editorial and Contribution Guidance"
+grand_parent: "Implementation Guide"
+nav_order: 1
+has_toc: true
+---
 # Contributing
 
 Before opening a pull request:

@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Key and trust-anchor lifecycle
+title: "Key and trust-anchor lifecycle"
+parent: "Diagrams"
+grand_parent: "Implementation Guide"
 nav_order: 14
-parent: Diagrams
 has_toc: true
 ---
 # Key and trust-anchor lifecycle

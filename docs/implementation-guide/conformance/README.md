@@ -1,3 +1,11 @@
+---
+layout: default
+title: "Conformance"
+parent: "Implementation Guide"
+nav_order: 10
+has_children: true
+has_toc: true
+---
 # Conformance and plugfest
 
 **Status:** Incubating
