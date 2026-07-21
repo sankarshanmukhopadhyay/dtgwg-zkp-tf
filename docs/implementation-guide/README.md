@@ -7,6 +7,9 @@ has_toc: true
 ---
 # Implementation and Interoperability Guide
 
+{: .decision }
+Begin with the [guided learning paths](guided-learning.md). They provide separate routes for decision-makers, implementers, and operators or assessors, each with an explicit completion test. See the [documentation architecture](documentation-architecture.md) for the lifecycle and evidence model.
+
 This workspace provides an implementation path from controlled exploration to independently assessable production deployment.
 
 ## Start here

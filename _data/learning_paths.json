@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "architecture": "lifecycle-and-assurance",
+  "paths": [
+    {
+      "id": "decision-maker",
+      "audience": "Sponsors, governance leads and risk owners",
+      "goal": "Decide whether and how to adopt the guide",
+      "steps": [
+        {
+          "file": "docs/implementation-guide/guided-learning.md",
+          "outcome": "Select the appropriate route and evidence target"
+        },
+        {
+          "file": "docs/implementation-guide/adoption/README.md",
+          "outcome": "Choose an adoption stage and entry gate"
+        },
+        {
+          "file": "docs/implementation-guide/security/README.md",
+          "outcome": "Understand assurance boundaries and residual risk"
+        },
+        {
+          "file": "docs/implementation-guide/deployment/README.md",
+          "outcome": "Select a controlled deployment profile"
+        }
+      ]
+    },
+    {
+      "id": "implementer",
+      "audience": "Issuer, wallet, verifier, registry and agent engineers",
+      "goal": "Build an interoperable implementation",
+      "steps": [
+        {
+          "file": "docs/implementation-guide/architecture/README.md",
+          "outcome": "Establish system boundaries and component relationships"
+        },
+        {
+          "file": "docs/implementation-guide/implementation/README.md",
+          "outcome": "Apply role-specific requirements"
+        },
+        {
+          "file": "docs/implementation-guide/scenarios/README.md",
+          "outcome": "Pressure-test behaviour across representative flows"
+        },
+        {
+          "file": "docs/implementation-guide/conformance/README.md",
+          "outcome": "Produce repeatable conformance evidence"
+        }
+      ]
+    },
+    {
+      "id": "operator-assessor",
+      "audience": "Operators, security reviewers and assessors",
+      "goal": "Operate and independently assess a deployment",
+      "steps": [
+        {
+          "file": "docs/implementation-guide/deployment/README.md",
+          "outcome": "Confirm the selected security profile"
+        },
+        {
+          "file": "docs/implementation-guide/operations/README.md",
+          "outcome": "Establish monitoring, incident and recovery playbooks"
+        },
+        {
+          "file": "docs/implementation-guide/security/README.md",
+          "outcome": "Trace threats, harms, controls and accepted risk"
+        },
+        {
+          "file": "docs/implementation-guide/conformance/README.md",
+          "outcome": "Verify test evidence and assessment claims"
+        }
+      ]
+    }
+  ]
+}

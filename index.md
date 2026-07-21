@@ -13,6 +13,8 @@ This guide is non-normative. Cryptographic verification does not establish that 
 
 ## Implementation pathways
 
+Start with the **[guided learning paths](docs/implementation-guide/guided-learning.md)** to select a role-based route, completion test and required evidence package. The [documentation architecture](docs/implementation-guide/documentation-architecture.md) explains how each content layer feeds the next.
+
 - [Adoption pathway](docs/implementation-guide/adoption/README.md)
 - [Component implementation guides](docs/implementation-guide/implementation/README.md)
 - [Secure deployment](docs/implementation-guide/deployment/README.md)

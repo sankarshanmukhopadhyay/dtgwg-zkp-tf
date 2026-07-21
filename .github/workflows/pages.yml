@@ -42,6 +42,7 @@ jobs:
           python scripts/validate_deployment_profiles.py
           python scripts/validate_operations.py
           python scripts/validate_navigation.py
+          python scripts/validate_learning_paths.py
           python scripts/validate_diagrams.py
           python scripts/validate_generated_counts.py
 
