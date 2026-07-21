@@ -3,7 +3,6 @@ layout: default
 title: Guided Learning Paths
 nav_order: 1
 parent: Implementation Guide
-permalink: /docs/implementation-guide/guided-learning/
 has_toc: true
 ---
 # Guided Learning Paths

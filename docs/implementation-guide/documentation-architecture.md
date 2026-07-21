@@ -3,7 +3,6 @@ layout: default
 title: Documentation Architecture
 nav_order: 2
 parent: Implementation Guide
-permalink: /docs/implementation-guide/documentation-architecture/
 has_toc: true
 ---
 # Documentation Architecture
