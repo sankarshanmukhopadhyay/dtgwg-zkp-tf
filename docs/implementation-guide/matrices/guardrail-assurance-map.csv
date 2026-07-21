@@ -1,0 +1,15 @@
+guardrail_id,assurance_test_id,control_ids,evidence_type,activation_decision
+ZGR-01,ZAT-01,CTL-AGL,profile review and negative vectors,block unless pass
+ZGR-02,ZAT-02,CTL-TRN,replay and domain separation vectors,block unless pass
+ZGR-03,ZAT-03,CTL-CTX,boundary record and authority decision,block unless pass
+ZGR-04,ZAT-04,CTL-CMP;CTL-SCH,composition and privacy report,restricted exception eligible
+ZGR-05,ZAT-05,CTL-GOV;CTL-LCM,snapshot and degraded-mode exercise,degraded exception eligible
+ZGR-06,ZAT-06,CTL-MED;CTL-OBS,isolation and retention audit,block unless pass
+ZGR-07,ZAT-07,CTL-GOV;CTL-TRN,delegation negative tests,block unless pass
+ZGR-08,ZAT-08,CTL-FBK;CTL-HUM,disclosure comparison,block unless pass
+ZGR-09,ZAT-09,CTL-RED,redress and correction exercise,block unless pass
+ZGR-10,ZAT-10,CTL-AGL;CTL-LCM,migration and downgrade tests,contained exception eligible
+ZGR-11,ZAT-11,CTL-GOV;CTL-LCM,readiness bundle and tabletop,restricted exception eligible
+ZGR-12,ZAT-12,CTL-HUM;CTL-FBK,accessibility equivalence test,block unless pass
+ZGR-13,ZAT-13,CTL-GOV,residual-risk approval validation,block unless pass
+ZGR-14,ZAT-14,CTL-OBS,metric privacy review,block unless pass

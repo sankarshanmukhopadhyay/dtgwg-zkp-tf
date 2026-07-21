@@ -23,3 +23,9 @@ Production entry requires a signed decision record covering:
 
 {: .evidence }
 A production claim is incomplete unless the evidence can identify what was tested, against which version, by whom, and with what result.
+
+## Required activation-gate evidence
+
+Production entry must additionally resolve all applicable `ZGR-xx` guardrails and include `ZAT-xx` assurance results. Capability-specific gates apply separately to mediated proving, delegated agents, offline verification, proof-system migration, degraded mode and service restoration. A `BLOCKED` guardrail prevents activation. A `TIME-BOUNDED EXCEPTION` must satisfy the risk appetite policy and schema.
+
+This gate discipline adapts RAHP phase-gate concepts to ZKP implementation and deployment lifecycle decisions.

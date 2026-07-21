@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Security assurance result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "test_id",
+    "guardrail_id",
+    "class",
+    "result",
+    "tested_version",
+    "environment",
+    "tester",
+    "tested_at",
+    "evidence_references",
+    "authority_disposition"
+  ],
+  "properties": {
+    "test_id": {
+      "pattern": "^ZAT-[0-9]{2}$"
+    },
+    "guardrail_id": {
+      "pattern": "^ZGR-[0-9]{2}$"
+    },
+    "class": {
+      "enum": [
+        "protocol-conformance",
+        "control-effectiveness",
+        "governance-assurance",
+        "operational-resilience",
+        "human-impact-assurance"
+      ]
+    },
+    "result": {
+      "enum": [
+        "pass",
+        "fail",
+        "inconclusive"
+      ]
+    },
+    "tested_version": {
+      "type": "string"
+    },
+    "environment": {
+      "type": "string"
+    },
+    "tester": {
+      "type": "string"
+    },
+    "tested_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "evidence_references": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "authority_disposition": {
+      "enum": [
+        "activate",
+        "block",
+        "remediate",
+        "time-bounded-exception"
+      ]
+    }
+  }
+}

@@ -16,6 +16,11 @@ has_toc: true
 | threat-scenario-map.csv | adversary coverage | 46 |
 | ownership-map.csv | workstream responsibility | 10 |
 | maturity-map.csv | readiness evidence | 8 |
+| rahp-adaptation-map.csv | upstream-method provenance and ZKP adaptation | 6 |
+| threat-control-guardrail-map.csv | threat-to-activation coverage | 6 |
+| guardrail-assurance-map.csv | guardrail evidence coverage | 14 |
+| threat-metric-map.csv | runtime assurance indicators | 14 |
+| risk-authority-map.csv | acceptance authority constraints | 6 |
 
 ## Regenerating
 

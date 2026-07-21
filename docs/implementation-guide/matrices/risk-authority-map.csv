@@ -1,0 +1,7 @@
+risk_class,minimum_authority,independent_review,max_duration,permitted_disposition
+prohibited,not applicable,mandatory,0,reject
+exceptional,governance authority plus security authority,mandatory,72 hours,accept only for containment
+critical,governance authority plus security authority,mandatory,case-specific,mitigate transfer or reject
+high,accountable deployment owner,mandatory for privacy redress or affected-party harm,90 days,accept mitigate transfer or reject
+medium,control owner plus deployment owner,risk-based,180 days,accept mitigate transfer or reject
+low,control owner,optional,normal review cadence,accept mitigate transfer or reject

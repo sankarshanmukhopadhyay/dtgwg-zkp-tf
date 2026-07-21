@@ -1,7 +1,41 @@
 {
-  "risk_id": "RR-EXAMPLE-001",
-  "description": "bounded registry outage exposure",
-  "owner": "risk-acceptance-authority",
+  "risk_id": "THR-028",
+  "description": "Temporary status-service unavailability during contained recovery",
+  "severity": "high",
+  "risk_appetite_class": "exceptional",
+  "affected_parties": [
+    "presenters",
+    "relying parties"
+  ],
+  "owner": "deployment-security-owner",
   "decision": "accept",
-  "review_date": "2026-12-31"
+  "approval_authority": {
+    "role": "governance-and-security-authority",
+    "identifier": "authority-record-2026-07-21",
+    "approved_at": "2026-07-21T09:00:00Z"
+  },
+  "independent_review": {
+    "required": true,
+    "status": "completed",
+    "reviewer": "independent-assurance-function"
+  },
+  "compensating_controls": [
+    "CTL-GOV",
+    "CTL-LCM"
+  ],
+  "activation_restrictions": [
+    "restricted transactions only",
+    "maximum 24 hours"
+  ],
+  "evidence_references": [
+    "incident:INC-2026-014",
+    "test:ZAT-05"
+  ],
+  "expires_at": "2026-07-22T09:00:00Z",
+  "review_date": "2026-07-22",
+  "revocation_triggers": [
+    "status integrity uncertain",
+    "compensating control failure",
+    "expiry reached"
+  ]
 }

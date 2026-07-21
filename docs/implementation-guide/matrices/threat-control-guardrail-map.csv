@@ -1,0 +1,7 @@
+threat_range,control_ids,guardrail_ids,rationale
+THR-001..THR-005,CTL-AGL;CTL-TRN;CTL-OBS,ZGR-01;ZGR-02;ZGR-10,cryptographic integrity transcript binding and implementation leakage
+THR-006..THR-012,CTL-TRN;CTL-GOV;CTL-HUM,ZGR-07;ZGR-11;ZGR-12,holder enrolment delegation and human assurance
+THR-013..THR-020,CTL-SCH;CTL-CMP;CTL-CTX;CTL-OBS,ZGR-03;ZGR-04;ZGR-14,correlation context composition and observability
+THR-021..THR-029,CTL-GOV;CTL-LCM;CTL-AGL,ZGR-05;ZGR-10;ZGR-11;ZGR-13,governance lifecycle migration and exception integrity
+THR-030..THR-036,CTL-MED;CTL-FBK;CTL-RED;CTL-HUM,ZGR-06;ZGR-08;ZGR-09;ZGR-12,mediation fallback accessibility and redress
+THR-037..THR-045,CTL-GOV;CTL-RED;CTL-OBS;CTL-HUM,ZGR-09;ZGR-11;ZGR-13;ZGR-14,institutional abuse evidence integrity metrics and affected-party harms

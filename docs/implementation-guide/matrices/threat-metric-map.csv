@@ -1,0 +1,15 @@
+metric_id,threat_ids,guardrail_ids,privacy_boundary
+ZM-01,THR-001;THR-004,ZGR-01,aggregate by profile version
+ZM-02,THR-002;THR-003,ZGR-02,no transcript or presenter identifier
+ZM-03,THR-021;THR-028,ZGR-05,snapshot age and aggregate outcome only
+ZM-04,THR-022;THR-029,ZGR-10,no counterparty identifier
+ZM-05,THR-032;THR-033,ZGR-08,aggregate path selection only
+ZM-06,THR-030;THR-031,ZGR-06,exception count without witness data
+ZM-07,THR-013;THR-018;THR-036,ZGR-04,test corpus only
+ZM-08,THR-012;THR-040,ZGR-07,aggregate reason codes
+ZM-09,THR-035;THR-045,ZGR-09,case timing separated from presentation data
+ZM-10,THR-027;THR-041,ZGR-11,incident identifiers only
+ZM-11,THR-034;THR-042,ZGR-12,cohort minimums and no sensitive attributes unless approved
+ZM-12,THR-043,ZGR-13,approval metadata only
+ZM-13,THR-024;THR-038,ZGR-11,organization-level inventory
+ZM-14,THR-028;THR-044,ZGR-05,aggregate decision outcomes

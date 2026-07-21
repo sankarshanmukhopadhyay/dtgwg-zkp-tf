@@ -15,6 +15,10 @@ The security model connects system claims to adversaries, attack paths, harms, c
 - `threat-matrix.yaml` is authoritative.
 - `threat-matrix.csv` and `threat-matrix.md` are generated views.
 - [Methodology](threat-model-methodology.md)
+- [RAHP adoption and adaptation](rahp-adoption-and-adaptation.md)
+- [Security guardrails](security-guardrails.md)
+- [Risk appetite and acceptance](risk-appetite-and-acceptance-policy.md)
+- [Security and trust metrics](security-and-trust-metrics.md)
 - [Harm taxonomy](harm-taxonomy.md)
 - [Control catalogue](control-catalog.md)
 - [Residual-risk register](residual-risk-register.md)
@@ -22,3 +26,7 @@ The security model connects system claims to adversaries, attack paths, harms, c
 - [Profile views](profiles/)
 
 A threat is not considered addressed until it has at least one control, an accountable owner, a verification method and an explicit residual-risk disposition.
+
+## Method provenance
+
+The controls–guardrails–assurance-tests–metrics structure adapts the methodology of the [Trust over IP RAHP TF](https://github.com/trustoverip/dtgwg-rahp-tf). The [adoption and adaptation statement](rahp-adoption-and-adaptation.md) records the reviewed upstream commit and the ZKP-specific transformation.

@@ -1,50 +1,61 @@
 ---
 layout: default
-title: "Canonical threat matrix"
+title: "Threat matrix"
 parent: "Threats, Harms and Controls"
 grand_parent: "Implementation Guide"
-nav_order: 9
+nav_order: 7
 has_toc: true
 ---
-# Canonical threat matrix
+# Threat matrix
 
-This generated view summarizes the authoritative `threat-matrix.yaml`. Detailed attack paths, controls and evidence are available in the YAML and CSV views.
+The canonical source is `threat-matrix.yaml`. Rows marked `RAHP-adapted` extend the existing ZKP model using the governance and harms-prevention method documented in [RAHP adoption and adaptation](rahp-adoption-and-adaptation.md).
 
-| ID | Domain | Threat | Profiles | Severity | Primary controls | Harm |
+**Canonical threats:** 45
+
+| ID | Domain | Threat | Severity | Controls | Harm | Status |
 |---|---|---|---|---|---|---|
-| THR-001 | cryptographic | Forged proof accepted | both | critical | CTL-AGL; independent implementation tests; parameter integrity | impersonation or unauthorized access |
-| THR-002 | cryptographic | Replay across requests | both | high | CTL-TRN | fraud or unauthorized transaction |
-| THR-003 | cryptographic | Cross-domain transcript substitution | both | high | CTL-TRN | authorization bypass |
-| THR-004 | cryptographic | Setup or parameter compromise | both | critical | CTL-AGL; transparent parameter governance | system-wide compromise |
-| THR-005 | cryptographic | Prover side-channel leakage | both | high | hardened implementation; CTL-OBS | identity compromise and surveillance |
-| THR-006 | holder | Transferred key treated as human continuity | both | high | CTL-TRN; separate liveness and holder claims; recovery controls | impersonation |
-| THR-007 | enrolment | False biometric determination attested | both | critical | issuer governance, audit, CTL-RED | exclusion or impersonation |
-| THR-008 | enrolment | Duplicate enrolment under same issuer | extended | high | CTL-LCM; deduplication controls; recovery continuity | fraud and unfair access |
-| THR-009 | enrolment | Cross-issuer duplicate enrolment | extended | high | CTL-GOV; narrow claims; issuer coordination policy | Sybil abuse and legitimacy loss |
-| THR-010 | privacy | Stable enrolment root enables population correlation | extended | critical | CTL-CTX; CTL-LCM; commitments | surveillance |
-| THR-011 | privacy | Unbounded nullifier creates permanent identifier | extended | critical | CTL-CTX; CTL-LCM; retention controls | surveillance and exclusion |
-| THR-012 | privacy | Issuer identity inferred despite concealment | profile-specific | high | CTL-SCH; CTL-CMP | subject correlation and discrimination |
-| THR-013 | privacy | Attestation metadata correlates presentations | both | critical | CTL-SCH; selective disclosure | surveillance |
-| THR-014 | privacy | Registry or status lookup reveals subject activity | both | high | privacy-preserving status; CTL-OBS | surveillance |
-| THR-015 | privacy | Issuer-verifier collusion crosses context boundary | extended | critical | CTL-CTX; CTL-SCH; minimization | surveillance and power concentration |
-| THR-016 | composition | Rare predicate bundle fingerprints subject | both | high | CTL-CMP; request minimization | discrimination or surveillance |
-| THR-017 | composition | Individually safe proofs leak jointly | both | high | CTL-CMP; single-statement composition where viable | surveillance |
-| THR-018 | observable-event | Presentation timing and frequency reveal behaviour | both | medium | CTL-OBS; batching; retention limits | surveillance and chilling effects |
-| THR-019 | observable-event | Error and retry behaviour becomes oracle | both | medium | CTL-OBS; uniform external errors; bounded retries | targeting or denial |
-| THR-020 | governance | Unauthorized issuer accepted | both | critical | CTL-GOV; signed versioned records | fraud and legitimacy loss |
-| THR-021 | governance | Policy version substitution | both | high | CTL-GOV; CTL-AGL | unfair or unsafe decisions |
-| THR-022 | governance | Revoked or suspended state accepted | both | critical | CTL-GOV; deterministic unavailable behaviour | fraud or safety harm |
-| THR-023 | governance | Assurance class inflation | both | high | issuer audit; CTL-GOV; CTL-RED | exclusion, fraud, legitimacy loss |
-| THR-024 | governance | Agent key control mistaken for delegated authority | delegated use | critical | CTL-GOV; separate delegation object; scope checks | economic loss and autonomy harm |
-| THR-025 | lifecycle | Algorithm downgrade during negotiation | both | critical | CTL-AGL; signed policy and downgrade prevention | forgery or privacy loss |
-| THR-026 | lifecycle | Enrolment root outlives defensible protection | extended | critical | CTL-LCM; rotation and deletion evidence | surveillance and systemic compromise |
-| THR-027 | lifecycle | Migration splits verification state | both | high | CTL-LCM; coordinated effective times | exclusion and dispute |
-| THR-028 | lifecycle | Recovery resets reuse protections | extended | critical | CTL-LCM; recovery continuity and adjudication | fraud and unfair allocation |
-| THR-029 | mediated-proving | Mediator retains witness-related data | mediated | critical | CTL-MED; data minimization; audit | surveillance and concentration harm |
-| THR-030 | operational | Silent fallback lowers assurance or increases disclosure | both | high | CTL-FBK; explicit consent and receipts | exclusion, surveillance or unsafe acceptance |
-| THR-031 | operational | Offline verification uses stale governance state | both | high | bounded offline policy; CTL-GOV | fraud or inconsistent treatment |
-| THR-032 | operational | Logs become cross-context correlation store | both | critical | CTL-OBS; minimization; access controls | persistent tracking and institutional misuse |
-| THR-033 | human-experience | Context boundary is unintelligible to affected person | extended | high | CTL-HUM; user-facing context test | autonomy and privacy harm |
-| THR-034 | human-experience | Accessibility path creates disproportionate disclosure | both | high | accessible equivalent path; CTL-FBK; CTL-HUM | disproportionate exclusion and surveillance |
-| THR-035 | redress | Decision cannot be contested or corrected | both | critical | CTL-RED; ownership model | economic, reputational and legitimacy harm |
-| THR-036 | governance | Context silently expands through organizational change | extended | critical | CTL-CTX; versioned change and migration | surveillance and autonomy loss |
+| THR-001 | cryptographic | Forged proof accepted | critical | CTL-AGL; independent implementation tests; parameter integrity | HRM-IMP;HRM-ECO | baseline |
+| THR-002 | cryptographic | Replay across requests | high | CTL-TRN | HRM-IMP;HRM-ECO | baseline |
+| THR-003 | cryptographic | Cross-domain transcript substitution | high | CTL-TRN | HRM-IMP;HRM-GOV | baseline |
+| THR-004 | cryptographic | Setup or parameter compromise | critical | CTL-AGL; transparent parameter governance | HRM-IMP;HRM-SYS | baseline |
+| THR-005 | cryptographic | Prover side-channel leakage | high | hardened implementation; CTL-OBS | HRM-PRV;HRM-IMP | baseline |
+| THR-006 | holder | Transferred key treated as human continuity | high | CTL-TRN; separate liveness and holder claims; recovery controls | HRM-IMP;HRM-AUT | baseline |
+| THR-007 | enrolment | False biometric determination attested | critical | issuer governance, audit, CTL-RED | HRM-EXC;HRM-IMP;HRM-RED | baseline |
+| THR-008 | enrolment | Duplicate enrolment under same issuer | high | CTL-LCM; deduplication controls; recovery continuity | HRM-ECO;HRM-GOV | baseline |
+| THR-009 | enrolment | Cross-issuer duplicate enrolment | high | CTL-GOV; narrow claims; issuer coordination policy | HRM-GOV;HRM-ECO | baseline |
+| THR-010 | privacy | Stable enrolment root enables population correlation | critical | CTL-CTX; CTL-LCM; commitments | HRM-PRV;HRM-SYS | baseline |
+| THR-011 | privacy | Unbounded nullifier creates permanent identifier | critical | CTL-CTX; CTL-LCM; retention controls | HRM-PRV;HRM-AUT | baseline |
+| THR-012 | privacy | Issuer identity inferred despite concealment | high | CTL-SCH; CTL-CMP | HRM-PRV;HRM-REP | baseline |
+| THR-013 | privacy | Attestation metadata correlates presentations | critical | CTL-SCH; selective disclosure | HRM-PRV | baseline |
+| THR-014 | privacy | Registry or status lookup reveals subject activity | high | privacy-preserving status; CTL-OBS | HRM-PRV;HRM-SYS | baseline |
+| THR-015 | privacy | Issuer-verifier collusion crosses context boundary | critical | CTL-CTX; CTL-SCH; minimization | HRM-PRV;HRM-SYS | baseline |
+| THR-016 | composition | Rare predicate bundle fingerprints subject | high | CTL-CMP; request minimization | HRM-PRV;HRM-REP | baseline |
+| THR-017 | composition | Individually safe proofs leak jointly | high | CTL-CMP; single-statement composition where viable | HRM-PRV | baseline |
+| THR-018 | observable-event | Presentation timing and frequency reveal behaviour | medium | CTL-OBS; batching; retention limits | HRM-PRV;HRM-AUT | baseline |
+| THR-019 | observable-event | Error and retry behaviour becomes oracle | medium | CTL-OBS; uniform external errors; bounded retries | HRM-PRV;HRM-SYS | baseline |
+| THR-020 | governance | Unauthorized issuer accepted | critical | CTL-GOV; signed versioned records | HRM-GOV;HRM-IMP | baseline |
+| THR-021 | governance | Policy version substitution | high | CTL-GOV; CTL-AGL | HRM-GOV;HRM-ECO | baseline |
+| THR-022 | governance | Revoked or suspended state accepted | critical | CTL-GOV; deterministic unavailable behaviour | HRM-IMP;HRM-ECO | baseline |
+| THR-023 | governance | Assurance class inflation | high | issuer audit; CTL-GOV; CTL-RED | HRM-GOV;HRM-ECO | baseline |
+| THR-024 | governance | Agent key control mistaken for delegated authority | critical | CTL-GOV; separate delegation object; scope checks | HRM-AUT;HRM-ECO;HRM-IMP | baseline |
+| THR-025 | lifecycle | Algorithm downgrade during negotiation | critical | CTL-AGL; signed policy and downgrade prevention | HRM-IMP;HRM-PRV | baseline |
+| THR-026 | lifecycle | Enrolment root outlives defensible protection | critical | CTL-LCM; rotation and deletion evidence | HRM-PRV;HRM-SYS | baseline |
+| THR-027 | lifecycle | Migration splits verification state | high | CTL-LCM; coordinated effective times | HRM-EXC;HRM-RED | baseline |
+| THR-028 | lifecycle | Recovery resets reuse protections | critical | CTL-LCM; recovery continuity and adjudication | HRM-ECO;HRM-GOV | baseline |
+| THR-029 | mediated-proving | Mediator retains witness-related data | critical | CTL-MED; data minimization; audit | HRM-PRV;HRM-SYS | baseline |
+| THR-030 | operational | Silent fallback lowers assurance or increases disclosure | high | CTL-FBK; explicit consent and receipts | HRM-AUT;HRM-EXC;HRM-PRV | baseline |
+| THR-031 | operational | Offline verification uses stale governance state | high | bounded offline policy; CTL-GOV | HRM-ECO;HRM-GOV | baseline |
+| THR-032 | operational | Logs become cross-context correlation store | critical | CTL-OBS; minimization; access controls | HRM-PRV;HRM-SYS | baseline |
+| THR-033 | human-experience | Context boundary is unintelligible to affected person | high | CTL-HUM; user-facing context test | HRM-AUT;HRM-PRV | baseline |
+| THR-034 | human-experience | Accessibility path creates disproportionate disclosure | high | accessible equivalent path; CTL-FBK; CTL-HUM | HRM-EXC;HRM-PRV | baseline |
+| THR-035 | redress | Decision cannot be contested or corrected | critical | CTL-RED; ownership model | HRM-RED;HRM-ECO;HRM-REP | baseline |
+| THR-036 | governance | Context silently expands through organizational change | critical | CTL-CTX; versioned change and migration | HRM-PRV;HRM-AUT;HRM-GOV | baseline |
+| THR-037 | governance | Governance authority capture | critical | CTL-GOV; CTL-RED | HRM-GOV;HRM-SYS;HRM-EXC | RAHP-adapted |
+| THR-038 | ecosystem | Concentrated provider coercion | critical | CTL-GOV; CTL-LCM | HRM-SYS;HRM-AUT;HRM-EXC | RAHP-adapted |
+| THR-039 | assurance | Assurance evidence fabricated or selectively omitted | critical | CTL-GOV; CTL-OBS | HRM-GOV;HRM-SYS | RAHP-adapted |
+| THR-040 | operations | Governance process exhaustion | high | CTL-RED; CTL-GOV | HRM-RED;HRM-EXC;HRM-GOV | RAHP-adapted |
+| THR-041 | human-operations | AI-assisted operator social engineering | critical | CTL-GOV; CTL-HUM | HRM-IMP;HRM-GOV;HRM-SYS | RAHP-adapted |
+| THR-042 | policy | Discriminatory predicate or profile selection | critical | CTL-HUM; CTL-RED; CTL-SCH | HRM-EXC;HRM-ECO;HRM-GOV | RAHP-adapted |
+| THR-043 | governance | Risk acceptance laundering | critical | CTL-GOV; CTL-LCM | HRM-GOV;HRM-SYS | RAHP-adapted |
+| THR-044 | observability | Metric gaming or observability suppression | high | CTL-OBS; CTL-GOV | HRM-GOV;HRM-SYS;HRM-PRV | RAHP-adapted |
+| THR-045 | affected-parties | Affected-party harm remains invisible | high | CTL-RED; CTL-HUM; CTL-GOV | HRM-ECO;HRM-REP;HRM-AUT;HRM-GOV;HRM-RED | RAHP-adapted |

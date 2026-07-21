@@ -16,3 +16,11 @@ has_toc: true
 - [ ] Evidence preservation excludes unnecessary proof content.
 - [ ] Redress and correction routes are operational.
 - [ ] Degraded modes and stop authority are approved.
+
+## Security-assurance readiness
+
+- [ ] All applicable ZGR guardrails have current evidence.
+- [ ] Required ZAT assurance tests pass or have an eligible, approved exception.
+- [ ] Security metrics have thresholds, privacy boundaries and escalation owners.
+- [ ] Incident declaration, suspension, restoration and revocation authorities are recorded.
+- [ ] Residual-risk approvals have not expired and all revocation triggers are monitored.

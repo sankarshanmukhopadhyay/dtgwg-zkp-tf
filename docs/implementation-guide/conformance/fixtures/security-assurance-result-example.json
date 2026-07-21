@@ -1,0 +1,15 @@
+{
+  "test_id": "ZAT-02",
+  "guardrail_id": "ZGR-02",
+  "class": "control-effectiveness",
+  "result": "pass",
+  "tested_version": "profile-1.2.0",
+  "environment": "interoperability-test",
+  "tester": "independent-lab",
+  "tested_at": "2026-07-21T08:00:00Z",
+  "evidence_references": [
+    "vector-set:transcript-v4",
+    "report:ASSURE-2026-021"
+  ],
+  "authority_disposition": "activate"
+}

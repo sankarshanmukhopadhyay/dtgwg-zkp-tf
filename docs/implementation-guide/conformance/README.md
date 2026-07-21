@@ -82,3 +82,12 @@ Use the implementation and profile statement templates and the JSON schemas in `
 
 A profile evidence bundle includes linked assurance and disclosure records, a field-level attestation schema assessment, applicable canonical threat IDs, control evidence, lifecycle bounds, migration behaviour and residual-risk decisions. The boundary-record schema and fixtures provide portable examples. Run `python3 scripts/validate_threat_model.py` with the existing validation suite.
 
+
+## Security assurance
+
+- [Security assurance tests](security-assurance-tests.md)
+- `security-assurance-test-matrix.csv`
+- `schemas/security-assurance-result.schema.json`
+- `schemas/security-metric-evidence.schema.json`
+
+These artefacts adapt the RAHP assurance-test discipline while remaining separate from protocol conformance claims.

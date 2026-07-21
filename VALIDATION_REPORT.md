@@ -40,3 +40,13 @@ Traceability generated: 48 scenarios, 88 conformance references and 26 assurance
 ```
 
 This release also ran `validate_navigation.py`, `validate_diagrams.py`, `validate_operations.py`, `validate_threat_model.py`, `validate_deployment_profiles.py` and `validate_generated_counts.py`; all passed. Residual conformance-coverage gaps are tracked as before and are not affected by this release, which changes reference and boundary-decision documentation rather than scenario or test-matrix content.
+
+## Security guardrails and RAHP adaptation — 2026-07-21
+
+- RAHP methodological source pinned to upstream commit `94d17a6f5e8b448aae4698ff183e77a4a2f7a083`.
+- Dedicated adoption/adaptation statement and machine-readable mapping added.
+- Canonical threat model expanded from 36 to 45 threats without renumbering existing entries.
+- Fourteen guardrails map one-to-one to fourteen assurance tests.
+- Risk acceptance and metric evidence schemas added.
+- Five Mermaid diagrams added to the GitHub Pages register.
+- `scripts/validate_security_assurance.py` added.

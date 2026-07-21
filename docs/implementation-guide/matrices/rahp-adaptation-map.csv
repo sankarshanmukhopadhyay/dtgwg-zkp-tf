@@ -1,0 +1,7 @@
+upstream_concept,upstream_identifier_family,zkp_adaptation,zkp_identifier_family,primary_zkp_artifact,adaptation_note,upstream_commit
+Risk and harm register,RK-xx,Canonical ZKP threat and harm model,THR-xxx;HRM-xxx,security/threat-matrix.yaml,Existing ZKP identifiers preserved and extended only for distinct governance abuse paths,94d17a6f5e8b448aae4698ff183e77a4a2f7a083
+Controls catalogue,CT-xx,ZKP control families,CTL-xxx,security/control-catalog.md,Continuous controls remain separate from activation gates,94d17a6f5e8b448aae4698ff183e77a4a2f7a083
+Guardrails register,GR-xx,ZKP deployment and capability guardrails,ZGR-xx,security/security-guardrails.md,VTC phase gates adapted to profile and deployment activation decisions,94d17a6f5e8b448aae4698ff183e77a4a2f7a083
+Assurance tests,AT-xx,ZKP assurance test catalogue,ZAT-xx,conformance/security-assurance-tests.md,Separated from protocol conformance and expanded to governance and human-impact evidence,94d17a6f5e8b448aae4698ff183e77a4a2f7a083
+Trust metrics,M-xx,Privacy-bounded ZKP security and trust indicators,ZM-xx,security/security-and-trust-metrics.md,Runtime measures prohibit creation of new correlation surfaces,94d17a6f5e8b448aae4698ff183e77a4a2f7a083
+Phase-gate workflow,phase gates,Deployment activation evidence,gate names,adoption/production-entry-criteria.md,Applied to pilot production mediation agents offline use and migration,94d17a6f5e8b448aae4698ff183e77a4a2f7a083

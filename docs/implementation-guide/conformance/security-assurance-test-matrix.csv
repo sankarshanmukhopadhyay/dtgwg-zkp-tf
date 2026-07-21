@@ -1,0 +1,15 @@
+test_id,class,guardrail_id,threat_focus,evidence_schema
+ZAT-01,control-effectiveness,ZGR-01,THR-001;THR-004,security-assurance-result.schema.json
+ZAT-02,control-effectiveness,ZGR-02,THR-002;THR-003,security-assurance-result.schema.json
+ZAT-03,governance-assurance,ZGR-03,THR-019;THR-036,security-assurance-result.schema.json
+ZAT-04,human-impact-assurance,ZGR-04,THR-013;THR-018,security-assurance-result.schema.json
+ZAT-05,operational-resilience,ZGR-05,THR-021;THR-028,security-assurance-result.schema.json
+ZAT-06,control-effectiveness,ZGR-06,THR-030;THR-031,security-assurance-result.schema.json
+ZAT-07,governance-assurance,ZGR-07,THR-012;THR-040,security-assurance-result.schema.json
+ZAT-08,human-impact-assurance,ZGR-08,THR-032;THR-033,security-assurance-result.schema.json
+ZAT-09,human-impact-assurance,ZGR-09,THR-035;THR-045,security-assurance-result.schema.json
+ZAT-10,operational-resilience,ZGR-10,THR-022;THR-029,security-assurance-result.schema.json
+ZAT-11,operational-resilience,ZGR-11,THR-027;THR-041,security-assurance-result.schema.json
+ZAT-12,human-impact-assurance,ZGR-12,THR-034;THR-042,security-assurance-result.schema.json
+ZAT-13,governance-assurance,ZGR-13,THR-043,security-assurance-result.schema.json
+ZAT-14,governance-assurance,ZGR-14,THR-044,security-assurance-result.schema.json

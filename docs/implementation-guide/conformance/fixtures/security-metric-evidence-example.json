@@ -1,0 +1,22 @@
+{
+  "metric_id": "ZM-02",
+  "period_start": "2026-07-20T00:00:00Z",
+  "period_end": "2026-07-21T00:00:00Z",
+  "value": 0.04,
+  "unit": "percent-of-presentations",
+  "owner": "verifier-operations",
+  "threshold": "watch above 0.5%; breach above 2%",
+  "status": "normal",
+  "privacy_boundary": "aggregate by profile version; no transcript, nullifier, credential or device identifier retained",
+  "retention_days": 30,
+  "linked_threats": [
+    "THR-002",
+    "THR-003"
+  ],
+  "linked_guardrails": [
+    "ZGR-02"
+  ],
+  "evidence_references": [
+    "aggregate:verifier-security-2026-07-20"
+  ]
+}

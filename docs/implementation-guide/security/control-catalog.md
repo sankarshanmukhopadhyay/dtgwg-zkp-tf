@@ -22,3 +22,7 @@ has_toc: true
 | CTL-RED | decision evidence, contest and correction | verifier and redress authority | receipts and redress exercise |
 | CTL-HUM | human-legible context and assurance disclosure | product and governance owners | usability and comprehension evidence |
 | CTL-AGL | negotiated algorithm agility with downgrade prevention | profile and implementation owners | cross-version and deprecation tests |
+
+## Relationship to RAHP controls
+
+RAHP `CT-xx` controls informed the separation between continuous controls and binary guardrails. The ZKP `CTL-xxx` families remain repository-specific and are not identifier-equivalent. See [RAHP adoption and adaptation](rahp-adoption-and-adaptation.md).

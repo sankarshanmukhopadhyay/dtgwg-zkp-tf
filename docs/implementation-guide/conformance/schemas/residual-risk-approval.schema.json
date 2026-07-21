@@ -6,9 +6,19 @@
   "required": [
     "risk_id",
     "description",
+    "severity",
+    "risk_appetite_class",
+    "affected_parties",
     "owner",
     "decision",
-    "review_date"
+    "approval_authority",
+    "independent_review",
+    "compensating_controls",
+    "activation_restrictions",
+    "evidence_references",
+    "expires_at",
+    "review_date",
+    "revocation_triggers"
   ],
   "properties": {
     "risk_id": {
@@ -31,6 +41,103 @@
     "review_date": {
       "type": "string",
       "format": "date"
+    },
+    "severity": {
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "risk_appetite_class": {
+      "enum": [
+        "prohibited",
+        "exceptional",
+        "tolerable",
+        "operational"
+      ]
+    },
+    "affected_parties": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "approval_authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "role",
+        "identifier",
+        "approved_at"
+      ],
+      "properties": {
+        "role": {
+          "type": "string"
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "approved_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "independent_review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required",
+        "status"
+      ],
+      "properties": {
+        "required": {
+          "type": "boolean"
+        },
+        "status": {
+          "enum": [
+            "not-required",
+            "pending",
+            "completed"
+          ]
+        },
+        "reviewer": {
+          "type": "string"
+        }
+      }
+    },
+    "compensating_controls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "activation_restrictions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_references": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "revocation_triggers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
     }
   }
 }

@@ -36,4 +36,8 @@ for req in ['CT-SEC-BOUNDARY-POS-01','CT-SEC-LIFE-NEG-01','CT-SEC-MED-NEG-01','C
     if req not in matrix: errors.append(f'Missing required security test {req}')
 if errors:
     print('Threat-model validation failed:'); [print('- '+e) for e in errors]; sys.exit(1)
+
+if len(rows) < 45: errors.append(f'Expected at least 45 threats after assurance enhancement, got {len(rows)}')
+if errors:
+    print('Threat-model validation failed:'); [print('- '+e) for e in errors]; sys.exit(1)
 print(f'Threat-model validation passed: {len(rows)} canonical threats with controls and dispositions.')

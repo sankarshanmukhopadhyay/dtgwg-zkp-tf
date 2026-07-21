@@ -1,5 +1,5 @@
-version: '1.0'
-last_reviewed: '2026-07-16'
+version: '1.1'
+last_reviewed: '2026-07-21'
 claim_parameters:
 - against_whom
 - for_how_long
@@ -22,7 +22,8 @@ threats:
   alongside_information: proof parameters and verifier configuration
   technical_effect: false predicate accepted
   human_institutional_harm: impersonation or unauthorized access
-  preventive_detective_corrective_controls: CTL-AGL; independent implementation tests; parameter integrity
+  preventive_detective_corrective_controls: CTL-AGL; independent implementation tests;
+    parameter integrity
   control_owner: profile authority; verifier
   verification_method: negative vectors and implementation review
   conformance_requirement: SEC-001
@@ -152,7 +153,8 @@ threats:
   alongside_information: device and recovery records
   technical_effect: wrong presenter accepted
   human_institutional_harm: impersonation
-  preventive_detective_corrective_controls: CTL-TRN; separate liveness and holder claims; recovery controls
+  preventive_detective_corrective_controls: CTL-TRN; separate liveness and holder
+    claims; recovery controls
   control_owner: issuer; wallet; verifier
   verification_method: negative semantic tests
   conformance_requirement: SEC-006
@@ -204,7 +206,8 @@ threats:
   alongside_information: biometric and recovery records
   technical_effect: Sybil resistance weakened
   human_institutional_harm: fraud and unfair access
-  preventive_detective_corrective_controls: CTL-LCM; deduplication controls; recovery continuity
+  preventive_detective_corrective_controls: CTL-LCM; deduplication controls; recovery
+    continuity
   control_owner: issuer
   verification_method: duplicate enrolment scenarios
   conformance_requirement: SEC-008
@@ -230,7 +233,8 @@ threats:
   alongside_information: issuer sets and root policies
   technical_effect: ecosystem uniqueness overstated
   human_institutional_harm: Sybil abuse and legitimacy loss
-  preventive_detective_corrective_controls: CTL-GOV; narrow claims; issuer coordination policy
+  preventive_detective_corrective_controls: CTL-GOV; narrow claims; issuer coordination
+    policy
   control_owner: governance authority
   verification_method: cross-issuer scenario review
   conformance_requirement: SEC-009
@@ -438,7 +442,8 @@ threats:
   alongside_information: proof bundle and credential fields
   technical_effect: joint leakage
   human_institutional_harm: surveillance
-  preventive_detective_corrective_controls: CTL-CMP; single-statement composition where viable
+  preventive_detective_corrective_controls: CTL-CMP; single-statement composition
+    where viable
   control_owner: profile authority; wallet
   verification_method: composition review and vectors
   conformance_requirement: SEC-017
@@ -490,7 +495,8 @@ threats:
   alongside_information: error codes, latency, retry count
   technical_effect: state inference and enumeration
   human_institutional_harm: targeting or denial
-  preventive_detective_corrective_controls: CTL-OBS; uniform external errors; bounded retries
+  preventive_detective_corrective_controls: CTL-OBS; uniform external errors; bounded
+    retries
   control_owner: verifier
   verification_method: oracle and timing tests
   conformance_requirement: SEC-019
@@ -620,7 +626,8 @@ threats:
   alongside_information: holder proof and agent metadata
   technical_effect: unauthorized action accepted
   human_institutional_harm: economic loss and autonomy harm
-  preventive_detective_corrective_controls: CTL-GOV; separate delegation object; scope checks
+  preventive_detective_corrective_controls: CTL-GOV; separate delegation object; scope
+    checks
   control_owner: principal; verifier
   verification_method: delegation negative tests
   conformance_requirement: SEC-024
@@ -941,3 +948,242 @@ threats:
   severity: critical
   harm_ids: HRM-PRV;HRM-AUT;HRM-GOV
   status: baseline
+- threat_id: THR-037
+  domain: governance
+  title: Governance authority capture
+  asset_property: legitimate authority
+  profiles: both
+  component: governance authority
+  trust_boundary: governance-to-runtime
+  threat_actor: ADV-G
+  adversary_capability: captures or coerces decision authority
+  collusion_assumption: authority-operator collusion possible
+  preconditions: authority concentration or weak conflict controls
+  attack_path: issue formally valid but harmful policy or accreditation
+  context_scope: ecosystem
+  time_horizon: long-term
+  alongside_information: authority records and organizational dependencies
+  technical_effect: malicious policy appears authorised
+  human_institutional_harm: systemic exclusion surveillance or loss of legitimacy
+  preventive_detective_corrective_controls: CTL-GOV; CTL-RED
+  control_owner: governance oversight body
+  verification_method: independent authority and conflict review
+  conformance_requirement: SEC-037
+  residual_risk: capture may remain covert
+  deployment_decision: suspend and revoke captured authority
+  severity: critical
+  harm_ids: HRM-GOV;HRM-SYS;HRM-EXC
+  status: RAHP-adapted
+- threat_id: THR-038
+  domain: ecosystem
+  title: Concentrated provider coercion
+  asset_property: operational independence
+  profiles: both
+  component: issuer/registry/mediator ecosystem
+  trust_boundary: ecosystem
+  threat_actor: ADV-G
+  adversary_capability: coerces a concentrated set of critical providers
+  collusion_assumption: cross-provider coordination possible
+  preconditions: high concentration and weak exit capability
+  attack_path: compel coordinated denial observation or policy change
+  context_scope: ecosystem
+  time_horizon: long-term
+  alongside_information: provider inventory and dependency graph
+  technical_effect: multiple controls fail through one pressure point
+  human_institutional_harm: systemic denial surveillance or political coercion
+  preventive_detective_corrective_controls: CTL-GOV; CTL-LCM
+  control_owner: ecosystem governance
+  verification_method: concentration and exit-plan assessment
+  conformance_requirement: SEC-038
+  residual_risk: market concentration persists
+  deployment_decision: mitigate and diversify
+  severity: critical
+  harm_ids: HRM-SYS;HRM-AUT;HRM-EXC
+  status: RAHP-adapted
+- threat_id: THR-039
+  domain: assurance
+  title: Assurance evidence fabricated or selectively omitted
+  asset_property: evidence integrity
+  profiles: both
+  component: operator/assessor
+  trust_boundary: assurance boundary
+  threat_actor: ADV-P
+  adversary_capability: controls evidence production or selection
+  collusion_assumption: operator-assessor collusion possible
+  preconditions: self-attestation without independent verification
+  attack_path: submit incomplete synthetic or misleading evidence
+  context_scope: deployment
+  time_horizon: review period
+  alongside_information: test logs reports and signatures
+  technical_effect: unsafe deployment receives approval
+  human_institutional_harm: false assurance and unaccountable harm
+  preventive_detective_corrective_controls: CTL-GOV; CTL-OBS
+  control_owner: assurance authority
+  verification_method: evidence provenance and sampling audit
+  conformance_requirement: SEC-039
+  residual_risk: collusion can evade sampling
+  deployment_decision: require independent review
+  severity: critical
+  harm_ids: HRM-GOV;HRM-SYS
+  status: RAHP-adapted
+- threat_id: THR-040
+  domain: operations
+  title: Governance process exhaustion
+  asset_property: availability of governance
+  profiles: both
+  component: redress/incident/approval process
+  trust_boundary: operations
+  threat_actor: ADV-U
+  adversary_capability: submits coordinated high-volume requests
+  collusion_assumption: distributed collusion possible
+  preconditions: unbounded queues or weak prioritization
+  attack_path: flood appeals exceptions or incident channels
+  context_scope: ecosystem
+  time_horizon: campaign
+  alongside_information: queue metrics and case metadata
+  technical_effect: legitimate cases delayed or abandoned
+  human_institutional_harm: redress denial and operational capture
+  preventive_detective_corrective_controls: CTL-RED; CTL-GOV
+  control_owner: governance operations
+  verification_method: load and priority-path exercise
+  conformance_requirement: SEC-040
+  residual_risk: rate limits may burden legitimate users
+  deployment_decision: mitigate with protected priority paths
+  severity: high
+  harm_ids: HRM-RED;HRM-EXC;HRM-GOV
+  status: RAHP-adapted
+- threat_id: THR-041
+  domain: human-operations
+  title: AI-assisted operator social engineering
+  asset_property: authorized-operation integrity
+  profiles: both
+  component: operator/admin
+  trust_boundary: human-to-system
+  threat_actor: ADV-U
+  adversary_capability: generates targeted persuasive content at scale
+  collusion_assumption: insider assistance possible
+  preconditions: operator action can bypass technical controls
+  attack_path: induce authorized policy key or evidence action
+  context_scope: deployment
+  time_horizon: session to campaign
+  alongside_information: operator communications and approval trail
+  technical_effect: valid privileged action serves attacker
+  human_institutional_harm: system compromise and accountability failure
+  preventive_detective_corrective_controls: CTL-GOV; CTL-HUM
+  control_owner: security operations
+  verification_method: dual-control and social-engineering exercise
+  conformance_requirement: SEC-041
+  residual_risk: novel persuasion remains
+  deployment_decision: mitigate and require separation
+  severity: critical
+  harm_ids: HRM-IMP;HRM-GOV;HRM-SYS
+  status: RAHP-adapted
+- threat_id: THR-042
+  domain: policy
+  title: Discriminatory predicate or profile selection
+  asset_property: equitable treatment
+  profiles: both
+  component: policy authority/verifier
+  trust_boundary: policy-to-decision
+  threat_actor: ADV-V
+  adversary_capability: selects formally valid but exclusionary requirements
+  collusion_assumption: policy-verifier collusion possible
+  preconditions: impact review absent or affected parties invisible
+  attack_path: choose predicates or assurance levels that proxy protected or vulnerable
+    status
+  context_scope: population
+  time_horizon: policy lifetime
+  alongside_information: decision outcomes and policy rationale
+  technical_effect: valid proofs produce systematic exclusion
+  human_institutional_harm: discrimination economic loss and legitimacy harm
+  preventive_detective_corrective_controls: CTL-HUM; CTL-RED; CTL-SCH
+  control_owner: policy authority
+  verification_method: impact assessment and disparity review
+  conformance_requirement: SEC-042
+  residual_risk: small cohorts complicate measurement
+  deployment_decision: block material unjustified disparity
+  severity: critical
+  harm_ids: HRM-EXC;HRM-ECO;HRM-GOV
+  status: RAHP-adapted
+- threat_id: THR-043
+  domain: governance
+  title: Risk acceptance laundering
+  asset_property: risk decision integrity
+  profiles: both
+  component: deployment governance
+  trust_boundary: approval boundary
+  threat_actor: ADV-G
+  adversary_capability: repeatedly grants temporary exceptions
+  collusion_assumption: approver-operator collusion possible
+  preconditions: expiry renewal and root-cause escalation weak
+  attack_path: chain temporary approvals to sustain unsafe state
+  context_scope: deployment
+  time_horizon: long-term
+  alongside_information: approval history and exception metrics
+  technical_effect: blocked condition becomes de facto normal
+  human_institutional_harm: persistent exposure without accountable decision
+  preventive_detective_corrective_controls: CTL-GOV; CTL-LCM
+  control_owner: risk authority
+  verification_method: approval-chain and expiry validation
+  conformance_requirement: SEC-043
+  residual_risk: pressure to maintain service remains
+  deployment_decision: prohibit repeated unremediated exceptions
+  severity: critical
+  harm_ids: HRM-GOV;HRM-SYS
+  status: RAHP-adapted
+- threat_id: THR-044
+  domain: observability
+  title: Metric gaming or observability suppression
+  asset_property: measurement integrity
+  profiles: both
+  component: operator/telemetry pipeline
+  trust_boundary: runtime-to-assurance
+  threat_actor: ADV-P
+  adversary_capability: changes aggregation sampling or reporting
+  collusion_assumption: operator-assessor collusion possible
+  preconditions: metric definitions or evidence provenance weak
+  attack_path: hide adverse events or optimize reported indicator
+  context_scope: deployment
+  time_horizon: reporting period
+  alongside_information: raw counters transforms and reports
+  technical_effect: governance sees false normal state
+  human_institutional_harm: delayed response and hidden harm
+  preventive_detective_corrective_controls: CTL-OBS; CTL-GOV
+  control_owner: assurance and operations owners
+  verification_method: metric lineage and reconciliation test
+  conformance_requirement: SEC-044
+  residual_risk: privacy limits raw-data review
+  deployment_decision: require independent metric audit
+  severity: high
+  harm_ids: HRM-GOV;HRM-SYS;HRM-PRV
+  status: RAHP-adapted
+- threat_id: THR-045
+  domain: affected-parties
+  title: Affected-party harm remains invisible
+  asset_property: complete accountability
+  profiles: both
+  component: verifier/governance
+  trust_boundary: decision-to-impact
+  threat_actor: ADV-V
+  adversary_capability: limits assessment to direct protocol participants
+  collusion_assumption: institutional collusion possible
+  preconditions: impact model omits third parties or non-presenters
+  attack_path: externalize consequences outside evidence and redress scope
+  context_scope: ecosystem
+  time_horizon: long-term
+  alongside_information: impact reports complaints and downstream decisions
+  technical_effect: technically correct decision causes unrecorded harm
+  human_institutional_harm: economic reputational autonomy and legitimacy harm
+  preventive_detective_corrective_controls: CTL-RED; CTL-HUM; CTL-GOV
+  control_owner: governance and redress authority
+  verification_method: affected-party mapping and redress exercise
+  conformance_requirement: SEC-045
+  residual_risk: indirect harms can be difficult to attribute
+  deployment_decision: mitigate and expand review scope
+  severity: high
+  harm_ids: HRM-ECO;HRM-REP;HRM-AUT;HRM-GOV;HRM-RED
+  status: RAHP-adapted
+provenance:
+  methodological_source: https://github.com/trustoverip/dtgwg-rahp-tf
+  reviewed_commit: 94d17a6f5e8b448aae4698ff183e77a4a2f7a083
+  adaptation_statement: rahp-adoption-and-adaptation.md

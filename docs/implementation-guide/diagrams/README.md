@@ -36,3 +36,8 @@ Diagrams are implementation and assurance artefacts. Each source includes a text
 | D-022 | Correlation Surface Map | [D-022-correlation-surface-map.md](D-022-correlation-surface-map.md) |
 | D-023 | Shared Device Boundaries | [D-023-shared-device-boundaries.md](D-023-shared-device-boundaries.md) |
 | D-024 | Redress Correction Flow | [D-024-redress-correction-flow.md](D-024-redress-correction-flow.md) |
+| D-025 | Security Guardrail Gate Flow | [D-025-security-guardrail-gate-flow.md](D-025-security-guardrail-gate-flow.md) |
+| D-026 | Risk Acceptance Authority Flow | [D-026-risk-acceptance-authority-flow.md](D-026-risk-acceptance-authority-flow.md) |
+| D-027 | Control Assurance Evidence Chain | [D-027-control-assurance-evidence-chain.md](D-027-control-assurance-evidence-chain.md) |
+| D-028 | Security Metric Escalation Loop | [D-028-security-metric-escalation-loop.md](D-028-security-metric-escalation-loop.md) |
+| D-029 | Governance Capture and Revocation | [D-029-governance-capture-and-revocation.md](D-029-governance-capture-and-revocation.md) |
