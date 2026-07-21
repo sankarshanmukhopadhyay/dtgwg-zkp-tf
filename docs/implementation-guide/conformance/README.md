@@ -16,8 +16,11 @@ has_toc: true
 | File | Purpose |
 |---|---|
 | [`levels.md`](./levels.md) | Formal definition of conformance levels CL-1 through CL-4: which predicates and scenarios each requires, and which readiness gate it targets |
-| [`test-matrix.csv`](./test-matrix.csv) | Machine-readable conformance test matrix: 76 test cases across the 19 P0 scenarios, each with a level, scenario, predicate set, named adversary, test type (positive/negative), description and expected result |
+| [`test-matrix.csv`](./test-matrix.csv) | Machine-readable protocol conformance matrix: 76 test cases across the 19 P0 scenarios, each with a level, scenario, predicate set, named adversary, test type (positive/negative), description and expected result |
 | [`test-matrix.md`](./test-matrix.md) | Human-readable view of the same matrix, grouped by level and scenario |
+| [`execution-dispositions.csv`](./execution-dispositions.csv) | Governed execution status for every protocol case |
+| [`executable-harness.md`](./executable-harness.md) | Harness architecture, adapter boundary and CI isolation |
+| [`conformance-decision-backlog.csv`](./conformance-decision-backlog.csv) | Machine-readable blockers for non-executable cases |
 | [`fixtures/`](./fixtures/) | Illustrative, non-normative JSON fixtures (canonical transcript, issuer set, nullifier scope/epoch, delegation, registry snapshot) referenced by test cases |
 
 Validate all of the above with:
@@ -54,10 +57,9 @@ of the corpus's implementation programme.
 ## What this suite is, and is not
 
 This suite defines **expected behaviour** for a conformant implementation.
-It is not, itself, a working conformance harness: no cryptographic
-construction has been selected for any predicate (see
-`../../../proof-of-liveness-requirements.md`), so no test case here can yet
-be executed against real proofs. `scripts/validate_conformance.py`
+It now includes a working construction-neutral harness for a deliberately limited deterministic subset. No cryptographic
+construction has been selected for the predicates (see
+`../../../proof-of-liveness-requirements.md`), so the harness does not execute real proofs. The 76 protocol cases remain authoritative; 12 additional security-assurance cases are validated separately, producing 88 total defined cases. `scripts/validate_conformance.py`
 validates the *specification's internal consistency* — that every claim is
 traceable to a real predicate, adversary and scenario, and that no
 conformance level is defined by assertion alone (rule 1 and rule 2 of

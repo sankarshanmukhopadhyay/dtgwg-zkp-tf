@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.0",
+  "specificationRevision": "commit-under-test",
+  "profile": "CL-4",
+  "implementation": {
+    "name": "deterministic-mock",
+    "version": "0.1.0",
+    "adapter": "mock"
+  },
+  "tests": [
+    {
+      "test_id": "CT-UC004-POS-01",
+      "operation": "verify_proof",
+      "required_capability": "transcript-binding",
+      "expected_status": "accepted",
+      "expected_reason": "ok",
+      "request": {
+        "mock_case": "valid-bound-proof"
+      }
+    },
+    {
+      "test_id": "CT-UC004-NEG-01",
+      "operation": "verify_proof",
+      "required_capability": "transcript-binding",
+      "expected_status": "rejected",
+      "expected_reason": "transcript-binding-mismatch",
+      "request": {
+        "mock_case": "transaction-mismatch"
+      }
+    },
+    {
+      "test_id": "CT-UC001-POS-01",
+      "operation": "verify_uniqueness",
+      "required_capability": "context-binding",
+      "expected_status": "accepted",
+      "expected_reason": "ok",
+      "request": {
+        "mock_case": "valid-scoped-nullifier"
+      }
+    },
+    {
+      "test_id": "CT-UC001-NEG-02",
+      "operation": "verify_uniqueness",
+      "required_capability": "context-binding",
+      "expected_status": "rejected",
+      "expected_reason": "context-mismatch",
+      "request": {
+        "mock_case": "context-substitution"
+      }
+    },
+    {
+      "test_id": "CT-UC009-POS-01",
+      "operation": "evaluate_delegation",
+      "required_capability": "delegation-binding",
+      "expected_status": "accepted",
+      "expected_reason": "ok",
+      "request": {
+        "mock_case": "valid-delegation"
+      }
+    },
+    {
+      "test_id": "CT-UC009-NEG-01",
+      "operation": "evaluate_delegation",
+      "required_capability": "delegation-binding",
+      "expected_status": "rejected",
+      "expected_reason": "delegation-key-mismatch",
+      "request": {
+        "mock_case": "agent-key-swap"
+      }
+    },
+    {
+      "test_id": "CT-UC026-POS-01",
+      "operation": "negotiate_profile",
+      "required_capability": "profile-negotiation",
+      "expected_status": "accepted",
+      "expected_reason": "ok",
+      "request": {
+        "mock_case": "supported-profile"
+      }
+    },
+    {
+      "test_id": "CT-UC026-NEG-02",
+      "operation": "negotiate_profile",
+      "required_capability": "profile-negotiation",
+      "expected_status": "rejected",
+      "expected_reason": "unsupported-profile",
+      "request": {
+        "mock_case": "unsupported-profile"
+      }
+    }
+  ]
+}

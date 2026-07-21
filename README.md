@@ -89,7 +89,7 @@ Inherits the DTGWG [JDF Charter](https://lf-toip.atlassian.net/wiki/spaces/HOME/
 
 ## Implementation and interoperability guide workspace
 
-The publication-ready, non-normative implementation workspace is available at [`docs/implementation-guide/`](./docs/implementation-guide/). It contains a lifecycle-oriented guide, architecture viewpoints, ADRs, 30 pressure-test scenarios, traceability matrices, a four-level 76-case conformance suite, evidence schemas and GitHub Pages navigation.
+The publication-ready, non-normative implementation workspace is available at [`docs/implementation-guide/`](./docs/implementation-guide/). It contains a lifecycle-oriented guide, architecture viewpoints, ADRs, 30 pressure-test scenarios, traceability matrices, a four-level 76-case protocol conformance suite, supplemented by 12 security-assurance cases, evidence schemas and GitHub Pages navigation.
 
 Run the complete local quality gate from the repository root:
 
@@ -101,10 +101,6 @@ python3 scripts/validate_links.py
 python3 scripts/validate_fixtures.py
 python3 scripts/build_traceability.py
 ```
-
-## Implementation security maturity workspace
-
-The implementation guide now includes paired assurance and disclosure boundaries, a canonical threat, harm and control model, attestation-schema correlation analysis, cryptoperiod and assurance-horizon guidance, mediated-proving controls and executable migration requirements. These additions remain proof-system agnostic and do not ratify an unresolved construction choice.
 
 ## Implementation security maturity workspace
 
