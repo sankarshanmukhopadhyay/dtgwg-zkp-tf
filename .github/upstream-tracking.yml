@@ -1,0 +1,29 @@
+# Governed one-way upstream tracking policy.
+schema_version: 1
+enabled: true
+upstream:
+  repository: trustoverip/dtgwg-zkp-tf
+  branch: main
+  remote_name: upstream-readonly
+direction:
+  permitted: upstream-to-fork
+  fork_to_upstream: prohibited-unless-explicitly-authorised
+monitoring:
+  schedule: "17 6 */10 * *"
+  create_issue: true
+synchronisation:
+  strategy: merge
+  auto_merge: false
+  require_human_approval: true
+protected_paths:
+  - docs/implementation-guide/**
+  - _config.yml
+  - _data/**
+  - _includes/**
+  - .github/upstream-tracking.yml
+  - .github/workflows/upstream-monitor.yml
+  - .github/workflows/upstream-sync.yml
+  - .upstream/**
+validation:
+  require_existing_repository_checks: true
+  require_upstream_policy_check: true
