@@ -1,0 +1,196 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Governed context descriptor",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "context_id",
+    "version",
+    "authority",
+    "purpose",
+    "verifier_set",
+    "epoch",
+    "linkability",
+    "change_control",
+    "human_legibility",
+    "review"
+  ],
+  "properties": {
+    "context_id": {
+      "type": "string",
+      "pattern": "^CTX-[A-Z0-9-]+$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "authority": {
+      "type": "object",
+      "required": [
+        "id",
+        "change_authority"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "change_authority": {
+          "type": "string"
+        }
+      }
+    },
+    "purpose": {
+      "type": "object",
+      "required": [
+        "statement",
+        "governance_basis",
+        "prohibited_secondary_use"
+      ],
+      "properties": {
+        "statement": {
+          "type": "string",
+          "minLength": 20
+        },
+        "governance_basis": {
+          "type": "string"
+        },
+        "prohibited_secondary_use": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "verifier_set": {
+      "type": "object",
+      "required": [
+        "membership_rule",
+        "members",
+        "expansion_requires_new_version"
+      ],
+      "properties": {
+        "membership_rule": {
+          "type": "string"
+        },
+        "members": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "expansion_requires_new_version": {
+          "const": true
+        }
+      }
+    },
+    "epoch": {
+      "type": "object",
+      "required": [
+        "id",
+        "starts_at",
+        "ends_at",
+        "rollover_authority"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "starts_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "ends_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "rollover_authority": {
+          "type": "string"
+        }
+      }
+    },
+    "linkability": {
+      "type": "object",
+      "required": [
+        "permitted",
+        "prohibited",
+        "silent_expansion_prohibited"
+      ],
+      "properties": {
+        "permitted": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "prohibited": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "silent_expansion_prohibited": {
+          "const": true
+        }
+      }
+    },
+    "change_control": {
+      "type": "object",
+      "required": [
+        "notice_period",
+        "migration",
+        "appeal"
+      ],
+      "properties": {
+        "notice_period": {
+          "type": "string"
+        },
+        "migration": {
+          "type": "string"
+        },
+        "appeal": {
+          "type": "string"
+        }
+      }
+    },
+    "human_legibility": {
+      "type": "object",
+      "required": [
+        "name",
+        "shared_context_test",
+        "notice_uri"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "shared_context_test": {
+          "type": "string"
+        },
+        "notice_uri": {
+          "type": "string"
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "required": [
+        "review_by",
+        "assurance_horizon"
+      ],
+      "properties": {
+        "review_by": {
+          "type": "string",
+          "format": "date"
+        },
+        "assurance_horizon": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

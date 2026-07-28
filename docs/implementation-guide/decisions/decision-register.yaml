@@ -1,0 +1,259 @@
+{
+  "register_version": "1.0.0",
+  "repository_release_target": "v0.3.0",
+  "decision_authority": "DTG ZKP Task Force",
+  "source_discussion": "https://github.com/trustoverip/dtgwg-zkp-tf/discussions/10",
+  "status_vocabulary": [
+    "draft",
+    "proposed",
+    "implemented-as-working-baseline",
+    "pending-ratification",
+    "ratified",
+    "ratified-with-amendment",
+    "rejected",
+    "deferred",
+    "superseded"
+  ],
+  "decisions": [
+    {
+      "id": "A1",
+      "title": "Predicate-over-attestation boundary",
+      "upstream_status": "pending-ratification",
+      "fork_status": "implemented-as-working-baseline",
+      "normative_effect": "non-normative",
+      "adrs": [
+        "ADR-004"
+      ],
+      "requirements": [
+        "REQ-ASSURANCE-BOUNDARY"
+      ],
+      "evidence_paths": []
+    },
+    {
+      "id": "A2",
+      "title": "Context-dependent unlinkability target",
+      "upstream_status": "pending-ratification",
+      "fork_status": "implemented-as-working-baseline",
+      "normative_effect": "non-normative",
+      "adrs": [
+        "ADR-003"
+      ],
+      "requirements": [
+        "REQ-PRIVACY-CLAIM"
+      ],
+      "evidence_paths": []
+    },
+    {
+      "id": "A3",
+      "title": "Minimum Liveness and Extended Personhood split",
+      "upstream_status": "pending-ratification",
+      "fork_status": "implemented-as-working-baseline",
+      "normative_effect": "non-normative",
+      "adrs": [],
+      "requirements": [
+        "REQ-PROFILE-SPLIT"
+      ],
+      "evidence_paths": []
+    },
+    {
+      "id": "A4",
+      "title": "Paired assurance and disclosure boundaries",
+      "upstream_status": "pending-ratification",
+      "fork_status": "implemented-as-working-baseline",
+      "normative_effect": "non-normative",
+      "adrs": [
+        "ADR-006"
+      ],
+      "requirements": [
+        "REQ-BOUNDARY-PAIR"
+      ],
+      "evidence_paths": []
+    },
+    {
+      "id": "A5",
+      "title": "Parameterized privacy and assurance claims",
+      "upstream_status": "pending-ratification",
+      "fork_status": "implemented-as-working-baseline",
+      "normative_effect": "non-normative",
+      "adrs": [
+        "ADR-008"
+      ],
+      "requirements": [
+        "REQ-CLAIM-PARAMETERS"
+      ],
+      "evidence_paths": []
+    },
+    {
+      "id": "A6",
+      "title": "Nullifier means scoped reuse detection",
+      "upstream_status": "pending-ratification",
+      "fork_status": "implemented-as-working-baseline",
+      "normative_effect": "non-normative",
+      "adrs": [
+        "ADR-003"
+      ],
+      "requirements": [
+        "REQ-NULLIFIER-SCOPE"
+      ],
+      "evidence_paths": []
+    },
+    {
+      "id": "A7",
+      "title": "Delegation remains separate structured evidence",
+      "upstream_status": "pending-ratification",
+      "fork_status": "implemented-as-working-baseline",
+      "normative_effect": "non-normative",
+      "adrs": [
+        "ADR-001"
+      ],
+      "requirements": [
+        "REQ-DELEGATION-SEPARATION"
+      ],
+      "evidence_paths": []
+    },
+    {
+      "id": "B1",
+      "title": "Purpose-and-governance-bounded context delimiter",
+      "upstream_status": "pending-ratification",
+      "fork_status": "implemented-as-working-baseline",
+      "normative_effect": "non-normative",
+      "adrs": [],
+      "requirements": [
+        "REQ-CONTEXT-DESCRIPTOR"
+      ],
+      "evidence_paths": []
+    },
+    {
+      "id": "B2",
+      "title": "Issuer-verifier collusion resistance target",
+      "upstream_status": "pending-ratification",
+      "fork_status": "implemented-as-working-baseline",
+      "normative_effect": "non-normative",
+      "adrs": [],
+      "requirements": [
+        "REQ-PRIVACY-CLASS"
+      ],
+      "evidence_paths": []
+    },
+    {
+      "id": "B3",
+      "title": "Primary profile split",
+      "upstream_status": "pending-ratification",
+      "fork_status": "implemented-as-working-baseline",
+      "normative_effect": "non-normative",
+      "adrs": [],
+      "requirements": [
+        "REQ-PROFILE-SPLIT"
+      ],
+      "evidence_paths": []
+    },
+    {
+      "id": "B4",
+      "title": "Issuer concealment remains profile-specific",
+      "upstream_status": "pending-ratification",
+      "fork_status": "implemented-as-working-baseline",
+      "normative_effect": "non-normative",
+      "adrs": [
+        "ADR-005"
+      ],
+      "requirements": [
+        "REQ-ISSUER-CONCEALMENT"
+      ],
+      "evidence_paths": []
+    },
+    {
+      "id": "B5",
+      "title": "Boundary records required per predicate",
+      "upstream_status": "pending-ratification",
+      "fork_status": "implemented-as-working-baseline",
+      "normative_effect": "non-normative",
+      "adrs": [
+        "ADR-006"
+      ],
+      "requirements": [
+        "REQ-BOUNDARY-PAIR"
+      ],
+      "evidence_paths": []
+    },
+    {
+      "id": "B6",
+      "title": "Attestation schema determines both boundaries",
+      "upstream_status": "pending-ratification",
+      "fork_status": "implemented-as-working-baseline",
+      "normative_effect": "non-normative",
+      "adrs": [
+        "ADR-007"
+      ],
+      "requirements": [
+        "REQ-SCHEMA-GOVERNANCE"
+      ],
+      "evidence_paths": []
+    },
+    {
+      "id": "B7",
+      "title": "Bounded epochs, cryptoperiods and assurance horizons",
+      "upstream_status": "pending-ratification",
+      "fork_status": "implemented-as-working-baseline",
+      "normative_effect": "non-normative",
+      "adrs": [
+        "ADR-009"
+      ],
+      "requirements": [
+        "REQ-LIFECYCLE"
+      ],
+      "evidence_paths": []
+    },
+    {
+      "id": "B8",
+      "title": "Agent authority remains separate evidence",
+      "upstream_status": "pending-ratification",
+      "fork_status": "implemented-as-working-baseline",
+      "normative_effect": "non-normative",
+      "adrs": [
+        "ADR-001"
+      ],
+      "requirements": [
+        "REQ-DELEGATION-SEPARATION"
+      ],
+      "evidence_paths": []
+    },
+    {
+      "id": "B9",
+      "title": "Mediated proving requires explicit controlled profile",
+      "upstream_status": "pending-ratification",
+      "fork_status": "implemented-as-working-baseline",
+      "normative_effect": "non-normative",
+      "adrs": [
+        "ADR-010"
+      ],
+      "requirements": [
+        "REQ-MEDIATED-PROVING"
+      ],
+      "evidence_paths": []
+    },
+    {
+      "id": "B10",
+      "title": "Human legibility is a context conformance requirement",
+      "upstream_status": "pending-ratification",
+      "fork_status": "implemented-as-working-baseline",
+      "normative_effect": "non-normative",
+      "adrs": [],
+      "requirements": [
+        "REQ-CONTEXT-LEGIBILITY"
+      ],
+      "evidence_paths": []
+    },
+    {
+      "id": "C1",
+      "title": "Specific cryptographic constructions per predicate",
+      "upstream_status": "deferred",
+      "fork_status": "deferred",
+      "normative_effect": "non-normative",
+      "adrs": [],
+      "requirements": [
+        "REQ-CONSTRUCTION-SELECTION"
+      ],
+      "evidence_paths": []
+    }
+  ]
+}

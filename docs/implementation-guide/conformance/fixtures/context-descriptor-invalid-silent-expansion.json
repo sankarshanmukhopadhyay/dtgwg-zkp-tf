@@ -1,0 +1,60 @@
+{
+  "expected_result": "fail",
+  "violations": [
+    "verifier-set expansion must require a new context version"
+  ],
+  "candidate": {
+    "context_id": "CTX-CIVIC-BENEFIT-ELIGIBILITY",
+    "version": "1.0.0",
+    "authority": {
+      "id": "gov.example/context-authority",
+      "change_authority": "Context Governance Board"
+    },
+    "purpose": {
+      "statement": "Detect repeated use within one governed benefit eligibility process.",
+      "governance_basis": "Benefit programme policy v2",
+      "prohibited_secondary_use": [
+        "advertising",
+        "cross-programme profiling"
+      ]
+    },
+    "verifier_set": {
+      "membership_rule": "Accredited programme verifiers listed in registry snapshot RS-2026-07",
+      "members": [
+        "verifier.example/benefit-a",
+        "verifier.example/benefit-b"
+      ],
+      "expansion_requires_new_version": false
+    },
+    "epoch": {
+      "id": "2026-Q3",
+      "starts_at": "2026-07-01T00:00:00Z",
+      "ends_at": "2026-09-30T23:59:59Z",
+      "rollover_authority": "Context Governance Board"
+    },
+    "linkability": {
+      "permitted": [
+        "same-holder reuse detection within the named programme and epoch"
+      ],
+      "prohibited": [
+        "linkage to other benefit programmes",
+        "linkage after epoch expiry without lawful continuity record"
+      ],
+      "silent_expansion_prohibited": true
+    },
+    "change_control": {
+      "notice_period": "30 days",
+      "migration": "Publish a new version and dual-run only for the documented migration window.",
+      "appeal": "Affected persons may challenge context assignment through the programme redress channel."
+    },
+    "human_legibility": {
+      "name": "Benefit eligibility reuse-detection context",
+      "shared_context_test": "The public context registry lists all services sharing this context.",
+      "notice_uri": "https://example.org/contexts/benefit-eligibility"
+    },
+    "review": {
+      "review_by": "2026-09-01",
+      "assurance_horizon": "Valid through the current epoch unless an incident shortens the horizon."
+    }
+  }
+}

@@ -33,12 +33,15 @@ This workspace provides an implementation path from controlled exploration to in
 | `conformance/` | Levels, tests, schemas, fixtures and evidence templates |
 | `security/` | Threat, harm, control and residual-risk model |
 | `boundaries/` | Assurance and disclosure boundaries |
+| `decisions/` | Decision state, upstream traceability and ratification impact |
+| `privacy/` | Privacy classes, observables and composition analysis |
 | `diagrams/` | Registered Mermaid sources and textual interpretations |
 | `matrices/` | Machine-readable traceability maps |
 
 ## Validation
 
 ```sh
+python3 scripts/validate_decision_governance.py
 python3 scripts/validate_docs.py
 python3 scripts/validate_conformance.py
 python3 scripts/validate_style.py

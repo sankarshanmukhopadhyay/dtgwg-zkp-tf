@@ -1,0 +1,32 @@
+{
+  "claim_id": "PCL-REMOTE-PC-R",
+  "privacy_class": "PC-R",
+  "profile_id": "extended-personhood-profile",
+  "context_descriptor": "CTX-CIVIC-BENEFIT-ELIGIBILITY@1.0.0",
+  "against_whom": [
+    "verifiers"
+  ],
+  "for_how_long": {
+    "epoch": "2026-Q3",
+    "assurance_horizon": "2026-09-30T23:59:59Z"
+  },
+  "alongside_what": [
+    "attestation schema profile ASP-001",
+    "registry snapshot RS-2026-07",
+    "network observable assessment OEA-004"
+  ],
+  "assumptions": [
+    "remote proving service observes session metadata"
+  ],
+  "evidence": {
+    "adversary_model": "ADV-EPP-COLLUSION-001",
+    "correlation_assessment": "CSA-EPP-004",
+    "test_results": [
+      "CT-B1-001",
+      "CT-B2-003",
+      "CT-B2-005"
+    ],
+    "lifecycle_profile": "LCP-EPP-2026-Q3"
+  },
+  "downgrade_rule": "This deployment remains PC-R until retained metadata and stable session correlation are removed and retested."
+}

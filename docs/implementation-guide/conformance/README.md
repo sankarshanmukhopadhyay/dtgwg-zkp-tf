@@ -93,3 +93,7 @@ A profile evidence bundle includes linked assurance and disclosure records, a fi
 - `schemas/security-metric-evidence.schema.json`
 
 These artefacts adapt the RAHP assurance-test discipline while remaining separate from protocol conformance claims.
+
+## Decision conformance
+
+The [decision conformance tests](decision-conformance-tests.md) operationalise the governed-context and privacy-class baseline for B1 and B2.

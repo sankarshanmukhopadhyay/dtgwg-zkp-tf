@@ -21,6 +21,8 @@ required = [
     GUIDE / "boundaries" / "README.md",
     GUIDE / "information-model" / "attestation-schema-profile.md",
     GUIDE / "lifecycle" / "cryptoperiod-and-assurance-horizon.md",
+    GUIDE / "decisions" / "decision-register.md",
+    GUIDE / "privacy" / "privacy-class-model.md",
 ]
 errors = []
 for path in required:

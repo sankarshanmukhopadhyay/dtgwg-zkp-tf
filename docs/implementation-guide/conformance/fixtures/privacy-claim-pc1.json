@@ -1,0 +1,33 @@
+{
+  "claim_id": "PCL-MLP-PC1",
+  "privacy_class": "PC-1",
+  "profile_id": "minimum-liveness-profile",
+  "context_descriptor": "CTX-CIVIC-BENEFIT-ELIGIBILITY@1.0.0",
+  "against_whom": [
+    "non-colluding verifiers"
+  ],
+  "for_how_long": {
+    "epoch": "2026-Q3",
+    "assurance_horizon": "2026-09-30T23:59:59Z"
+  },
+  "alongside_what": [
+    "attestation schema profile ASP-001",
+    "registry snapshot RS-2026-07",
+    "network observable assessment OEA-004"
+  ],
+  "assumptions": [
+    "issuer does not disclose raw enrolment biometrics",
+    "status lookups use the declared privacy-preserving channel"
+  ],
+  "evidence": {
+    "adversary_model": "ADV-MLP-NONCOLLUSION-001",
+    "correlation_assessment": "CSA-EPP-004",
+    "test_results": [
+      "CT-B1-001",
+      "CT-B2-003",
+      "CT-B2-005"
+    ],
+    "lifecycle_profile": "LCP-EPP-2026-Q3"
+  },
+  "downgrade_rule": "Downgrade to PC-R when any stable cross-context correlator is observed or evidence expires."
+}

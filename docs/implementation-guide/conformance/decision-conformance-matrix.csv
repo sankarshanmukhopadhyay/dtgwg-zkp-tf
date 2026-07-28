@@ -1,0 +1,10 @@
+test_id,decision_id,test_family,expected_result,evidence
+CT-B1-001,B1,context-integrity,pass,canonical context descriptor validates
+CT-B1-002,B1,context-integrity,fail,silent verifier-set expansion rejected
+CT-B1-003,B1,context-integrity,fail,unbounded ecosystem context rejected
+CT-B1-004,B1,human-legibility,pass,shared-context test and notice present
+CT-B2-001,B2,claim-discipline,pass,PC-1 claim includes minimum evidence
+CT-B2-002,B2,claim-discipline,fail,PC-3 claim without adversary model rejected
+CT-B2-003,B2,collusion-resistance,pass,issuer and verifier observables assessed
+CT-B2-004,B2,claim-discipline,fail,expired assurance horizon forces downgrade
+CT-B2-005,B2,correlation-surface,fail,stable cross-context correlator forces PC-R

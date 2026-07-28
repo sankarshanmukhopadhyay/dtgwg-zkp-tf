@@ -18,6 +18,10 @@ flowchart LR
   E --> F[Review residual risk and readiness]
 ```
 
+## Interpretation
+
+The learning path sequences governance and boundary decisions before implementation choices, then carries those choices through deployment, operations and independently reviewable evidence.
+
 ## Route 1: sponsor, governance lead or risk owner
 
 | Step | Read | Decision or evidence produced |

@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Privacy class claim",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "claim_id",
+    "privacy_class",
+    "profile_id",
+    "context_descriptor",
+    "against_whom",
+    "for_how_long",
+    "alongside_what",
+    "assumptions",
+    "evidence",
+    "downgrade_rule"
+  ],
+  "properties": {
+    "claim_id": {
+      "type": "string",
+      "pattern": "^PCL-[A-Z0-9-]+$"
+    },
+    "privacy_class": {
+      "enum": [
+        "PC-1",
+        "PC-2",
+        "PC-3",
+        "PC-R"
+      ]
+    },
+    "profile_id": {
+      "type": "string"
+    },
+    "context_descriptor": {
+      "type": "string",
+      "pattern": "^CTX-[A-Z0-9-]+@[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "against_whom": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "for_how_long": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "alongside_what": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": [
+        "adversary_model",
+        "correlation_assessment",
+        "test_results",
+        "lifecycle_profile"
+      ],
+      "properties": {
+        "adversary_model": {
+          "type": "string"
+        },
+        "correlation_assessment": {
+          "type": "string"
+        },
+        "test_results": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "lifecycle_profile": {
+          "type": "string"
+        }
+      }
+    },
+    "downgrade_rule": {
+      "type": "string",
+      "minLength": 20
+    }
+  }
+}
