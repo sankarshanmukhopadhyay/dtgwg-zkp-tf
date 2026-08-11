@@ -1,97 +1,115 @@
-# DTG ZKP Task Force
+# DTG ZKP Implementation and Interoperability Fork
 
-A task force of the [Decentralized Trust Graph Working Group](https://lf-toip.atlassian.net/wiki/spaces/HOME/pages/257785857/Decentralized+Trust+Graph+Working+Group) (DTGWG) at the Trust over IP Foundation (ToIP), part of Linux Foundation Decentralized Trust (LFDT).
+This repository is a maintained fork of [`trustoverip/dtgwg-zkp-tf`](https://github.com/trustoverip/dtgwg-zkp-tf). It preserves the upstream task force work while developing implementation, interoperability, assurance, deployment and conformance material around the emerging DTG zero-knowledge proof specification.
 
-## Mission
+> **Fork status:** this repository is not the authoritative DTG ZKP specification repository. Normative decisions remain with the upstream DTG ZKP Task Force unless and until they are adopted there.
 
-Design and deliver a specification for how DTG verifiable trust agents (VTAs) can produce **privacy-preserving zero-knowledge proofs** of DTG credentials — for **proof of personhood** and **biometric liveness** of the principal — without revealing the person's identity or the underlying biometric.
+## Why this fork exists
 
-### What the cryptography carries — and what it doesn't
+The upstream repository is intentionally compact and specification-focused. This fork provides a separate engineering workspace in which unresolved specification ideas can be pressure-tested against implementation realities before being proposed upstream.
 
-The proof establishes **possession of a valid attestation** from an accredited issuer, under a stated policy and assurance class. It does **not** establish that the underlying biometric determination was *correct*.
+The fork currently develops five connected layers:
 
-**The cryptography carries the privacy. The accreditation framework carries the assurance.**
+1. **Requirements maturation** — turning conceptual liveness and personhood requirements into bounded, testable statements.
+2. **Implementation architecture** — defining actors, trust boundaries, information flows, protocol viewpoints and deployment patterns.
+3. **Security and privacy assurance** — making threats, harms, controls, disclosure surfaces and residual risks explicit.
+4. **Interoperability and conformance** — maintaining scenarios, test matrices, evidence schemas and an executable conformance harness.
+5. **Operational adoption** — documenting rollout, recovery, revocation, migration, incident and governance procedures required beyond the proof system itself.
 
-We state this plainly because it determines who is accountable when a determination is wrong. A verifier reading "zero-knowledge proof of liveness" would otherwise assume the cryptography is carrying the assurance. It isn't.
+The objective is not to create a competing specification. It is to make the specification easier to implement, challenge and improve.
 
-### Normative reference
+## Upstream fidelity
 
-[*A Cryptographic Framework for Proof of Personhood*](https://eprint.iacr.org/2026/333) — Choudhuri, Garg, Lee, Montgomery, Policharla, Sinha (IACR ePrint 2026/333). Formalises Sybil-resistance, authenticated personhood, and **unlinkability across contexts** — and establishes why full unlinkability alongside Sybil resistance is unreachable. We are specifying a deployment profile of this framework, not reinventing one.
+The upstream README is preserved separately as [`UPSTREAM_README.md`](./UPSTREAM_README.md). It records the upstream project framing without forcing fork-specific material into the upstream narrative.
 
-## Deliverable
+The relationship is deliberately asymmetric:
 
-**DTG ZKP V1.0** — a specification defining the requirements for conformant ZK proofs of:
+- **Upstream** defines the task force mission, specification direction and normative decisions.
+- **This fork** develops implementation evidence, pressure tests, proposed refinements and operational material.
+- Upstream changes are monitored and integrated into this fork only through the governed process described in [`docs/governance/upstream-synchronisation.md`](./docs/governance/upstream-synchronisation.md).
+- Fork additions do not silently redefine an upstream requirement. Where the fork makes a proposed decision, the status must be explicit.
 
-- the DTG credentials held by the principal,
-- the biometric liveness of the principal, and
-- any other trust signals the principal agrees to share with a verifier.
+This separation keeps the original upstream project identity intact while allowing the root README of this fork to accurately describe what a visitor will actually find here.
 
-It will also cover any trust-task protocols specific to generating, presenting, or verifying these proofs that aren't already specified in **DTG Core Trust Task Protocols V1.0** (from the Trust Task Protocols TF).
+## Current focus: proof of liveness
 
-## Milestone
+The principal normative-adjacent work item is [`proof-of-liveness-requirements.md`](./proof-of-liveness-requirements.md).
 
-A complete **Working Draft ready for discussion at IIW #43 (3–5 November 2026)**. Interim target: a shareable strawman of the proof-of-liveness requirements by September, to put in front of the cryptography teams.
+The fork's v0.4 working draft advances the upstream v0.3 material by adding:
 
-## How we work
+- explicit liveness, personhood, continuity and uniqueness terminology;
+- an actor and trust model;
+- a distinction between **capture freshness**, **attestation freshness** and **proof freshness**;
+- requirement identifiers for review and traceability;
+- transcript, replay, audience and context-binding requirements;
+- revocation, suspension, expiry and policy-version handling;
+- privacy requirements expressed against named adversaries and correlation horizons;
+- failure and degraded-mode semantics;
+- minimum interoperability evidence and conformance expectations; and
+- a decision backlog separating specification choices from construction choices.
 
-A weekly working call plus async work on GitHub. The weekly call (being scheduled — watch Discord) sets the agenda and reviews progress; long-form work and decisions happen here on GitHub (issues + discussions), with short-form notices in Discord and status reports at the DTGWG weekly.
+It remains a working draft and deliberately does **not** select a proof system or claim that cryptography proves the correctness of a biometric determination.
 
-## Leadership
+## Start here
 
-- **Chair:** Scott Jones (Realeyes)
-- **Co-chair:** Mitchell Travers (Soulbis)
+Choose the path that matches what you are trying to do:
 
-## Get involved
+- **Understand the upstream task force:** [`UPSTREAM_README.md`](./UPSTREAM_README.md)
+- **Review liveness/personhood requirements:** [`proof-of-liveness-requirements.md`](./proof-of-liveness-requirements.md)
+- **Navigate the implementation workspace:** [`docs/implementation-guide/README.md`](./docs/implementation-guide/README.md)
+- **Take a role-based learning path:** [`docs/implementation-guide/guided-learning.md`](./docs/implementation-guide/guided-learning.md)
+- **Review assurance/disclosure boundaries:** [`docs/implementation-guide/boundaries/README.md`](./docs/implementation-guide/boundaries/README.md)
+- **Pressure-test use cases:** [`docs/implementation-guide/scenarios/README.md`](./docs/implementation-guide/scenarios/README.md)
+- **Inspect conformance evidence:** [`docs/implementation-guide/conformance/README.md`](./docs/implementation-guide/conformance/README.md)
+- **Review threats, harms and controls:** [`docs/implementation-guide/security/README.md`](./docs/implementation-guide/security/README.md)
+- **Understand fork/upstream governance:** [`docs/governance/upstream-synchronisation.md`](./docs/governance/upstream-synchronisation.md)
 
-1. Be a member of **ToIP or DIF** (see the [DTGWG home page](https://lf-toip.atlassian.net/wiki/spaces/HOME/pages/257785857/Decentralized+Trust+Graph+Working+Group) for how to join).
-2. Join the Discord channel **#toip-dtgwg-zkp-tf** for short-form discussion.
-3. Comment on [issues](https://github.com/trustoverip/dtgwg-zkp-tf/issues) and [discussions](https://github.com/trustoverip/dtgwg-zkp-tf/discussions) in this repo.
-4. Add your name to the [TF wiki page](https://lf-toip.atlassian.net/wiki/spaces/HOME/pages/948240390/DTG+ZKP+Task+Force).
+## Architecture of the workspace
 
-We especially want **cryptographers and cryptographic engineers** who can pressure-test what's implementable at scale, and **implementers / relying parties** with concrete use cases that need privacy-preserving liveness.
+```mermaid
+flowchart TD
+    U[Upstream DTG ZKP Task Force] -->|normative direction| R[Requirements working drafts]
+    U -->|tracked changes| S[Governed upstream synchronisation]
+    S --> R
+    R --> B[Boundary and decision records]
+    B --> A[Architecture and information model]
+    A --> P[Pressure-test scenarios]
+    P --> T[Threats, harms and controls]
+    P --> C[Conformance tests and evidence]
+    T --> D[Deployment and operations]
+    C --> D
+    D --> F[Implementation feedback for upstream consideration]
+    F -. human contribution .-> U
+```
 
-## First work item
+The loop is intentional: implementation evidence should be able to expose ambiguity or unsafe assumptions in a requirement, but adoption upstream remains a human governance decision.
 
-A **Predicate & Assurance-Boundary decision document**, time-boxed to two weeks.
+## What this fork does not claim
 
-It is a *decision* document, not a description — because what we have written down so far is not yet consistent, and the inconsistency has to be resolved inside it. For each predicate: what it establishes, what it does **not** establish, what it discloses and to whom, and who is accountable for which part of the claim.
+This repository does not claim that:
 
-The decision that sits underneath all of it:
+- a zero-knowledge proof establishes that a biometric liveness determination was correct;
+- holder-key control proves human continuity, non-transferability or agent authority;
+- a scoped nullifier proves global one-human-one-record uniqueness;
+- privacy can be stated without identifying the adversary, context and time horizon;
+- an implementation profile is normative merely because it is documented or tested here; or
+- operational, accreditation and governance assurance can be replaced by cryptographic validity.
 
-> **What counts as a context — and must a context boundary survive the issuer and the verifier acting together?**
+A recurring design rule across this fork is therefore:
 
-Every candidate construction is parameterised by that answer. Ask a cryptographer for a nullifier scheme today and the first question back is *"unlinkable against whom?"* Construction selection is sequenced **behind** this, not before it.
+> **The cryptography carries the privacy properties it can actually prove. The surrounding governance and assurance system carries the claims the cryptography cannot.**
 
-## Where to start
+## Documentation site
 
-- [`proof-of-liveness-requirements.md`](./proof-of-liveness-requirements.md) — requirements draft (v0.3): what a privacy-preserving proof of liveness must prove, what it must *not* claim, the contexts, the disclosure boundaries, and candidate constructions to confirm. Input to the decision document, not a settled spec.
-- [`DRAFTING-RULES.md`](./DRAFTING-RULES.md) — the four conventions every contribution should follow.
+The implementation and interoperability guide is published through GitHub Pages:
 
-## Coordination with related work
+<https://sankarshanmukhopadhyay.github.io/dtgwg-zkp-tf/>
 
-- **Credentials TF** and **Trust Task Protocols TF** — define the credential formats and protocols our proofs apply to (upstream of us).
-- **LFDT / UC Berkeley ZKP work** — the build priority for the October Linux Plumbers / OpenVTC track; we aim to keep our proof definitions in sync with it.
+Markdown under `docs/implementation-guide/` is validated for navigation and publication consistency. Mermaid diagrams are rendered through the repository's documentation build.
 
-## Intellectual property
+## Local quality gates
 
-Inherits the DTGWG [JDF Charter](https://lf-toip.atlassian.net/wiki/spaces/HOME/pages/257785857/Decentralized+Trust+Graph+Working+Group) IPR terms:
-
-- Copyright: Creative Commons Attribution 4.0
-- Patent: W3C Mode
-- Source code: Apache 2.0
-
-## Links
-
-- [TF wiki / charter page](https://lf-toip.atlassian.net/wiki/spaces/HOME/pages/948240390/DTG+ZKP+Task+Force)
-- [DTGWG home](https://lf-toip.atlassian.net/wiki/spaces/HOME/pages/257785857/Decentralized+Trust+Graph+Working+Group)
-- [ZKP background page](https://lf-toip.atlassian.net/wiki/spaces/HOME/pages/257949824/Zero-Knowledge+Proofs+ZKPs)
-- [ToIP meeting calendar](https://zoom-lfx.platform.linuxfoundation.org/meetings/ToIP?view=month)
-
-## Implementation and interoperability guide workspace
-
-The publication-ready, non-normative implementation workspace is available at [`docs/implementation-guide/`](./docs/implementation-guide/). It contains a lifecycle-oriented guide, architecture viewpoints, ADRs, 30 pressure-test scenarios, traceability matrices, a four-level 76-case protocol conformance suite, supplemented by 12 security-assurance cases, evidence schemas and GitHub Pages navigation.
-
-Run the complete local quality gate from the repository root:
+Run the principal validation suite from the repository root:
 
 ```sh
 python3 scripts/validate_docs.py
@@ -99,23 +117,24 @@ python3 scripts/validate_conformance.py
 python3 scripts/validate_style.py
 python3 scripts/validate_links.py
 python3 scripts/validate_fixtures.py
+python3 scripts/validate_upstream_policy.py
 python3 scripts/build_traceability.py
 ```
 
-## Implementation security maturity workspace
+Additional validators cover diagrams, navigation, site output, deployment profiles, decision governance, security assurance and the executable harness.
 
-The implementation guide now includes paired assurance and disclosure boundaries, a canonical threat, harm and control model, attestation-schema correlation analysis, cryptoperiod and assurance-horizon guidance, mediated-proving controls and executable migration requirements. These additions remain proof-system agnostic and do not ratify an unresolved construction choice.
+## Contributing
 
+When proposing material intended to influence the upstream specification:
 
-## Documentation site
+1. distinguish **upstream text**, **fork interpretation**, **proposed requirement**, **implementation profile** and **open decision**;
+2. state what each predicate establishes and does not establish;
+3. name the privacy adversary and correlation horizon;
+4. avoid selecting a cryptographic construction before its required privacy and trust boundaries are known; and
+5. provide implementation or conformance evidence where a recommendation depends on deployability.
 
-The complete implementation guide is published with GitHub Pages and the Just the Docs theme at:
+The upstream drafting conventions are preserved in [`DRAFTING-RULES.md`](./DRAFTING-RULES.md).
 
-<https://sankarshanmukhopadhyay.github.io/dtgwg-zkp-tf/>
+## Licensing and provenance
 
-Every Markdown document under `docs/implementation-guide/` is required to contain Jekyll front matter and to produce a corresponding themed HTML page. The Pages workflow enforces this through `scripts/validate_navigation.py` before the build and `scripts/validate_site_output.py` after the build. Mermaid diagrams are transformed from fenced `mermaid` blocks and rendered client-side using the repository's Mermaid initialization asset.
-
-
-## Upstream synchronisation
-
-This maintained fork tracks [`trustoverip/dtgwg-zkp-tf`](https://github.com/trustoverip/dtgwg-zkp-tf) through a governed, one-way process. Scheduled monitoring raises drift issues here, while maintainers can prepare a draft merge-based synchronisation pull request against this fork. The automation cannot contribute, push, open issues or open pull requests against upstream. See [upstream synchronisation governance](docs/governance/upstream-synchronisation.md).
+This fork inherits and preserves upstream provenance. See [`LICENSE`](./LICENSE) and the upstream project framing in [`UPSTREAM_README.md`](./UPSTREAM_README.md). Source code and documentation should continue to follow the applicable upstream/JDF licensing terms and retain attribution when upstream content is carried forward.

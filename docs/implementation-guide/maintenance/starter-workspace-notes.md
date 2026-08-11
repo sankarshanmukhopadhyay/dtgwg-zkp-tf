@@ -12,8 +12,10 @@ nav_exclude: true
 Branch-ready documentation package for addition to a fork of
 `trustoverip/dtgwg-zkp-tf`.
 
-This package is additive. It does not replace the upstream README, drafting rules,
-proof-of-liveness requirements, or future normative specification.
+This package is additive. The upstream project narrative is preserved separately in
+`UPSTREAM_README.md`, while the fork root README describes the implementation workspace.
+The package does not replace upstream drafting rules, upstream normative decisions, or a
+future normative specification.
 
 ## Start here
 
