@@ -1,0 +1,1 @@
+{"fixture_id":"INT-002","scenario_id":"UC-050","kind":"task-binding","expected":"reject","reason":"audience-mismatch","proof_audience":"verifier-a.example","request_audience":"verifier-b.example"}

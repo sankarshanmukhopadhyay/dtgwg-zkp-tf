@@ -1,0 +1,1 @@
+{"fixture_id":"INT-004","scenario_id":"UC-049","kind":"credential-linkage","expected":"reject","reason":"relationship-not-established","identifiers":["did:example:p","did:example:r"],"relationship_evidence":null,"co_possessed":true}

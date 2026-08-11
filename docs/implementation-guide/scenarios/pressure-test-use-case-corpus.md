@@ -1565,3 +1565,19 @@ If the answer is no, the profile is not yet interoperable, even if the underlyin
 **Required outcome.** The implementation produces a deterministic decision, identifies the accountable authority, preserves minimized evidence and invokes the applicable deployment control or operational runbook.
 
 **Failure condition.** The system silently broadens authority, accepts stale or downgraded state, loses revocation history, crosses tenant boundaries or cannot explain the decision.
+
+## UC-049 — Credential linkage required but not evidenced
+
+A verifier requests a proof whose semantics depend on correspondence between two DTG identifiers. The wallet holds both credentials but cannot present authoritative relationship evidence. The conformant outcome is an explicit semantic failure rather than successful proof of the stronger relationship claim.
+
+## UC-050 — Trust Task proof replayed to another action
+
+A valid proof created for one requester, challenge and task is submitted against another action with a different audience or task identifier. Verification must fail on transcript/task mismatch even though the underlying mathematical proof is otherwise valid.
+
+## UC-051 — Ceremony context used as authority evidence
+
+A participant presents a valid proof and a valid ceremony reference, but the delegated mandate required for the action is absent or revoked. The relying party must reject the authority-dependent action while preserving the independent validity of the proof and ceremony evidence.
+
+## UC-052 — Linkage or ceremony reference creates cross-context correlation
+
+Two unrelated relying contexts receive proof artifacts containing a stable linkage or ceremony handle. The privacy assessment and conformance tests must detect the prohibited correlation surface and require a scoped/minimised reference or a reduced privacy claim.

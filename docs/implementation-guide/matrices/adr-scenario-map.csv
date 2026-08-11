@@ -24,3 +24,9 @@ ADR-005,UC-008,constrains
 ADR-005,UC-016,constrains
 ADR-005,UC-020,informs
 ADR-005,UC-024,validated-by
+ADR-012,UC-049,required,Identifier relationship must be explicit evidence
+ADR-013,UC-050,required,Task context binds proof without becoming authority
+ADR-001,UC-051,required,Delegation remains separate from holder binding
+ADR-013,UC-051,required,Ceremony context is not authority
+ADR-012,UC-052,required,Linkage mechanism is privacy assessed
+ADR-013,UC-052,required,Ceremony references are scoped and minimised

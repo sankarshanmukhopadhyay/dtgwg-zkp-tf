@@ -17,7 +17,7 @@ for name in ['security-assurance-result.schema.json','security-metric-evidence.s
     json.loads((G/'conformance/schemas'/name).read_text())
 data=yaml.safe_load((G/'security/threat-matrix.yaml').read_text())
 ids={x['threat_id'] for x in data['threats']}
-for n in range(37,46):
+for n in range(37,53):
     if f'THR-{n:03d}' not in ids: errors.append(f'Missing THR-{n:03d}')
 fixture=json.loads((G/'conformance/fixtures/residual-risk-approval-example.json').read_text())
 if fixture.get('risk_appetite_class')=='prohibited' and fixture.get('decision')=='accept': errors.append('Prohibited risk accepted')

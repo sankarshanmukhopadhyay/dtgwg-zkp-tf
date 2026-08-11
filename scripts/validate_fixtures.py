@@ -2,7 +2,7 @@
 from pathlib import Path
 import json, sys
 ROOT=Path(__file__).resolve().parents[1]
-paths=list((ROOT/'docs/implementation-guide/conformance/fixtures').glob('*.json'))+list((ROOT/'docs/implementation-guide/conformance/schemas').glob('*.json'))
+paths=list((ROOT/'docs/implementation-guide/conformance/fixtures').rglob('*.json'))+list((ROOT/'docs/implementation-guide/conformance/schemas').rglob('*.json'))
 errors=[]
 for p in paths:
  try:

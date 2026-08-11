@@ -87,6 +87,86 @@
       "request": {
         "mock_case": "unsupported-profile"
       }
+    },
+    {
+      "test_id": "CT-INT-LINK-POS-01",
+      "operation": "evaluate_relationship",
+      "required_capability": "relationship-linkage",
+      "expected_status": "accepted",
+      "expected_reason": "ok",
+      "request": {
+        "mock_case": "valid-relationship-evidence"
+      }
+    },
+    {
+      "test_id": "CT-INT-LINK-NEG-01",
+      "operation": "evaluate_relationship",
+      "required_capability": "relationship-linkage",
+      "expected_status": "rejected",
+      "expected_reason": "relationship-not-established",
+      "request": {
+        "mock_case": "implicit-co-possession"
+      }
+    },
+    {
+      "test_id": "CT-INT-TASK-POS-01",
+      "operation": "verify_task_binding",
+      "required_capability": "task-binding",
+      "expected_status": "accepted",
+      "expected_reason": "ok",
+      "request": {
+        "mock_case": "valid-task-binding"
+      }
+    },
+    {
+      "test_id": "CT-INT-TASK-NEG-01",
+      "operation": "verify_task_binding",
+      "required_capability": "task-binding",
+      "expected_status": "rejected",
+      "expected_reason": "task-binding-mismatch",
+      "request": {
+        "mock_case": "task-replay"
+      }
+    },
+    {
+      "test_id": "CT-INT-AUTH-POS-01",
+      "operation": "evaluate_authority",
+      "required_capability": "authority-separation",
+      "expected_status": "accepted",
+      "expected_reason": "ok",
+      "request": {
+        "mock_case": "valid-proof-and-delegation"
+      }
+    },
+    {
+      "test_id": "CT-INT-AUTH-NEG-01",
+      "operation": "evaluate_authority",
+      "required_capability": "authority-separation",
+      "expected_status": "rejected",
+      "expected_reason": "delegation-absent-or-revoked",
+      "request": {
+        "mock_case": "ceremony-without-delegation"
+      }
+    },
+    {
+      "test_id": "CT-INT-PRIV-POS-01",
+      "operation": "evaluate_correlation",
+      "required_capability": "correlation-boundary",
+      "expected_status": "accepted",
+      "expected_reason": "ok",
+      "request": {
+        "mock_case": "scoped-reference"
+      }
+    },
+    {
+      "test_id": "CT-INT-PRIV-NEG-01",
+      "operation": "evaluate_correlation",
+      "required_capability": "correlation-boundary",
+      "expected_status": "rejected",
+      "expected_reason": "cross-context-correlation",
+      "request": {
+        "mock_case": "stable-cross-context-handle"
+      }
     }
   ]
 }

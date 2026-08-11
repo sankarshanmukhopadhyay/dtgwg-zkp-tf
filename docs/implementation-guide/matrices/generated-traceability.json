@@ -810,5 +810,63 @@
     "assurance_tests": [
       "AT-UC048-01"
     ]
+  },
+  {
+    "scenario_id": "UC-049",
+    "title": "Credential Linkage Required but Not Evidenced",
+    "predicates": [],
+    "adversaries": [],
+    "adrs": [
+      "ADR-012"
+    ],
+    "tests": [
+      "CT-INT-LINK-NEG-01",
+      "CT-INT-LINK-POS-01"
+    ],
+    "assurance_tests": []
+  },
+  {
+    "scenario_id": "UC-050",
+    "title": "Trust Task Proof Replayed to Another Action",
+    "predicates": [],
+    "adversaries": [],
+    "adrs": [
+      "ADR-013"
+    ],
+    "tests": [
+      "CT-INT-TASK-NEG-01",
+      "CT-INT-TASK-POS-01"
+    ],
+    "assurance_tests": []
+  },
+  {
+    "scenario_id": "UC-051",
+    "title": "Ceremony Context Used as Authority Evidence",
+    "predicates": [],
+    "adversaries": [],
+    "adrs": [
+      "ADR-001",
+      "ADR-013"
+    ],
+    "tests": [
+      "CT-INT-AUTH-NEG-01",
+      "CT-INT-AUTH-POS-01"
+    ],
+    "assurance_tests": []
+  },
+  {
+    "scenario_id": "UC-052",
+    "title": "Linkage or Ceremony Reference Creates Cross-Context Correlation",
+    "predicates": [],
+    "adversaries": [],
+    "adrs": [
+      "ADR-012",
+      "ADR-013"
+    ],
+    "tests": [
+      "CT-INT-PRIV-NEG-01",
+      "CT-INT-PRIV-POS-01"
+    ],
+    "assurance_tests": []
   }
 ]

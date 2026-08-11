@@ -19,7 +19,7 @@ for d in data.get('decisions',[]):
         if d.get(field) not in allowed: errors.append(f'{did}: invalid {field} {d.get(field)}')
     if d.get('upstream_status') in {'ratified','ratified-with-amendment'} and not d.get('ratification_record'):
         errors.append(f'{did}: ratified state requires ratification_record')
-required={'A1','A2','A3','A4','A5','A6','A7','B1','B2','B3','B4','B5','B6','B7','B8','B9','B10','C1'}
+required={'A1','A2','A3','A4','A5','A6','A7','B1','B2','B3','B4','B5','B6','B7','B8','B9','B10','C1','C2','C3'}
 if ids != required:
     errors.append(f'decision id set mismatch; missing={sorted(required-ids)} extra={sorted(ids-required)}')
 for name in ('context-descriptor.schema.json','privacy-claim.schema.json'):

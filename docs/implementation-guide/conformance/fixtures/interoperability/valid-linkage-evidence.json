@@ -1,0 +1,1 @@
+{"fixture_id":"INT-010","scenario_id":"UC-049","kind":"credential-linkage","expected":"accept","relationship":{"type":"governed-correspondence","authority":"credential-governance.example","scope":"relationship-7","status":"active"},"exposes_stable_cross_context_handle":false}

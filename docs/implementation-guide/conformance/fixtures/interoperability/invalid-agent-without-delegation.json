@@ -1,0 +1,1 @@
+{"fixture_id":"INT-007","scenario_id":"UC-051","kind":"agent-authority","expected":"reject","reason":"delegation-absent","proof_valid":true,"ceremony_complete":true,"delegation":null}

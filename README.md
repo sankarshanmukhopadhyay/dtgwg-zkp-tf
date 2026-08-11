@@ -57,6 +57,8 @@ Choose the path that matches what you are trying to do:
 - **Understand the upstream task force:** [`UPSTREAM_README.md`](./UPSTREAM_README.md)
 - **Review liveness/personhood requirements:** [`proof-of-liveness-requirements.md`](./proof-of-liveness-requirements.md)
 - **Navigate the implementation workspace:** [`docs/implementation-guide/README.md`](./docs/implementation-guide/README.md)
+- **Review DTG cross-repository dependencies:** [`docs/implementation-guide/interoperability/README.md`](./docs/implementation-guide/interoperability/README.md)
+- **Inspect cross-specification pressure tests:** [`docs/implementation-guide/pressure-tests/README.md`](./docs/implementation-guide/pressure-tests/README.md)
 - **Take a role-based learning path:** [`docs/implementation-guide/guided-learning.md`](./docs/implementation-guide/guided-learning.md)
 - **Review assurance/disclosure boundaries:** [`docs/implementation-guide/boundaries/README.md`](./docs/implementation-guide/boundaries/README.md)
 - **Pressure-test use cases:** [`docs/implementation-guide/scenarios/README.md`](./docs/implementation-guide/scenarios/README.md)
@@ -118,10 +120,12 @@ python3 scripts/validate_style.py
 python3 scripts/validate_links.py
 python3 scripts/validate_fixtures.py
 python3 scripts/validate_upstream_policy.py
+python3 scripts/validate_interoperability.py
+python3 scripts/validate_conformance_harness.py
 python3 scripts/build_traceability.py
 ```
 
-Additional validators cover diagrams, navigation, site output, deployment profiles, decision governance, security assurance and the executable harness.
+Additional validators cover diagrams, navigation, site output, deployment profiles, decision governance and security assurance. v0.4.0 also adds governed DTG dependency validation and deterministic interoperability cases to the executable harness.
 
 ## Contributing
 

@@ -1,6 +1,6 @@
 # Validation report
 
-This report is generated for the Implementation and Interoperability Guide Maturity Programme. The v0.2.2 release preserves existing scenario and conformance semantics while fixing a documentation defect and carrying the normative reference (IACR ePrint 2026/333) into the implementation guide. See `RELEASE_NOTES_NORMATIVE_REFERENCE_AND_CONTEXT_ALIGNMENT.md`.
+This report is generated for the Implementation and Interoperability Guide Maturity Programme. The v0.4.0 release adds governed DTG interoperability profiles and cross-specification assurance while preserving the repository's explicit authority boundaries. See `RELEASE_NOTES_v0.4.0.md`.
 
 ## Required checks
 
@@ -18,6 +18,7 @@ python3 scripts/validate_operations.py
 python3 scripts/validate_threat_model.py
 python3 scripts/validate_deployment_profiles.py
 python3 scripts/validate_generated_counts.py
+python3 scripts/validate_interoperability.py
 python3 scripts/build_traceability.py
 ```
 
@@ -32,14 +33,14 @@ The context and epoch authority model, proof construction selection, normative d
 ```text
 Documentation validation passed.
 Conformance validation passed.
-88/88 test rows OK across 4 conformance levels.
+96/96 test rows OK across 4 conformance levels.
 Style validation passed.
 Link validation passed.
-Fixture validation passed: 26 JSON files parsed.
-Traceability generated: 48 scenarios, 88 conformance references and 26 assurance references.
+Fixture validation passed: 49 JSON files parsed.
+Traceability generated: 52 scenarios, 96 conformance references and 26 assurance references.
 ```
 
-This release also ran `validate_navigation.py`, `validate_diagrams.py`, `validate_operations.py`, `validate_threat_model.py`, `validate_deployment_profiles.py` and `validate_generated_counts.py`; all passed. Residual conformance-coverage gaps are tracked as before and are not affected by this release, which changes reference and boundary-decision documentation rather than scenario or test-matrix content.
+This release also ran `validate_navigation.py`, `validate_diagrams.py`, `validate_operations.py`, `validate_threat_model.py`, `validate_deployment_profiles.py` and `validate_generated_counts.py`; all passed. Residual conformance-coverage gaps remain governed through explicit execution dispositions. This release expands both the scenario corpus and the test matrix while preserving the distinction between executable and governed non-executable cases.
 
 ## Security guardrails and RAHP adaptation — 2026-07-21
 
@@ -50,3 +51,14 @@ This release also ran `validate_navigation.py`, `validate_diagrams.py`, `validat
 - Risk acceptance and metric evidence schemas added.
 - Five Mermaid diagrams added to the GitHub Pages register.
 - `scripts/validate_security_assurance.py` added.
+
+## v0.4.0 interoperability assurance — 2026-08-11
+
+- 3 governed DTG dependencies recorded in the portfolio alignment register.
+- 20 architecture decisions tracked, including C2 credential-linkage and C3 task-context decisions.
+- Canonical threat model expanded from 45 to 52 threats.
+- Scenario corpus expanded from 48 to 52 scenarios.
+- Conformance matrix expanded from 88 to 96 cases.
+- 10 interoperability fixtures added; 49 JSON fixtures/schemas parse successfully repository-wide.
+- Conformance harness expanded from 8 to 16 deterministic executable cases; 80 remaining cases retain governed non-executable dispositions.
+- RAHP pressure-test records preserve control-plane disposition and retest triggers for cross-specification findings.

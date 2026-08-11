@@ -1,6 +1,6 @@
 {
   "register_version": "1.0.0",
-  "repository_release_target": "v0.3.0",
+  "repository_release_target": "v0.4.0",
   "decision_authority": "DTG ZKP Task Force",
   "source_discussion": "https://github.com/trustoverip/dtgwg-zkp-tf/discussions/10",
   "status_vocabulary": [
@@ -254,6 +254,49 @@
         "REQ-CONSTRUCTION-SELECTION"
       ],
       "evidence_paths": []
+    },
+    {
+      "id": "C2",
+      "title": "Explicit credential linkage evidence",
+      "upstream_status": "pending-ratification",
+      "fork_status": "implemented-as-working-baseline",
+      "normative_effect": "non-normative",
+      "adrs": [
+        "ADR-012"
+      ],
+      "requirements": [
+        "ZKP-LINK-01",
+        "ZKP-LINK-02",
+        "ZKP-LINK-03",
+        "ZKP-LINK-04"
+      ],
+      "evidence_paths": [
+        "interoperability/credential-linkage-assurance-profile.md"
+      ]
+    },
+    {
+      "id": "C3",
+      "title": "Trust Task context binding without authority inference",
+      "upstream_status": "pending-ratification",
+      "fork_status": "implemented-as-working-baseline",
+      "normative_effect": "non-normative",
+      "adrs": [
+        "ADR-013",
+        "ADR-001"
+      ],
+      "requirements": [
+        "ZKP-TASK-01",
+        "ZKP-TASK-02",
+        "ZKP-TASK-03",
+        "ZKP-TASK-04",
+        "ZKP-CER-01",
+        "ZKP-CER-02",
+        "ZKP-CER-03"
+      ],
+      "evidence_paths": [
+        "interoperability/trust-task-zkp-profile.md",
+        "interoperability/trust-ceremony-zkp-profile.md"
+      ]
     }
   ]
 }

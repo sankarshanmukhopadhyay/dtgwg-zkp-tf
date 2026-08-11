@@ -1,0 +1,1 @@
+{"fixture_id":"INT-009","scenario_id":"UC-051","kind":"ceremony-composition","expected":"reject-authority","reason":"ceremony-is-not-authority","proof_valid":true,"ceremony_complete":true,"delegation_status":"revoked"}

@@ -1,0 +1,55 @@
+schema_version: 1
+reviewed_on: 2026-08-11
+scope: DTG dependencies that can materially change ZKP proof semantics, authority interpretation, privacy, or assurance evidence
+dependencies:
+  - id: DTG-CREDENTIALS
+    authority: trustoverip/dtgwg-cred-spec
+    relationship: upstream-semantic
+    status: active-alignment
+    consumes:
+      - credential-semantics
+      - credential-status
+      - identifier-relationship-evidence
+    must_not_infer:
+      - implicit-identifier-equivalence
+      - delegation-from-holder-binding
+    unresolved:
+      - credential-linkage-model-for-p-did-r-did-m-did
+    evidence:
+      - https://github.com/trustoverip/dtgwg-cred-spec/issues/9
+    resolution_authority: DTGWG Credentials Task Force
+  - id: DTG-TRUST-TASKS
+    authority: trustoverip/dtgwg-trust-tasks-tf
+    relationship: protocol-integration
+    status: active-alignment
+    consumes:
+      - task-identifier
+      - requester-audience
+      - challenge
+      - constraints
+      - evidence-references
+    must_not_infer:
+      - authority-from-task-participation
+      - authority-from-ceremony-membership
+    unresolved:
+      - zkp-specific-task-binding-profile
+    evidence:
+      - https://github.com/trustoverip/dtgwg-trust-tasks-tf
+      - https://github.com/trustoverip/dtgwg-trust-tasks-tf/blob/main/docs/design-notes/trust-ceremonies.md
+    resolution_authority: DTGWG Trust Tasks Task Force
+  - id: DTG-RAHP
+    authority: trustoverip/dtgwg-rahp-tf
+    relationship: assurance-method
+    status: adopted-with-adaptation
+    consumes:
+      - specification-pressure-testing-method
+      - finding-disposition-model
+      - evidence-and-retest-expectations
+    must_not_infer:
+      - normative-zkp-requirements-without-zkp-governance-action
+    unresolved: []
+    evidence:
+      - https://github.com/trustoverip/dtgwg-rahp-tf
+      - docs/pressure-testing-a-spec.md
+      - docs/governance-boundaries.md
+    resolution_authority: DTGWG RAHP Task Force for method; ZKP Task Force for ZKP requirements

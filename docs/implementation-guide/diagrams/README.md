@@ -41,3 +41,4 @@ Diagrams are implementation and assurance artefacts. Each source includes a text
 | D-027 | Control Assurance Evidence Chain | [D-027-control-assurance-evidence-chain.md](D-027-control-assurance-evidence-chain.md) |
 | D-028 | Security Metric Escalation Loop | [D-028-security-metric-escalation-loop.md](D-028-security-metric-escalation-loop.md) |
 | D-029 | Governance Capture and Revocation | [D-029-governance-capture-and-revocation.md](D-029-governance-capture-and-revocation.md) |
+| D-030 | DTG ZKP Dependency Map | [D-030-dtg-zkp-dependency-map.md](D-030-dtg-zkp-dependency-map.md) |

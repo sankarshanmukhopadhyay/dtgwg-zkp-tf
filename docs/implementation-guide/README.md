@@ -65,6 +65,10 @@ Use the deployment profiles, operational runbooks, threat model, guardrails and 
 
 Use the conformance levels, test matrices, schemas, fixtures, traceability maps and evidence statements to determine whether a claim is reproducible and properly bounded. Start with [conformance](conformance/README.md), [implementation conformance statement](conformance/implementation-conformance-statement.md), [test matrix](conformance/test-matrix.md) and [requirement index](appendices/REQUIREMENT-INDEX.md).
 
+## DTG interoperability
+
+The [DTG interoperability section](interoperability/README.md) records cross-repository dependencies on Credential semantics, Trust Tasks/Trust Ceremonies and RAHP pressure-testing as governed inputs rather than implicit assumptions. A machine-readable alignment register and validator preserve authority, evidence and unresolved dependency boundaries.
+
 ## Foundational model
 
 ### A proof establishes a statement over an attestation

@@ -1,0 +1,1 @@
+{"fixture_id":"INT-001","scenario_id":"UC-050","kind":"task-binding","expected":"accept","task_id":"task-2026-001","audience":"verifier.example","challenge":"b64u-example-challenge","context":"benefit-claim:2026","statement":"age-over-18","policy_version":"policy-4","authority_evidence_required":false}

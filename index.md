@@ -23,6 +23,8 @@ Start with the **[guided learning paths](docs/implementation-guide/guided-learni
 - [Scenarios](docs/implementation-guide/scenarios/README.md)
 - [Conformance](docs/implementation-guide/conformance/README.md)
 - [Threats, harms and controls](docs/implementation-guide/security/README.md)
+- [DTG interoperability](docs/implementation-guide/interoperability/README.md)
+- [Cross-specification pressure tests](docs/implementation-guide/pressure-tests/README.md)
 
 ## Assurance model
 

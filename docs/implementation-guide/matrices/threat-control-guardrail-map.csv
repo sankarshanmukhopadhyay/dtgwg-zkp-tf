@@ -5,3 +5,4 @@ THR-013..THR-020,CTL-SCH;CTL-CMP;CTL-CTX;CTL-OBS,ZGR-03;ZGR-04;ZGR-14,correlatio
 THR-021..THR-029,CTL-GOV;CTL-LCM;CTL-AGL,ZGR-05;ZGR-10;ZGR-11;ZGR-13,governance lifecycle migration and exception integrity
 THR-030..THR-036,CTL-MED;CTL-FBK;CTL-RED;CTL-HUM,ZGR-06;ZGR-08;ZGR-09;ZGR-12,mediation fallback accessibility and redress
 THR-037..THR-045,CTL-GOV;CTL-RED;CTL-OBS;CTL-HUM,ZGR-09;ZGR-11;ZGR-13;ZGR-14,institutional abuse evidence integrity metrics and affected-party harms
+THR-046..THR-052,CTL-GOV;CTL-SCH;CTL-TRN;CTL-CTX;CTL-AGL;CTL-LCM;CTL-OBS,ZGR-02;ZGR-03;ZGR-05;ZGR-07;ZGR-10;ZGR-11;ZGR-14,cross-specification linkage task ceremony delegation and lifecycle boundaries

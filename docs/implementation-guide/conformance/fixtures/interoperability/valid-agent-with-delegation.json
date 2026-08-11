@@ -1,0 +1,1 @@
+{"fixture_id":"INT-006","scenario_id":"UC-051","kind":"agent-authority","expected":"accept","proof_valid":true,"delegation":{"principal":"did:example:principal","agent":"did:example:agent","scope":"submit-claim","status":"active"}}

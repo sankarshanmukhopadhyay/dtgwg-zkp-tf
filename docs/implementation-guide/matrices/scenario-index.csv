@@ -47,3 +47,7 @@ UC-045,Expired Privacy or Assurance Horizon,proposed,P0,lifecycle,Governance
 UC-046,Cross-Organization Plugfest Onboarding,proposed,P1,adoption,ZKP TF
 UC-047,Cryptographic Library Vulnerability,proposed,P0,supply-chain-security,ZKP TF
 UC-048,Partial Rollback During Ecosystem Upgrade,proposed,P0,migration,Operations
+UC-049,Credential Linkage Required but Not Evidenced,proposed,P0,credential-semantics,Credentials TF
+UC-050,Trust Task Proof Replayed to Another Action,proposed,P0,protocol-binding,ZKP TF
+UC-051,Ceremony Context Used as Authority Evidence,proposed,P0,agentic-delegation,Trust Tasks TF
+UC-052,Linkage or Ceremony Reference Creates Cross-Context Correlation,proposed,P0,privacy-and-linkability,ZKP TF

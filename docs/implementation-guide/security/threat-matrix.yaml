@@ -22,8 +22,7 @@ threats:
   alongside_information: proof parameters and verifier configuration
   technical_effect: false predicate accepted
   human_institutional_harm: impersonation or unauthorized access
-  preventive_detective_corrective_controls: CTL-AGL; independent implementation tests;
-    parameter integrity
+  preventive_detective_corrective_controls: CTL-AGL; independent implementation tests; parameter integrity
   control_owner: profile authority; verifier
   verification_method: negative vectors and implementation review
   conformance_requirement: SEC-001
@@ -153,8 +152,7 @@ threats:
   alongside_information: device and recovery records
   technical_effect: wrong presenter accepted
   human_institutional_harm: impersonation
-  preventive_detective_corrective_controls: CTL-TRN; separate liveness and holder
-    claims; recovery controls
+  preventive_detective_corrective_controls: CTL-TRN; separate liveness and holder claims; recovery controls
   control_owner: issuer; wallet; verifier
   verification_method: negative semantic tests
   conformance_requirement: SEC-006
@@ -206,8 +204,7 @@ threats:
   alongside_information: biometric and recovery records
   technical_effect: Sybil resistance weakened
   human_institutional_harm: fraud and unfair access
-  preventive_detective_corrective_controls: CTL-LCM; deduplication controls; recovery
-    continuity
+  preventive_detective_corrective_controls: CTL-LCM; deduplication controls; recovery continuity
   control_owner: issuer
   verification_method: duplicate enrolment scenarios
   conformance_requirement: SEC-008
@@ -233,8 +230,7 @@ threats:
   alongside_information: issuer sets and root policies
   technical_effect: ecosystem uniqueness overstated
   human_institutional_harm: Sybil abuse and legitimacy loss
-  preventive_detective_corrective_controls: CTL-GOV; narrow claims; issuer coordination
-    policy
+  preventive_detective_corrective_controls: CTL-GOV; narrow claims; issuer coordination policy
   control_owner: governance authority
   verification_method: cross-issuer scenario review
   conformance_requirement: SEC-009
@@ -442,8 +438,7 @@ threats:
   alongside_information: proof bundle and credential fields
   technical_effect: joint leakage
   human_institutional_harm: surveillance
-  preventive_detective_corrective_controls: CTL-CMP; single-statement composition
-    where viable
+  preventive_detective_corrective_controls: CTL-CMP; single-statement composition where viable
   control_owner: profile authority; wallet
   verification_method: composition review and vectors
   conformance_requirement: SEC-017
@@ -495,8 +490,7 @@ threats:
   alongside_information: error codes, latency, retry count
   technical_effect: state inference and enumeration
   human_institutional_harm: targeting or denial
-  preventive_detective_corrective_controls: CTL-OBS; uniform external errors; bounded
-    retries
+  preventive_detective_corrective_controls: CTL-OBS; uniform external errors; bounded retries
   control_owner: verifier
   verification_method: oracle and timing tests
   conformance_requirement: SEC-019
@@ -626,8 +620,7 @@ threats:
   alongside_information: holder proof and agent metadata
   technical_effect: unauthorized action accepted
   human_institutional_harm: economic loss and autonomy harm
-  preventive_detective_corrective_controls: CTL-GOV; separate delegation object; scope
-    checks
+  preventive_detective_corrective_controls: CTL-GOV; separate delegation object; scope checks
   control_owner: principal; verifier
   verification_method: delegation negative tests
   conformance_requirement: SEC-024
@@ -1089,8 +1082,7 @@ threats:
   adversary_capability: selects formally valid but exclusionary requirements
   collusion_assumption: policy-verifier collusion possible
   preconditions: impact review absent or affected parties invisible
-  attack_path: choose predicates or assurance levels that proxy protected or vulnerable
-    status
+  attack_path: choose predicates or assurance levels that proxy protected or vulnerable status
   context_scope: population
   time_horizon: policy lifetime
   alongside_information: decision outcomes and policy rationale
@@ -1183,6 +1175,188 @@ threats:
   severity: high
   harm_ids: HRM-ECO;HRM-REP;HRM-AUT;HRM-GOV;HRM-RED
   status: RAHP-adapted
+- threat_id: THR-046
+  domain: credential-semantics
+  title: Unproven identifier linkage accepted as proof input
+  asset_property: semantic soundness
+  profiles: both
+  component: wallet/verifier
+  trust_boundary: credential-to-proof
+  threat_actor: ADV-V
+  adversary_capability: accepts co-possession or convention as relationship evidence
+  collusion_assumption: wallet-verifier convention possible
+  preconditions: proof statement depends on unresolved identifier relationship
+  attack_path: construct stronger proof claim from unproven P-DID/R-DID or R-DID/M-DID equivalence
+  context_scope: transaction
+  time_horizon: session to credential lifetime
+  alongside_information: credential identifiers wallet state and relationship evidence
+  technical_effect: cryptographically valid proof carries unsupported semantic claim
+  human_institutional_harm: misidentification denial fraud or illegitimate attribution
+  preventive_detective_corrective_controls: CTL-GOV; CTL-SCH; CTL-TRN
+  control_owner: credential authority; verifier
+  verification_method: negative linkage fixture and semantic review
+  conformance_requirement: ZKP-LINK-01
+  residual_risk: upstream relationship semantics may remain unresolved
+  deployment_decision: fail closed until authoritative linkage evidence exists
+  severity: critical
+  harm_ids: HRM-IMP;HRM-ECO;HRM-GOV
+  status: cross-specification
+- threat_id: THR-047
+  domain: privacy
+  title: Identifier linkage creates cross-context correlation
+  asset_property: unlinkability
+  profiles: both
+  component: wallet/verifier
+  trust_boundary: context boundary
+  threat_actor: ADV-IV
+  adversary_capability: correlates stable linkage evidence across contexts
+  collusion_assumption: issuer-verifier collusion possible
+  preconditions: linkage witness exposes reusable handle
+  attack_path: reuse linkage identifier across independent relying contexts
+  context_scope: cross-context
+  time_horizon: credential or relationship lifetime
+  alongside_information: linkage handles context descriptors and verifier logs
+  technical_effect: privacy class no longer holds
+  human_institutional_harm: tracking profiling exclusion or autonomy loss
+  preventive_detective_corrective_controls: CTL-CTX; CTL-SCH; CTL-OBS
+  control_owner: profile authority; verifier
+  verification_method: correlation assessment and cross-context fixture
+  conformance_requirement: ZKP-LINK-03
+  residual_risk: side channels may still correlate
+  deployment_decision: scope or conceal linkage evidence and downgrade unsupported privacy claims
+  severity: critical
+  harm_ids: HRM-PRV;HRM-AUT;HRM-EXC
+  status: cross-specification
+- threat_id: THR-048
+  domain: governance
+  title: Task or ceremony participation treated as authority
+  asset_property: authority integrity
+  profiles: both
+  component: agent/verifier
+  trust_boundary: protocol-to-governance
+  threat_actor: ADV-A
+  adversary_capability: presents valid task or ceremony evidence without mandate
+  collusion_assumption: agent-verifier misunderstanding possible
+  preconditions: authority semantics are not independently checked
+  attack_path: use task participation or ceremony completion as substitute for delegation
+  context_scope: transaction
+  time_horizon: session
+  alongside_information: task receipt ceremony evidence and mandate state
+  technical_effect: unauthorised action passes relying-party decision
+  human_institutional_harm: principal loses control and accountability is misassigned
+  preventive_detective_corrective_controls: CTL-GOV; CTL-AGL; CTL-TRN
+  control_owner: relying-party governance
+  verification_method: authority-separation negative fixture
+  conformance_requirement: ZKP-TASK-02
+  residual_risk: poorly designed integrations may still conflate evidence
+  deployment_decision: require separate mandate/delegation verification
+  severity: critical
+  harm_ids: HRM-AUT;HRM-IMP;HRM-GOV
+  status: cross-specification
+- threat_id: THR-049
+  domain: privacy
+  title: Ceremony identifier becomes stable correlation handle
+  asset_property: unlinkability
+  profiles: both
+  component: wallet/verifier
+  trust_boundary: ceremony-to-context
+  threat_actor: ADV-IV
+  adversary_capability: correlates recurring ceremony/enactment references
+  collusion_assumption: verifier collusion possible
+  preconditions: stable ceremony reference exposed across contexts
+  attack_path: join activity across services using ceremony identifier
+  context_scope: cross-context
+  time_horizon: ceremony evidence lifetime
+  alongside_information: ceremony references logs and context metadata
+  technical_effect: bounded proof becomes linkable via orchestration metadata
+  human_institutional_harm: tracking profiling and chilling effects
+  preventive_detective_corrective_controls: CTL-CTX; CTL-OBS; CTL-SCH
+  control_owner: ceremony/profile authority
+  verification_method: cross-context reference fixture and privacy review
+  conformance_requirement: ZKP-CER-01
+  residual_risk: network and timing metadata remain
+  deployment_decision: minimise and scope ceremony references
+  severity: high
+  harm_ids: HRM-PRV;HRM-AUT
+  status: cross-specification
+- threat_id: THR-050
+  domain: protocol
+  title: Valid proof bound to wrong Trust Task
+  asset_property: request integrity
+  profiles: both
+  component: wallet/verifier
+  trust_boundary: task exchange
+  threat_actor: ADV-U
+  adversary_capability: replays valid proof into another task or audience
+  collusion_assumption: none
+  preconditions: task binding omits identifier audience or action
+  attack_path: submit mathematically valid proof under mismatched task context
+  context_scope: transaction
+  time_horizon: session to proof expiry
+  alongside_information: task id audience challenge context action and policy
+  technical_effect: proof accepted for unintended action
+  human_institutional_harm: fraud unauthorised action or confused-deputy harm
+  preventive_detective_corrective_controls: CTL-TRN; CTL-AGL
+  control_owner: wallet; verifier
+  verification_method: task replay and audience mismatch fixtures
+  conformance_requirement: ZKP-TASK-04
+  residual_risk: implementation canonicalisation differences
+  deployment_decision: reject exact-binding mismatch
+  severity: critical
+  harm_ids: HRM-IMP;HRM-ECO;HRM-GOV
+  status: cross-specification
+- threat_id: THR-051
+  domain: agentic-delegation
+  title: Agent presents valid human proof outside delegated scope
+  asset_property: delegated authority integrity
+  profiles: both
+  component: agent/verifier
+  trust_boundary: principal-to-agent
+  threat_actor: ADV-A
+  adversary_capability: possesses or can present valid principal-related proof
+  collusion_assumption: agent may control task channel
+  preconditions: mandate absent expired revoked or narrower than action
+  attack_path: pair valid proof with insufficient authority evidence
+  context_scope: transaction
+  time_horizon: mandate lifetime
+  alongside_information: proof task context mandate scope status and revocation
+  technical_effect: action is cryptographically supported but unauthorised
+  human_institutional_harm: principal autonomy financial and accountability harm
+  preventive_detective_corrective_controls: CTL-GOV; CTL-AGL; CTL-LCM
+  control_owner: principal governance; verifier
+  verification_method: agent-without-delegation fixture and status test
+  conformance_requirement: ZKP-TASK-02
+  residual_risk: revocation propagation delay remains
+  deployment_decision: verify fresh separate authority evidence
+  severity: critical
+  harm_ids: HRM-AUT;HRM-ECO;HRM-GOV
+  status: cross-specification
+- threat_id: THR-052
+  domain: lifecycle
+  title: Historical ceremony evidence reinterpreted under changed policy
+  asset_property: decision reproducibility
+  profiles: both
+  component: verifier/auditor
+  trust_boundary: evidence-to-policy
+  threat_actor: ADV-V
+  adversary_capability: applies current or convenient policy to historical evidence
+  collusion_assumption: institutional collusion possible
+  preconditions: evidence lacks policy status or assurance horizon
+  attack_path: reinterpret old proof/ceremony receipt after policy or recognition changes
+  context_scope: audit or dispute
+  time_horizon: long-term
+  alongside_information: policy versions status snapshots ceremony and proof receipts
+  technical_effect: historical decision cannot be reproduced or is misrepresented
+  human_institutional_harm: redress failure legitimacy harm or retroactive exclusion
+  preventive_detective_corrective_controls: CTL-LCM; CTL-GOV; CTL-OBS
+  control_owner: policy authority; assurance authority
+  verification_method: versioned evidence reconstruction test
+  conformance_requirement: ZKP-TASK-03
+  residual_risk: archival dependencies may be unavailable
+  deployment_decision: retain bounded version references and assurance horizon
+  severity: high
+  harm_ids: HRM-RED;HRM-GOV;HRM-EXC
+  status: cross-specification
 provenance:
   methodological_source: https://github.com/trustoverip/dtgwg-rahp-tf
   reviewed_commit: 94d17a6f5e8b448aae4698ff183e77a4a2f7a083

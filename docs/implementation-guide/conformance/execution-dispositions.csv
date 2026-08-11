@@ -87,3 +87,11 @@ CT-SEC-MED-POS-01,BLOCKED-CONSTRUCTION-SELECTION,cryptographic-construction,Requ
 CT-SEC-MED-NEG-01,BLOCKED-CONSTRUCTION-SELECTION,cryptographic-construction,Requires real independent implementations or construction-specific vectors.,Task Force,profile and interoperable fixtures
 CT-SEC-MIG-POS-01,BLOCKED-CONSTRUCTION-SELECTION,cryptographic-construction,Requires real independent implementations or construction-specific vectors.,Task Force,profile and interoperable fixtures
 CT-SEC-MIG-NEG-01,BLOCKED-CONSTRUCTION-SELECTION,cryptographic-construction,Requires real independent implementations or construction-specific vectors.,Task Force,profile and interoperable fixtures
+CT-INT-LINK-POS-01,EXECUTABLE,,Deterministic relationship-evidence acceptance semantics are construction-neutral.,Conformance editors,interoperability/valid-linkage-evidence.json or mock manifest
+CT-INT-LINK-NEG-01,EXECUTABLE,,Implicit co-possession rejection is construction-neutral.,Conformance editors,interoperability/invalid-unproven-did-linkage.json
+CT-INT-TASK-POS-01,EXECUTABLE,,Exact task-binding acceptance is construction-neutral.,Conformance editors,interoperability/valid-task-bound-proof.json
+CT-INT-TASK-NEG-01,EXECUTABLE,,Task/audience mismatch rejection is construction-neutral.,Conformance editors,interoperability/invalid-task-replay.json
+CT-INT-AUTH-POS-01,EXECUTABLE,,Independent proof plus active delegation evaluation is construction-neutral.,Conformance editors,interoperability/valid-agent-with-delegation.json
+CT-INT-AUTH-NEG-01,EXECUTABLE,,Ceremony/proof evidence cannot substitute for delegation.,Conformance editors,interoperability/invalid-agent-without-delegation.json
+CT-INT-PRIV-POS-01,EXECUTABLE,,Scoped reference acceptance is construction-neutral.,Conformance editors,interoperability/valid-ceremony-step.json
+CT-INT-PRIV-NEG-01,EXECUTABLE,,Stable cross-context correlation handle rejection is construction-neutral.,Conformance editors,interoperability/invalid-cross-context-linkage.json

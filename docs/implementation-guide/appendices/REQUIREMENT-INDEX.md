@@ -34,3 +34,19 @@ This guide is non-normative by default. The index identifies implementation expe
 | SEC-007 | Negotiation and migration prevent unauthorized downgrade. | cross-version conformance tests |
 | SEC-008 | Context definitions identify collusion targets and are human-legible. | context decision record and comprehension evidence |
 
+
+## DTG interoperability requirements — v0.4.0
+
+| Requirement | Expectation | Primary evidence |
+|---|---|---|
+| ZKP-LINK-01 | relationship-dependent proofs use explicit relationship evidence, never co-possession inference | linkage profile and negative fixture |
+| ZKP-LINK-02 | linkage evidence identifies provenance, authority, relationship semantics and lifecycle | verification evidence |
+| ZKP-LINK-03 | linkage mechanisms are assessed against privacy class and context correlation boundaries | correlation assessment |
+| ZKP-LINK-04 | unresolved or unverifiable required linkage fails closed | negative conformance result |
+| ZKP-TASK-01 | proof is bound to exact task, audience, challenge, statement and context | canonical transcript / receipt |
+| ZKP-TASK-02 | task/ceremony participation never substitutes for delegated authority | separate delegation evidence |
+| ZKP-TASK-03 | applicable policy/profile version is bound or unambiguously referenced | verification receipt |
+| ZKP-TASK-04 | task mismatch/replay/confused-deputy attempts fail closed | negative conformance result |
+| ZKP-CER-01 | ceremony reference is minimised and not a default global correlation handle | privacy assessment |
+| ZKP-CER-02 | proof/external evidence validity is evaluated independently of ceremony completion | verification result |
+| ZKP-CER-03 | proof, ceremony, credential/status and authority evidence remain distinguishable | audit evidence package |
