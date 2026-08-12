@@ -27,3 +27,16 @@ This release deliberately fails closed when a proof statement depends on unresol
 ## Validation
 
 The release is accepted only if repository documentation, navigation, conformance, fixtures, threat model, security assurance, decision governance, interoperability and traceability checks pass.
+
+## Requirements alignment from Discussion #13
+
+This working release also reconciles the root proof-of-liveness requirements with the Task Force's v0.4 progression discussion:
+
+- treats privacy-not-assurance, context-dependent unlinkability, the profile split, paired boundaries and named adversary/horizon as adopted foundations;
+- moves B1 and B2 from open questions to adopted working positions;
+- defines the requirements → boundary decision method → predicate register authority chain;
+- adds the construction-selection gate and explicitly classifies unreproduced circuit/lab benchmarks as experimental evidence;
+- strengthens post-quantum migration and assurance-horizon requirements;
+- adds lifecycle requirements for epochs, cryptoperiods, retention and revocation cadence;
+- tightens delegation separation, biometric enrolment-dedup assumptions and multi-issuer independence; and
+- aligns terminology with `F_PoP` and `f-distinct` where those terms sharpen the normative-reference mapping.

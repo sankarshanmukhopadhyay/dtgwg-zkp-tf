@@ -24,4 +24,4 @@ v0.3.0 introduces named privacy classes, a machine-readable privacy claim, adver
 - recovery, reissuance and epoch rollover;
 - external identifiers composed with the proof.
 
-The current implementation remains non-normative and pending Task Force ratification.
+Discussion #13 records this as an adopted working position for the v0.4 requirements progression. The fork implementation remains non-normative and is subject to amendment through Task Force decision governance.

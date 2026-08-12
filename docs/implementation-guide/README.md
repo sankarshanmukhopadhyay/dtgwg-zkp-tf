@@ -19,12 +19,12 @@ The guide is intentionally proof-system agnostic. It defines the semantic, gover
 | Publication status | Non-normative implementation workspace |
 | Decision authority | DTGWG ZKP Task Force and applicable upstream governance bodies |
 | Fork status | Implemented working baseline for review, experimentation and contribution |
-| Construction status | Specific proof constructions remain deferred pending boundary ratification and benchmarking |
+| Construction status | Specific proof constructions remain deferred pending the construction-selection gate and independently supportable benchmark evidence |
 | Primary profiles | Minimum Liveness Profile and Extended Personhood Profile |
 | Core architectural rule | Cryptography carries privacy; issuer accreditation and governance carry assurance |
 | Conformance approach | Profile-specific claims supported by positive and negative evidence |
 
-Nothing in this guide should be interpreted as ratifying an unresolved Task Force decision. The [decision register](decisions/decision-register.md) separates the status of an upstream decision from the maturity of its implementation in this fork.
+The root [`proof-of-liveness-requirements.md`](../../proof-of-liveness-requirements.md) is the fork's semantic source of truth for predicate/profile meaning. This guide operationalises those requirements and must not silently strengthen them. The [decision register](decisions/decision-register.md) separates ratified foundations, adopted working positions, unresolved upstream decisions and the maturity of their implementation in this fork.
 
 ## What this guide is for
 
@@ -461,7 +461,7 @@ The guide tracks the foundational and open Task Force decisions separately from 
 - amendment and supersession history;
 - decision authority and source discussion.
 
-The two most load-bearing current areas are context delimitation and the issuer-verifier collusion target. Construction selection remains downstream of those decisions. See [decisions](decisions/README.md), [decision register](decisions/decision-register.md) and [upstream crosswalk](decisions/upstream-decision-crosswalk.md).
+The two most load-bearing working positions remain context delimitation and the issuer-verifier collusion target. Discussion #13 moves them from open questions to adopted working positions for v0.4; construction selection remains downstream of their evidence-backed application and the construction-selection gate. See [decisions](decisions/README.md), [decision register](decisions/decision-register.md) and [upstream crosswalk](decisions/upstream-decision-crosswalk.md).
 
 ## Guided routes
 

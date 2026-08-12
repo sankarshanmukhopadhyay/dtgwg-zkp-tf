@@ -69,8 +69,10 @@ The following terms represent different claims and should not be used as synonym
 | **Scoped uniqueness** | Evidence that the same enrolled secret/subject cannot exercise a defined action more than allowed within a scope and epoch. | One natural person globally. |
 | **Freshness** | Evidence that a proof or upstream determination falls within a verifier-required time/session boundary. | Liveness by itself. |
 | **Agent authority** | Evidence that an agent is authorised to act for a principal under defined scope, duration and revocation conditions. | Holder binding or liveness alone. |
+| **F_PoP** | The normative reference's first-person proof-of-personhood framing: a proof property concerning a first-person personhood assertion under explicit system assumptions. | Civil identity, global uniqueness, or agent authority. |
+| **f-distinct** | The normative reference's distinct-human property: evidence that two relevant attestations correspond to two distinct humans under the stated construction and assumptions. | Merely proving that two pseudonyms, keys, credentials, or issuer records differ. |
 
-A conformant profile should use the narrowest term matching the actual claim.
+A conformant profile should use the narrowest term matching the actual claim. The symbols `F_PoP` and `f-distinct` are adopted where they sharpen alignment with the primary cryptographic reference; they do not replace the profile-specific semantic definitions in this document.
 
 ## 4. The assurance boundary: what the proof establishes
 
@@ -97,26 +99,40 @@ The practical design space is a trade curve:
 
 The specification must therefore define the intended uniqueness property first and select constructions second.
 
-## 6. Foundational context and adversary decision
+## 6. Foundational context and adversary model
 
-Every privacy property is parameterised by a definition of **context** and by an adversary model.
+The foundational frame is adopted for this working draft: privacy is not assurance; unlinkability is context-dependent; Minimum Liveness and Extended Personhood are separate profiles; material predicates have paired assurance and disclosure boundaries; and every material privacy or assurance claim names its adversary and horizon.
 
-> **Open decision B1:** What constitutes a context for linkability and nullifier derivation?
->
-> **Open decision B2:** Must separation between contexts survive issuer/verifier collusion, verifier/verifier collusion, or only honest non-colluding participants?
+### 6.1 Adopted working context definition (B1)
 
-Candidate context dimensions include:
+A **context** is a purpose-and-governance-bounded, versioned governance object defining an intentional linkability domain. The verifier is not, by itself, the unit of context. A context **MUST** identify at least:
 
-- relying party or verifier identifier;
-- trust community or governance domain;
-- transaction purpose;
-- application/service;
-- legal or policy basis;
-- credential/profile identifier;
-- epoch; and
-- combinations of the above under a canonical derivation rule.
+- a named authority responsible for the context;
+- a human-legible purpose;
+- the verifier or relying-party set covered by the context;
+- the applicable profile and policy version;
+- an epoch or other bounded lifecycle delimiter where linkability or nullifiers are used;
+- the linkage that is permitted within the context;
+- the linkage that is prohibited across contexts; and
+- versioning, effective-time and change-control rules that prevent silent expansion.
 
-A statement such as “unlinkable across verifiers” is incomplete until it states who may collude, what auxiliary information is available, and for how long correlation resistance is expected to hold.
+A context **MAY** contain multiple verifiers when they perform the same governed purpose and the shared linkability domain is explicit and proportionate. Common ownership, common infrastructure, federation, merger, analytics, or use of the same registry **MUST NOT** silently merge contexts.
+
+### 6.2 Adopted working collusion position (B2)
+
+Issuer-verifier collusion is a named and tracked privacy risk. Issuer and verifier role separation is the default architecture. A node or legal entity **MAY** be capable of both roles, but it **MUST NOT** exercise issuer and verifier authority in the same transaction without an explicit combined-role analysis and a correspondingly weaker privacy claim where required.
+
+Every unlinkability claim **MUST** be stated as an evidence-backed `(adversary, horizon)` claim. Where evidence supports it, the Extended Personhood Profile should target resistance to:
+
+- an honest-but-curious verifier;
+- multiple colluding verifiers operating in different contexts; and
+- issuer-verifier collusion.
+
+If a deployment cannot substantiate one of those resistance claims, it **MUST** declare the weaker privacy class rather than inherit a stronger claim from the profile label.
+
+A statement such as “unlinkable across verifiers” is therefore incomplete until it states the governed contexts, who may collude, what auxiliary information is available, and for how long correlation resistance is expected to hold.
+
+For the operational context record, disclosure analysis and change-control method, see [`docs/implementation-guide/boundaries/predicate-assurance-boundary-decision.md`](docs/implementation-guide/boundaries/predicate-assurance-boundary-decision.md).
 
 ## 7. Actors and trust model
 
@@ -244,6 +260,8 @@ At minimum, the transcript must commit to:
 
 **LIV-UNIQ-05 — Multi-issuer semantics.** If uniqueness spans multiple issuers, the architecture **MUST** define how enrolment coordination, duplicate handling and privacy are achieved. A nullifier construction alone is insufficient.
 
+**LIV-UNIQ-06 — Distinct-human semantics.** Where a profile claims `f-distinct`, it **MUST** define the evidence and assumptions under which two attestations are treated as originating from two distinct humans. Distinct pseudonyms, keys, credentials, issuer records, or enrolment identifiers are not sufficient by themselves.
+
 ### 9.8 Privacy and disclosure
 
 **LIV-PRIV-01 — Named adversary.** Every unlinkability or confidentiality claim **MUST** name the relevant adversary: verifier, issuer, registry/status service, mediator, colluding parties, or another defined actor set.
@@ -272,6 +290,12 @@ At minimum, the transcript must commit to:
 
 **LIV-ALG-05 — Dependency disclosure.** A profile **MUST** document trusted setup, common reference string, secure hardware, remote prover or registry dependencies that materially affect security or availability.
 
+**LIV-ALG-06 — Security horizon.** Every selected cryptographic suite **MUST** state the security horizon over which its confidentiality, integrity, unlinkability, and verification claims are expected to remain supportable. The horizon **MUST** be reviewed against cryptanalytic change, implementation compromise, and retention requirements.
+
+**LIV-ALG-07 — Post-quantum migration readiness.** V1 **MAY** use pre-quantum constructions, but a conformant V1 profile **MUST** preserve algorithm agility and define migration triggers, overlap rules, and downgrade protections so that transition to post-quantum-capable suites does not require changing the semantic claim model.
+
+**LIV-ALG-08 — Continuity mechanisms do not restore broken guarantees.** Where a profile uses hash chaining or another succession mechanism to preserve evidence lineage across suite rotations, it **MUST** state which property the chain preserves. Such chaining **MUST NOT** be represented as restoring confidentiality, unlinkability, or unforgeability after a relied-on primitive is no longer secure.
+
 ### 9.10 Failure and degraded mode
 
 **LIV-FAIL-01 — Typed failure.** Implementations **MUST** distinguish at least cryptographic invalidity, unsupported profile/suite, stale proof, stale capture/attestation, unacceptable issuer/accreditation, revoked/suspended status and local policy rejection.
@@ -282,9 +306,27 @@ At minimum, the transcript must commit to:
 
 **LIV-FAIL-04 — No silent assurance downgrade.** Any reduction in liveness freshness, issuer assurance, proof suite or privacy class **MUST** be explicit to the relying-party policy decision and, where material to consent, to the subject/prover.
 
-## 10. Predicate and disclosure matrix
+## 10. Lifecycle, cryptoperiod and assurance horizon
 
-Candidate construction mappings remain provisional until the context/adversary decisions are resolved.
+Lifecycle controls bind the semantic claim to the period during which its assumptions remain supportable. Evidence retention and assurance validity are different clocks: a record may need to be retained after the cryptographic, biometric, accreditation, status, or privacy assurance on which the original decision relied has expired.
+
+**LIV-LCM-01 — Bounded epochs.** Nullifier, reuse-detection and other intentionally linkable state **MUST** operate within a defined epoch or equivalent bounded lifecycle. Epoch rollover, overlap and deletion semantics **MUST** be stated.
+
+**LIV-LCM-02 — Cryptoperiods.** Long-lived enrolment roots, issuer keys, proving parameters and other cryptographic dependencies **MUST** have a defined cryptoperiod, rotation trigger and migration path.
+
+**LIV-LCM-03 — Retention.** Every retained presentation, nullifier, status, decision, receipt, audit or recovery artefact **MUST** have a stated purpose, retention period, access boundary and deletion or archival rule. Long-retention obligations, for example a deployment profile requiring a seven-year KYC/AML hold, **MUST NOT** silently extend the validity or privacy assurance horizon of the underlying proof.
+
+**LIV-LCM-04 — Revocation cadence.** Profiles **MUST** define the cadence, cache age, effective-time semantics and unavailable-state behaviour for attestation, issuer, accreditation and policy status needed by the relying decision.
+
+**LIV-LCM-05 — Assurance horizon.** Each material assurance or privacy claim **MUST** identify the event or time at which it must be re-evaluated, including cryptanalytic change, biometric-model change, schema migration, governance change, key compromise, status change or newly available auxiliary data.
+
+**LIV-LCM-06 — Historical evidence.** Where a relying regime requires long-term audit or historical verification, the retained evidence **MUST** make clear what was valid as of the original evaluation time and what, if anything, remains verifiable at the later audit time.
+
+See [`docs/implementation-guide/lifecycle/cryptoperiod-and-assurance-horizon.md`](docs/implementation-guide/lifecycle/cryptoperiod-and-assurance-horizon.md) and [`docs/implementation-guide/adr/ADR-009-cryptoperiod-assurance-horizon.md`](docs/implementation-guide/adr/ADR-009-cryptoperiod-assurance-horizon.md).
+
+## 11. Predicate and disclosure matrix
+
+Candidate construction mappings remain provisional until they pass the construction-selection gate in Section 20 and the corresponding paired assurance/disclosure boundary review.
 
 | Predicate | Candidate construction family | Minimum verifier-visible result | Material disclosure/correlation surface | Does not establish |
 |---|---|---|---|---|
@@ -297,11 +339,11 @@ Candidate construction mappings remain provisional until the context/adversary d
 | Proof freshness | Domain-separated transcript + challenge | Current request/session bound | Verifier/audience and session metadata | Recent biometric capture |
 | Demographic range *(extension)* | Range/set proof over attested attribute | Requested predicate satisfied | Predicate threshold/policy | Exact attribute value |
 
-## 11. Profile model
+## 12. Profile model
 
 The draft retains a natural split between a liveness-only profile and personhood/uniqueness extensions.
 
-### 11.1 Minimum Liveness Profile (MLP)
+### 12.1 Minimum Liveness Profile (MLP)
 
 The MLP should be independently implementable and testable without uniqueness machinery. It includes:
 
@@ -317,7 +359,7 @@ The MLP should be independently implementable and testable without uniqueness ma
 
 It does **not** require scoped nullifiers, deduplication or global personhood claims.
 
-### 11.2 Extended Personhood Profile (EPP)
+### 12.2 Extended Personhood Profile (EPP)
 
 The EPP composes the MLP with one or more of:
 
@@ -329,9 +371,9 @@ The EPP composes the MLP with one or more of:
 
 The EPP must state its position on the Sybil-resistance/unlinkability trade curve explicitly.
 
-### 11.3 Agent-mediated use
+### 12.3 Agent-mediated use
 
-Where an agent initiates or presents a proof on behalf of a principal, the liveness/personhood proof establishes only the human-related predicates defined by its profile. A separate delegation/mandate object should carry at least:
+Where an agent initiates or presents a proof on behalf of a principal, the liveness/personhood proof establishes only the human-related predicates defined by its profile. When an application relies on agent authority, a separate delegation/mandate object **MUST** carry at least:
 
 - principal;
 - delegate/agent;
@@ -341,9 +383,9 @@ Where an agent initiates or presents a proof on behalf of a principal, the liven
 - revocation/status reference; and
 - evidence linking the delegation decision to the appropriate human-authorisation event.
 
-The two evidence sets may be cryptographically composed, but their semantics must remain separable.
+The two evidence sets **MAY** be cryptographically composed, but their semantics **MUST** remain separable. This document defines the composition boundary only; the delegation protocol and authority semantics remain owned by the applicable delegation or Trust Task work.
 
-## 12. Use-case requirements
+## 13. Use-case requirements
 
 | Context | Core requirement | Likely profile | Important temporal property |
 |---|---|---|---|
@@ -358,7 +400,7 @@ The two evidence sets may be cryptographically composed, but their semantics mus
 
 Use cases must not select a stronger profile than they need merely because stronger predicates are available. Data minimisation applies to semantic predicates as well as raw attributes.
 
-## 13. Biometric/personhood-provider input contract
+## 14. Biometric/personhood-provider input contract
 
 A provider integration needs an explicit contract rather than an abstract “liveness pass”. At minimum it should identify:
 
@@ -370,12 +412,16 @@ A provider integration needs an explicit contract rather than an abstract “liv
 - accreditation framework/reference where required;
 - subject/holder binding input;
 - optional privacy-preserving continuity/uniqueness binding artefact;
+- enrolment deduplication method, population scope, quality evidence and known failure modes where the profile claims person-level anti-Sybil properties;
+- biometric-provider independence evidence where multi-issuer assurance is claimed, including relevant shared model family, vendor, training-data, deduplication-service or upstream-data dependencies rather than corporate ownership alone;
 - recovery/re-enrolment semantics; and
 - session-binding material needed to prevent substitution between capture, attestation and proof sessions.
 
+A nullifier obtains anti-Sybil force only from the enrolment and binding assumptions behind it. A deployment **MUST NOT** describe a nullifier as person-level anti-Sybil evidence when repeated enrolment by the same human is not controlled to the level required by the claim. Likewise, multiple issuers **MUST NOT** be described as independent merely because they are different legal entities when material biometric or data dependencies are shared.
+
 The contract must also state which values are secret witness data, credential data, public proof inputs and verifier outputs.
 
-## 14. Verification outcome contract
+## 15. Verification outcome contract
 
 A verifier should receive a structured result rather than a single boolean. A minimum semantic result model should be able to report:
 
@@ -392,7 +438,7 @@ A verifier should receive a structured result rather than a single boolean. A mi
 
 The result should make it difficult for an application developer to confuse `cryptographically_valid` with `business_policy_accepted` or `biometric_determination_correct`.
 
-## 15. Interoperability and conformance evidence
+## 16. Interoperability and conformance evidence
 
 A candidate profile should not be called interoperable without evidence. Before promotion toward a normative working draft, this fork proposes that each profile provide:
 
@@ -410,7 +456,13 @@ A candidate profile should not be called interoperable without evidence. Before 
 
 Proof-system performance alone is not sufficient interoperability evidence.
 
-## 16. Security and privacy acceptance questions
+### 16.1 Construction-selection gate and circuit evidence
+
+A cryptographic construction **MUST NOT** be promoted into a profile merely because a circuit or prototype is functionally feasible. Selection is gated on approval of the exact statement, negative meaning, context/scope/epoch inputs, adversary and horizon, attestation fields and disclosure modes, composition assumptions, lifecycle, accountability path, performance envelope, and conformance evidence.
+
+The detailed gate is defined in [`docs/implementation-guide/boundaries/predicate-assurance-boundary-decision.md#25-construction-selection-gate`](docs/implementation-guide/boundaries/predicate-assurance-boundary-decision.md#25-construction-selection-gate). Experimental lab or circuit benchmarks **MAY** be used as evidence input to that gate, but until independently reproduced or otherwise independently verified they **MUST** be labelled experimental and **MUST NOT** by themselves support an interoperability, assurance, or production-readiness claim.
+
+## 17. Security and privacy acceptance questions
 
 Before deployment, an implementer should be able to answer:
 
@@ -429,7 +481,7 @@ Before deployment, an implementer should be able to answer:
 
 A deployment that cannot answer these questions has an assurance gap even if every proof verifies cryptographically.
 
-## 17. Ruled out
+## 18. Ruled out
 
 The following are incompatible with this draft's requirements unless a future profile explicitly changes the model and documents the consequences:
 
@@ -448,24 +500,24 @@ The following are incompatible with this draft's requirements unless a future pr
 - proprietary verifier-only formats without interoperable evidence; and
 - hard-coding one cryptographic algorithm into the semantic claim model.
 
-## 18. Decision backlog
+## 19. Decision backlog
 
 The remaining work should be separated into **semantic/governance decisions** and **construction/engineering decisions**. The second category should not be finalised before the first.
 
-### 18.1 Semantic and governance decisions
+### 19.1 Semantic and governance decisions
 
-1. **B1 — Context delimiter:** what fields define a privacy/nullifier context?
-2. **B2 — Collusion target:** which collusions must unlinkability survive?
-3. **B3 — Minimum liveness semantics:** what precisely counts as “live” for the base profile, and how is method/policy variance represented?
-4. **B4 — Freshness classes:** which profiles require capture freshness versus only proof/attestation freshness?
-5. **B5 — Status time:** current-time, issuance-time, transaction-time and historical verification rules.
-6. **B6 — Accreditation semantics:** whether issuer identity is disclosed, hidden in a set or policy-selectable.
-7. **B7 — Recovery/continuity:** how recovery changes holder binding and uniqueness state.
-8. **B8 — Agent composition:** ownership boundary between this work and Trust Task Protocols for delegation composition.
-9. **B9 — Offline mode:** what assurance/status horizon permits disconnected verification?
-10. **B10 — Privacy class:** whether profiles expose a standard privacy/disclosure classification usable during negotiation.
+B1 and B2 are no longer treated as open questions in this working draft. Their adopted working positions are recorded in Section 6 and remain subject to amendment through Task Force decision governance. The remaining semantic/governance backlog is:
 
-### 18.2 Construction and engineering decisions
+1. **B3 — Minimum liveness semantics:** what precisely counts as “live” for the base profile, and how is method/policy variance represented?
+2. **B4 — Freshness classes:** which profiles require capture freshness versus only proof/attestation freshness?
+3. **B5 — Status time:** current-time, issuance-time, transaction-time and historical verification rules.
+4. **B6 — Accreditation semantics:** whether issuer identity is disclosed, hidden in a set or policy-selectable.
+5. **B7 — Recovery/continuity:** how recovery changes holder binding and uniqueness state.
+6. **B8 — Agent composition:** ownership boundary between this work and Trust Task Protocols for delegation composition.
+7. **B9 — Offline mode:** what assurance/status horizon permits disconnected verification?
+8. **B10 — Privacy class:** whether profiles expose a standard privacy/disclosure classification usable during negotiation.
+
+### 19.2 Construction and engineering decisions
 
 After the above are bounded:
 
@@ -482,25 +534,26 @@ After the above are bounded:
 11. parameter/trusted-setup distribution where applicable; and
 12. deterministic vectors and independent implementation strategy.
 
-## 19. Proposed progression toward a specification
+## 20. Proposed progression toward a specification
 
 A practical sequence is:
 
-1. **Ratify terminology and assurance boundary.** Agree that liveness, personhood, holder binding, continuity and uniqueness are different claims.
-2. **Decide B1/B2.** Define context and collusion target before choosing nullifier or issuer-concealment constructions.
+1. **Maintain the ratified foundational frame.** Keep privacy-not-assurance, context-dependent unlinkability, the profile split, paired boundaries, and adversary/horizon parameters explicit in every downstream requirement.
+2. **Maintain and evidence B1/B2.** Treat the purpose-and-governance context definition and evidence-qualified collusion position as adopted working positions; amend them only through decision governance.
 3. **Ratify the Minimum Liveness Profile semantics.** This can progress without the uniqueness trade curve.
 4. **Define the attestation and verification outcome contracts.** Make upstream biometric inputs and downstream verifier semantics testable.
-5. **Select constructions for the MLP and publish vectors.** Benchmark on intended platforms.
-6. **Resolve EPP uniqueness/continuity governance.** Only then select scoped-nullifier/multi-issuer mechanisms.
-7. **Pressure-test recovery, revocation, policy withdrawal, offline verification and agent step-up.** Treat failures as first-class protocol states.
-8. **Cross-map every proposed normative requirement to conformance evidence.** A requirement with no observable test or assurance evidence should be explicitly identified as governance-only rather than accidentally untestable.
+5. **Apply the construction-selection gate before selecting MLP constructions.** Use experimental circuit benchmarks as inputs, then require independent verification/reproduction before stronger readiness claims.
+6. **Resolve EPP uniqueness/continuity governance.** Include enrolment dedup quality, `f-distinct` semantics where relevant, and biometric-provider independence before selecting scoped-nullifier/multi-issuer mechanisms.
+7. **Pressure-test lifecycle and migration.** Cover bounded epochs, cryptoperiods, post-quantum migration, long-retention evidence, revocation cadence, recovery, policy withdrawal and offline verification.
+8. **Pressure-test agent composition.** Keep human-related predicates separate from delegated authority and treat failures as first-class protocol states.
+9. **Cross-map every proposed normative requirement to conformance evidence.** A requirement with no observable test or assurance evidence should be explicitly identified as governance-only rather than accidentally untestable.
 
-## 20. Immediate next steps for this fork
+## 21. Immediate next steps for this fork
 
-1. Map `LIV-*` requirements into the existing predicate/boundary and conformance matrices.
-2. Add pressure-test scenarios for the three freshness clocks, historical status, recovery duplication, wrong-audience replay and assurance downgrade.
-3. Extend the implementation guide's information model with a minimum liveness-attestation field profile and structured verification-result profile.
-4. Use the decision register for B1–B10 rather than resolving them implicitly in implementation prose.
+1. Map the added `LIV-LCM-*`, `LIV-ALG-*` and `LIV-UNIQ-06` requirements into the existing predicate/boundary and conformance matrices.
+2. Add or extend pressure tests for long-retention evidence, revocation cadence, post-quantum migration, enrolment-dedup failure and correlated multi-issuer biometric dependencies.
+3. Keep B1/B2 status and evidence synchronized through the decision register rather than reopening them implicitly in implementation prose.
+4. Collect experimental construction/circuit benchmarks as construction-gate evidence and identify the independent reproduction needed before readiness claims.
 5. Prepare a concise upstream contribution that separates broadly useful semantic improvements from fork-specific implementation machinery.
 
 ---
@@ -518,7 +571,16 @@ A practical sequence is:
 - Added recovery, rotation, migration, mediated-proving and downgrade requirements.
 - Added a structured verification-outcome contract to avoid boolean over-claiming.
 - Added interoperability/conformance evidence expectations.
-- Split the open backlog into semantic/governance decisions and construction/engineering decisions.
+- Promoted the ratified foundational frame from open framing into the working requirements baseline.
+- Replaced open B1/B2 questions with the purpose-and-governance-bounded context definition and evidence-qualified collusion position.
+- Established the requirements document as the semantic source of truth, with the boundary decision document as the operational decision method and the predicate register as the recorded implementation view.
+- Added the construction-selection gate and treatment of experimental circuit benchmarks pending independent verification.
+- Added post-quantum migration readiness, security-horizon and hash-chain continuity guardrails.
+- Added lifecycle requirements covering bounded epochs, cryptoperiods, retention, revocation cadence and historical evidence.
+- Strengthened biometric-provider inputs for enrolment-dedup quality and multi-issuer biometric independence.
+- Added `F_PoP` and `f-distinct` terminology alignment with the primary cryptographic reference.
+- Tightened the separation of agent authority into mandatory structured delegation evidence when relied upon.
+- Split the remaining backlog into semantic/governance decisions and construction/engineering decisions.
 - Preserved the v0.3 assurance-boundary correction: cryptography proves attestation properties under the V1 model; it does not prove the underlying biometric determination was correct.
 
 **Upstream v0.3**

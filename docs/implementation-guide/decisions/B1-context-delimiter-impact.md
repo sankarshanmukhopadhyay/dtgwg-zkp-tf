@@ -23,4 +23,4 @@ v0.3.0 adds a canonical context descriptor schema, valid and invalid fixtures, e
 - cross-context linkage prohibitions;
 - conformance claims that depend on domain separation.
 
-The current implementation remains non-normative and pending Task Force ratification.
+Discussion #13 records this as an adopted working position for the v0.4 requirements progression. The fork implementation remains non-normative and is subject to amendment through Task Force decision governance.

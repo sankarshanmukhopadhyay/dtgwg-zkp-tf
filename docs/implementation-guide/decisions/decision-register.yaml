@@ -2,12 +2,13 @@
   "register_version": "1.0.0",
   "repository_release_target": "v0.4.0",
   "decision_authority": "DTG ZKP Task Force",
-  "source_discussion": "https://github.com/trustoverip/dtgwg-zkp-tf/discussions/10",
+  "source_discussion": "https://github.com/trustoverip/dtgwg-zkp-tf/discussions/13",
   "status_vocabulary": [
     "draft",
     "proposed",
     "implemented-as-working-baseline",
     "pending-ratification",
+    "adopted-working-position",
     "ratified",
     "ratified-with-amendment",
     "rejected",
@@ -18,7 +19,7 @@
     {
       "id": "A1",
       "title": "Predicate-over-attestation boundary",
-      "upstream_status": "pending-ratification",
+      "upstream_status": "ratified",
       "fork_status": "implemented-as-working-baseline",
       "normative_effect": "non-normative",
       "adrs": [
@@ -27,12 +28,13 @@
       "requirements": [
         "REQ-ASSURANCE-BOUNDARY"
       ],
-      "evidence_paths": []
+      "evidence_paths": [],
+      "ratification_record": "docs/implementation-guide/decisions/ratification-record-v0.4-foundational-frame.md"
     },
     {
       "id": "A2",
       "title": "Context-dependent unlinkability target",
-      "upstream_status": "pending-ratification",
+      "upstream_status": "ratified",
       "fork_status": "implemented-as-working-baseline",
       "normative_effect": "non-normative",
       "adrs": [
@@ -41,24 +43,26 @@
       "requirements": [
         "REQ-PRIVACY-CLAIM"
       ],
-      "evidence_paths": []
+      "evidence_paths": [],
+      "ratification_record": "docs/implementation-guide/decisions/ratification-record-v0.4-foundational-frame.md"
     },
     {
       "id": "A3",
       "title": "Minimum Liveness and Extended Personhood split",
-      "upstream_status": "pending-ratification",
+      "upstream_status": "ratified",
       "fork_status": "implemented-as-working-baseline",
       "normative_effect": "non-normative",
       "adrs": [],
       "requirements": [
         "REQ-PROFILE-SPLIT"
       ],
-      "evidence_paths": []
+      "evidence_paths": [],
+      "ratification_record": "docs/implementation-guide/decisions/ratification-record-v0.4-foundational-frame.md"
     },
     {
       "id": "A4",
       "title": "Paired assurance and disclosure boundaries",
-      "upstream_status": "pending-ratification",
+      "upstream_status": "ratified",
       "fork_status": "implemented-as-working-baseline",
       "normative_effect": "non-normative",
       "adrs": [
@@ -67,12 +71,13 @@
       "requirements": [
         "REQ-BOUNDARY-PAIR"
       ],
-      "evidence_paths": []
+      "evidence_paths": [],
+      "ratification_record": "docs/implementation-guide/decisions/ratification-record-v0.4-foundational-frame.md"
     },
     {
       "id": "A5",
       "title": "Parameterized privacy and assurance claims",
-      "upstream_status": "pending-ratification",
+      "upstream_status": "ratified",
       "fork_status": "implemented-as-working-baseline",
       "normative_effect": "non-normative",
       "adrs": [
@@ -81,7 +86,8 @@
       "requirements": [
         "REQ-CLAIM-PARAMETERS"
       ],
-      "evidence_paths": []
+      "evidence_paths": [],
+      "ratification_record": "docs/implementation-guide/decisions/ratification-record-v0.4-foundational-frame.md"
     },
     {
       "id": "A6",
@@ -114,7 +120,7 @@
     {
       "id": "B1",
       "title": "Purpose-and-governance-bounded context delimiter",
-      "upstream_status": "pending-ratification",
+      "upstream_status": "adopted-working-position",
       "fork_status": "implemented-as-working-baseline",
       "normative_effect": "non-normative",
       "adrs": [],
@@ -126,7 +132,7 @@
     {
       "id": "B2",
       "title": "Issuer-verifier collusion resistance target",
-      "upstream_status": "pending-ratification",
+      "upstream_status": "adopted-working-position",
       "fork_status": "implemented-as-working-baseline",
       "normative_effect": "non-normative",
       "adrs": [],

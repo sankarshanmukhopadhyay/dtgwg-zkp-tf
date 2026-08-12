@@ -8,6 +8,8 @@ has_toc: true
 ---
 # Predicate boundary register
 
+This register is the maintained operational record of predicate-level assurance and disclosure boundaries. It does not define predicate semantics independently: semantic meaning is controlled by [`proof-of-liveness-requirements.md`](../../../proof-of-liveness-requirements.md), and the decision method is defined in [`predicate-assurance-boundary-decision.md`](predicate-assurance-boundary-decision.md).
+
 | Predicate | Assurance boundary | Disclosure boundary | Required profile treatment |
 |---|---|---|---|
 | PR-LIV | Valid qualifying attestation possession under named policy | Policy, assurance, freshness and presentation-event surface | Minimum Liveness and Extended Personhood |

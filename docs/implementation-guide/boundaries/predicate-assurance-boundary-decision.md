@@ -21,6 +21,8 @@ The document is intended to become the stable input to:
 5. threat and privacy analysis;
 6. cross-task-force alignment on credentials, trust tasks, registries, governance, delegation, and human experience.
 
+This document operationalises the semantic requirements in the repository-root [`proof-of-liveness-requirements.md`](../../../proof-of-liveness-requirements.md). For this fork, that requirements document is the source of truth for predicate/profile semantics and for the requirement to maintain paired assurance and disclosure boundaries. This decision document defines the method for applying those requirements; the [`predicate-boundary-register.md`](predicate-boundary-register.md) records the resulting predicate-level boundaries. If these artefacts conflict, the requirements document controls semantic meaning and the implementation artefacts must be reconciled rather than silently strengthening the claim.
+
 This first draft resolves the principal architectural ambiguity that otherwise leaves every candidate construction underdetermined: **what counts as a context, what is intentionally linkable within it, and what a context boundary must resist.**
 
 ## 1. Executive decision
@@ -836,6 +838,8 @@ A cryptographic construction SHALL NOT be ratified for a predicate until the Tas
 8. the accountability and redress path;
 9. the required performance envelope;
 10. conformance fixtures and negative tests.
+
+Experimental lab, prototype, or circuit benchmarks MAY be supplied as evidence to this gate. Unless they have been independently reproduced or otherwise independently verified, they MUST be labelled experimental and MUST NOT by themselves justify an interoperability, assurance, or production-readiness claim.
 
 Construction evaluation SHOULD then consider:
 
