@@ -2,7 +2,7 @@
 layout: default
 title: "Decision Governance"
 parent: "Implementation Guide"
-nav_order: 16
+nav_order: 17
 has_children: true
 has_toc: true
 ---

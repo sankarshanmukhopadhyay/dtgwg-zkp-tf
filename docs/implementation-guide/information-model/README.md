@@ -2,7 +2,7 @@
 layout: default
 title: "Information Model"
 parent: "Implementation Guide"
-nav_order: 13
+nav_order: 6
 has_children: true
 has_toc: true
 ---

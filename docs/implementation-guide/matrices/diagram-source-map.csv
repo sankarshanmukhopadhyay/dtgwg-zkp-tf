@@ -17,3 +17,11 @@ D-022,deployment/observability-and-data-minimization.md
 D-023,implementation/wallet-holder-implementation-guide.md
 D-024,operations/redress-and-correction-runbook.md
 D-030,interoperability/dtg-dependency-model.md
+D-031,implementation/registry-implementation-guide.md
+D-032,implementation/verifier-implementation-guide.md
+D-033,implementation/delegated-agent-implementation-guide.md
+D-034,implementation/issuer-implementation-guide.md
+D-035,operations/README.md
+D-036,operations/wallet-compromise-and-recovery-runbook.md
+D-037,decisions/ratification-procedure.md
+D-038,conformance/README.md

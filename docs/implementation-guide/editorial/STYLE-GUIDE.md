@@ -59,7 +59,7 @@ Use glossary terms consistently. Expand an acronym on first use in each standalo
 
 ## 8. Tables, diagrams and examples
 
-Tables require a header row and must not carry essential rationale alone. Every Mermaid diagram requires a following `Interpretation` subsection. Label examples as non-normative. Code and fixture fragments must state whether they are illustrative, canonical or experimental.
+Tables require a header row and must not carry essential rationale alone. Every Mermaid diagram requires a following `Interpretation` subsection. Where a diagram represents governed state or operational action, identify the relevant **authority**, **transition/event** and **evidence produced** in the diagram or its interpretation. Prefer cross-linking an existing registered diagram over creating a near-duplicate. Label examples as non-normative. Code and fixture fragments must state whether they are illustrative, canonical or experimental.
 
 ## 9. Links and references
 

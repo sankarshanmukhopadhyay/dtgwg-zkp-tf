@@ -2,7 +2,7 @@
 layout: default
 title: "Editorial and Contribution Guidance"
 parent: "Implementation Guide"
-nav_order: 21
+nav_order: 24
 has_children: true
 has_toc: true
 ---

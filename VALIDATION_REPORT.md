@@ -62,3 +62,71 @@ This release also ran `validate_navigation.py`, `validate_diagrams.py`, `validat
 - 10 interoperability fixtures added; 49 JSON fixtures/schemas parse successfully repository-wide.
 - Conformance harness expanded from 8 to 16 deterministic executable cases; 80 remaining cases retain governed non-executable dispositions.
 - RAHP pressure-test records preserve control-plane disposition and retest triggers for cross-specification findings.
+
+## Documentation architecture and implementation-guide quality pass — 2026-08-12
+
+- Component implementation landing page expanded into a role-oriented implementation contract with prerequisite decisions, shared obligations, cross-role interaction model, implementation sequence, separation-of-duty guidance and evidence expectations.
+- Issuer, wallet/holder, verifier, registry, delegated-agent and auditor/assessor guides expanded with responsibilities, authority dependencies, failure behaviour, security/privacy controls, evidence outputs and onward navigation.
+- Top-level GitHub Pages navigation reordered into a deterministic lifecycle sequence; duplicate top-level `nav_order` values removed.
+- Guided learning expanded from 3 paths / 12 steps to 5 paths / 24 steps, separating sponsor, implementer, operator, assessor and specification-contributor journeys.
+- `scripts/validate_navigation.py` now rejects duplicate top-level navigation order values.
+- `scripts/validate_links.py` now validates internal Markdown anchors in addition to repository-local targets.
+- DTG Portfolio Monitor and Portfolio Status links added as non-authoritative situational-awareness references with an explicit governance boundary.
+- External references used by the rendered documentation and interoperability register were manually resolved on 2026-08-12, including the upstream ZKP and RAHP repositories, pinned RAHP commit, ZKP discussions, IACR ePrint 2026/333, Credential Spec issue #9, Trust Tasks repository/design note, and DTG Portfolio Monitor pages.
+
+Validation results for this pass:
+
+```text
+Documentation validation passed.
+Conformance validation passed: 96/96 test rows across 4 levels.
+Style validation passed.
+Link validation passed (targets and internal Markdown anchors).
+Fixture validation passed: 49 JSON files parsed.
+Navigation validation passed for 192 rendered Markdown pages.
+Diagram validation passed: 30 diagrams.
+Operational validation passed.
+Threat-model validation passed: 52 canonical threats.
+Deployment profile validation passed.
+Generated count validation passed: 96 conformance cases.
+Interoperability validation passed: 3 governed DTG dependencies and 10 executable fixtures.
+Learning-path validation passed: 5 paths and 24 steps.
+Security-assurance validation passed: 14 guardrails mapped; 52 threats; RAHP provenance pinned.
+```
+
+A local Jekyll render was not executed in this workspace because the Ruby `bundle` executable was unavailable. Repository-level documentation, navigation, link, style, diagram and generated-artifact validators all completed successfully.
+
+## Visual modelling and operational maturity pass — 2026-08-12
+
+- Diagram register expanded from 30 to 38 governed visual models.
+- Added registry authority/status lifecycle, verifier decision/failure pipeline, delegated-agent swimlane, credential/issuer lifecycle, operational incident lifecycle, wallet recovery swimlane, decision-ratification flow and conformance/assurance evidence pipeline.
+- Diagram convention strengthened to express **authority → transition/event → evidence** where a visual represents governed state or operational action.
+- Lifecycle landing page expanded into an orientation and evidence guide spanning credential/status, authority, key, delegation, policy and proof-system lifecycle.
+- Operations landing page expanded into a common incident-state model and runbook index.
+- Ten event/change runbooks plus the incident-evidence guide now implement a common structure for trigger, authority, containment, evidence, recovery, recovery test, redress and closure.
+- `scripts/validate_operations.py` now enforces that runbook structure rather than checking only file presence.
+- The GitHub Pages workflow now runs the full documentation, style, link, decision-governance, harness, interoperability and security-assurance validator set before the Jekyll build.
+- YAML front matter and Liquid delimiter preflight completed successfully across 218 Markdown files.
+
+Validation results for the consolidated pass:
+
+```text
+Documentation validation passed.
+Conformance validation passed: 96/96 test rows across 4 levels.
+Fixture validation passed: 49 JSON files parsed.
+Threat-model validation passed: 52 canonical threats.
+Deployment profile validation passed.
+Operational validation passed: 10 runbooks + incident evidence guide structurally complete.
+Navigation validation passed for 200 rendered Markdown pages.
+Learning-path validation passed: 5 paths and 24 steps.
+Diagram validation passed: 38 diagrams.
+Generated count validation passed: 96 conformance cases.
+Style validation passed.
+Link validation passed (targets and internal Markdown anchors).
+Decision governance validation passed: 20 decisions and 9 B1/B2 tests registered.
+Conformance harness validation passed: 16 executable, 80 governed non-executable cases.
+Interoperability validation passed: 3 governed DTG dependencies and 10 executable fixtures.
+Security-assurance validation passed: 14 guardrails mapped; 52 threats; RAHP provenance pinned.
+Front matter and Liquid-delimiter preflight passed across 218 Markdown files.
+```
+
+The local execution environment contains Ruby but does not contain the Jekyll/theme gems required by the repository, and outbound package installation is unavailable. The GitHub Pages build job remains the authoritative render gate: it installs the Gemfile dependencies with `ruby/setup-ruby`, runs the full validator set, executes `bundle exec jekyll build --trace`, then runs `scripts/validate_site_output.py`. No source-level front-matter, Liquid delimiter, navigation, link or diagram issue remains from this pass.

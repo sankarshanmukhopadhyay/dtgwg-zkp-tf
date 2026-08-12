@@ -8,26 +8,30 @@
       "goal": "Decide whether and how to adopt the guide",
       "steps": [
         {
-          "file": "docs/implementation-guide/guided-learning.md",
-          "outcome": "Select the appropriate route and evidence target"
+          "file": "docs/implementation-guide/README.md",
+          "outcome": "Establish scope, non-claims and authority model"
         },
         {
           "file": "docs/implementation-guide/adoption/README.md",
           "outcome": "Choose an adoption stage and entry gate"
         },
         {
-          "file": "docs/implementation-guide/security/README.md",
-          "outcome": "Understand assurance boundaries and residual risk"
+          "file": "docs/implementation-guide/boundaries/README.md",
+          "outcome": "Fix assurance and disclosure boundaries"
         },
         {
-          "file": "docs/implementation-guide/deployment/README.md",
-          "outcome": "Select a controlled deployment profile"
+          "file": "docs/implementation-guide/security/README.md",
+          "outcome": "Assign controls and residual-risk ownership"
+        },
+        {
+          "file": "docs/implementation-guide/adoption/production-entry-criteria.md",
+          "outcome": "Apply an evidence-backed stop/go gate"
         }
       ]
     },
     {
       "id": "implementer",
-      "audience": "Issuer, wallet, verifier, registry and agent engineers",
+      "audience": "Architects and issuer, wallet, verifier, registry or agent engineers",
       "goal": "Build an interoperable implementation",
       "steps": [
         {
@@ -35,12 +39,16 @@
           "outcome": "Establish system boundaries and component relationships"
         },
         {
-          "file": "docs/implementation-guide/implementation/README.md",
-          "outcome": "Apply role-specific requirements"
+          "file": "docs/implementation-guide/boundaries/README.md",
+          "outcome": "Fix predicate assurance and disclosure constraints"
         },
         {
-          "file": "docs/implementation-guide/scenarios/README.md",
-          "outcome": "Pressure-test behaviour across representative flows"
+          "file": "docs/implementation-guide/implementation/README.md",
+          "outcome": "Apply role-specific requirements and interface contracts"
+        },
+        {
+          "file": "docs/implementation-guide/interoperability/README.md",
+          "outcome": "Resolve cross-specification authority and evidence dependencies"
         },
         {
           "file": "docs/implementation-guide/conformance/README.md",
@@ -49,25 +57,79 @@
       ]
     },
     {
-      "id": "operator-assessor",
-      "audience": "Operators, security reviewers and assessors",
-      "goal": "Operate and independently assess a deployment",
+      "id": "operator",
+      "audience": "Operators and security engineers",
+      "goal": "Deploy and sustain a controlled production system",
       "steps": [
         {
           "file": "docs/implementation-guide/deployment/README.md",
-          "outcome": "Confirm the selected security profile"
+          "outcome": "Confirm topology and security baseline"
         },
         {
           "file": "docs/implementation-guide/operations/README.md",
           "outcome": "Establish monitoring, incident and recovery playbooks"
         },
         {
+          "file": "docs/implementation-guide/lifecycle/README.md",
+          "outcome": "Define cryptoperiod and migration triggers"
+        },
+        {
           "file": "docs/implementation-guide/security/README.md",
-          "outcome": "Trace threats, harms, controls and accepted risk"
+          "outcome": "Trace threats, controls, metrics and residual risk"
+        },
+        {
+          "file": "docs/implementation-guide/operations/operational-readiness-checklist.md",
+          "outcome": "Produce production-readiness evidence"
+        }
+      ]
+    },
+    {
+      "id": "assessor",
+      "audience": "Auditors, assessors and interoperability reviewers",
+      "goal": "Independently reconstruct and test assurance claims",
+      "steps": [
+        {
+          "file": "docs/implementation-guide/implementation/auditor-assessor-guide.md",
+          "outcome": "Define assessment scope and evidence classes"
+        },
+        {
+          "file": "docs/implementation-guide/appendices/REQUIREMENT-INDEX.md",
+          "outcome": "Trace claims to guidance and evidence"
+        },
+        {
+          "file": "docs/implementation-guide/scenarios/README.md",
+          "outcome": "Select adverse and lifecycle samples"
         },
         {
           "file": "docs/implementation-guide/conformance/README.md",
-          "outcome": "Verify test evidence and assessment claims"
+          "outcome": "Verify repeatable test evidence and dispositions"
+        },
+        {
+          "file": "docs/implementation-guide/decisions/README.md",
+          "outcome": "Distinguish ratified, local and unresolved decisions"
+        }
+      ]
+    },
+    {
+      "id": "spec-contributor",
+      "audience": "DTG specification contributors and maintainers",
+      "goal": "Resolve cross-specification assumptions in the correct governance plane",
+      "steps": [
+        {
+          "file": "docs/implementation-guide/interoperability/README.md",
+          "outcome": "Identify dependency direction and owning authority"
+        },
+        {
+          "file": "docs/implementation-guide/pressure-tests/README.md",
+          "outcome": "Review findings assigned to the narrowest legitimate control plane"
+        },
+        {
+          "file": "docs/implementation-guide/decisions/decision-register.md",
+          "outcome": "Determine local versus upstream decision status"
+        },
+        {
+          "file": "docs/implementation-guide/decisions/upstream-decision-crosswalk.md",
+          "outcome": "Identify the appropriate upstream resolution target"
         }
       ]
     }

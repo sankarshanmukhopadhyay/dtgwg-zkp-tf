@@ -6,6 +6,7 @@ ROOT = Path(__file__).resolve().parents[1]
 GUIDE = ROOT / "docs" / "implementation-guide"
 errors = []
 required = {"layout", "title", "nav_order"}
+top_level_orders = {}
 
 for path in sorted(GUIDE.rglob("*.md")):
     text = path.read_text(encoding="utf-8")
@@ -25,6 +26,14 @@ for path in sorted(GUIDE.rglob("*.md")):
     for key in sorted(required):
         if not fields.get(key):
             errors.append(f"Missing {key} in front matter: {rel}")
+    if path.parent == GUIDE and path != GUIDE / "README.md" and fields.get("nav_order"):
+        order = fields["nav_order"]
+        if order in top_level_orders:
+            errors.append(
+                f"Duplicate top-level nav_order {order}: {top_level_orders[order]} and {rel}"
+            )
+        else:
+            top_level_orders[order] = rel
     if path != GUIDE / "README.md" and path.parent != GUIDE:
         section_index = GUIDE / path.relative_to(GUIDE).parts[0] / "README.md"
         if not section_index.exists():

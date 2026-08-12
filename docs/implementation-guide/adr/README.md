@@ -2,7 +2,7 @@
 layout: default
 title: "Architecture Decision Records"
 parent: "Implementation Guide"
-nav_order: 17
+nav_order: 18
 has_children: true
 has_toc: true
 ---

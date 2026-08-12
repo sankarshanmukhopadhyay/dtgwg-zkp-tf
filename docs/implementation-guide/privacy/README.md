@@ -2,7 +2,7 @@
 layout: default
 title: "Privacy Engineering"
 parent: "Implementation Guide"
-nav_order: 14
+nav_order: 7
 has_children: true
 has_toc: true
 ---

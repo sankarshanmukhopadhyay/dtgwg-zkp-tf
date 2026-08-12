@@ -69,6 +69,8 @@ Use the conformance levels, test matrices, schemas, fixtures, traceability maps 
 
 The [DTG interoperability section](interoperability/README.md) records cross-repository dependencies on Credential semantics, Trust Tasks/Trust Ceremonies and RAHP pressure-testing as governed inputs rather than implicit assumptions. A machine-readable alignment register and validator preserve authority, evidence and unresolved dependency boundaries.
 
+For ecosystem-level situational awareness, the independently maintained [DTG Portfolio Monitor](https://sankarshanmukhopadhyay.github.io/dtg-portfolio-monitor/) can be used to discover relevant repository movement. It is contextual monitoring, not a substitute for the authoritative source named in each dependency record.
+
 ## Foundational model
 
 ### A proof establishes a statement over an attestation

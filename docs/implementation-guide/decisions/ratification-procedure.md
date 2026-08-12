@@ -14,6 +14,9 @@ A status transition requires an attributable upstream source, a decision date, t
 
 ## Transition sequence
 
+The [decision ratification and impact propagation flow](../diagrams/D-037-decision-ratification-impact-propagation.md) is the visual control model for this procedure.
+
+
 1. Record the upstream outcome in a ratification record.
 2. Update `decision-register.yaml`.
 3. Run the decision-impact validator.

@@ -2,7 +2,7 @@
 layout: default
 title: "Conformance"
 parent: "Implementation Guide"
-nav_order: 10
+nav_order: 16
 has_children: true
 has_toc: true
 ---
@@ -34,6 +34,10 @@ run from the repository root. It checks that every `predicate_id`,
 `matrices/` CSVs actually exists in the taxonomy and scenario corpus, and
 that every conformance level has at least one passing (positive) and one
 failing (negative) test case.
+
+## Evidence pipeline
+
+[D-038 — Conformance and Assurance Evidence Pipeline](../diagrams/D-038-conformance-assurance-evidence-pipeline.md) distinguishes internal repository validation, executable protocol cases, security assurance and cross-implementation evidence. A claim should never imply a stronger evidence layer than was actually executed.
 
 ## What conformance validates
 

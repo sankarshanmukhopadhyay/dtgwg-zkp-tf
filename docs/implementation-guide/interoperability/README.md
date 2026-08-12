@@ -2,7 +2,7 @@
 layout: default
 title: "DTG Interoperability"
 parent: "Implementation Guide"
-nav_order: 7
+nav_order: 9
 has_children: true
 ---
 # DTG interoperability
@@ -23,6 +23,14 @@ The v0.4.0 interoperability programme turns cross-repository assumptions into tr
 - [Authority and evidence boundaries](authority-and-evidence-boundaries.md)
 - [Portfolio alignment register](portfolio-alignment-register.yaml)
 - [DTG ZKP dependency diagram](../diagrams/D-030-dtg-zkp-dependency-map.md)
+
+
+## Portfolio situational awareness
+
+For a current cross-workstream view, use the independently maintained [DTG Portfolio Monitor](https://sankarshanmukhopadhyay.github.io/dtg-portfolio-monitor/). Its [Portfolio Status](https://sankarshanmukhopadhyay.github.io/dtg-portfolio-monitor/portfolio-status/) and domain views can help identify repository movement that may trigger review of this alignment register.
+
+{: .governance }
+The portfolio monitor is **contextual evidence, not an authority source**. Dependency status in this repository must still be verified against the owning specification repository, task-force decision, issue, discussion, pull request or release before an implementation decision is changed.
 
 ## Machine-verifiable register
 

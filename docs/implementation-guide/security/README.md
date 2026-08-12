@@ -2,7 +2,7 @@
 layout: default
 title: "Threats, Harms and Controls"
 parent: "Implementation Guide"
-nav_order: 11
+nav_order: 12
 has_children: true
 has_toc: true
 ---

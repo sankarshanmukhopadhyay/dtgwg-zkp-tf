@@ -2,13 +2,13 @@
 layout: default
 title: "Diagrams"
 parent: "Implementation Guide"
-nav_order: 18
+nav_order: 21
 has_children: true
 has_toc: true
 ---
 # Diagram register
 
-Diagrams are implementation and assurance artefacts. Each source includes a textual interpretation.
+Diagrams are implementation and assurance artefacts. Each source includes a textual interpretation. Governed state and operational diagrams should make the **authority → transition/event → evidence** relationship explicit so that the visual itself supports assurance rather than acting as decoration. Reuse and cross-link registered diagrams instead of duplicating equivalent flows in multiple chapters.
 
 | ID | Diagram | File |
 |---|---|---|
@@ -42,3 +42,11 @@ Diagrams are implementation and assurance artefacts. Each source includes a text
 | D-028 | Security Metric Escalation Loop | [D-028-security-metric-escalation-loop.md](D-028-security-metric-escalation-loop.md) |
 | D-029 | Governance Capture and Revocation | [D-029-governance-capture-and-revocation.md](D-029-governance-capture-and-revocation.md) |
 | D-030 | DTG ZKP Dependency Map | [D-030-dtg-zkp-dependency-map.md](D-030-dtg-zkp-dependency-map.md) |
+| D-031 | Registry Authority and Status State Model | [D-031-registry-authority-status-state-model.md](D-031-registry-authority-status-state-model.md) |
+| D-032 | Verifier Decision and Failure Pipeline | [D-032-verifier-decision-failure-pipeline.md](D-032-verifier-decision-failure-pipeline.md) |
+| D-033 | Delegated-Agent Authority Transaction | [D-033-delegated-agent-authority-transaction.md](D-033-delegated-agent-authority-transaction.md) |
+| D-034 | Credential and Issuer Lifecycle States | [D-034-credential-issuer-lifecycle-states.md](D-034-credential-issuer-lifecycle-states.md) |
+| D-035 | Operational Incident Lifecycle | [D-035-operational-incident-lifecycle.md](D-035-operational-incident-lifecycle.md) |
+| D-036 | Wallet Compromise and Recovery | [D-036-wallet-compromise-recovery.md](D-036-wallet-compromise-recovery.md) |
+| D-037 | Decision Ratification and Impact Propagation | [D-037-decision-ratification-impact-propagation.md](D-037-decision-ratification-impact-propagation.md) |
+| D-038 | Conformance and Assurance Evidence Pipeline | [D-038-conformance-assurance-evidence-pipeline.md](D-038-conformance-assurance-evidence-pipeline.md) |

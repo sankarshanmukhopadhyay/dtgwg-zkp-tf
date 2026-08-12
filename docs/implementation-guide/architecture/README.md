@@ -2,7 +2,7 @@
 layout: default
 title: "Architecture"
 parent: "Implementation Guide"
-nav_order: 7
+nav_order: 4
 has_children: true
 has_toc: true
 ---

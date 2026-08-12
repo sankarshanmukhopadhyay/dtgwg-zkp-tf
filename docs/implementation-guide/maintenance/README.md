@@ -2,7 +2,7 @@
 layout: default
 title: "Maintenance Notes"
 parent: "Implementation Guide"
-nav_order: 22
+nav_order: 25
 has_children: true
 has_toc: true
 nav_exclude: true
