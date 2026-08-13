@@ -1177,27 +1177,27 @@ Each use case contains:
 
 | Capability or pressure area | Primary use cases |
 |---|---|
-| Minimum liveness profile | UC-004, UC-006, UC-017, UC-020 |
-| Extended personhood profile | UC-001, UC-002, UC-007, UC-008 |
-| Scoped nullifiers | UC-001, UC-002, UC-007, UC-008, UC-023 |
-| Same-human-as-enrolment | UC-005, UC-006, UC-021 |
-| Holder-key binding | UC-004, UC-006, UC-009, UC-021 |
-| Agent delegation | UC-009, UC-010, UC-011 |
-| Canonical transcript and freshness | UC-004, UC-006, UC-010, UC-025 |
-| Issuer accreditation | UC-012, UC-013, UC-015, UC-016 |
-| Trust registry lifecycle | UC-012, UC-014, UC-015 |
-| Cross-border recognition | UC-016 |
-| Offline and degraded operation | UC-014, UC-018, UC-028 |
-| Accessibility | UC-017, UC-019, UC-020 |
-| Recovery and key rotation | UC-005, UC-021 |
-| Malicious issuer/provider | UC-022 |
-| Malicious verifier | UC-023 |
-| Issuer-verifier collusion | UC-024 |
-| Proof composition | UC-025 |
-| Algorithm agility | UC-026 |
-| Audit, appeal, and redress | UC-027 |
-| Scale and throughput | UC-029 |
-| Cross-vendor interoperability | UC-030 |
+| Minimum liveness profile | [`UC-004`](../reference/identifier-register.md#uc-004), [`UC-006`](../reference/identifier-register.md#uc-006), [`UC-017`](../reference/identifier-register.md#uc-017), [`UC-020`](../reference/identifier-register.md#uc-020) |
+| Extended personhood profile | [`UC-001`](../reference/identifier-register.md#uc-001), [`UC-002`](../reference/identifier-register.md#uc-002), [`UC-007`](../reference/identifier-register.md#uc-007), [`UC-008`](../reference/identifier-register.md#uc-008) |
+| Scoped nullifiers | [`UC-001`](../reference/identifier-register.md#uc-001), [`UC-002`](../reference/identifier-register.md#uc-002), [`UC-007`](../reference/identifier-register.md#uc-007), [`UC-008`](../reference/identifier-register.md#uc-008), [`UC-023`](../reference/identifier-register.md#uc-023) |
+| Same-human-as-enrolment | [`UC-005`](../reference/identifier-register.md#uc-005), [`UC-006`](../reference/identifier-register.md#uc-006), [`UC-021`](../reference/identifier-register.md#uc-021) |
+| Holder-key binding | [`UC-004`](../reference/identifier-register.md#uc-004), [`UC-006`](../reference/identifier-register.md#uc-006), [`UC-009`](../reference/identifier-register.md#uc-009), [`UC-021`](../reference/identifier-register.md#uc-021) |
+| Agent delegation | [`UC-009`](../reference/identifier-register.md#uc-009), [`UC-010`](../reference/identifier-register.md#uc-010), [`UC-011`](../reference/identifier-register.md#uc-011) |
+| Canonical transcript and freshness | [`UC-004`](../reference/identifier-register.md#uc-004), [`UC-006`](../reference/identifier-register.md#uc-006), [`UC-010`](../reference/identifier-register.md#uc-010), [`UC-025`](../reference/identifier-register.md#uc-025) |
+| Issuer accreditation | [`UC-012`](../reference/identifier-register.md#uc-012), [`UC-013`](../reference/identifier-register.md#uc-013), [`UC-015`](../reference/identifier-register.md#uc-015), [`UC-016`](../reference/identifier-register.md#uc-016) |
+| Trust registry lifecycle | [`UC-012`](../reference/identifier-register.md#uc-012), [`UC-014`](../reference/identifier-register.md#uc-014), [`UC-015`](../reference/identifier-register.md#uc-015) |
+| Cross-border recognition | [`UC-016`](../reference/identifier-register.md#uc-016) |
+| Offline and degraded operation | [`UC-014`](../reference/identifier-register.md#uc-014), [`UC-018`](../reference/identifier-register.md#uc-018), [`UC-028`](../reference/identifier-register.md#uc-028) |
+| Accessibility | [`UC-017`](../reference/identifier-register.md#uc-017), [`UC-019`](../reference/identifier-register.md#uc-019), [`UC-020`](../reference/identifier-register.md#uc-020) |
+| Recovery and key rotation | [`UC-005`](../reference/identifier-register.md#uc-005), [`UC-021`](../reference/identifier-register.md#uc-021) |
+| Malicious issuer/provider | [`UC-022`](../reference/identifier-register.md#uc-022) |
+| Malicious verifier | [`UC-023`](../reference/identifier-register.md#uc-023) |
+| Issuer-verifier collusion | [`UC-024`](../reference/identifier-register.md#uc-024) |
+| Proof composition | [`UC-025`](../reference/identifier-register.md#uc-025) |
+| Algorithm agility | [`UC-026`](../reference/identifier-register.md#uc-026) |
+| Audit, appeal, and redress | [`UC-027`](../reference/identifier-register.md#uc-027) |
+| Scale and throughput | [`UC-029`](../reference/identifier-register.md#uc-029) |
+| Cross-vendor interoperability | [`UC-030`](../reference/identifier-register.md#uc-030) |
 
 ## 8. Priority bands
 
@@ -1207,25 +1207,25 @@ P0 use cases validate the semantic core, assurance boundaries, context model, li
 
 Recommended P0 set:
 
-- UC-001 Privacy-Preserving Account Creation
-- UC-002 Anonymous or Pseudonymous Community Participation
-- UC-004 High-Value Financial Transaction Step-Up
-- UC-005 Sensitive Account Recovery
-- UC-006 Recurring Login With Same-Human Continuity
-- UC-009 Human Authorises an AI Agent
-- UC-010 Human Step-Up for Agent Intent Drift
-- UC-012 Issuer Suspension After Proof Issuance
-- UC-013 Accreditation Framework or Policy Version Change
-- UC-017 Low-End or Constrained Consumer Device
-- UC-020 Accessibility Alternative to Facial Liveness
-- UC-021 Compromised Wallet Key but Live Human Present
-- UC-022 Malicious or Compromised Biometric Provider
-- UC-023 Malicious Verifier Attempts Cross-Context Correlation
-- UC-024 Issuer and Verifier Collude
-- UC-025 Proof Composition Across Credentials and Trust Tasks
-- UC-026 Algorithm Upgrade and Mixed-Version Ecosystem
-- UC-027 Verifier Policy Error, Appeal, and Redress
-- UC-030 Partial Deployment Across Independent Implementations
+- [`UC-001`](../reference/identifier-register.md#uc-001) Privacy-Preserving Account Creation
+- [`UC-002`](../reference/identifier-register.md#uc-002) Anonymous or Pseudonymous Community Participation
+- [`UC-004`](../reference/identifier-register.md#uc-004) High-Value Financial Transaction Step-Up
+- [`UC-005`](../reference/identifier-register.md#uc-005) Sensitive Account Recovery
+- [`UC-006`](../reference/identifier-register.md#uc-006) Recurring Login With Same-Human Continuity
+- [`UC-009`](../reference/identifier-register.md#uc-009) Human Authorises an AI Agent
+- [`UC-010`](../reference/identifier-register.md#uc-010) Human Step-Up for Agent Intent Drift
+- [`UC-012`](../reference/identifier-register.md#uc-012) Issuer Suspension After Proof Issuance
+- [`UC-013`](../reference/identifier-register.md#uc-013) Accreditation Framework or Policy Version Change
+- [`UC-017`](../reference/identifier-register.md#uc-017) Low-End or Constrained Consumer Device
+- [`UC-020`](../reference/identifier-register.md#uc-020) Accessibility Alternative to Facial Liveness
+- [`UC-021`](../reference/identifier-register.md#uc-021) Compromised Wallet Key but Live Human Present
+- [`UC-022`](../reference/identifier-register.md#uc-022) Malicious or Compromised Biometric Provider
+- [`UC-023`](../reference/identifier-register.md#uc-023) Malicious Verifier Attempts Cross-Context Correlation
+- [`UC-024`](../reference/identifier-register.md#uc-024) Issuer and Verifier Collude
+- [`UC-025`](../reference/identifier-register.md#uc-025) Proof Composition Across Credentials and Trust Tasks
+- [`UC-026`](../reference/identifier-register.md#uc-026) Algorithm Upgrade and Mixed-Version Ecosystem
+- [`UC-027`](../reference/identifier-register.md#uc-027) Verifier Policy Error, Appeal, and Redress
+- [`UC-030`](../reference/identifier-register.md#uc-030) Partial Deployment Across Independent Implementations
 
 ### P1 — Required for production-readiness guidance
 
@@ -1280,7 +1280,7 @@ P2 cases validate exceptional and emergency modes.
 - Implement at least two independent prover/wallet stacks.
 - Implement at least two independent verifiers.
 - Use at least two issuer implementations.
-- Exercise the cross-product against UC-030.
+- Exercise the cross-product against [`UC-030`](../reference/identifier-register.md#uc-030).
 - Run the P0 threat and lifecycle scenarios.
 - Publish benchmark and interoperability results.
 
@@ -1410,7 +1410,7 @@ The immediate work should be:
    - trust registry,
    - biometric-provider contract, or
    - governance framework.
-5. Convert UC-030 into the initial interoperability plan.
+5. Convert [`UC-030`](../reference/identifier-register.md#uc-030) into the initial interoperability plan.
 6. Use failures against the corpus to drive specification changes before the Working Draft is treated as stable.
 
 The core test is straightforward:

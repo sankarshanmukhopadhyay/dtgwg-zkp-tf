@@ -75,7 +75,7 @@ Publication-facing documents should declare title, status, normative status, own
 
 ## 12. Examples
 
-**Compliant:** “Against `ADV-IV`, presentations in different relying-party contexts are intended to remain unlinkable for the declared epoch, subject to network-metadata exclusions.”
+**Compliant:** “Against [`ADV-IV`](../reference/identifier-register.md#adv-iv), presentations in different relying-party contexts are intended to remain unlinkable for the declared epoch, subject to network-metadata exclusions.”
 
 **Non-compliant:** “The system is fully anonymous and unlinkable.”
 

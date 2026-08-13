@@ -41,4 +41,12 @@ Every material assurance, privacy, security or interoperability claim must state
 3. alongside which credentials, metadata, protocols, logs, registry state and observable events it remains valid.
 
 Claims must link to applicable assurance and disclosure boundaries, canonical threat identifiers, controls and conformance evidence. A proof-system property must not be presented as a system property without this restatement.
+## Stable identifier references
+
+- Use the existing stable identifier family when one exists; do not create a parallel prefix for the same concept.
+- Every semantic identifier used in prose or tables must resolve through [`docs/implementation-guide/reference/identifier-register.md`](docs/implementation-guide/reference/identifier-register.md).
+- Domain catalogues remain authoritative; the master register is a reader-facing index, not a duplicate source of truth.
+- Run `python3 scripts/link_identifiers.py --write` after adding or moving identifier references, then run `python3 scripts/validate_identifier_register.py` and `python3 scripts/link_identifiers.py --check`.
+- `SEC-*` is reserved for cross-cutting security requirements. Threat-specific conformance requirements use `TCR-*`.
+- Proposed identifiers that intentionally have no semantics yet must be marked as reserved/open in the register rather than silently used as if defined.
 

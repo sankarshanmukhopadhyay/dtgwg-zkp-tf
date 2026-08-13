@@ -10,7 +10,7 @@ has_toc: true
 
 | Matrix | Purpose | Rows |
 |---|---|---|
-| scenario-index.csv | master catalogue | 30 (all UC-001..UC-030) |
+| scenario-index.csv | master catalogue | 30 (all [`UC-001`](../reference/identifier-register.md#uc-001)..[`UC-030`](../reference/identifier-register.md#uc-030)) |
 | adr-scenario-map.csv | decision traceability | 25 |
 | predicate-scenario-map.csv | predicate coverage | 72 |
 | threat-scenario-map.csv | adversary coverage | 46 |
@@ -44,7 +44,7 @@ after any edit to these CSVs. It rejects:
 
 `predicate-scenario-map.csv` and `threat-scenario-map.csv` currently cover
 26 and 30 of the 30 scenarios respectively. The four scenarios absent from
-the predicate map (UC-017, UC-026, UC-027, UC-029) are explicitly
+the predicate map ([`UC-017`](../reference/identifier-register.md#uc-017), [`UC-026`](../reference/identifier-register.md#uc-026), [`UC-027`](../reference/identifier-register.md#uc-027), [`UC-029`](../reference/identifier-register.md#uc-029)) are explicitly
 profile-dependent in the corpus ("Required predicates: Depends on target
 profile" / "Any" / "Varies") rather than omitted by mistake — see
 `maturity-map.csv` for how this is tracked.

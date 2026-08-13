@@ -10,10 +10,10 @@ has_toc: true
 
 | ID | Predicate | Establishes | Does not establish |
 |---|---|---|---|
-| PR-LIV | liveness attestation | qualifying attestation possession | correctness of biometric determination |
-| PR-PER | personhood policy | satisfaction of named policy | civil identity or global uniqueness |
-| PR-ISS | accredited issuer | membership in accepted framework/set | quality of every issuer operation |
-| PR-UNQ | scoped uniqueness | reuse detection for scope and epoch | one natural person globally |
-| PR-HLD | holder binding | control of holder key/secret | agent authority or non-transfer |
-| PR-FRE | freshness | challenge/transcript binding | non-coercion or comprehension |
-| PR-RNG | range predicate | attested value falls in range | exact value, except inference risk |
+| [`PR-LIV`](../reference/identifier-register.md#pr-liv) | liveness attestation | qualifying attestation possession | correctness of biometric determination |
+| [`PR-PER`](../reference/identifier-register.md#pr-per) | personhood policy | satisfaction of named policy | civil identity or global uniqueness |
+| [`PR-ISS`](../reference/identifier-register.md#pr-iss) | accredited issuer | membership in accepted framework/set | quality of every issuer operation |
+| [`PR-UNQ`](../reference/identifier-register.md#pr-unq) | scoped uniqueness | reuse detection for scope and epoch | one natural person globally |
+| [`PR-HLD`](../reference/identifier-register.md#pr-hld) | holder binding | control of holder key/secret | agent authority or non-transfer |
+| [`PR-FRE`](../reference/identifier-register.md#pr-fre) | freshness | challenge/transcript binding | non-coercion or comprehension |
+| [`PR-RNG`](../reference/identifier-register.md#pr-rng) | range predicate | attested value falls in range | exact value, except inference risk |

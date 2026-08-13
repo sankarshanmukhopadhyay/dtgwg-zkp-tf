@@ -18,36 +18,36 @@ This document is an implementation-validation companion to the DTG ZKP specifica
 
 | ID | Use Case | Domain | Primary Goal | Core Predicates | Primary Pressure | Dependencies | Priority |
 |---|---|---|---|---|---|---|---|
-| UC-001 | Privacy-Preserving Account Creation | Identity | One account/person | L,P,U,H,F | Sybil resistance | Registry, Issuer | P0 |
-| UC-002 | Anonymous Community Participation | Social | Anonymous participation | P,U,F | Unlinkability | Wallet | P0 |
-| UC-003 | Age Verification | Commerce | Threshold proof | R,F | Selective disclosure | Attribute issuer | P1 |
-| UC-004 | High-Value Transaction | Finance | Step-up auth | L,H,F | Replay | Wallet | P0 |
-| UC-005 | Account Recovery | Identity | Safe recovery | L,P,U,F | Continuity | Recovery service | P0 |
-| UC-006 | Same Human Login | Identity | Continuity | L,H,F | Account takeover | Wallet | P0 |
-| UC-007 | Benefit Claims | Government | One claim | P,U | Duplicate claims | Registry | P1 |
-| UC-008 | Anonymous Ballot | Civic | One vote | P,U | Privacy | Governance | P1 |
-| UC-009 | Human Authorises Agent | AI | Delegation | L,H,F | Delegation | Trust Tasks | P0 |
-| UC-010 | Agent Step-up | AI | Intent confirmation | L,H,F | Intent drift | Trust Tasks | P0 |
-| UC-011 | Agent Presentation | AI | Delegated proof | H | Delegation | Credentials | P1 |
-| UC-012 | Issuer Suspension | Governance | Status semantics | Status | Lifecycle | Registry | P0 |
-| UC-013 | Policy Version Change | Governance | Versioning | Policy | Migration | Registry | P0 |
-| UC-014 | Registry Offline | Infrastructure | Offline verify | Status | Resilience | Registry | P1 |
-| UC-015 | Registry Conflict | Federation | Recognition | Accreditation | Governance | Registries | P1 |
-| UC-016 | Cross-border Recognition | Federation | Mutual trust | Liveness | Mapping | Governance | P1 |
-| UC-017 | Low-end Devices | Runtime | Deployability | Any | Performance | Wallet | P0 |
-| UC-018 | Offline Presentation | Runtime | Disconnected use | Any | Replay | Wallet | P1 |
-| UC-019 | Shared Device | Consumer | Isolation | Holder | Leakage | Wallet | P1 |
-| UC-020 | Accessibility | Inclusion | Alternative liveness | Liveness | Accessibility | Provider | P0 |
-| UC-021 | Compromised Wallet | Security | Separate key/human | L,H | Theft | Recovery | P0 |
-| UC-022 | Malicious Provider | Governance | Assurance boundary | Liveness | Trust | Accreditation | P0 |
-| UC-023 | Malicious Verifier | Privacy | Correlation | Nullifier | Linkability | Wallet | P0 |
-| UC-024 | Issuer+Verifier Collusion | Privacy | Collusion | Any | Correlation | Governance | P0 |
-| UC-025 | Composite Proofs | Architecture | Composition | Multiple | Fingerprinting | Trust Tasks | P0 |
-| UC-026 | Algorithm Upgrade | Crypto | Migration | Any | Downgrade | Profiles | P0 |
-| UC-027 | Appeals | Governance | Redress | Any | Explainability | Policy | P0 |
-| UC-028 | Emergency Mode | Resilience | Degraded ops | Any | Exception handling | Governance | P2 |
-| UC-029 | Batch Verification | Scale | Throughput | Any | Logging | Infrastructure | P1 |
-| UC-030 | Interoperability | Conformance | Cross-vendor | All | Spec ambiguity | All | P0 |
+| [`UC-001`](../reference/identifier-register.md#uc-001) | Privacy-Preserving Account Creation | Identity | One account/person | L,P,U,H,F | Sybil resistance | Registry, Issuer | P0 |
+| [`UC-002`](../reference/identifier-register.md#uc-002) | Anonymous Community Participation | Social | Anonymous participation | P,U,F | Unlinkability | Wallet | P0 |
+| [`UC-003`](../reference/identifier-register.md#uc-003) | Age Verification | Commerce | Threshold proof | R,F | Selective disclosure | Attribute issuer | P1 |
+| [`UC-004`](../reference/identifier-register.md#uc-004) | High-Value Transaction | Finance | Step-up auth | L,H,F | Replay | Wallet | P0 |
+| [`UC-005`](../reference/identifier-register.md#uc-005) | Account Recovery | Identity | Safe recovery | L,P,U,F | Continuity | Recovery service | P0 |
+| [`UC-006`](../reference/identifier-register.md#uc-006) | Same Human Login | Identity | Continuity | L,H,F | Account takeover | Wallet | P0 |
+| [`UC-007`](../reference/identifier-register.md#uc-007) | Benefit Claims | Government | One claim | P,U | Duplicate claims | Registry | P1 |
+| [`UC-008`](../reference/identifier-register.md#uc-008) | Anonymous Ballot | Civic | One vote | P,U | Privacy | Governance | P1 |
+| [`UC-009`](../reference/identifier-register.md#uc-009) | Human Authorises Agent | AI | Delegation | L,H,F | Delegation | Trust Tasks | P0 |
+| [`UC-010`](../reference/identifier-register.md#uc-010) | Agent Step-up | AI | Intent confirmation | L,H,F | Intent drift | Trust Tasks | P0 |
+| [`UC-011`](../reference/identifier-register.md#uc-011) | Agent Presentation | AI | Delegated proof | H | Delegation | Credentials | P1 |
+| [`UC-012`](../reference/identifier-register.md#uc-012) | Issuer Suspension | Governance | Status semantics | Status | Lifecycle | Registry | P0 |
+| [`UC-013`](../reference/identifier-register.md#uc-013) | Policy Version Change | Governance | Versioning | Policy | Migration | Registry | P0 |
+| [`UC-014`](../reference/identifier-register.md#uc-014) | Registry Offline | Infrastructure | Offline verify | Status | Resilience | Registry | P1 |
+| [`UC-015`](../reference/identifier-register.md#uc-015) | Registry Conflict | Federation | Recognition | Accreditation | Governance | Registries | P1 |
+| [`UC-016`](../reference/identifier-register.md#uc-016) | Cross-border Recognition | Federation | Mutual trust | Liveness | Mapping | Governance | P1 |
+| [`UC-017`](../reference/identifier-register.md#uc-017) | Low-end Devices | Runtime | Deployability | Any | Performance | Wallet | P0 |
+| [`UC-018`](../reference/identifier-register.md#uc-018) | Offline Presentation | Runtime | Disconnected use | Any | Replay | Wallet | P1 |
+| [`UC-019`](../reference/identifier-register.md#uc-019) | Shared Device | Consumer | Isolation | Holder | Leakage | Wallet | P1 |
+| [`UC-020`](../reference/identifier-register.md#uc-020) | Accessibility | Inclusion | Alternative liveness | Liveness | Accessibility | Provider | P0 |
+| [`UC-021`](../reference/identifier-register.md#uc-021) | Compromised Wallet | Security | Separate key/human | L,H | Theft | Recovery | P0 |
+| [`UC-022`](../reference/identifier-register.md#uc-022) | Malicious Provider | Governance | Assurance boundary | Liveness | Trust | Accreditation | P0 |
+| [`UC-023`](../reference/identifier-register.md#uc-023) | Malicious Verifier | Privacy | Correlation | Nullifier | Linkability | Wallet | P0 |
+| [`UC-024`](../reference/identifier-register.md#uc-024) | Issuer+Verifier Collusion | Privacy | Collusion | Any | Correlation | Governance | P0 |
+| [`UC-025`](../reference/identifier-register.md#uc-025) | Composite Proofs | Architecture | Composition | Multiple | Fingerprinting | Trust Tasks | P0 |
+| [`UC-026`](../reference/identifier-register.md#uc-026) | Algorithm Upgrade | Crypto | Migration | Any | Downgrade | Profiles | P0 |
+| [`UC-027`](../reference/identifier-register.md#uc-027) | Appeals | Governance | Redress | Any | Explainability | Policy | P0 |
+| [`UC-028`](../reference/identifier-register.md#uc-028) | Emergency Mode | Resilience | Degraded ops | Any | Exception handling | Governance | P2 |
+| [`UC-029`](../reference/identifier-register.md#uc-029) | Batch Verification | Scale | Throughput | Any | Logging | Infrastructure | P1 |
+| [`UC-030`](../reference/identifier-register.md#uc-030) | Interoperability | Conformance | Cross-vendor | All | Spec ambiguity | All | P0 |
 
 Legend: L=Liveness, P=Personhood, U=Scoped Uniqueness, H=Holder Binding, F=Freshness, R=Range Proof.
 
@@ -129,7 +129,7 @@ The detailed catalogue follows the same template for every scenario.
 
 ---
 
-For each of UC-001 through UC-030, instantiate the above template using the scenario definitions from the original corpus. This creates a consistent, review-friendly specification where every scenario occupies a compact two-page maximum layout.
+For each of [`UC-001`](../reference/identifier-register.md#uc-001) through [`UC-030`](../reference/identifier-register.md#uc-030), instantiate the above template using the scenario definitions from the original corpus. This creates a consistent, review-friendly specification where every scenario occupies a compact two-page maximum layout.
 
 # 4. Readiness Gates
 

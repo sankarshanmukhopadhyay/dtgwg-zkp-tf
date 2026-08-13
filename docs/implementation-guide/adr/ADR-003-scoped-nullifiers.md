@@ -32,9 +32,9 @@ Map this ADR to at least one scenario and one negative conformance test.
 
 ## Traceability
 
-- **Scenarios (constrains):** UC-001, UC-002, UC-007, UC-008 — see
+- **Scenarios (constrains):** [`UC-001`](../reference/identifier-register.md#uc-001), [`UC-002`](../reference/identifier-register.md#uc-002), [`UC-007`](../reference/identifier-register.md#uc-007), [`UC-008`](../reference/identifier-register.md#uc-008) — see
   `matrices/adr-scenario-map.csv`.
-- **Scenarios (validated-by):** UC-023, UC-024, which specifically pressure-test
+- **Scenarios (validated-by):** [`UC-023`](../reference/identifier-register.md#uc-023), [`UC-024`](../reference/identifier-register.md#uc-024), which specifically pressure-test
   whether scoped-nullifier unlinkability survives a malicious or colluding
   verifier.
 - **Negative conformance tests:** `CT-UC001-NEG-01` (two legitimate contexts

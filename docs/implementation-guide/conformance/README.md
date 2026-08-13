@@ -15,7 +15,7 @@ has_toc: true
 
 | File | Purpose |
 |---|---|
-| [`levels.md`](./levels.md) | Formal definition of conformance levels CL-1 through CL-4: which predicates and scenarios each requires, and which readiness gate it targets |
+| [`levels.md`](./levels.md) | Formal definition of conformance levels [`CL-1`](../reference/identifier-register.md#cl-1) through [`CL-4`](../reference/identifier-register.md#cl-4): which predicates and scenarios each requires, and which readiness gate it targets |
 | [`test-matrix.csv`](./test-matrix.csv) | Machine-readable protocol conformance matrix: 76 test cases across the 19 P0 scenarios, each with a level, scenario, predicate set, named adversary, test type (positive/negative), description and expected result |
 | [`test-matrix.md`](./test-matrix.md) | Human-readable view of the same matrix, grouped by level and scenario |
 | [`execution-dispositions.csv`](./execution-dispositions.csv) | Governed execution status for every protocol case |
@@ -44,7 +44,7 @@ failing (negative) test case.
 Predicate semantics, canonical transcript and encodings, lifecycle and
 status, cross-vendor interoperability, privacy against named adversaries,
 constrained devices, fallback and downgrade, and error consistency — see
-`levels.md` for how each of these maps onto CL-1 through CL-4.
+`levels.md` for how each of these maps onto [`CL-1`](../reference/identifier-register.md#cl-1) through [`CL-4`](../reference/identifier-register.md#cl-4).
 
 ## Minimum plugfest topology
 
@@ -54,7 +54,7 @@ constrained devices, fallback and downgrade, and error consistency — see
 - registry and policy fixtures (see `fixtures/issuer-set.json`, `fixtures/registry-snapshot.json`);
 - positive, negative, malformed, lifecycle, and privacy tests (see `test-matrix.csv`).
 
-This matches UC-030 (Partial Deployment Across Independent Implementations)
+This matches [`UC-030`](../reference/identifier-register.md#uc-030) (Partial Deployment Across Independent Implementations)
 in the pressure-test corpus, which is itself the exit criterion for Phase 4
 of the corpus's implementation programme.
 
@@ -72,12 +72,12 @@ conformance level is defined by assertion alone (rule 1 and rule 2 of
 ## Known gaps
 
 - 11 of the 30 scenarios (all P1/P2) are not yet assigned to a conformance
-  level: UC-003, UC-007, UC-008, UC-011, UC-014, UC-015, UC-016, UC-018,
-  UC-019, UC-028, UC-029. See `matrices/maturity-map.csv`.
-- CL-3 (delegated agent) test cases reference "delegation evidence" and
+  level: [`UC-003`](../reference/identifier-register.md#uc-003), [`UC-007`](../reference/identifier-register.md#uc-007), [`UC-008`](../reference/identifier-register.md#uc-008), [`UC-011`](../reference/identifier-register.md#uc-011), [`UC-014`](../reference/identifier-register.md#uc-014), [`UC-015`](../reference/identifier-register.md#uc-015), [`UC-016`](../reference/identifier-register.md#uc-016), [`UC-018`](../reference/identifier-register.md#uc-018),
+  [`UC-019`](../reference/identifier-register.md#uc-019), [`UC-028`](../reference/identifier-register.md#uc-028), [`UC-029`](../reference/identifier-register.md#uc-029). See `matrices/maturity-map.csv`.
+- [`CL-3`](../reference/identifier-register.md#cl-3) (delegated agent) test cases reference "delegation evidence" and
   "agent key binding," neither of which has a predicate ID in
   `taxonomy/predicates.md` yet.
-- No cross-vendor plugfest (UC-030) has run. CL-4's positive test cases
+- No cross-vendor plugfest ([`UC-030`](../reference/identifier-register.md#uc-030)) has run. [`CL-4`](../reference/identifier-register.md#cl-4)'s positive test cases
   assume two independent implementations exist; today there are zero.
 
 ## Evidence packaging

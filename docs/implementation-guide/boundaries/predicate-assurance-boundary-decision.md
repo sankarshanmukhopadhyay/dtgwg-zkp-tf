@@ -348,14 +348,14 @@ A verifier decision is supportable only when all required layers are in force. A
 
 | ID | Predicate | Profile | Verifier may rely on | Verifier must not infer |
 |---|---|---|---|---|
-| PR-LIV | Qualifying liveness-attestation possession | MLP, EPP | Presenter possesses an unexpired, non-revoked attestation satisfying named policy and assurance predicates | That the underlying liveness decision was correct; that the presenter is globally unique; civil identity |
-| PR-PER | Personhood-policy satisfaction | EPP | Attested subject satisfies the named personhood policy under its stated assumptions | Civil identity; global uniqueness; incorruptibility of issuer; current liveness unless separately proved |
-| PR-ISS | Issuer qualification | MLP/EPP as required | Attestation issuer is accepted under a named accreditation or governance framework | Correctness of issuer decision; issuer independence unless proved; hidden issuer in every profile |
-| PR-UNQ | Scoped reuse detection | EPP | Same enrolled secret cannot produce multiple accepted actions under the same context, scope, purpose, and epoch without a repeated nullifier | One natural person globally; one enrolment across all issuers; cross-context identity |
-| PR-HLD | Holder-secret control | MLP, EPP | Prover controls the secret or key bound to the attestation and transcript | Non-transferability; physical presence of a particular human; agent authority; informed consent |
-| PR-FRE | Freshness and transcript binding | MLP, EPP | Proof was generated for the current canonical request and cannot be replayed into a materially different transcript | Anything about liveness, personhood, identity, or authority beyond bound inputs |
-| PR-RNG | Attested range | Optional extension | Hidden attested value satisfies the requested range | Exact value; suitability for unrelated purposes; absence of inference from a narrow range |
-| PR-DEL | Delegated authority evidence | Extension, separate evidence | Named agent is authorised for the current action within declared scope and time | Holder identity; human presence; non-coercion; authority outside the delegation |
+| [`PR-LIV`](../reference/identifier-register.md#pr-liv) | Qualifying liveness-attestation possession | MLP, EPP | Presenter possesses an unexpired, non-revoked attestation satisfying named policy and assurance predicates | That the underlying liveness decision was correct; that the presenter is globally unique; civil identity |
+| [`PR-PER`](../reference/identifier-register.md#pr-per) | Personhood-policy satisfaction | EPP | Attested subject satisfies the named personhood policy under its stated assumptions | Civil identity; global uniqueness; incorruptibility of issuer; current liveness unless separately proved |
+| [`PR-ISS`](../reference/identifier-register.md#pr-iss) | Issuer qualification | MLP/EPP as required | Attestation issuer is accepted under a named accreditation or governance framework | Correctness of issuer decision; issuer independence unless proved; hidden issuer in every profile |
+| [`PR-UNQ`](../reference/identifier-register.md#pr-unq) | Scoped reuse detection | EPP | Same enrolled secret cannot produce multiple accepted actions under the same context, scope, purpose, and epoch without a repeated nullifier | One natural person globally; one enrolment across all issuers; cross-context identity |
+| [`PR-HLD`](../reference/identifier-register.md#pr-hld) | Holder-secret control | MLP, EPP | Prover controls the secret or key bound to the attestation and transcript | Non-transferability; physical presence of a particular human; agent authority; informed consent |
+| [`PR-FRE`](../reference/identifier-register.md#pr-fre) | Freshness and transcript binding | MLP, EPP | Proof was generated for the current canonical request and cannot be replayed into a materially different transcript | Anything about liveness, personhood, identity, or authority beyond bound inputs |
+| [`PR-RNG`](../reference/identifier-register.md#pr-rng) | Attested range | Optional extension | Hidden attested value satisfies the requested range | Exact value; suitability for unrelated purposes; absence of inference from a narrow range |
+| [`PR-DEL`](../reference/identifier-register.md#pr-del) | Delegated authority evidence | Extension, separate evidence | Named agent is authorised for the current action within declared scope and time | Holder identity; human presence; non-coercion; authority outside the delegation |
 
 The following sections provide the required paired boundary analysis.
 
@@ -376,7 +376,7 @@ The prover possesses an attestation that:
 
 ### 10.2 Negative meaning
 
-PR-LIV does **not** establish:
+[`PR-LIV`](../reference/identifier-register.md#pr-liv) does **not** establish:
 
 - that the biometric determination was correct;
 - that the sensor was uncompromised;
@@ -427,12 +427,12 @@ The attested subject satisfies a named personhood policy under the policy's stat
 
 ### 11.2 Negative meaning
 
-PR-PER does not establish:
+[`PR-PER`](../reference/identifier-register.md#pr-per) does not establish:
 
 - civil or legal identity;
 - global uniqueness;
 - absence of duplicate enrolment at another issuer;
-- present liveness unless PR-LIV is also proved;
+- present liveness unless [`PR-LIV`](../reference/identifier-register.md#pr-liv) is also proved;
 - trustworthiness, reputation, eligibility, or authority beyond the named policy;
 - that every issuer interprets personhood identically.
 
@@ -454,7 +454,7 @@ The issuer that signed the attestation belongs to an accepted, current issuer se
 
 ### 12.2 Negative meaning
 
-PR-ISS does not establish:
+[`PR-ISS`](../reference/identifier-register.md#pr-iss) does not establish:
 
 - that the issuer's individual determination was correct;
 - that all issuers in the set provide equal assurance;
@@ -481,7 +481,7 @@ Issuer qualification MUST be evaluated against a named registry, set commitment,
 
 ### 12.5 Multi-issuer assurance aggregation (non-normative)
 
-PR-ISS as stated in §12.1 is a binary set-membership statement and remains so. Where a show combines credentials or attestations from multiple named issuers, a profile MAY additionally reason about aggregate confidence rather than treating membership as a single pass/fail signal.
+[`PR-ISS`](../reference/identifier-register.md#pr-iss) as stated in §12.1 is a binary set-membership statement and remains so. Where a show combines credentials or attestations from multiple named issuers, a profile MAY additionally reason about aggregate confidence rather than treating membership as a single pass/fail signal.
 
 The normative reference models each issuer's attribute-validation process as bounded by a one-sided error parameter and shows that, when issuers validate independently, a verifier's confidence against mis-issuance increases multiplicatively with the number of honest, independent issuers contributing to a show; a corrupted or negligent issuer degrades only its own contribution and does not weaken the assurance carried by the other issuers involved (see [`appendices/REFERENCES.md`](../appendices/REFERENCES.md)).
 
@@ -501,7 +501,7 @@ The narrow assurance statement is:
 
 ### 13.2 Negative meaning
 
-PR-UNQ does not establish:
+[`PR-UNQ`](../reference/identifier-register.md#pr-unq) does not establish:
 
 - one unique human globally;
 - one enrolment per issuer or ecosystem;
@@ -558,7 +558,7 @@ The prover demonstrates knowledge or control of the holder secret bound to the a
 
 ### 14.2 Negative meaning
 
-PR-HLD does not establish:
+[`PR-HLD`](../reference/identifier-register.md#pr-hld) does not establish:
 
 - that the key was not transferred, copied, or delegated;
 - that a particular natural person is physically present;
@@ -604,7 +604,7 @@ A bare nonce is insufficient.
 
 ### 15.3 Negative meaning
 
-PR-FRE does not establish liveness, personhood, identity, authority, or non-coercion. It establishes only that the proved statement is bound to the current transcript under the accepted freshness rules.
+[`PR-FRE`](../reference/identifier-register.md#pr-fre) does not establish liveness, personhood, identity, authority, or non-coercion. It establishes only that the proved statement is bound to the current transcript under the accepted freshness rules.
 
 ### 15.4 Disclosure
 
@@ -622,7 +622,7 @@ Range predicates SHOULD be an optional extension rather than a dependency of the
 
 ### 16.3 Negative meaning
 
-PR-RNG does not reveal or establish the exact value. It does not establish suitability for an unrelated purpose and MUST NOT be reused as a proxy for identity, reputation, or risk beyond the stated policy.
+[`PR-RNG`](../reference/identifier-register.md#pr-rng) does not reveal or establish the exact value. It does not establish suitability for an unrelated purpose and MUST NOT be reused as a proxy for identity, reputation, or risk beyond the stated policy.
 
 ### 16.4 Disclosure
 
@@ -640,7 +640,7 @@ Delegation evidence MUST remain structurally separate from proof of holder-key c
 
 ### 17.3 Negative meaning
 
-PR-DEL does not establish that the principal is currently present, that the principal would approve every implementation detail, or that the agent is trustworthy outside the delegation.
+[`PR-DEL`](../reference/identifier-register.md#pr-del) does not establish that the principal is currently present, that the principal would approve every implementation detail, or that the agent is trustworthy outside the delegation.
 
 ## 18. Issuer attestation schema as the shared boundary determinant
 

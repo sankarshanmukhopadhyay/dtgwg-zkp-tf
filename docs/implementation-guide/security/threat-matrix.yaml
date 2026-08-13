@@ -25,7 +25,7 @@ threats:
   preventive_detective_corrective_controls: CTL-AGL; independent implementation tests; parameter integrity
   control_owner: profile authority; verifier
   verification_method: negative vectors and implementation review
-  conformance_requirement: SEC-001
+  conformance_requirement: TCR-001
   residual_risk: cryptographic assumptions remain
   deployment_decision: prohibit on broken profile
   severity: critical
@@ -51,7 +51,7 @@ threats:
   preventive_detective_corrective_controls: CTL-TRN
   control_owner: wallet; verifier
   verification_method: cross-request replay tests
-  conformance_requirement: SEC-002
+  conformance_requirement: TCR-002
   residual_risk: clock and storage race
   deployment_decision: mitigate
   severity: high
@@ -77,7 +77,7 @@ threats:
   preventive_detective_corrective_controls: CTL-TRN
   control_owner: wallet; verifier
   verification_method: domain-separation vectors
-  conformance_requirement: SEC-003
+  conformance_requirement: TCR-003
   residual_risk: implementation parser divergence
   deployment_decision: mitigate
   severity: high
@@ -103,7 +103,7 @@ threats:
   preventive_detective_corrective_controls: CTL-AGL; transparent parameter governance
   control_owner: profile authority
   verification_method: parameter provenance audit
-  conformance_requirement: SEC-004
+  conformance_requirement: TCR-004
   residual_risk: unknown retained setup secret
   deployment_decision: transfer or prohibit
   severity: critical
@@ -129,7 +129,7 @@ threats:
   preventive_detective_corrective_controls: hardened implementation; CTL-OBS
   control_owner: wallet provider
   verification_method: side-channel review and logging inspection
-  conformance_requirement: SEC-005
+  conformance_requirement: TCR-005
   residual_risk: device compromise remains
   deployment_decision: mitigate
   severity: high
@@ -155,7 +155,7 @@ threats:
   preventive_detective_corrective_controls: CTL-TRN; separate liveness and holder claims; recovery controls
   control_owner: issuer; wallet; verifier
   verification_method: negative semantic tests
-  conformance_requirement: SEC-006
+  conformance_requirement: TCR-006
   residual_risk: coercive sharing
   deployment_decision: mitigate
   severity: high
@@ -181,7 +181,7 @@ threats:
   preventive_detective_corrective_controls: issuer governance, audit, CTL-RED
   control_owner: issuer; accreditation authority
   verification_method: provider evaluation and redress tests
-  conformance_requirement: SEC-007
+  conformance_requirement: TCR-007
   residual_risk: biometric error cannot be eliminated
   deployment_decision: mitigate
   severity: critical
@@ -207,7 +207,7 @@ threats:
   preventive_detective_corrective_controls: CTL-LCM; deduplication controls; recovery continuity
   control_owner: issuer
   verification_method: duplicate enrolment scenarios
-  conformance_requirement: SEC-008
+  conformance_requirement: TCR-008
   residual_risk: biometric matching limits
   deployment_decision: mitigate
   severity: high
@@ -233,7 +233,7 @@ threats:
   preventive_detective_corrective_controls: CTL-GOV; narrow claims; issuer coordination policy
   control_owner: governance authority
   verification_method: cross-issuer scenario review
-  conformance_requirement: SEC-009
+  conformance_requirement: TCR-009
   residual_risk: global uniqueness not established
   deployment_decision: accept or narrow claim
   severity: high
@@ -259,7 +259,7 @@ threats:
   preventive_detective_corrective_controls: CTL-CTX; CTL-LCM; commitments
   control_owner: context authority; issuer
   verification_method: collusion and rotation tests
-  conformance_requirement: SEC-010
+  conformance_requirement: TCR-010
   residual_risk: root operator knowledge remains
   deployment_decision: mitigate
   severity: critical
@@ -285,7 +285,7 @@ threats:
   preventive_detective_corrective_controls: CTL-CTX; CTL-LCM; retention controls
   control_owner: context authority; verifier
   verification_method: epoch and deletion tests
-  conformance_requirement: SEC-011
+  conformance_requirement: TCR-011
   residual_risk: authorized in-context linkability remains
   deployment_decision: mitigate
   severity: critical
@@ -311,7 +311,7 @@ threats:
   preventive_detective_corrective_controls: CTL-SCH; CTL-CMP
   control_owner: profile authority; issuer
   verification_method: anonymity-set and combination analysis
-  conformance_requirement: SEC-012
+  conformance_requirement: TCR-012
   residual_risk: small populations remain
   deployment_decision: mitigate
   severity: high
@@ -337,7 +337,7 @@ threats:
   preventive_detective_corrective_controls: CTL-SCH; selective disclosure
   control_owner: issuer; profile authority
   verification_method: field and combination analysis
-  conformance_requirement: SEC-013
+  conformance_requirement: TCR-013
   residual_risk: necessary coarse fields remain
   deployment_decision: mitigate
   severity: critical
@@ -363,7 +363,7 @@ threats:
   preventive_detective_corrective_controls: privacy-preserving status; CTL-OBS
   control_owner: registry; verifier
   verification_method: traffic analysis and cache tests
-  conformance_requirement: SEC-014
+  conformance_requirement: TCR-014
   residual_risk: availability/privacy trade remains
   deployment_decision: mitigate
   severity: high
@@ -389,7 +389,7 @@ threats:
   preventive_detective_corrective_controls: CTL-CTX; CTL-SCH; minimization
   control_owner: context authority; governance body
   verification_method: collusion-resistance assessment
-  conformance_requirement: SEC-015
+  conformance_requirement: TCR-015
   residual_risk: some issuer knowledge unavoidable
   deployment_decision: accept only if disclosed or mitigate
   severity: critical
@@ -415,7 +415,7 @@ threats:
   preventive_detective_corrective_controls: CTL-CMP; request minimization
   control_owner: verifier; profile authority
   verification_method: joint leakage testing
-  conformance_requirement: SEC-016
+  conformance_requirement: TCR-016
   residual_risk: business need may require rare claims
   deployment_decision: mitigate
   severity: high
@@ -441,7 +441,7 @@ threats:
   preventive_detective_corrective_controls: CTL-CMP; single-statement composition where viable
   control_owner: profile authority; wallet
   verification_method: composition review and vectors
-  conformance_requirement: SEC-017
+  conformance_requirement: TCR-017
   residual_risk: advanced composition cost
   deployment_decision: mitigate
   severity: high
@@ -467,7 +467,7 @@ threats:
   preventive_detective_corrective_controls: CTL-OBS; batching; retention limits
   control_owner: verifier; protocol operator
   verification_method: traffic and log analysis
-  conformance_requirement: SEC-018
+  conformance_requirement: TCR-018
   residual_risk: event occurrence often unavoidable
   deployment_decision: accept with bounded claim
   severity: medium
@@ -493,7 +493,7 @@ threats:
   preventive_detective_corrective_controls: CTL-OBS; uniform external errors; bounded retries
   control_owner: verifier
   verification_method: oracle and timing tests
-  conformance_requirement: SEC-019
+  conformance_requirement: TCR-019
   residual_risk: diagnosability tradeoff
   deployment_decision: mitigate
   severity: medium
@@ -519,7 +519,7 @@ threats:
   preventive_detective_corrective_controls: CTL-GOV; signed versioned records
   control_owner: governance authority; registry
   verification_method: registry conflict and signature tests
-  conformance_requirement: SEC-020
+  conformance_requirement: TCR-020
   residual_risk: governance capture remains
   deployment_decision: mitigate
   severity: critical
@@ -545,7 +545,7 @@ threats:
   preventive_detective_corrective_controls: CTL-GOV; CTL-AGL
   control_owner: governance authority; verifier
   verification_method: version and rollback tests
-  conformance_requirement: SEC-021
+  conformance_requirement: TCR-021
   residual_risk: historical evidence complexity
   deployment_decision: mitigate
   severity: high
@@ -571,7 +571,7 @@ threats:
   preventive_detective_corrective_controls: CTL-GOV; deterministic unavailable behaviour
   control_owner: verifier; registry
   verification_method: revocation and stale-cache tests
-  conformance_requirement: SEC-022
+  conformance_requirement: TCR-022
   residual_risk: offline window remains
   deployment_decision: mitigate
   severity: critical
@@ -597,7 +597,7 @@ threats:
   preventive_detective_corrective_controls: issuer audit; CTL-GOV; CTL-RED
   control_owner: accreditation authority
   verification_method: assurance evidence review
-  conformance_requirement: SEC-023
+  conformance_requirement: TCR-023
   residual_risk: audit sampling limits
   deployment_decision: mitigate
   severity: high
@@ -623,7 +623,7 @@ threats:
   preventive_detective_corrective_controls: CTL-GOV; separate delegation object; scope checks
   control_owner: principal; verifier
   verification_method: delegation negative tests
-  conformance_requirement: SEC-024
+  conformance_requirement: TCR-024
   residual_risk: principal coercion or key compromise
   deployment_decision: mitigate
   severity: critical
@@ -649,7 +649,7 @@ threats:
   preventive_detective_corrective_controls: CTL-AGL; signed policy and downgrade prevention
   control_owner: profile authority; wallet; verifier
   verification_method: negotiation downgrade tests
-  conformance_requirement: SEC-025
+  conformance_requirement: TCR-025
   residual_risk: legacy interoperability pressure
   deployment_decision: mitigate
   severity: critical
@@ -675,7 +675,7 @@ threats:
   preventive_detective_corrective_controls: CTL-LCM; rotation and deletion evidence
   control_owner: issuer; governance authority
   verification_method: cryptoperiod and backup audit
-  conformance_requirement: SEC-026
+  conformance_requirement: TCR-026
   residual_risk: biometric cannot be reissued cleanly
   deployment_decision: mitigate or prohibit unbounded use
   severity: critical
@@ -701,7 +701,7 @@ threats:
   preventive_detective_corrective_controls: CTL-LCM; coordinated effective times
   control_owner: profile authority
   verification_method: cross-version migration tests
-  conformance_requirement: SEC-027
+  conformance_requirement: TCR-027
   residual_risk: distributed clock and outage risk
   deployment_decision: mitigate
   severity: high
@@ -727,7 +727,7 @@ threats:
   preventive_detective_corrective_controls: CTL-LCM; recovery continuity and adjudication
   control_owner: issuer; context authority
   verification_method: recovery/epoch tests
-  conformance_requirement: SEC-028
+  conformance_requirement: TCR-028
   residual_risk: legitimate privacy-preserving recovery is hard
   deployment_decision: mitigate
   severity: critical
@@ -753,7 +753,7 @@ threats:
   preventive_detective_corrective_controls: CTL-MED; data minimization; audit
   control_owner: mediator operator; governance authority
   verification_method: retention and isolation audit
-  conformance_requirement: SEC-029
+  conformance_requirement: TCR-029
   residual_risk: service sees some operational metadata
   deployment_decision: mitigate or prohibit
   severity: critical
@@ -779,7 +779,7 @@ threats:
   preventive_detective_corrective_controls: CTL-FBK; explicit consent and receipts
   control_owner: wallet; verifier
   verification_method: fallback positive/negative tests
-  conformance_requirement: SEC-030
+  conformance_requirement: TCR-030
   residual_risk: availability pressure remains
   deployment_decision: mitigate
   severity: high
@@ -805,7 +805,7 @@ threats:
   preventive_detective_corrective_controls: bounded offline policy; CTL-GOV
   control_owner: verifier; governance authority
   verification_method: offline stale-state tests
-  conformance_requirement: SEC-031
+  conformance_requirement: TCR-031
   residual_risk: connectivity constraints
   deployment_decision: mitigate
   severity: high
@@ -831,7 +831,7 @@ threats:
   preventive_detective_corrective_controls: CTL-OBS; minimization; access controls
   control_owner: all operators
   verification_method: log schema and retention audit
-  conformance_requirement: SEC-032
+  conformance_requirement: TCR-032
   residual_risk: some evidence required for redress
   deployment_decision: mitigate
   severity: critical
@@ -857,7 +857,7 @@ threats:
   preventive_detective_corrective_controls: CTL-HUM; user-facing context test
   control_owner: product and governance owners
   verification_method: comprehension and redress exercises
-  conformance_requirement: SEC-033
+  conformance_requirement: TCR-033
   residual_risk: complex ecosystems remain difficult
   deployment_decision: mitigate
   severity: high
@@ -883,7 +883,7 @@ threats:
   preventive_detective_corrective_controls: accessible equivalent path; CTL-FBK; CTL-HUM
   control_owner: service operator
   verification_method: accessibility and disclosure comparison
-  conformance_requirement: SEC-034
+  conformance_requirement: TCR-034
   residual_risk: some assistance may expose presence
   deployment_decision: mitigate
   severity: high
@@ -909,7 +909,7 @@ threats:
   preventive_detective_corrective_controls: CTL-RED; ownership model
   control_owner: verifier; redress authority
   verification_method: redress tabletop and correction propagation test
-  conformance_requirement: SEC-035
+  conformance_requirement: TCR-035
   residual_risk: evidence minimization tension
   deployment_decision: mitigate
   severity: critical
@@ -935,7 +935,7 @@ threats:
   preventive_detective_corrective_controls: CTL-CTX; versioned change and migration
   control_owner: context authority
   verification_method: change-control and historical-linkage review
-  conformance_requirement: SEC-036
+  conformance_requirement: TCR-036
   residual_risk: legal reorganization complexity
   deployment_decision: prohibit retroactive expansion
   severity: critical
@@ -961,7 +961,7 @@ threats:
   preventive_detective_corrective_controls: CTL-GOV; CTL-RED
   control_owner: governance oversight body
   verification_method: independent authority and conflict review
-  conformance_requirement: SEC-037
+  conformance_requirement: TCR-037
   residual_risk: capture may remain covert
   deployment_decision: suspend and revoke captured authority
   severity: critical
@@ -987,7 +987,7 @@ threats:
   preventive_detective_corrective_controls: CTL-GOV; CTL-LCM
   control_owner: ecosystem governance
   verification_method: concentration and exit-plan assessment
-  conformance_requirement: SEC-038
+  conformance_requirement: TCR-038
   residual_risk: market concentration persists
   deployment_decision: mitigate and diversify
   severity: critical
@@ -1013,7 +1013,7 @@ threats:
   preventive_detective_corrective_controls: CTL-GOV; CTL-OBS
   control_owner: assurance authority
   verification_method: evidence provenance and sampling audit
-  conformance_requirement: SEC-039
+  conformance_requirement: TCR-039
   residual_risk: collusion can evade sampling
   deployment_decision: require independent review
   severity: critical
@@ -1039,7 +1039,7 @@ threats:
   preventive_detective_corrective_controls: CTL-RED; CTL-GOV
   control_owner: governance operations
   verification_method: load and priority-path exercise
-  conformance_requirement: SEC-040
+  conformance_requirement: TCR-040
   residual_risk: rate limits may burden legitimate users
   deployment_decision: mitigate with protected priority paths
   severity: high
@@ -1065,7 +1065,7 @@ threats:
   preventive_detective_corrective_controls: CTL-GOV; CTL-HUM
   control_owner: security operations
   verification_method: dual-control and social-engineering exercise
-  conformance_requirement: SEC-041
+  conformance_requirement: TCR-041
   residual_risk: novel persuasion remains
   deployment_decision: mitigate and require separation
   severity: critical
@@ -1091,7 +1091,7 @@ threats:
   preventive_detective_corrective_controls: CTL-HUM; CTL-RED; CTL-SCH
   control_owner: policy authority
   verification_method: impact assessment and disparity review
-  conformance_requirement: SEC-042
+  conformance_requirement: TCR-042
   residual_risk: small cohorts complicate measurement
   deployment_decision: block material unjustified disparity
   severity: critical
@@ -1117,7 +1117,7 @@ threats:
   preventive_detective_corrective_controls: CTL-GOV; CTL-LCM
   control_owner: risk authority
   verification_method: approval-chain and expiry validation
-  conformance_requirement: SEC-043
+  conformance_requirement: TCR-043
   residual_risk: pressure to maintain service remains
   deployment_decision: prohibit repeated unremediated exceptions
   severity: critical
@@ -1143,7 +1143,7 @@ threats:
   preventive_detective_corrective_controls: CTL-OBS; CTL-GOV
   control_owner: assurance and operations owners
   verification_method: metric lineage and reconciliation test
-  conformance_requirement: SEC-044
+  conformance_requirement: TCR-044
   residual_risk: privacy limits raw-data review
   deployment_decision: require independent metric audit
   severity: high
@@ -1169,7 +1169,7 @@ threats:
   preventive_detective_corrective_controls: CTL-RED; CTL-HUM; CTL-GOV
   control_owner: governance and redress authority
   verification_method: affected-party mapping and redress exercise
-  conformance_requirement: SEC-045
+  conformance_requirement: TCR-045
   residual_risk: indirect harms can be difficult to attribute
   deployment_decision: mitigate and expand review scope
   severity: high

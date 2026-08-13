@@ -30,6 +30,10 @@ def heading_anchors(path: Path) -> set[str]:
         anchors.add(slug if count == 0 else f"{slug}-{count}")
     for explicit in re.findall(r"\{:\s*#([A-Za-z0-9_.:-]+)", text):
         anchors.add(explicit)
+    # Reader-facing registers use explicit HTML anchors inside tables so each row
+    # remains directly addressable without turning hundreds of IDs into headings.
+    for explicit in re.findall(r'<a\s+(?:name|id)=["\']([A-Za-z0-9_.:-]+)["\']\s*></a>', text, flags=re.IGNORECASE):
+        anchors.add(explicit)
     return anchors
 
 

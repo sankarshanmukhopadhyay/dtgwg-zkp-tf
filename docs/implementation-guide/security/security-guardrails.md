@@ -14,20 +14,20 @@ This distinction adapts the RAHP TF separation of controls, guardrails and assur
 
 | ID | Guardrail | Applies before | Blocking condition | Exception | Primary evidence |
 |---|---|---|---|---|---|
-| ZGR-01 | Proof profile integrity | any pilot or production use | security assumptions, parameters or verifier behaviour are unverified | prohibited | profile review, negative vectors, parameter provenance |
-| ZGR-02 | Transcript and domain separation | interoperability acceptance | request, audience, profile or protocol binding fails | prohibited | replay and substitution test results |
-| ZGR-03 | Context and nullifier governance | scoped uniqueness | context, epoch, rotation or change authority is undefined | prohibited | boundary record, nullifier vectors, authority decision |
-| ZGR-04 | Correlation and composition assessment | production entry | combined proof, schema and observable-event leakage is unassessed | time-bounded only for restricted pilot | composition report and privacy review |
-| ZGR-05 | Governance-state freshness | reliance decision | status, issuer or policy freshness cannot be bounded | time-bounded degraded mode | signed snapshot and freshness policy |
-| ZGR-06 | Mediated-proving isolation | mediated proving | witness isolation, non-retention or operator separation is unverified | prohibited | architecture evidence, retention audit, isolation tests |
-| ZGR-07 | Delegated-agent authority | agent activation | delegation scope, audience, expiry or revocation is absent | prohibited | delegation fixture and negative tests |
-| ZGR-08 | Fallback disclosure protection | fallback activation | fallback silently increases disclosure or lowers assurance | prohibited | disclosure comparison and user-facing notice |
-| ZGR-09 | Redress and correction | high-impact production | contest, evidence access or correction propagation is unavailable | prohibited | redress exercise and propagation test |
-| ZGR-10 | Algorithm and migration agility | production or migration | downgrade resistance, deprecation or rollback evidence is absent | time-bounded only for containment | cross-version and migration tests |
-| ZGR-11 | Operational evidence readiness | production entry | incident, recovery, authority and audit evidence is incomplete | time-bounded restricted production | signed readiness bundle and exercises |
-| ZGR-12 | Accessibility equivalence | general availability | accessible path creates materially greater disclosure or lower assurance | prohibited | accessibility and disclosure comparison |
-| ZGR-13 | Risk acceptance integrity | any exception | authority, scope, expiry, evidence or revocation trigger is absent | prohibited | residual-risk approval record |
-| ZGR-14 | Monitoring privacy boundary | production monitoring | metric collection creates person-level tracking or unnecessary retention | prohibited | metric data-flow and retention assessment |
+| [`ZGR-01`](../reference/identifier-register.md#zgr-01) | Proof profile integrity | any pilot or production use | security assumptions, parameters or verifier behaviour are unverified | prohibited | profile review, negative vectors, parameter provenance |
+| [`ZGR-02`](../reference/identifier-register.md#zgr-02) | Transcript and domain separation | interoperability acceptance | request, audience, profile or protocol binding fails | prohibited | replay and substitution test results |
+| [`ZGR-03`](../reference/identifier-register.md#zgr-03) | Context and nullifier governance | scoped uniqueness | context, epoch, rotation or change authority is undefined | prohibited | boundary record, nullifier vectors, authority decision |
+| [`ZGR-04`](../reference/identifier-register.md#zgr-04) | Correlation and composition assessment | production entry | combined proof, schema and observable-event leakage is unassessed | time-bounded only for restricted pilot | composition report and privacy review |
+| [`ZGR-05`](../reference/identifier-register.md#zgr-05) | Governance-state freshness | reliance decision | status, issuer or policy freshness cannot be bounded | time-bounded degraded mode | signed snapshot and freshness policy |
+| [`ZGR-06`](../reference/identifier-register.md#zgr-06) | Mediated-proving isolation | mediated proving | witness isolation, non-retention or operator separation is unverified | prohibited | architecture evidence, retention audit, isolation tests |
+| [`ZGR-07`](../reference/identifier-register.md#zgr-07) | Delegated-agent authority | agent activation | delegation scope, audience, expiry or revocation is absent | prohibited | delegation fixture and negative tests |
+| [`ZGR-08`](../reference/identifier-register.md#zgr-08) | Fallback disclosure protection | fallback activation | fallback silently increases disclosure or lowers assurance | prohibited | disclosure comparison and user-facing notice |
+| [`ZGR-09`](../reference/identifier-register.md#zgr-09) | Redress and correction | high-impact production | contest, evidence access or correction propagation is unavailable | prohibited | redress exercise and propagation test |
+| [`ZGR-10`](../reference/identifier-register.md#zgr-10) | Algorithm and migration agility | production or migration | downgrade resistance, deprecation or rollback evidence is absent | time-bounded only for containment | cross-version and migration tests |
+| [`ZGR-11`](../reference/identifier-register.md#zgr-11) | Operational evidence readiness | production entry | incident, recovery, authority and audit evidence is incomplete | time-bounded restricted production | signed readiness bundle and exercises |
+| [`ZGR-12`](../reference/identifier-register.md#zgr-12) | Accessibility equivalence | general availability | accessible path creates materially greater disclosure or lower assurance | prohibited | accessibility and disclosure comparison |
+| [`ZGR-13`](../reference/identifier-register.md#zgr-13) | Risk acceptance integrity | any exception | authority, scope, expiry, evidence or revocation trigger is absent | prohibited | residual-risk approval record |
+| [`ZGR-14`](../reference/identifier-register.md#zgr-14) | Monitoring privacy boundary | production monitoring | metric collection creates person-level tracking or unnecessary retention | prohibited | metric data-flow and retention assessment |
 
 ## Decision semantics
 

@@ -10,6 +10,6 @@ has_toc: true
 
 | Risk ID | Threat ID | Residual condition | Severity | Disposition | Decision authority | Expiry/review | Evidence |
 |---|---|---|---|---|---|---|---|
-| RR-EXAMPLE | THR-018 | timing remains visible to the receiving verifier | medium | mitigate | deployment governance authority | profile review | batching and retention evidence |
+| RR-EXAMPLE | [`THR-018`](../reference/identifier-register.md#thr-018) | timing remains visible to the receiving verifier | medium | mitigate | deployment governance authority | profile review | batching and retention evidence |
 
 Production use replaces the example row. High and critical residual risks require an explicit decision and review date. `Prohibit` means the affected mode or profile is not offered until the condition changes.

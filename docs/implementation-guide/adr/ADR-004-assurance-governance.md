@@ -33,9 +33,9 @@ Map this ADR to at least one scenario and one negative conformance test.
 
 ## Traceability
 
-- **Scenarios (constrains):** UC-012, UC-013, UC-027 — see
+- **Scenarios (constrains):** [`UC-012`](../reference/identifier-register.md#uc-012), [`UC-013`](../reference/identifier-register.md#uc-013), [`UC-027`](../reference/identifier-register.md#uc-027) — see
   `matrices/adr-scenario-map.csv`.
-- **Scenario (validated-by):** UC-022, where a validly signed but
+- **Scenario (validated-by):** [`UC-022`](../reference/identifier-register.md#uc-022), where a validly signed but
   substantively false liveness attestation is the exact case this ADR is
   written to govern.
 - **Negative conformance tests:** `CT-UC022-NEG-01` (any verifier output or

@@ -32,8 +32,8 @@ Map this ADR to at least one scenario and one negative conformance test.
 
 ## Traceability
 
-- **Scenarios (constrains):** UC-004, UC-006, UC-009, UC-010, UC-011 — see `matrices/adr-scenario-map.csv`.
-- **Scenario (validated-by):** UC-021, where key control diverging from human
+- **Scenarios (constrains):** [`UC-004`](../reference/identifier-register.md#uc-004), [`UC-006`](../reference/identifier-register.md#uc-006), [`UC-009`](../reference/identifier-register.md#uc-009), [`UC-010`](../reference/identifier-register.md#uc-010), [`UC-011`](../reference/identifier-register.md#uc-011) — see `matrices/adr-scenario-map.csv`.
+- **Scenario (validated-by):** [`UC-021`](../reference/identifier-register.md#uc-021), where key control diverging from human
   continuity is the entire premise of the scenario.
 - **Negative conformance tests:** `CT-UC009-NEG-01` (agent key swap does not
   extend delegation), `CT-UC009-NEG-02` (liveness proof alone is not

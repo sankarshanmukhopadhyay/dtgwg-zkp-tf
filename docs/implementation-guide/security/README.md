@@ -21,6 +21,7 @@ The security model connects system claims to adversaries, attack paths, harms, c
 - [Security and trust metrics](security-and-trust-metrics.md)
 - [Harm taxonomy](harm-taxonomy.md)
 - [Control catalogue](control-catalog.md)
+- [Identifier and control register](../reference/identifier-register.md) — reader-facing resolver for stable IDs across the guide
 - [Residual-risk register](residual-risk-register.md)
 - [Deployment assessment template](deployment-threat-assessment-template.md)
 - [Profile views](profiles/)

@@ -10,15 +10,15 @@ has_toc: true
 
 | ID | Adversary |
 |---|---|
-| ADV-V | verifier |
-| ADV-I | issuer |
-| ADV-IV | issuer and verifier colluding |
-| ADV-P | biometric provider |
-| ADV-W | compromised wallet/runtime |
-| ADV-A | malicious or compromised agent |
-| ADV-R | registry operator or compromised registry |
-| ADV-N | network observer |
-| ADV-U | adversarial presenter |
-| ADV-M | mediated prover or proving-service operator |
-| ADV-G | governance or accreditation authority acting outside mandate |
-| ADV-O | operational insider or log administrator |
+| [`ADV-V`](../reference/identifier-register.md#adv-v) | verifier |
+| [`ADV-I`](../reference/identifier-register.md#adv-i) | issuer |
+| [`ADV-IV`](../reference/identifier-register.md#adv-iv) | issuer and verifier colluding |
+| [`ADV-P`](../reference/identifier-register.md#adv-p) | biometric provider |
+| [`ADV-W`](../reference/identifier-register.md#adv-w) | compromised wallet/runtime |
+| [`ADV-A`](../reference/identifier-register.md#adv-a) | malicious or compromised agent |
+| [`ADV-R`](../reference/identifier-register.md#adv-r) | registry operator or compromised registry |
+| [`ADV-N`](../reference/identifier-register.md#adv-n) | network observer |
+| [`ADV-U`](../reference/identifier-register.md#adv-u) | adversarial presenter |
+| [`ADV-M`](../reference/identifier-register.md#adv-m) | mediated prover or proving-service operator |
+| [`ADV-G`](../reference/identifier-register.md#adv-g) | governance or accreditation authority acting outside mandate |
+| [`ADV-O`](../reference/identifier-register.md#adv-o) | operational insider or log administrator |
