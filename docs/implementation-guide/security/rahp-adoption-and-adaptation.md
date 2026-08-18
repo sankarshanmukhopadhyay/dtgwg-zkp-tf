@@ -8,63 +8,74 @@ has_toc: true
 ---
 # RAHP adoption and adaptation statement
 
-This security-assurance layer was developed by examining and adapting the work of the **Trust over IP Decentralized Trust Graph Working Group Risk Assessment and Harms Prevention Task Force (RAHP TF)**.
+This security-assurance layer was originally developed by examining and adapting the **Trust over IP DTG Risk Assessment and Harms Prevention Task Force (RAHP TF)** work. It is now maintained against the independently evolved **RAHP Toolkit** method used by this fork for reproducible specification pressure testing.
 
-## Upstream source
+## Provenance baselines
+
+### Historical methodological source
 
 - Repository: [trustoverip/dtgwg-rahp-tf](https://github.com/trustoverip/dtgwg-rahp-tf)
-- Reviewed branch: `main`
-- Reviewed upstream commit: [`94d17a6f5e8b448aae4698ff183e77a4a2f7a083`](https://github.com/trustoverip/dtgwg-rahp-tf/commit/94d17a6f5e8b448aae4698ff183e77a4a2f7a083)
-- Upstream artefacts examined: RAHP Risk Register v4, User Stories Framework v3, HTML risk and matrix views, workflow reference, and AI-assisted process guidance
-- Upstream licence stated by the RAHP repository: CC BY 4.0
+- Reviewed historical commit: `94d17a6f5e8b448aae4698ff183e77a4a2f7a083`
+- Role: provenance for the original risks/harms, controls, guardrails, assurance-test and metric separation adopted by the ZKP implementation guide.
+
+### Current operational refresh source
+
+- Repository: [sankarshanmukhopadhyay/rahp-toolkit](https://github.com/sankarshanmukhopadhyay/rahp-toolkit)
+- Toolkit version: `v1.1.0`
+- Reviewed commit: `6a95a9a2a948ece93a75e9583554b448714ef4c4`
+- Engine contract: `rahp-engine-contract-v1`
+- Refresh date: `2026-08-18`
+- ZKP target revision: `9a1ae81465e1da9f5c06ccd500a70708eb2511a6`
+- Canonical review record: `.rahp/reviews/dtg-zkp-v1-1-refresh/pressure-test.yaml`
+- Human view: [RAHP v1.1 lifecycle and assurance refresh](../pressure-tests/rahp-v1.1-refresh.md)
 
 {: .evidence }
-The commit identifier fixes the source baseline used for this adaptation. Future RAHP changes are not automatically incorporated and require a new review and recorded provenance update.
+Both identifiers are intentionally preserved. The first answers **where the ZKP adaptation originated**. The second answers **which current RAHP method and engine contract were used for the latest refresh**. Neither source automatically changes ZKP normative requirements.
 
-## What was adopted
+## What is adopted
 
-The ZKP guide adopts the following RAHP methodological distinctions:
+The ZKP guide adopts the following RAHP distinctions:
 
-1. **Harms are first-class design inputs.** Security analysis must identify human and institutional consequences, not only technical failure.
-2. **Controls, guardrails and assurance tests are different artefacts.** Controls continuously reduce risk; guardrails block activation; assurance tests provide evidence that guardrails are satisfied.
-3. **Risk evidence must connect to lifecycle decisions.** Risk treatment is linked to deployment gates, accountable authority, monitoring and review.
-4. **Metrics connect design-time analysis to runtime assurance.** Measures are defined to detect whether controls and governance remain effective in operation.
-5. **Stable identifiers enable cross-artefact traceability.** Threats, controls, guardrails, tests, metrics and evidence are connected through machine-readable matrices.
+1. **Harms are first-class design inputs.** Security analysis identifies human and institutional consequences, not only technical failure.
+2. **Controls, guardrails and assurance tests are separate artefacts.** Controls continuously reduce risk; guardrails block activation; assurance tests produce evidence that a guardrail is satisfied.
+3. **Risk evidence connects to lifecycle decisions.** Treatment links to deployment gates, accountable authority, monitoring, review and revocation.
+4. **Metrics connect design-time analysis to runtime assurance.** Measures detect whether controls and governance remain effective without creating a new surveillance surface.
+5. **Stable identifiers enable traceability.** Threats, controls, guardrails, tests, metrics, requirements and evidence are connected through machine-readable matrices.
+6. **Scenario-driven pressure testing complements clause review.** A requirement is tested under degraded operation, collusion, lifecycle transition, accessibility, delegation and cross-implementation conditions.
+7. **Durable evidence is different from transient output.** A review should preserve target revision, method/version, findings, disposition, evidence, resolution state and retest triggers.
+8. **The narrowest effective control plane wins.** A real risk does not automatically justify adding another normative field to the core protocol.
 
-## How it was adapted for ZKP implementation
-
-The RAHP toolkit is oriented toward decentralised trust systems and VTC lifecycle governance. This repository applies its method specifically to zero-knowledge proof profiles, implementations and deployments.
+## How it is adapted for ZKP implementation
 
 | RAHP concept | ZKP adaptation | Resulting artefact |
 |---|---|---|
-| `RK-xx` risks | Existing `THR-xxx` cryptographic, implementation, governance and harm threats retained as canonical | `threat-matrix.yaml` |
-| `CT-xx` controls | Existing `CTL-xxx` ZKP control families retained and expanded in operational meaning | `control-catalog.md` |
-| `GR-xx` guardrails | ZKP activation guardrails for profiles, mediated proving, agents, offline verification, migration and production entry | `security-guardrails.md` |
-| `AT-xx` assurance tests | ZKP security assurance tests separated from protocol conformance tests | `security-assurance-tests.md` |
-| `M-xx` trust metrics | Privacy-bounded security and trust indicators tied to ZKP attack surfaces | `security-and-trust-metrics.md` |
-| Phase gates | Deployment and capability activation gates rather than VTC bootstrapping phases | `production-entry-criteria.md` and guardrail matrices |
-| Persona and use-case linkage | Threat, scenario, affected-party and deployment-profile linkage | matrices under `docs/implementation-guide/matrices/` |
+| `RK-*` deployment risks and portable risk patterns | Existing `THR-xxx` cryptographic, implementation, governance and harm threats remain canonical in this repo | `security/threat-matrix.yaml` |
+| `CT-*` controls | Existing `CTL-xxx` ZKP control families retained and expanded operationally | `security/control-catalog.md` |
+| `GR-*` guardrails | ZKP activation guardrails for profiles, mediated proving, agents, offline verification, migration and production entry | `security/security-guardrails.md` |
+| `AT-*` assurance tests | ZKP security assurance tests separated from protocol conformance tests | `conformance/security-assurance-tests.md` |
+| scenario corpora and patterns | ZKP use-case corpus is exercised as a pressure-test corpus without transferring scenario ownership to RAHP | `scenarios/pressure-test-use-case-corpus.md` and RAHP `CORPUS-DTG-ZKP` adapter |
+| lifecycle/evidence-retention discipline | `LIV-LCM-*` and historical/as-of evidence are mapped to controls and assurance | `matrices/requirements-assurance-map.csv` |
+| durable review records | pinned review state and retest triggers are stored alongside the repo | `.rahp/reviews/` plus rendered pressure-test pages |
+| portable assurance | reusable RAHP patterns inform cross-repo comparison while ZKP-local IDs remain authoritative here | pressure-test records and adaptation map |
 
 ## Intentional differences
 
-This repository does **not** copy the RAHP register or claim that RAHP identifiers are normative ZKP requirements. It intentionally:
+This repository does **not** copy the RAHP catalogue wholesale or claim RAHP identifiers as normative ZKP requirements. It intentionally:
 
-- preserves the ZKP guide's existing threat IDs and control vocabulary;
-- uses ZKP-specific cryptographic and protocol evidence;
-- allows time-bounded exceptions for explicitly classified risks, while treating selected guardrails as non-exceptionable;
-- avoids importing VTC phase language where the relevant decision is implementation or deployment activation;
-- adds machine-readable JSON evidence schemas and repository validators;
-- treats operational telemetry as privacy-sensitive and prohibits metrics that create a new correlation surface.
-
-## Attribution boundary
-
-The RAHP TF is credited as the methodological source for the adopted risk, guardrail, assurance-test and metric discipline. All ZKP-specific threat statements, mappings, schemas, thresholds and deployment decisions in this repository are adaptations made for this implementation guide. Their inclusion does not imply RAHP TF approval, Trust over IP endorsement, or normative status.
+- preserves the ZKP guide's existing `THR-*`, `CTL-*`, `ZGR-*`, `ZAT-*` and `LIV-*` namespaces;
+- uses ZKP-specific cryptographic, interoperability and deployment evidence;
+- allows time-bounded exceptions for explicitly classified risks while treating selected guardrails as non-exceptionable;
+- avoids importing lifecycle language whose authority belongs to another deployment or community;
+- adds machine-readable evidence schemas and repository validators;
+- treats operational telemetry as privacy-sensitive and prohibits metrics that create a new correlation surface; and
+- keeps normative adoption authority with the applicable ZKP/DTG decision process rather than with the assurance method.
 
 ## Ongoing provenance rule
 
-Any future change materially derived from RAHP should update:
+A future RAHP-derived change should update, when material:
 
-1. the reviewed upstream commit above;
-2. `matrices/rahp-adaptation-map.csv`;
-3. the relevant document's provenance note;
-4. release notes describing the adopted and adapted concepts.
+1. the current RAHP Toolkit version and reviewed commit;
+2. the canonical `.rahp/reviews/` record or its successor;
+3. `matrices/rahp-adaptation-map.csv` and `requirements-assurance-map.csv` where coverage changes;
+4. the relevant document provenance note; and
+5. release notes describing adopted concepts, changed evidence obligations and any remaining open findings.

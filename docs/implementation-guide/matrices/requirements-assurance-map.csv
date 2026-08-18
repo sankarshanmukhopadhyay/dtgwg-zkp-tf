@@ -1,0 +1,16 @@
+requirement_id,predicate_ids,scenario_ids,control_ids,guardrail_ids,assurance_test_ids,coverage_intent
+LIV-UNIQ-06,PR-UNQ,UC-001;UC-007;UC-008;UC-034,CTL-CTX;CTL-GOV,ZGR-03;ZGR-01,ZAT-03;ZAT-01,"Distinct-human evidence must be stronger than distinct keys, credentials or issuer records."
+LIV-ALG-01,,UC-026;UC-030,CTL-AGL,ZGR-10,ZAT-10,Semantic claims remain proof-system agnostic across implementations.
+LIV-ALG-02,,UC-026;UC-030,CTL-AGL,ZGR-01;ZGR-10,ZAT-01;ZAT-10,Suite identification is deterministic and prevents cross-suite ambiguity.
+LIV-ALG-03,,UC-026;UC-048,CTL-AGL;CTL-TRN,ZGR-02;ZGR-10,ZAT-02;ZAT-10,Negotiation is transcript-bound and downgrade resistant.
+LIV-ALG-04,,UC-026;UC-048,CTL-AGL;CTL-LCM,ZGR-10,ZAT-10,"Deprecation, overlap, rollback and migration preserve semantic meaning."
+LIV-ALG-05,,UC-017;UC-028;UC-037,CTL-LCM;CTL-MED,ZGR-01;ZGR-06;ZGR-11,ZAT-01;ZAT-06;ZAT-11,"Material setup, hardware, prover and registry dependencies are disclosed."
+LIV-ALG-06,,UC-045;UC-047,CTL-LCM;CTL-AGL,ZGR-10;ZGR-11,ZAT-10;ZAT-11,Security and privacy claims are bounded by an explicit assurance horizon.
+LIV-ALG-07,,UC-026;UC-047;UC-048,CTL-AGL;CTL-LCM,ZGR-10,ZAT-10,"Post-quantum migration triggers, overlap and downgrade protections are testable."
+LIV-ALG-08,,UC-045;UC-047;UC-048,CTL-LCM;CTL-AGL,ZGR-10,ZAT-10,Lineage mechanisms do not over-claim restoration of broken cryptographic guarantees.
+LIV-LCM-01,PR-UNQ,UC-001;UC-007;UC-008;UC-045,CTL-CTX;CTL-LCM,ZGR-03,ZAT-03,"Epoch rollover, overlap and deletion bound intentionally linkable state."
+LIV-LCM-02,,UC-026;UC-039;UC-047,CTL-LCM;CTL-AGL,ZGR-10;ZGR-11,ZAT-10;ZAT-11,"Long-lived roots, keys and parameters have cryptoperiods and rotation triggers."
+LIV-LCM-03,,UC-027;UC-041;UC-045,CTL-OBS;CTL-LCM;CTL-RED,ZGR-09;ZGR-14,ZAT-09;ZAT-14,"Retention has purpose, access, expiry and deletion/archive semantics without extending proof assurance."
+LIV-LCM-04,,UC-012;UC-014;UC-015;UC-037,CTL-GOV;CTL-LCM,ZGR-05;ZGR-11,ZAT-05;ZAT-11,"Status cadence, cache age, effective-time and unavailable-state behaviour are deterministic."
+LIV-LCM-05,,UC-045;UC-047,CTL-LCM;CTL-GOV,ZGR-05;ZGR-10,ZAT-05;ZAT-10,Material claims define events and times that force re-evaluation or downgrade.
+LIV-LCM-06,,UC-027;UC-041;UC-045,CTL-RED;CTL-LCM;CTL-GOV,ZGR-09;ZGR-11,ZAT-09;ZAT-11,Historical evidence distinguishes valid-as-of evaluation from current validity.

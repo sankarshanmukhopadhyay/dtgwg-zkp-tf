@@ -33,3 +33,5 @@ This preserves the RAHP principle that a pressure test must leave enough evidenc
 - [Trust Task ZKP exchange](trust-task-zkp-exchange.md)
 - [Trust Ceremony composition](trust-ceremony-zkp-composition.md)
 - [Agent-mediated ZKP](agent-mediated-zkp.md)
+
+- [RAHP v1.1 lifecycle and assurance refresh](rahp-v1.1-refresh.md) — focused lifecycle, revocation, post-quantum migration, deduplication and multi-issuer dependency tests with pinned method provenance.

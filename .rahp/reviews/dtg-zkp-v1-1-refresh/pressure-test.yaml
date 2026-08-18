@@ -1,0 +1,175 @@
+review:
+  id: SR-ZKP-2026-08-18
+  status: complete
+  title: DTG ZKP fork RAHP v1.1 lifecycle and assurance refresh
+  reviewed_on: '2026-08-18'
+  target:
+    repository: sankarshanmukhopadhyay/dtgwg-zkp-tf
+    document: proof-of-liveness-requirements.md
+    version: fork working draft v0.4
+    commit: 9a1ae81465e1da9f5c06ccd500a70708eb2511a6
+    source_paths:
+      - proof-of-liveness-requirements.md
+      - docs/implementation-guide/security/
+      - docs/implementation-guide/conformance/
+      - docs/implementation-guide/lifecycle/
+      - docs/implementation-guide/scenarios/
+  reviewed_against:
+    repository: sankarshanmukhopadhyay/rahp-toolkit
+    rahp_version: v1.1.0
+    corpus_date: '2026-08-18'
+    engine_contract: rahp-engine-contract-v1
+    commit: 6a95a9a2a948ece93a75e9583554b448714ef4c4
+  scope:
+    included:
+      - lifecycle and evidence retention
+      - revocation/status cadence and degraded operation
+      - algorithm agility and post-quantum migration
+      - distinct-human and enrolment-dedup semantics
+      - multi-issuer biometric dependency and correlation risk
+    excluded:
+      - selection of a concrete ZK construction
+      - biometric algorithm accreditation
+      - production benchmark claims
+  method:
+    workflow: docs/pressure-testing-a-spec.md
+    scenario_corpus: CORPUS-DTG-ZKP
+  summary:
+    finding_count: 5
+    open_count: 5
+  findings:
+    - id: F-001
+      title: Long-retention evidence can outlive the proof privacy and security horizon
+      status: open
+      severity: High
+      primary_disposition: operational-policy
+      scenarios: [UC-027, UC-013]
+      scenario_patterns: [SP-GOV-02]
+      personas: [P1, P3, P4]
+      risks: [RK-SC01, RK-CY02]
+      controls: [CT-29]
+      guardrails: []
+      assurance_tests: []
+      portable_assurance:
+        harm_patterns: [HRM-PRV-02]
+        risk_patterns: [RKP-GOV-03]
+        control_patterns: [CTP-GOV-02]
+        guardrail_patterns: [GRP-GOV-02]
+        assurance_patterns: [ATP-GOV-02]
+        evidence_patterns: [EVP-GOV-02]
+      evidence:
+        - source: proof-of-liveness-requirements.md#95-lifecycle-cryptoperiod-retention-and-assurance-horizon
+          observation: LIV-LCM-03 and LIV-LCM-06 correctly bound retention and historical evidence, but deployments still need evidence that retained artefacts do not silently inherit an expired privacy or security claim.
+      harm: Long-lived evidence can enable later correlation, disclosure or incorrect historical reliance after the cryptographic or governance assumptions have changed.
+      recommendation: Require deployment evidence to bind each retained artefact class to purpose, access, retention, deletion or archival rule, and the assurance horizon that applies at later audit time.
+      retest_when:
+        - a deployment profile introduces or changes retention beyond the underlying proof or cryptoperiod
+        - a regulator or relying regime requires long-term historical verification
+    - id: F-002
+      title: Revocation cadence can produce inconsistent relying decisions across stale or partitioned status dependencies
+      status: open
+      severity: High
+      primary_disposition: specification
+      scenarios: [UC-012, UC-014, UC-015]
+      scenario_patterns: [SP-GOV-01]
+      personas: [P1, P3, P6]
+      risks: [RK-CR02, RK-CR03]
+      controls: [CT-24, CT-26]
+      guardrails: [GR-09]
+      assurance_tests: [AT-09]
+      portable_assurance:
+        harm_patterns: [HRM-AUT-05]
+        risk_patterns: [RKP-CRD-02, RKP-OPS-01]
+        control_patterns: [CTP-AUTH-02]
+        guardrail_patterns: [GRP-AUTH-02, GRP-OPS-02]
+        assurance_patterns: [ATP-AUTH-02, ATP-OPS-01]
+        evidence_patterns: [EVP-OPS-01]
+      evidence:
+        - source: proof-of-liveness-requirements.md#95-lifecycle-cryptoperiod-retention-and-assurance-horizon
+          observation: LIV-LCM-04 requires cadence, cache age, effective-time and unavailable-state rules; conformance must demonstrate identical decisions across independent verifiers under delayed or unavailable status.
+      harm: A revoked or suspended attestation, issuer or policy can remain accepted by one verifier while another rejects it, creating unequal and unsafe outcomes.
+      recommendation: Preserve deterministic stale-state and degraded-mode vectors for attestation, issuer, accreditation and policy status, including boundary-time cases.
+      retest_when:
+        - status mechanisms, cache policy or registry dependencies change
+        - a deployment introduces offline or degraded verification
+    - id: F-003
+      title: Post-quantum migration can preserve lineage while older confidentiality and unlinkability guarantees become invalid
+      status: open
+      severity: Critical
+      primary_disposition: implementation-guidance
+      scenarios: [UC-026]
+      scenario_patterns: [SP-GOV-02]
+      personas: [P1, P3, P4]
+      risks: [RK-CY02]
+      controls: [CT-29]
+      guardrails: []
+      assurance_tests: []
+      portable_assurance:
+        harm_patterns: [HRM-PRV-02]
+        risk_patterns: [RKP-GOV-03]
+        control_patterns: [CTP-GOV-02]
+        guardrail_patterns: [GRP-GOV-02]
+        assurance_patterns: [ATP-GOV-02]
+        evidence_patterns: [EVP-GOV-02]
+      evidence:
+        - source: proof-of-liveness-requirements.md#93-algorithm-and-proof-system-agility
+          observation: LIV-ALG-07 and LIV-ALG-08 correctly require migration readiness and prohibit treating hash-chain continuity as restoration of broken guarantees.
+      harm: Historical proofs or retained transcripts can be treated as safely private or unforgeable after a primitive's useful security life, exposing subjects or corrupting relying decisions.
+      recommendation: Test migration with explicit pre/post security horizons, downgrade rejection, overlap rules and a negative assertion that lineage continuity does not renew expired confidentiality, unlinkability or unforgeability.
+      retest_when:
+        - a cryptographic suite is deprecated or a material cryptanalytic result appears
+        - post-quantum-capable suites enter a profile
+    - id: F-004
+      title: Enrolment-dedup failure can turn scoped uniqueness into a misleading personhood claim
+      status: open
+      severity: High
+      primary_disposition: governance
+      scenarios: [UC-001, UC-007, UC-008]
+      scenario_patterns: [SP-REPLAY-01]
+      personas: [P1, P2, P3]
+      risks: [RK-ID01]
+      controls: [CT-08]
+      guardrails: [GR-07]
+      assurance_tests: [AT-07]
+      portable_assurance:
+        harm_patterns: [HRM-GOV-01]
+        risk_patterns: [RKP-ID-02]
+        control_patterns: [CTP-ID-03]
+        guardrail_patterns: [GRP-ID-02]
+        assurance_patterns: []
+        evidence_patterns: [EVP-GOV-01]
+      evidence:
+        - source: proof-of-liveness-requirements.md#96-distinct-human-semantics
+          observation: LIV-UNIQ-06 prevents distinct identifiers from being treated as proof of distinct humans, but real assurance still depends on enrolment quality, re-enrolment controls and deduplication error evidence.
+      harm: False uniqueness claims can deny legitimate users, permit duplicate participation, or shift biometric error costs onto affected people without an adequate remedy path.
+      recommendation: Require an explicit evidence statement for deduplication scope, error characteristics, re-enrolment/recovery semantics and the limits of any f-distinct claim.
+      retest_when:
+        - the issuer changes biometric or deduplication method
+        - the uniqueness scope expands or multiple issuers are admitted
+    - id: F-005
+      title: Correlated multi-issuer biometric dependencies can create a hidden concentration and surveillance surface
+      status: open
+      severity: Critical
+      primary_disposition: governance
+      scenarios: [UC-016, UC-022, UC-024]
+      scenario_patterns: [SP-PRIV-01]
+      personas: [P1, P2, P3, P6]
+      risks: [RK-ID03, RK-SC01]
+      controls: [CT-08]
+      guardrails: [GR-07]
+      assurance_tests: [AT-07]
+      portable_assurance:
+        harm_patterns: [HRM-PRV-02]
+        risk_patterns: [RKP-PRV-01]
+        control_patterns: [CTP-PRV-01, CTP-GOV-01]
+        guardrail_patterns: [GRP-PRV-02]
+        assurance_patterns: []
+        evidence_patterns: [EVP-PRV-01, EVP-GOV-01]
+      evidence:
+        - source: proof-of-liveness-requirements.md#18-biometricpersonhood-provider-inputs
+          observation: The requirements call for enrolment-dedup quality and provider independence, but common biometric vendors, templates, model infrastructure or breach domains can make nominally independent issuers correlated in practice.
+      harm: Ecosystem diversity can be illusory, allowing a common provider or shared biometric dependency to become a system-wide correlation, coercion, compromise or exclusion point.
+      recommendation: Require a dependency-independence assessment covering common biometric processors, model providers, template stores, matching infrastructure, breach domains and governance control.
+      retest_when:
+        - a new issuer or biometric provider enters the ecosystem
+        - shared infrastructure, mergers or common service providers alter dependency independence

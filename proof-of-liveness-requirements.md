@@ -548,13 +548,19 @@ A practical sequence is:
 8. **Pressure-test agent composition.** Keep human-related predicates separate from delegated authority and treat failures as first-class protocol states.
 9. **Cross-map every proposed normative requirement to conformance evidence.** A requirement with no observable test or assurance evidence should be explicitly identified as governance-only rather than accidentally untestable.
 
-## 21. Immediate next steps for this fork
+## 21. Maintained follow-up and upstreaming backlog
 
-1. Map the added `LIV-LCM-*`, `LIV-ALG-*` and `LIV-UNIQ-06` requirements into the existing predicate/boundary and conformance matrices.
-2. Add or extend pressure tests for long-retention evidence, revocation cadence, post-quantum migration, enrolment-dedup failure and correlated multi-issuer biometric dependencies.
-3. Keep B1/B2 status and evidence synchronized through the decision register rather than reopening them implicitly in implementation prose.
-4. Collect experimental construction/circuit benchmarks as construction-gate evidence and identify the independent reproduction needed before readiness claims.
-5. Prepare a concise upstream contribution that separates broadly useful semantic improvements from fork-specific implementation machinery.
+The original “immediate next steps” list has been retired. Repository work completed after the v0.4 requirements draft means several of those items are now implemented and should be tracked as maintained assurance state rather than repeatedly presented as future work.
+
+| Work item | Status | Durable evidence / next gate |
+|---|---|---|
+| Map `LIV-LCM-*`, `LIV-ALG-*` and `LIV-UNIQ-06` into predicate, scenario and assurance coverage | **completed** | [`requirements-assurance-map.csv`](docs/implementation-guide/matrices/requirements-assurance-map.csv) provides direct requirement-to-scenario/control/guardrail/test traceability. |
+| Pressure-test long retention, revocation cadence, post-quantum migration, enrolment-dedup failure and correlated multi-issuer biometric dependencies | **completed as test definitions; evidence remains deployment-dependent** | [`RAHP v1.1 refresh`](docs/implementation-guide/pressure-tests/rahp-v1.1-refresh.md) records the five focused tests, expected evidence and retest triggers. |
+| Keep B1/B2 status synchronized through decision governance | **implemented and ongoing** | The decision register and B1/B2 conformance cases remain the authority. A change to either working position requires an explicit governed decision rather than prose drift. |
+| Collect construction/circuit benchmarks and independent reproduction evidence | **open evidence gate** | Construction selection remains deferred. Experimental benchmarks may inform the gate but do not support readiness claims until independently reproduced or otherwise independently verified. |
+| Prepare a concise upstream contribution separating semantic improvements from fork-specific implementation machinery | **open upstream action** | Upstreaming should package broadly reusable requirements and decision semantics separately from this fork's validators, deployment profiles, runbooks and local assurance machinery. |
+
+The RAHP refresh is deliberately **not** treated as a transfer of normative authority. RAHP identifies risks, harms, controls, guardrails and evidence expectations; the ZKP Task Force or other applicable specification authority remains responsible for adopting or rejecting normative changes.
 
 ---
 
