@@ -12,27 +12,53 @@ nav_order: 1
 |---|---|
 | Review ID | ZPT-001 |
 | Target | `trustoverip/dtgwg-cred-spec`, identifier/credential relationship semantics |
-| Trigger | Credential Spec issue #9 and ZKP dependence on relationship evidence |
-| Reviewed | 2026-08-11 |
+| Reviewed revision | `b89f389abbdae77ba60b673c0836c781c2b54169` |
+| Reviewed | 2026-08-18 |
+| Trigger | VWC edge-binding change plus still-open Credential Spec issue #9 |
 | RAHP method | specification pressure testing and governance-boundary disposition |
 | ZKP profile | credential linkage assurance profile |
 
+## What changed since the previous review
+
+Credential Spec now requires the VWC `digest` needed to bind witnessed evidence to a specific VRC/relationship edge. This materially improves **edge binding** and addresses the earlier condition where a VWC could identify a subject and task context without identifying the exact relationship being witnessed.
+
+That change does **not** resolve the separate subject/controller correspondence problem tracked by Credential Spec issue #9:
+
+- P-DID to R-DID;
+- R-DID to M-DID; and
+- how those relationships are proven without creating an unintended correlation mechanism.
+
+The review therefore splits the previous broad linkage concern into two different questions.
+
 ## Affected parties
 
-Credential subjects, relationship participants, wallet holders, delegated agents, verifiers, credential issuers, relying parties and people incorrectly linked by implementation inference.
+Credential subjects, relationship participants, wallet holders, delegated agents, verifiers, credential issuers, relying parties, witnesses and people incorrectly linked by implementation inference.
 
 ## Findings
 
-| Finding | Threat | Primary disposition | Evidence of closure |
+| Finding | Threat | Status / disposition | Evidence of closure |
 |---|---|---|---|
-| F-001: a ZKP can be mathematically valid while relying on an unproven P-DID/R-DID or R-DID/M-DID equivalence | [`THR-046`](../reference/identifier-register.md#thr-046) | `specification` | authoritative relationship semantics plus positive/negative vectors |
-| F-002: a stable linkage mechanism can defeat the profile's cross-context privacy claim | [`THR-047`](../reference/identifier-register.md#thr-047) | `companion-specification` | correlation assessment demonstrating compliance with declared privacy class |
-| F-003: implementations may silently treat co-possession as identity/relationship evidence | [`THR-046`](../reference/identifier-register.md#thr-046) | `implementation-guidance` | negative conformance fixture rejects implicit linkage |
+| F-001: VWC-to-edge binding was previously under-specified | [`THR-046`](../reference/identifier-register.md#thr-046) | `resolved-by-pr` for the VWC digest requirement | VWC digest required and verifier has the referenced VRC |
+| F-002: P-DID/R-DID or R-DID/M-DID equivalence can still be assumed without authoritative evidence | [`THR-046`](../reference/identifier-register.md#thr-046) | `specification` | authoritative linkage semantics plus positive/negative vectors |
+| F-003: a stable linkage mechanism can defeat cross-context privacy | [`THR-047`](../reference/identifier-register.md#thr-047) | `companion-specification` | correlation assessment demonstrating compliance with the declared privacy class |
+| F-004: implementations can silently treat co-possession as subject/controller evidence | [`THR-046`](../reference/identifier-register.md#thr-046) | `implementation-guidance` | negative conformance fixture rejects implicit linkage |
+
+## Key invariant
+
+```text
+VWC digest -> exact relationship edge
+             !=
+P-DID == R-DID == M-DID subject/controller equivalence
+```
+
+Both can be required by a profile, but they require different evidence.
 
 ## Recommendation
 
-The Credential TF should define the relationship artifact or semantics needed to establish the relevant correspondence. The ZKP profile should consume that artifact without exposing a stable cross-context linkage handle. Until then, stronger statements requiring the unresolved relationship fail closed under [`ZKP-LINK-04`](../reference/identifier-register.md#zkp-link-04).
+Treat edge binding as substantially improved and stop reporting it as an unresolved Credential Spec defect. Keep the cross-identifier linkage question open until the Credential TF defines the evidence model or explicitly constrains the construction.
+
+Until then, stronger statements requiring unresolved P-DID/R-DID/M-DID correspondence fail closed under [`ZKP-LINK-04`](../reference/identifier-register.md#zkp-link-04).
 
 ## Retest trigger
 
-Re-run this review when Credential issue #9 is resolved, a relationship credential/model is adopted, or a proof construction proposes a concrete witness encoding for these relationships.
+Re-run when Credential Spec issue #9 is resolved, VRC/VWC digest semantics change, a relationship-linkage artifact is adopted, or a proof construction proposes a concrete witness encoding for identifier correspondence.

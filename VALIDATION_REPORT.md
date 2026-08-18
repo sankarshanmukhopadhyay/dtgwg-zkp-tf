@@ -130,3 +130,46 @@ Front matter and Liquid-delimiter preflight passed across 218 Markdown files.
 ```
 
 The local execution environment contains Ruby but does not contain the Jekyll/theme gems required by the repository, and outbound package installation is unavailable. The GitHub Pages build job remains the authoritative render gate: it installs the Gemfile dependencies with `ruby/setup-ruby`, runs the full validator set, executes `bundle exec jekyll build --trace`, then runs `scripts/validate_site_output.py`. No source-level front-matter, Liquid delimiter, navigation, link or diagram issue remains from this pass.
+
+
+## Non-release DTG interoperability and cross-specification refresh — 2026-08-18
+
+This maintenance pass is **not a release**. It refreshes the repository's living interoperability and assurance model against current DTG portfolio state and reviewed upstream revisions.
+
+### Changes validated
+
+- Portfolio alignment register expanded from 3 entries to 8 governed authority/evidence dependencies.
+- Dependencies are classified as `semantic-runtime`, `assurance-method`, `conditional-composition`, or `implementation-evidence`.
+- DTG Portfolio Monitor is explicitly modelled as a `review-trigger`, never an authority source.
+- Credential linkage pressure testing now distinguishes resolved VWC-to-edge binding from the still-open P-DID/R-DID/M-DID correspondence question.
+- Trust Task pressure testing was rerun against `7e0d755f5b815498c861cacecee5cae49b3f14eb`, including authorization/proof separation, task control, effect-time re-evaluation, duplicate suppression, task digests and payload validation.
+- Two new substantive reviews were added: witnessed-relationship ZKP (`ZPT-005`) and Trust Task lifecycle ZKP (`ZPT-006`).
+- Four exploratory/evidence tracks record VDS, Agent Names, HTX and OpenVTC without manufacturing active ZKP dependencies.
+- `cross-spec-assurance-register.yaml` now provides machine-verifiable reviewed revisions, dependency links, review status and retest triggers.
+- `scripts/validate_interoperability.py` validates both interoperability registers and all six substantive pressure-test documents.
+
+Validation results:
+
+```text
+Documentation validation passed.
+Conformance validation passed: 96/96 test rows across 4 levels.
+Conformance harness validation passed: 16 executable, 80 governed non-executable cases.
+Fixture validation passed: 49 JSON files parsed.
+Navigation validation passed for 205 rendered Markdown pages.
+Diagram validation passed: 38 diagrams.
+Operational validation passed: 10 runbooks + incident evidence guide structurally complete.
+Threat-model validation passed: 52 canonical threats with controls and dispositions.
+Deployment profile validation passed.
+Generated count validation passed: 96 conformance cases.
+Style validation passed.
+Link validation passed (targets and internal Markdown anchors).
+Decision governance validation passed: 20 decisions and 9 B1/B2 tests registered.
+Learning-path validation passed: 5 paths and 24 steps.
+Identifier register valid: 272 semantic IDs.
+Interoperability validation passed: 8 governed dependencies, 6 substantive cross-spec reviews, 4 exploratory/evidence tracks, and 10 executable fixtures.
+Security-assurance validation passed: 14 guardrails mapped; 52 threats; 15 requirement mappings; RAHP v1.1 provenance pinned.
+Traceability generated: 52 scenarios, 96 conformance references and 26 assurance references.
+Upstream directionality and README preservation policy validated.
+```
+
+`validate_site_output.py` was not treated as a source-validation failure because it requires a prior Jekyll build. The local execution environment does not provide the `bundle` executable, so the rendered `_site` tree could not be generated here. The GitHub Pages workflow remains the authoritative render gate.

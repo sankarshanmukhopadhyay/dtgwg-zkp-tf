@@ -1,55 +1,229 @@
-schema_version: 1
-reviewed_on: 2026-08-11
-scope: DTG dependencies that can materially change ZKP proof semantics, authority interpretation, privacy, or assurance evidence
+schema_version: 2
+reviewed_on: '2026-08-18'
+scope: External authority, state, evidence and assurance surfaces that can materially
+  change ZKP proof semantics, runtime acceptance, privacy or assurance.
+portfolio_monitor:
+  role: review-trigger
+  authority: false
+  source: https://sankarshanmukhopadhyay.github.io/dtg-portfolio-monitor/
+  repository_model: https://github.com/sankarshanmukhopadhyay/dtg-portfolio-monitor/blob/main/config/repositories.yaml
 dependencies:
-  - id: DTG-CREDENTIALS
-    authority: trustoverip/dtgwg-cred-spec
-    relationship: upstream-semantic
-    status: active-alignment
-    consumes:
-      - credential-semantics
-      - credential-status
-      - identifier-relationship-evidence
-    must_not_infer:
-      - implicit-identifier-equivalence
-      - delegation-from-holder-binding
-    unresolved:
-      - credential-linkage-model-for-p-did-r-did-m-did
-    evidence:
-      - https://github.com/trustoverip/dtgwg-cred-spec/issues/9
-    resolution_authority: DTGWG Credentials Task Force
-  - id: DTG-TRUST-TASKS
-    authority: trustoverip/dtgwg-trust-tasks-tf
-    relationship: protocol-integration
-    status: active-alignment
-    consumes:
-      - task-identifier
-      - requester-audience
-      - challenge
-      - constraints
-      - evidence-references
-    must_not_infer:
-      - authority-from-task-participation
-      - authority-from-ceremony-membership
-    unresolved:
-      - zkp-specific-task-binding-profile
-    evidence:
-      - https://github.com/trustoverip/dtgwg-trust-tasks-tf
-      - https://github.com/trustoverip/dtgwg-trust-tasks-tf/blob/main/docs/design-notes/trust-ceremonies.md
-    resolution_authority: DTGWG Trust Tasks Task Force
-  - id: DTG-RAHP
-    authority: trustoverip/dtgwg-rahp-tf
-    relationship: assurance-method
-    status: adopted-with-adaptation
-    consumes:
-      - specification-pressure-testing-method
-      - finding-disposition-model
-      - evidence-and-retest-expectations
-    must_not_infer:
-      - normative-zkp-requirements-without-zkp-governance-action
-    unresolved: []
-    evidence:
-      - https://github.com/trustoverip/dtgwg-rahp-tf
-      - docs/pressure-testing-a-spec.md
-      - docs/governance-boundaries.md
-    resolution_authority: DTGWG RAHP Task Force for method; ZKP Task Force for ZKP requirements
+- id: DTG-CREDENTIALS
+  authority: trustoverip/dtgwg-cred-spec
+  dependency_class: semantic-runtime
+  relationship: upstream-semantic
+  status: active-alignment
+  reviewed_revision: b89f389abbdae77ba60b673c0836c781c2b54169
+  consumes:
+  - credential-semantics
+  - credential-status
+  - relationship-edge-digest
+  - identifier-relationship-evidence
+  lifecycle:
+  - credential-revocation
+  - credential-suspension
+  - credential-expiry
+  - credential-model-revision
+  must_not_infer:
+  - implicit-identifier-equivalence
+  - common-controller-from-co-possession
+  - delegation-from-holder-binding
+  unresolved:
+  - credential-linkage-model-for-p-did-r-did-m-did
+  evidence:
+  - https://github.com/trustoverip/dtgwg-cred-spec/commit/b89f389abbdae77ba60b673c0836c781c2b54169
+  - https://github.com/trustoverip/dtgwg-cred-spec/issues/9
+  retest_triggers:
+  - credential-issue-9-resolved
+  - identifier-linkage-semantics-change
+  - vrc-or-vwc-binding-change
+  resolution_authority: DTGWG Credentials Task Force
+- id: DTG-TRUST-TASKS
+  authority: trustoverip/dtgwg-trust-tasks-tf
+  dependency_class: semantic-runtime
+  relationship: protocol-integration
+  status: active-alignment
+  reviewed_revision: 7e0d755f5b815498c861cacecee5cae49b3f14eb
+  consumes:
+  - task-identifier
+  - task-digest
+  - requester-audience
+  - challenge
+  - constraints
+  - evidence-references
+  - task-control-state
+  - effect-time-authority-conditions
+  lifecycle:
+  - acceptance-window
+  - cancel
+  - suspend
+  - resume
+  - authority-revocation
+  - policy-change
+  - effect-time-reevaluation
+  must_not_infer:
+  - authority-from-task-participation
+  - authority-from-proof-validity
+  - authority-from-transport-identity
+  - effect-authority-from-acceptance-time-state
+  unresolved:
+  - zkp-specific-task-binding-profile-remains-fork-defined
+  evidence:
+  - https://github.com/trustoverip/dtgwg-trust-tasks-tf/commit/7e0d755f5b815498c861cacecee5cae49b3f14eb
+  - https://github.com/trustoverip/dtgwg-trust-tasks-tf/commit/81dc71925a20db5e592a88e7ad9f16b4776262d1
+  - https://github.com/trustoverip/dtgwg-trust-tasks-tf/commit/c59040d1e45700e1aa66d931f1397d661c4a7253
+  retest_triggers:
+  - trust-task-framework-version-change
+  - task-control-semantics-change
+  - authorization-evidence-rule-change
+  - task-digest-rule-change
+  - payload-validation-rule-change
+  resolution_authority: DTGWG Trust Tasks Task Force
+- id: DTG-TRUST-CEREMONIES
+  authority: trustoverip/dtgwg-trust-tasks-tf
+  dependency_class: conditional-composition
+  relationship: optional-orchestration
+  status: conditional
+  reviewed_revision: 7e0d755f5b815498c861cacecee5cae49b3f14eb
+  consumes:
+  - ceremony-or-enactment-context
+  - step-evidence
+  - task-context
+  lifecycle:
+  - ceremony-step-change
+  - policy-change
+  - task-state-change
+  must_not_infer:
+  - authority-from-ceremony-membership
+  - authority-from-ceremony-completion
+  unresolved:
+  - ceremony-composition-remains-profile-specific
+  evidence:
+  - https://github.com/trustoverip/dtgwg-trust-tasks-tf
+  retest_triggers:
+  - ceremony-semantics-change
+  - enactment-identifier-change
+  - ceremony-evidence-receipt-change
+  resolution_authority: DTGWG Trust Tasks Task Force
+- id: DTG-RAHP
+  authority: trustoverip/dtgwg-rahp-tf
+  operational_method: sankarshanmukhopadhyay/rahp-toolkit
+  dependency_class: assurance-method
+  relationship: method-provenance-and-adaptation
+  status: adopted-with-adaptation
+  reviewed_revision: 6a95a9a2a948ece93a75e9583554b448714ef4c4
+  consumes:
+  - specification-pressure-testing-method
+  - finding-disposition-model
+  - portable-assurance-patterns
+  - evidence-and-retest-expectations
+  lifecycle:
+  - method-version-change
+  - portable-catalogue-change
+  - engine-contract-change
+  must_not_infer:
+  - normative-zkp-requirements-without-zkp-governance-action
+  - runtime-authority-from-assurance-method
+  unresolved: []
+  evidence:
+  - https://github.com/trustoverip/dtgwg-rahp-tf
+  - https://github.com/sankarshanmukhopadhyay/rahp-toolkit
+  - docs/implementation-guide/pressure-tests/rahp-v1.1-refresh.md
+  retest_triggers:
+  - rahp-toolkit-method-version-change
+  - portable-assurance-contract-change
+  resolution_authority: DTGWG RAHP Task Force for upstream method provenance; ZKP
+    fork governance for local adaptation and ZKP requirements
+- id: DTG-VDS
+  authority: trustoverip/dtgwg-vds-tf
+  dependency_class: conditional-composition
+  relationship: observed-composition
+  status: exploratory
+  reviewed_revision: not-pinned-no-active-zkp-binding
+  consumes:
+  - verifiable-data-structure-evidence-if-profile-selected
+  lifecycle:
+  - data-structure-version-change
+  - verification-method-change
+  must_not_infer:
+  - semantic-authority-from-structure-validity
+  unresolved:
+  - no-active-zkp-profile-binding
+  evidence:
+  - https://github.com/trustoverip/dtgwg-vds-tf
+  retest_triggers:
+  - zkp-profile-adopts-vds
+  - vds-used-for-status-registry-or-proof-input
+  resolution_authority: DTGWG VDS Task Force
+- id: DTG-AGENT-NAMES
+  authority: trustoverip/dtgwg-agent-names-tf
+  dependency_class: conditional-composition
+  relationship: observed-composition
+  status: exploratory
+  reviewed_revision: not-pinned-no-active-zkp-binding
+  consumes:
+  - agent-name-or-resolution-evidence-if-profile-selected
+  lifecycle:
+  - name-reassignment
+  - resolution-policy-change
+  - status-change
+  must_not_infer:
+  - agent-authority-from-name-resolution
+  - delegation-from-resolved-name
+  unresolved:
+  - no-active-zkp-profile-binding
+  evidence:
+  - https://github.com/trustoverip/dtgwg-agent-names-tf
+  retest_triggers:
+  - zkp-profile-adopts-agent-naming
+  - agent-name-used-as-audience-or-authority-input
+  resolution_authority: DTGWG Agent Names Task Force
+- id: DTG-HTX
+  authority: trustoverip/dtgwg-htx-tf
+  dependency_class: conditional-composition
+  relationship: observed-human-experience
+  status: exploratory
+  reviewed_revision: 820a3b63a73392ae9972a6339f69b70965c31b09
+  consumes:
+  - human-experience-evidence-if-profile-requires-user-action
+  lifecycle:
+  - interaction-pattern-change
+  - notice-or-confirmation-policy-change
+  must_not_infer:
+  - consent-from-interface-presentation
+  - authority-from-user-interface-state
+  unresolved:
+  - no-active-zkp-profile-binding
+  evidence:
+  - https://github.com/trustoverip/dtgwg-htx-tf/commit/820a3b63a73392ae9972a6339f69b70965c31b09
+  retest_triggers:
+  - zkp-profile-defines-human-confirmation
+  - htx-defines-relevant-trust-experience-contract
+  resolution_authority: DTGWG HTX Task Force
+- id: OPENVTC-IMPLEMENTATIONS
+  authority: owning-specifications-and-deployment-governance
+  dependency_class: implementation-evidence
+  relationship: evidence-only
+  status: observed
+  reviewed_revision: portfolio-monitored-not-semantic-authority
+  consumes:
+  - interoperability-results
+  - implementation-test-vectors
+  - deployment-observations
+  lifecycle:
+  - implementation-release
+  - test-vector-change
+  - deployment-change
+  must_not_infer:
+  - normative-semantics-from-implementation-behaviour
+  - authority-from-test-pass
+  unresolved: []
+  evidence:
+  - https://github.com/OpenVTC/dtg-credentials
+  - https://github.com/OpenVTC/openvtc
+  - https://github.com/OpenVTC/verifiable-trust-infrastructure
+  retest_triggers:
+  - reference-implementation-adopts-zkp-profile
+  - cross-repo-conformance-suite-added
+  resolution_authority: Owning DTG specification for semantics; implementation maintainers
+    for implementation evidence

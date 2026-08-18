@@ -1,0 +1,145 @@
+schema_version: 1
+reviewed_on: '2026-08-18'
+purpose: Machine-verifiable inventory of cross-specification pressure tests and retest
+  triggers.
+reviews:
+- id: ZPT-001
+  title: DTG Credential Linkage
+  target: trustoverip/dtgwg-cred-spec
+  dependency_ids:
+  - DTG-CREDENTIALS
+  status: refreshed
+  reviewed_revision: b89f389abbdae77ba60b673c0836c781c2b54169
+  document: docs/implementation-guide/pressure-tests/dtg-credential-linkage.md
+  primary_question: Can edge binding and cross-identifier subject/controller linkage
+    be proven without creating an unintended correlation handle?
+  retest_triggers:
+  - credential-issue-9-resolved
+  - vrc-or-vwc-binding-change
+  - identifier-linkage-semantics-change
+- id: ZPT-002
+  title: Trust Task ZKP Exchange
+  target: trustoverip/dtgwg-trust-tasks-tf
+  dependency_ids:
+  - DTG-TRUST-TASKS
+  status: rerun
+  reviewed_revision: 7e0d755f5b815498c861cacecee5cae49b3f14eb
+  document: docs/implementation-guide/pressure-tests/trust-task-zkp-exchange.md
+  primary_question: Does a task-bound proof remain separated from authorization, task-control
+    state and effect-time authority?
+  retest_triggers:
+  - trust-task-framework-version-change
+  - task-control-semantics-change
+  - authorization-evidence-rule-change
+  - task-digest-rule-change
+- id: ZPT-003
+  title: Trust Ceremony ZKP Composition
+  target: trustoverip/dtgwg-trust-tasks-tf
+  dependency_ids:
+  - DTG-TRUST-CEREMONIES
+  status: refreshed
+  reviewed_revision: 7e0d755f5b815498c861cacecee5cae49b3f14eb
+  document: docs/implementation-guide/pressure-tests/trust-ceremony-zkp-composition.md
+  primary_question: Can ceremony context be bound without turning completion or membership
+    into authority?
+  retest_triggers:
+  - ceremony-semantics-change
+  - ceremony-evidence-receipt-change
+- id: ZPT-004
+  title: Agent-Mediated ZKP
+  target: ZKP plus Trust Tasks plus delegation governance
+  dependency_ids:
+  - DTG-TRUST-TASKS
+  status: rerun
+  reviewed_revision: 7e0d755f5b815498c861cacecee5cae49b3f14eb
+  document: docs/implementation-guide/pressure-tests/agent-mediated-zkp.md
+  primary_question: Can an agent present human proof only within currently valid delegated
+    scope?
+  retest_triggers:
+  - delegation-model-change
+  - trust-task-authorization-rule-change
+  - task-control-semantics-change
+- id: ZPT-005
+  title: Witnessed Relationship ZKP
+  target: Trust Tasks witnessed relationship flows plus Credential Spec VWC semantics
+  dependency_ids:
+  - DTG-TRUST-TASKS
+  - DTG-CREDENTIALS
+  status: new
+  reviewed_revision: trust-tasks@7e0d755f5b815498c861cacecee5cae49b3f14eb;cred-spec@b89f389abbdae77ba60b673c0836c781c2b54169
+  document: docs/implementation-guide/pressure-tests/witnessed-relationship-zkp.md
+  primary_question: Does witness and edge-digest evidence bind the exact relationship
+    without being replayable or becoming a stable correlation handle?
+  retest_triggers:
+  - witness-session-semantics-change
+  - vwc-digest-semantics-change
+  - task-digest-semantics-change
+  - relationship-status-model-change
+- id: ZPT-006
+  title: Trust Task Lifecycle ZKP
+  target: Trust Tasks task control plus ZKP and delegation/status lifecycle
+  dependency_ids:
+  - DTG-TRUST-TASKS
+  - DTG-CREDENTIALS
+  status: new
+  reviewed_revision: trust-tasks@7e0d755f5b815498c861cacecee5cae49b3f14eb
+  document: docs/implementation-guide/pressure-tests/trust-task-lifecycle-zkp.md
+  primary_question: Which evidence must be re-evaluated when a consequential task
+    is delayed, suspended or resumed before effect?
+  retest_triggers:
+  - task-control-semantics-change
+  - effect-time-authority-rule-change
+  - credential-status-model-change
+  - proof-freshness-rule-change
+- id: ZPT-007
+  title: ZKP x VDS
+  target: trustoverip/dtgwg-vds-tf
+  dependency_ids:
+  - DTG-VDS
+  status: exploratory-no-active-binding
+  reviewed_revision: not-pinned-no-active-zkp-binding
+  document: null
+  primary_question: Would a selected VDS artifact become a proof input, status structure
+    or provenance dependency?
+  retest_triggers:
+  - zkp-profile-adopts-vds
+  - vds-used-for-status-registry-or-proof-input
+- id: ZPT-008
+  title: ZKP x Agent Names
+  target: trustoverip/dtgwg-agent-names-tf
+  dependency_ids:
+  - DTG-AGENT-NAMES
+  status: exploratory-no-active-binding
+  reviewed_revision: not-pinned-no-active-zkp-binding
+  document: null
+  primary_question: Would an agent name become audience, resolution or authority evidence
+    in a ZKP flow?
+  retest_triggers:
+  - zkp-profile-adopts-agent-naming
+  - agent-name-used-as-audience-or-authority-input
+- id: ZPT-009
+  title: ZKP x HTX
+  target: trustoverip/dtgwg-htx-tf
+  dependency_ids:
+  - DTG-HTX
+  status: exploratory-no-active-binding
+  reviewed_revision: 820a3b63a73392ae9972a6339f69b70965c31b09
+  document: null
+  primary_question: Does a future profile rely on human notice, confirmation or comprehension
+    evidence that must stay separate from consent and authority?
+  retest_triggers:
+  - zkp-profile-defines-human-confirmation
+  - htx-defines-relevant-trust-experience-contract
+- id: ZPT-010
+  title: ZKP x OpenVTC implementation evidence
+  target: OpenVTC implementation repositories
+  dependency_ids:
+  - OPENVTC-IMPLEMENTATIONS
+  status: evidence-track
+  reviewed_revision: portfolio-monitored-not-semantic-authority
+  document: null
+  primary_question: Can implementations produce independent conformance evidence without
+    becoming the source of normative semantics?
+  retest_triggers:
+  - reference-implementation-adopts-zkp-profile
+  - cross-repo-conformance-suite-added
