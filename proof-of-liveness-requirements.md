@@ -1,8 +1,11 @@
-# Privacy-Preserving Proof of Liveness — Requirements (v0.3)
+# Privacy-Preserving Proof of Liveness — Requirements (v0.4)
 
-**Status:** Input to the Predicate & Assurance-Boundary decision document, not a settled spec. v0.3 corrects a **contradiction in v0.2** (see Section 2) and elevates the boundary question that parameterises everything else.
+**Status**: Working draft. This version extends v0.3 with implementation,
+interoperability, assurance, lifecycle, privacy, and conformance requirements.
 
-**Author:** Scott Jones (Realeyes), Chair, DTG ZKP Task Force
+**Author**: Scott Jones (Realeyes), Chair, DTG ZKP Task Force
+
+**Contributors/reviewers**: @sankarshanmukhopadhyay
 **v0.3** — revised following review by @sankarshanmukhopadhyay and @mitchuski. Changelog at the end.
 
 **Normative reference:** [*A Cryptographic Framework for Proof of Personhood*](https://eprint.iacr.org/2026/333) — Choudhuri, Garg, Lee, Montgomery, Policharla, Sinha (IACR ePrint 2026/333). Formalises Sybil-resistance, authenticated personhood, and **unlinkability across contexts**, and establishes why full unlinkability is unreachable. This work should align to it rather than reinvent it.
