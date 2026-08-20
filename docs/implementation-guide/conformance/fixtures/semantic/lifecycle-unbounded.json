@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "1.0",
+  "testId": "CT-SEC-LIFE-NEG-01",
+  "operation": "evaluate_lifecycle",
+  "input": {
+    "nullifierEpochDays": 30,
+    "retentionPolicy": "indefinite",
+    "assuranceHorizonDays": 180
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0",
+  "specificationRevision": "v0.5.0-release-train",
+  "profile": "CL-3",
+  "implementation": {
+    "name": "repository-semantic-fixtures",
+    "version": "0.5.0",
+    "adapter": "semantic-fixture"
+  },
+  "tests": [
+    {
+      "test_id": "CT-SEC-SCHEMA-POS-01",
+      "operation": "evaluate_attestation_schema",
+      "required_capability": "attestation-schema",
+      "expected_status": "accepted",
+      "expected_reason": "correlation-threshold-satisfied",
+      "request": {"fixture": "docs/implementation-guide/conformance/fixtures/semantic/attestation-schema-shared.json"}
+    },
+    {
+      "test_id": "CT-SEC-SCHEMA-NEG-01",
+      "operation": "evaluate_attestation_schema",
+      "required_capability": "attestation-schema",
+      "expected_status": "rejected",
+      "expected_reason": "stable-schema-fingerprint",
+      "request": {"fixture": "docs/implementation-guide/conformance/fixtures/semantic/attestation-schema-fingerprint.json"}
+    },
+    {
+      "test_id": "CT-SEC-CTX-POS-01",
+      "operation": "evaluate_context_governance",
+      "required_capability": "context-governance",
+      "expected_status": "accepted",
+      "expected_reason": "context-governance-complete",
+      "request": {"fixture": "docs/implementation-guide/conformance/fixtures/semantic/context-governance-complete.json"}
+    },
+    {
+      "test_id": "CT-SEC-CTX-NEG-01",
+      "operation": "evaluate_context_governance",
+      "required_capability": "context-governance",
+      "expected_status": "rejected",
+      "expected_reason": "context-governance-incomplete",
+      "request": {"fixture": "docs/implementation-guide/conformance/fixtures/semantic/context-governance-incomplete.json"}
+    },
+    {
+      "test_id": "CT-SEC-LIFE-POS-01",
+      "operation": "evaluate_lifecycle",
+      "required_capability": "lifecycle-bounds",
+      "expected_status": "accepted",
+      "expected_reason": "lifecycle-bounded",
+      "request": {"fixture": "docs/implementation-guide/conformance/fixtures/semantic/lifecycle-bounded.json"}
+    },
+    {
+      "test_id": "CT-SEC-LIFE-NEG-01",
+      "operation": "evaluate_lifecycle",
+      "required_capability": "lifecycle-bounds",
+      "expected_status": "rejected",
+      "expected_reason": "lifecycle-unbounded",
+      "request": {"fixture": "docs/implementation-guide/conformance/fixtures/semantic/lifecycle-unbounded.json"}
+    }
+  ]
+}

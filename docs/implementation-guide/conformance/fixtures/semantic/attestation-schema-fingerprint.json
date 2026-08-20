@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "1.0",
+  "testId": "CT-SEC-SCHEMA-NEG-01",
+  "operation": "evaluate_attestation_schema",
+  "input": {
+    "assuranceValueScope": "issuer-specific",
+    "issuanceTimeDisclosure": "exact",
+    "issuerSpecificFields": ["issuerSchemaVersion"]
+  }
+}

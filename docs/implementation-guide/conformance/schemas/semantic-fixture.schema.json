@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Construction-independent semantic fixture",
+  "type": "object",
+  "required": ["schemaVersion", "testId", "operation", "input"],
+  "properties": {
+    "schemaVersion": {"const": "1.0"},
+    "testId": {"type": "string", "pattern": "^CT-"},
+    "operation": {
+      "enum": [
+        "evaluate_attestation_schema",
+        "evaluate_context_governance",
+        "evaluate_lifecycle",
+        "evaluate_revocation_timing",
+        "evaluate_resource_profile",
+        "evaluate_mediated_fallback"
+      ]
+    },
+    "input": {"type": "object", "minProperties": 1}
+  },
+  "additionalProperties": false
+}

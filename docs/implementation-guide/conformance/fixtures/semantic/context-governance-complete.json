@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "testId": "CT-SEC-CTX-POS-01",
+  "operation": "evaluate_context_governance",
+  "input": {
+    "authority": "urn:dtg:governance:community-access",
+    "purpose": "community account access",
+    "verifierSet": ["urn:dtg:verifier:community-a"],
+    "epoch": "2026-Q3",
+    "permittedLinkage": "within community account access during the epoch",
+    "prohibitedLinkage": "between unrelated governed purposes",
+    "humanLegibleBoundary": "This proof can be linked only within this community during the stated quarter.",
+    "collusionTarget": "issuer-verifier"
+  }
+}
