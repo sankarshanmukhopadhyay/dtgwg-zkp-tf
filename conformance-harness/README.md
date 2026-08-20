@@ -10,3 +10,10 @@ dtgwg-zkp-conformance --manifest conformance-harness/examples/mock-manifest.json
 ```
 
 Only cases declared `EXECUTABLE` are eligible for automated pass/fail.
+
+The `semantic-fixture` adapter evaluates repository-owned JSON fixtures and
+derives outcomes from their content. It does not perform cryptography. Fixture
+paths are constrained to the configured fixture root, and generated evidence
+records the fixture digest and schema version. This creates meaningful,
+reproducible evidence for construction-independent semantics without treating
+an external implementation or evidence repository as a release dependency.
