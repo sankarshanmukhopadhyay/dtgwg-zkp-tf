@@ -1,4 +1,10 @@
 .DS_Store
 
+# Python interpreter and test-runner artefacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
 # Generated conformance evidence
 results/
