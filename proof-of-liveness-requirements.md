@@ -266,6 +266,8 @@ At minimum, the transcript must commit to:
 
 **LIV-UNIQ-06 — Distinct-human semantics.** Where a profile claims `f-distinct`, it **MUST** define the evidence and assumptions under which two attestations are treated as originating from two distinct humans. Distinct pseudonyms, keys, credentials, issuer records, or enrolment identifiers are not sufficient by themselves.
 
+**LIV-UNIQ-07 — Attester-independence boundary.** Where a profile relies on multiple issuers or attesters, any independence claim **MUST** state the correlated-failure or collusion risk it is intended to bound. Attester independence **MUST NOT** be represented as evidence that any individual attester's underlying determination was correct, honest, or factually grounded. Cryptographic soundness establishes that a valid proof satisfies the construction with an admissible witness; it does not by itself establish that the witness corresponds to external reality.
+
 ### 9.8 Privacy and disclosure
 
 **LIV-PRIV-01 — Named adversary.** Every unlinkability or confidentiality claim **MUST** name the relevant adversary: verifier, issuer, registry/status service, mediator, colluding parties, or another defined actor set.
@@ -422,6 +424,8 @@ A provider integration needs an explicit contract rather than an abstract “liv
 - session-binding material needed to prevent substitution between capture, attestation and proof sessions.
 
 A nullifier obtains anti-Sybil force only from the enrolment and binding assumptions behind it. A deployment **MUST NOT** describe a nullifier as person-level anti-Sybil evidence when repeated enrolment by the same human is not controlled to the level required by the claim. Likewise, multiple issuers **MUST NOT** be described as independent merely because they are different legal entities when material biometric or data dependencies are shared.
+
+Attester independence addresses a different assurance question from attester correctness. Independence evidence can bound correlated failure, common-mode compromise, shared-data exposure, or collusion across attesters; it does not establish that any one attester's biometric/personhood determination corresponds to reality. A profile **MUST** keep these claims separate. Provenance, accreditation, signed attestations, trusted capture controls, or execution-carried assurance can strengthen evidence about how a determination was produced, but none may be described as establishing external-world truth beyond the property actually demonstrated.
 
 The contract must also state which values are secret witness data, credential data, public proof inputs and verifier outputs.
 
