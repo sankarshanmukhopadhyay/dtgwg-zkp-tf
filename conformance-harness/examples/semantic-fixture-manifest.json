@@ -9,6 +9,46 @@
   },
   "tests": [
     {
+      "test_id": "CT-UC004-POS-02",
+      "operation": "evaluate_revocation_timing",
+      "required_capability": "revocation-timing",
+      "expected_status": "accepted",
+      "expected_reason": "deterministic-status-outcome",
+      "request": {"fixture": "docs/implementation-guide/conformance/fixtures/semantic/revocation-deterministic.json"}
+    },
+    {
+      "test_id": "CT-UC017-POS-01",
+      "operation": "evaluate_resource_profile",
+      "required_capability": "resource-profile",
+      "expected_status": "accepted",
+      "expected_reason": "resource-ceiling-satisfied",
+      "request": {"fixture": "docs/implementation-guide/conformance/fixtures/semantic/resource-profile-within-ceiling.json"}
+    },
+    {
+      "test_id": "CT-UC017-NEG-01",
+      "operation": "evaluate_resource_profile",
+      "required_capability": "resource-profile",
+      "expected_status": "rejected",
+      "expected_reason": "insufficient-capability-no-fallback",
+      "request": {"fixture": "docs/implementation-guide/conformance/fixtures/semantic/resource-profile-insufficient.json"}
+    },
+    {
+      "test_id": "CT-UC017-POS-02",
+      "operation": "evaluate_mediated_fallback",
+      "required_capability": "mediated-fallback",
+      "expected_status": "accepted",
+      "expected_reason": "authorized-mediated-fallback",
+      "request": {"fixture": "docs/implementation-guide/conformance/fixtures/semantic/mediated-fallback-authorized.json"}
+    },
+    {
+      "test_id": "CT-UC017-NEG-02",
+      "operation": "evaluate_mediated_fallback",
+      "required_capability": "mediated-fallback",
+      "expected_status": "rejected",
+      "expected_reason": "silent-fallback-not-authorized",
+      "request": {"fixture": "docs/implementation-guide/conformance/fixtures/semantic/mediated-fallback-unauthorized.json"}
+    },
+    {
       "test_id": "CT-SEC-SCHEMA-POS-01",
       "operation": "evaluate_attestation_schema",
       "required_capability": "attestation-schema",

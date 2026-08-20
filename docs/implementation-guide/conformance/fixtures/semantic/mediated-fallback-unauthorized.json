@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "1.0",
+  "testId": "CT-UC017-NEG-02",
+  "operation": "evaluate_mediated_fallback",
+  "input": {
+    "fallbackPolicyAuthorized": false,
+    "verifierFallbackIndicator": false,
+    "mediatorCanReconstructProtectedInputs": false
+  }
+}
