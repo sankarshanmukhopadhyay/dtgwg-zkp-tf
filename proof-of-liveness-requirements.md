@@ -1,12 +1,17 @@
 # Privacy-Preserving Proof of Liveness — Requirements (v0.4)
 
-**Status**: Working draft. This version extends v0.3 with implementation,
-interoperability, assurance, lifecycle, privacy, and conformance requirements.
+**Status:** Proposed Task Force Working Draft. This version extends v0.3 with
+implementation, interoperability, assurance, lifecycle, privacy, and
+conformance requirements.
 
-**Author**: Scott Jones (Realeyes), Chair, DTG ZKP Task Force
+**Version:** 0.4
 
-**Contributors/reviewers**: @sankarshanmukhopadhyay
-**v0.3** — revised following review by @sankarshanmukhopadhyay and @mitchuski. Changelog at the end.
+**Author:** Scott Jones (Realeyes), Chair, DTG ZKP Task Force
+
+**Contributors/reviewers:** @sankarshanmukhopadhyay and @mitchuski
+
+**Revision history:** v0.3 was revised following review by
+@sankarshanmukhopadhyay and @mitchuski. The v0.4 changelog is at the end.
 
 **Normative reference:** [*A Cryptographic Framework for Proof of Personhood*](https://eprint.iacr.org/2026/333) — Choudhuri, Garg, Lee, Montgomery, Policharla, Sinha (IACR ePrint 2026/333). Formalises Sybil-resistance, authenticated personhood, and **unlinkability across contexts**, and establishes why full unlinkability is unreachable. This work should align to it rather than reinvent it.
 
@@ -136,7 +141,9 @@ If a deployment cannot substantiate one of those resistance claims, it **MUST** 
 
 A statement such as “unlinkable across verifiers” is therefore incomplete until it states the governed contexts, who may collude, what auxiliary information is available, and for how long correlation resistance is expected to hold.
 
-For the operational context record, disclosure analysis and change-control method, see [`docs/implementation-guide/boundaries/predicate-assurance-boundary-decision.md`](docs/implementation-guide/boundaries/predicate-assurance-boundary-decision.md).
+For a non-normative operational context record, disclosure analysis and
+change-control method, see the maintained fork's
+[`predicate-assurance-boundary-decision.md`](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/blob/4034bd23f9c4421bd87d000f787cb7f2afaddf77/docs/implementation-guide/boundaries/predicate-assurance-boundary-decision.md).
 
 ## 7. Actors and trust model
 
@@ -328,7 +335,10 @@ Lifecycle controls bind the semantic claim to the period during which its assump
 
 **LIV-LCM-06 — Historical evidence.** Where a relying regime requires long-term audit or historical verification, the retained evidence **MUST** make clear what was valid as of the original evaluation time and what, if anything, remains verifiable at the later audit time.
 
-See [`docs/implementation-guide/lifecycle/cryptoperiod-and-assurance-horizon.md`](docs/implementation-guide/lifecycle/cryptoperiod-and-assurance-horizon.md) and [`docs/implementation-guide/adr/ADR-009-cryptoperiod-assurance-horizon.md`](docs/implementation-guide/adr/ADR-009-cryptoperiod-assurance-horizon.md).
+For non-normative implementation guidance, see the maintained fork's
+[`cryptoperiod-and-assurance-horizon.md`](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/blob/4034bd23f9c4421bd87d000f787cb7f2afaddf77/docs/implementation-guide/lifecycle/cryptoperiod-and-assurance-horizon.md)
+and
+[`ADR-009-cryptoperiod-assurance-horizon.md`](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/blob/4034bd23f9c4421bd87d000f787cb7f2afaddf77/docs/implementation-guide/adr/ADR-009-cryptoperiod-assurance-horizon.md).
 
 ## 11. Predicate and disclosure matrix
 
@@ -468,7 +478,13 @@ Proof-system performance alone is not sufficient interoperability evidence.
 
 A cryptographic construction **MUST NOT** be promoted into a profile merely because a circuit or prototype is functionally feasible. Selection is gated on approval of the exact statement, negative meaning, context/scope/epoch inputs, adversary and horizon, attestation fields and disclosure modes, composition assumptions, lifecycle, accountability path, performance envelope, and conformance evidence.
 
-The detailed gate is defined in [`docs/implementation-guide/boundaries/predicate-assurance-boundary-decision.md#25-construction-selection-gate`](docs/implementation-guide/boundaries/predicate-assurance-boundary-decision.md#25-construction-selection-gate). Experimental lab or circuit benchmarks **MAY** be used as evidence input to that gate, but until independently reproduced or otherwise independently verified they **MUST** be labelled experimental and **MUST NOT** by themselves support an interoperability, assurance, or production-readiness claim.
+The maintained fork provides a non-normative
+[`construction-selection gate`](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/blob/4034bd23f9c4421bd87d000f787cb7f2afaddf77/docs/implementation-guide/boundaries/predicate-assurance-boundary-decision.md#25-construction-selection-gate)
+that can be used to evaluate candidate evidence. Experimental lab or circuit
+benchmarks **MAY** be used as evidence input to that gate, but until
+independently reproduced or otherwise independently verified they **MUST** be
+labelled experimental and **MUST NOT** by themselves support an
+interoperability, assurance, or production-readiness claim.
 
 ## 17. Security and privacy acceptance questions
 
@@ -562,8 +578,8 @@ The original “immediate next steps” list has been retired. Repository work c
 
 | Work item | Status | Durable evidence / next gate |
 |---|---|---|
-| Map `LIV-LCM-*`, `LIV-ALG-*` and `LIV-UNIQ-06` into predicate, scenario and assurance coverage | **completed** | [`requirements-assurance-map.csv`](docs/implementation-guide/matrices/requirements-assurance-map.csv) provides direct requirement-to-scenario/control/guardrail/test traceability. |
-| Pressure-test long retention, revocation cadence, post-quantum migration, enrolment-dedup failure and correlated multi-issuer biometric dependencies | **completed as test definitions; evidence remains deployment-dependent** | [`RAHP v1.1 refresh`](docs/implementation-guide/pressure-tests/rahp-v1.1-refresh.md) records the five focused tests, expected evidence and retest triggers. |
+| Map `LIV-LCM-*`, `LIV-ALG-*` and `LIV-UNIQ-06` into predicate, scenario and assurance coverage | **completed** | The maintained fork's non-normative [`requirements-assurance-map.csv`](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/blob/4034bd23f9c4421bd87d000f787cb7f2afaddf77/docs/implementation-guide/matrices/requirements-assurance-map.csv) provides direct requirement-to-scenario/control/guardrail/test traceability. |
+| Pressure-test long retention, revocation cadence, post-quantum migration, enrolment-dedup failure and correlated multi-issuer biometric dependencies | **completed as test definitions; evidence remains deployment-dependent** | The maintained fork's non-normative [`RAHP v1.1 refresh`](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/blob/4034bd23f9c4421bd87d000f787cb7f2afaddf77/docs/implementation-guide/pressure-tests/rahp-v1.1-refresh.md) records the five focused tests, expected evidence and retest triggers. |
 | Keep B1/B2 status synchronized through decision governance | **implemented and ongoing** | The decision register and B1/B2 conformance cases remain the authority. A change to either working position requires an explicit governed decision rather than prose drift. |
 | Collect construction/circuit benchmarks and independent reproduction evidence | **open evidence gate** | Construction selection remains deferred. Experimental benchmarks may inform the gate but do not support readiness claims until independently reproduced or otherwise independently verified. |
 | Prepare a concise upstream contribution separating semantic improvements from fork-specific implementation machinery | **open upstream action** | Upstreaming should package broadly reusable requirements and decision semantics separately from this fork's validators, deployment profiles, runbooks and local assurance machinery. |
