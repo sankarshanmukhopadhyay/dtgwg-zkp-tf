@@ -1,5 +1,6 @@
 requirement_id,predicate_ids,scenario_ids,control_ids,guardrail_ids,assurance_test_ids,coverage_intent
 LIV-UNIQ-06,PR-UNQ,UC-001;UC-007;UC-008;UC-034,CTL-CTX;CTL-GOV,ZGR-03;ZGR-01,ZAT-03;ZAT-01,"Distinct-human evidence must be stronger than distinct keys, credentials or issuer records."
+LIV-UNIQ-07,PR-UNQ,UC-016;UC-022;UC-024,CTL-GOV;CTL-CTX,ZGR-07;ZGR-03,ZAT-07;ZAT-03,"Attester independence bounds correlated failure and collusion risk; it does not establish individual-attester correctness or external-world truth."
 LIV-ALG-01,,UC-026;UC-030,CTL-AGL,ZGR-10,ZAT-10,Semantic claims remain proof-system agnostic across implementations.
 LIV-ALG-02,,UC-026;UC-030,CTL-AGL,ZGR-01;ZGR-10,ZAT-01;ZAT-10,Suite identification is deterministic and prevents cross-suite ambiguity.
 LIV-ALG-03,,UC-026;UC-048,CTL-AGL;CTL-TRN,ZGR-02;ZGR-10,ZAT-02;ZAT-10,Negotiation is transcript-bound and downgrade resistant.

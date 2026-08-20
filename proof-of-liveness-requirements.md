@@ -262,6 +262,8 @@ At minimum, the transcript must commit to:
 
 **LIV-UNIQ-06 — Distinct-human semantics.** Where a profile claims `f-distinct`, it **MUST** define the evidence and assumptions under which two attestations are treated as originating from two distinct humans. Distinct pseudonyms, keys, credentials, issuer records, or enrolment identifiers are not sufficient by themselves.
 
+**LIV-UNIQ-07 — Attester-independence boundary.** Where a profile relies on multiple issuers or attesters, any independence claim **MUST** state the correlated-failure or collusion risk that the independence assumption is intended to bound. Attester independence **MUST NOT** be represented as evidence that any individual attester's underlying determination was correct, honest, or factually grounded. Cryptographic soundness binds a proof to its valid witness under the selected construction; it does not, by itself, bind the witness to external reality.
+
 ### 9.8 Privacy and disclosure
 
 **LIV-PRIV-01 — Named adversary.** Every unlinkability or confidentiality claim **MUST** name the relevant adversary: verifier, issuer, registry/status service, mediator, colluding parties, or another defined actor set.
@@ -419,6 +421,8 @@ A provider integration needs an explicit contract rather than an abstract “liv
 
 A nullifier obtains anti-Sybil force only from the enrolment and binding assumptions behind it. A deployment **MUST NOT** describe a nullifier as person-level anti-Sybil evidence when repeated enrolment by the same human is not controlled to the level required by the claim. Likewise, multiple issuers **MUST NOT** be described as independent merely because they are different legal entities when material biometric or data dependencies are shared.
 
+Attester independence addresses a different assurance question from attester correctness. Independence evidence can bound correlated failure, common-mode compromise, shared-data exposure, or collusion across attesters; it does not establish that any one attester's biometric/personhood determination corresponds to reality. A profile **MUST** keep these claims separate. Provenance, accreditation, signed attestations, trusted capture controls, or execution-carried assurance can strengthen evidence about how a determination was produced, but none may be described as establishing external-world truth beyond the property actually demonstrated.
+
 The contract must also state which values are secret witness data, credential data, public proof inputs and verifier outputs.
 
 ## 15. Verification outcome contract
@@ -543,7 +547,7 @@ A practical sequence is:
 3. **Ratify the Minimum Liveness Profile semantics.** This can progress without the uniqueness trade curve.
 4. **Define the attestation and verification outcome contracts.** Make upstream biometric inputs and downstream verifier semantics testable.
 5. **Apply the construction-selection gate before selecting MLP constructions.** Use experimental circuit benchmarks as inputs, then require independent verification/reproduction before stronger readiness claims.
-6. **Resolve EPP uniqueness/continuity governance.** Include enrolment dedup quality, `f-distinct` semantics where relevant, and biometric-provider independence before selecting scoped-nullifier/multi-issuer mechanisms.
+6. **Resolve EPP uniqueness/continuity governance.** Include enrolment dedup quality, `f-distinct` semantics where relevant, and biometric-provider independence before selecting scoped-nullifier/multi-issuer mechanisms. Keep independence claims explicitly scoped to correlated-failure and collusion risk rather than individual-attester correctness.
 7. **Pressure-test lifecycle and migration.** Cover bounded epochs, cryptoperiods, post-quantum migration, long-retention evidence, revocation cadence, recovery, policy withdrawal and offline verification.
 8. **Pressure-test agent composition.** Keep human-related predicates separate from delegated authority and treat failures as first-class protocol states.
 9. **Cross-map every proposed normative requirement to conformance evidence.** A requirement with no observable test or assurance evidence should be explicitly identified as governance-only rather than accidentally untestable.
@@ -554,7 +558,7 @@ The original “immediate next steps” list has been retired. Repository work c
 
 | Work item | Status | Durable evidence / next gate |
 |---|---|---|
-| Map `LIV-LCM-*`, `LIV-ALG-*` and `LIV-UNIQ-06` into predicate, scenario and assurance coverage | **completed** | [`requirements-assurance-map.csv`](docs/implementation-guide/matrices/requirements-assurance-map.csv) provides direct requirement-to-scenario/control/guardrail/test traceability. |
+| Map `LIV-LCM-*`, `LIV-ALG-*` and `LIV-UNIQ-06..07` into predicate, scenario and assurance coverage | **completed** | [`requirements-assurance-map.csv`](docs/implementation-guide/matrices/requirements-assurance-map.csv) provides direct requirement-to-scenario/control/guardrail/test traceability. |
 | Pressure-test long retention, revocation cadence, post-quantum migration, enrolment-dedup failure and correlated multi-issuer biometric dependencies | **completed as test definitions; evidence remains deployment-dependent** | [`RAHP v1.1 refresh`](docs/implementation-guide/pressure-tests/rahp-v1.1-refresh.md) records the five focused tests, expected evidence and retest triggers. |
 | Keep B1/B2 status synchronized through decision governance | **implemented and ongoing** | The decision register and B1/B2 conformance cases remain the authority. A change to either working position requires an explicit governed decision rather than prose drift. |
 | Collect construction/circuit benchmarks and independent reproduction evidence | **open evidence gate** | Construction selection remains deferred. Experimental benchmarks may inform the gate but do not support readiness claims until independently reproduced or otherwise independently verified. |
@@ -584,6 +588,7 @@ The RAHP refresh is deliberately **not** treated as a transfer of normative auth
 - Added post-quantum migration readiness, security-horizon and hash-chain continuity guardrails.
 - Added lifecycle requirements covering bounded epochs, cryptoperiods, retention, revocation cadence and historical evidence.
 - Strengthened biometric-provider inputs for enrolment-dedup quality and multi-issuer biometric independence.
+- Clarified that attester independence bounds correlated-failure and collusion risk but does not establish the correctness, honesty, or external-world truth of any individual attester determination (`LIV-UNIQ-07`).
 - Added `F_PoP` and `f-distinct` terminology alignment with the primary cryptographic reference.
 - Tightened the separation of agent authority into mandatory structured delegation evidence when relied upon.
 - Split the remaining backlog into semantic/governance decisions and construction/engineering decisions.

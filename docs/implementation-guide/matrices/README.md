@@ -17,7 +17,7 @@ has_toc: true
 | ownership-map.csv | workstream responsibility | 10 |
 | maturity-map.csv | readiness evidence | 8 |
 | rahp-adaptation-map.csv | RAHP provenance, current method refresh and ZKP adaptation | 7 |
-| requirements-assurance-map.csv | `LIV-LCM-*`, `LIV-ALG-*` and `LIV-UNIQ-06` assurance traceability | 15 |
+| requirements-assurance-map.csv | `LIV-LCM-*`, `LIV-ALG-*` and `LIV-UNIQ-06..07` assurance traceability | 16 |
 | threat-control-guardrail-map.csv | threat-to-activation coverage | 6 |
 | guardrail-assurance-map.csv | guardrail evidence coverage | 14 |
 | threat-metric-map.csv | runtime assurance indicators | 14 |

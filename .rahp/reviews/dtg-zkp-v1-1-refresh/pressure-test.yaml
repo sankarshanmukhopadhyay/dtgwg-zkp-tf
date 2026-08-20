@@ -167,9 +167,9 @@ review:
         evidence_patterns: [EVP-PRV-01, EVP-GOV-01]
       evidence:
         - source: proof-of-liveness-requirements.md#18-biometricpersonhood-provider-inputs
-          observation: The requirements call for enrolment-dedup quality and provider independence, but common biometric vendors, templates, model infrastructure or breach domains can make nominally independent issuers correlated in practice.
+          observation: The requirements call for enrolment-dedup quality and provider independence, but common biometric vendors, templates, model infrastructure or breach domains can make nominally independent issuers correlated in practice. LIV-UNIQ-07 further separates this independence claim from the correctness or honesty of any single attester determination.
       harm: Ecosystem diversity can be illusory, allowing a common provider or shared biometric dependency to become a system-wide correlation, coercion, compromise or exclusion point.
-      recommendation: Require a dependency-independence assessment covering common biometric processors, model providers, template stores, matching infrastructure, breach domains and governance control.
+      recommendation: Require a dependency-independence assessment covering common biometric processors, model providers, template stores, matching infrastructure, breach domains and governance control, and require the resulting claim to be scoped to correlated-failure/collusion risk rather than individual-attester correctness.
       retest_when:
         - a new issuer or biometric provider enters the ecosystem
         - shared infrastructure, mergers or common service providers alter dependency independence

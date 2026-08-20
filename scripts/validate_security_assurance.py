@@ -19,7 +19,7 @@ for r in rows:
 for name in ['security-assurance-result.schema.json','security-metric-evidence.schema.json','residual-risk-approval.schema.json']:
     json.loads((G/'conformance/schemas'/name).read_text())
 with (G/'matrices/requirements-assurance-map.csv').open() as f: req_rows=list(csv.DictReader(f))
-expected={f'LIV-LCM-{n:02d}' for n in range(1,7)} | {f'LIV-ALG-{n:02d}' for n in range(1,9)} | {'LIV-UNIQ-06'}
+expected={f'LIV-LCM-{n:02d}' for n in range(1,7)} | {f'LIV-ALG-{n:02d}' for n in range(1,9)} | {'LIV-UNIQ-06','LIV-UNIQ-07'}
 covered={r['requirement_id'] for r in req_rows}
 missing=sorted(expected-covered)
 if missing: errors.append('Missing requirement assurance mappings: '+', '.join(missing))

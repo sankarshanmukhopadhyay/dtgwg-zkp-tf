@@ -24,7 +24,7 @@ The earlier ZKP security layer adopted RAHP's risks/harms, control, guardrail, a
 | `RPT-02` | **Revocation cadence and stale state** | status cadence, maximum cache age, effective-time rules, partition/unavailable behaviour, independent-verifier vectors | independent conformant verifiers reach the same result at boundary times or invoke the same governed degraded mode |
 | `RPT-03` | **Post-quantum / suite migration** | supported-suite record, migration trigger, overlap window, downgrade vectors, rollback authority, pre/post security horizons | migration preserves semantic claims without representing lineage as restored confidentiality, unlinkability or unforgeability |
 | `RPT-04` | **Enrolment-dedup failure** | uniqueness scope, dedup method, error evidence, re-enrolment/recovery controls, false-match/false-non-match handling, redress | `f-distinct` or scoped-uniqueness claims remain bounded to demonstrated evidence and do not collapse into global personhood claims |
-| `RPT-05` | **Correlated multi-issuer biometric dependency** | issuer/provider dependency graph, common processors/models/template stores, breach domains, governance and change authority | nominally independent issuers do not inherit an unacknowledged common correlation, coercion, compromise or exclusion dependency |
+| `RPT-05` | **Correlated multi-issuer biometric dependency** | issuer/provider dependency graph, common processors/models/template stores, breach domains, governance and change authority | nominally independent issuers do not inherit an unacknowledged common correlation, coercion, compromise or exclusion dependency, and independence is not misrepresented as evidence of individual-attester correctness |
 
 ## Findings and disposition
 
@@ -38,7 +38,8 @@ The corresponding `LIV-*` coverage is recorded in [`requirements-assurance-map.c
 
 - `LIV-LCM-01..06` map lifecycle, retention, revocation cadence and historical evidence to scenarios, controls, guardrails and assurance tests;
 - `LIV-ALG-01..08` map proof-system independence, suite identification, negotiation, migration, dependencies and post-quantum readiness;
-- `LIV-UNIQ-06` maps distinct-human semantics to scoped uniqueness and deduplication assurance.
+- `LIV-UNIQ-06` maps distinct-human semantics to scoped uniqueness and deduplication assurance;
+- `LIV-UNIQ-07` maps attester-independence claims to correlated-failure and collusion risk while explicitly preventing independence from being treated as evidence of individual-attester correctness.
 
 ## Retest triggers
 
