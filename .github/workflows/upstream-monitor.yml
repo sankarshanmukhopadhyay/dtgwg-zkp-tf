@@ -26,8 +26,21 @@ jobs:
           path: |
             .upstream/checkpoint.json
             .upstream/drift-report.md
-      - name: Create or update drift issue in this fork
+      - name: Publish drift summary
+        if: steps.drift.outputs.enabled == 'true'
+        run: cat .upstream/drift-report.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Inspect issue capability
         if: steps.drift.outputs.drift == 'true'
+        id: repository
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          issues_enabled="$(gh api "repos/$GITHUB_REPOSITORY" --jq '.has_issues')"
+          echo "issues_enabled=$issues_enabled" >> "$GITHUB_OUTPUT"
+      - name: Create or update drift issue in this fork
+        if: >-
+          steps.drift.outputs.drift == 'true' &&
+          steps.repository.outputs.issues_enabled == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           TITLE: "Upstream drift: ${{ steps.drift.outputs.upstream }}"
@@ -40,3 +53,10 @@ jobs:
           gh label create governance-review --repo "$repo" --description "Requires governance review" --color D4C5F9 --force
           if [ -n "$existing" ]; then gh issue edit "$existing" --repo "$repo" --title "$TITLE" --body-file .upstream/drift-report.md
           else gh issue create --repo "$repo" --title "$TITLE" --body-file .upstream/drift-report.md --label upstream-drift,governance-review; fi
+      - name: Signal drift when Issues are disabled
+        if: >-
+          steps.drift.outputs.drift == 'true' &&
+          steps.repository.outputs.issues_enabled != 'true'
+        run: |
+          echo "::error::Upstream drift was detected, but repository Issues are disabled. Review the uploaded evidence and run Upstream synchronisation."
+          exit 1

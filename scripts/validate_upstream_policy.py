@@ -32,6 +32,13 @@ for rel, markers in required.items():
         if marker.lower() not in text.lower():
             bad.append(f"{rel}: missing required marker '{marker}'")
 
+monitor = (R / ".github/workflows/upstream-monitor.yml").read_text()
+for marker in ("GITHUB_STEP_SUMMARY", "issues_enabled", "upstream-drift-evidence"):
+    if marker not in monitor:
+        bad.append(f".github/workflows/upstream-monitor.yml: missing resilient drift marker '{marker}'")
+if "Issues are disabled" not in monitor or "exit 1" not in monitor:
+    bad.append(".github/workflows/upstream-monitor.yml: disabled-Issues drift must fail visibly")
+
 if bad:
     print("\n".join(bad), file=sys.stderr)
     sys.exit(1)
