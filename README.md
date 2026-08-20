@@ -114,18 +114,16 @@ Markdown under `docs/implementation-guide/` is validated for navigation and publ
 Run the principal validation suite from the repository root:
 
 ```sh
-python3 scripts/validate_docs.py
-python3 scripts/validate_conformance.py
-python3 scripts/validate_style.py
-python3 scripts/validate_links.py
-python3 scripts/validate_fixtures.py
-python3 scripts/validate_upstream_policy.py
-python3 scripts/validate_interoperability.py
-python3 scripts/validate_conformance_harness.py
-python3 scripts/build_traceability.py
+python3 -m pip install pyyaml jsonschema pytest -e conformance-harness
+python3 scripts/validate_all.py
 ```
 
-Additional validators cover diagrams, navigation, site output, deployment profiles, decision governance and security assurance. v0.4.0 also adds governed DTG dependency validation and deterministic interoperability cases to the executable harness.
+The complete gate runs all repository validators, harness unit tests and the
+deterministic executable subset. Use `--evidence-dir results` to retain the
+generated JSON and Markdown evidence. Run `scripts/build_traceability.py`
+after changing traceability inputs, then rerun the complete gate before
+committing the regenerated output. Rendered-site validation remains part of
+the Pages build because it requires the generated Jekyll site.
 
 ## Contributing
 
