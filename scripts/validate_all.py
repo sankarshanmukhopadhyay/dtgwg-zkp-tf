@@ -20,6 +20,7 @@ VALIDATORS = (
     "validate_fixtures.py",
     "validate_upstream_policy.py",
     "validate_interoperability.py",
+    "validate_external_evidence.py",
     "validate_conformance_harness.py",
     "validate_threat_model.py",
     "validate_deployment_profiles.py",
@@ -68,18 +69,20 @@ def execute(evidence_dir: Path) -> None:
     env = os.environ.copy()
     source = str(ROOT / "conformance-harness" / "src")
     env["PYTHONPATH"] = source + os.pathsep + env.get("PYTHONPATH", "")
-    run(
-        sys.executable,
-        "-m",
-        "dtgwg_zkp_conformance.cli",
-        "--manifest",
-        "conformance-harness/examples/mock-manifest.json",
-        "--schema",
-        "docs/implementation-guide/conformance/schemas/conformance-test-manifest.schema.json",
-        "--output",
-        str(evidence_dir),
-        env=env,
-    )
+    manifests = sorted((ROOT / "conformance-harness" / "examples").glob("*-manifest.json"))
+    for manifest in manifests:
+        run(
+            sys.executable,
+            "-m",
+            "dtgwg_zkp_conformance.cli",
+            "--manifest",
+            str(manifest.relative_to(ROOT)),
+            "--schema",
+            "docs/implementation-guide/conformance/schemas/conformance-test-manifest.schema.json",
+            "--output",
+            str(evidence_dir / manifest.stem),
+            env=env,
+        )
 
 
 if __name__ == "__main__":

@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "testId": "CT-UC017-NEG-01",
+  "operation": "evaluate_resource_profile",
+  "input": {
+    "minimumCapabilities": {"memoryMiB": 256, "batteryPercent": 10},
+    "deviceCapabilities": {"memoryMiB": 128, "batteryPercent": 8},
+    "ceiling": {"memoryMiB": 192, "provingTimeMs": 3000, "batteryPercent": 4},
+    "measurement": {},
+    "fallbackPolicyAuthorized": false
+  }
+}

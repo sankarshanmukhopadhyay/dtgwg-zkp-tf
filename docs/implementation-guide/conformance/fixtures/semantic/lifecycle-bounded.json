@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "testId": "CT-SEC-LIFE-POS-01",
+  "operation": "evaluate_lifecycle",
+  "input": {
+    "rootCryptoperiodDays": 365,
+    "nullifierEpochDays": 30,
+    "retentionDays": 90,
+    "retentionPolicy": "bounded",
+    "assuranceHorizonDays": 180
+  }
+}

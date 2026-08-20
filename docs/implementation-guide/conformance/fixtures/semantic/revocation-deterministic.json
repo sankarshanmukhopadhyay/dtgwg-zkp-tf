@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "testId": "CT-UC004-POS-02",
+  "operation": "evaluate_revocation_timing",
+  "input": {
+    "challengeIssuedAt": 1000,
+    "suspensionEffectiveAt": 1010,
+    "verificationAt": 1020,
+    "verifiers": [
+      {"implementation": "independent-a", "evaluationRule": "effective-at-verification"},
+      {"implementation": "independent-b", "evaluationRule": "effective-at-verification"}
+    ]
+  }
+}

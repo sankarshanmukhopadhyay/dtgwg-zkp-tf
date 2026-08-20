@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "testId": "CT-SEC-CTX-NEG-01",
+  "operation": "evaluate_context_governance",
+  "input": {
+    "authority": "urn:dtg:governance:community-access",
+    "verifierSet": ["urn:dtg:verifier:community-a"],
+    "epoch": "2026-Q3",
+    "permittedLinkage": "within context",
+    "prohibitedLinkage": "outside context",
+    "humanLegibleBoundary": "This proof is scoped."
+  }
+}

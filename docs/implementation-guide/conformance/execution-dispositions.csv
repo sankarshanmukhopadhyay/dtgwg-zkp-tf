@@ -2,15 +2,15 @@ test_id,disposition,blocking_class,rationale,decision_authority,required_artifac
 CT-UC004-POS-01,EXECUTABLE,,Deterministic construction-neutral semantics available.,Conformance editors,mock-manifest.json
 CT-UC004-NEG-01,EXECUTABLE,,Deterministic construction-neutral semantics available.,Conformance editors,mock-manifest.json
 CT-UC004-NEG-02,BLOCKED-CONSTRUCTION-SELECTION,predicate-construction,Requires selected liveness or personhood construction.,Task Force,normative predicate construction decision
-CT-UC004-POS-02,BLOCKED-FIXTURE,fixture,Expected behaviour is defined but no deterministic executable fixture exists.,Conformance editors,canonical fixture and assertion mapping
+CT-UC004-POS-02,EXECUTABLE,,Deterministic construction-neutral semantic fixture available.,Conformance editors,semantic-fixture-manifest.json
 CT-UC006-POS-01,BLOCKED-CONSTRUCTION-SELECTION,predicate-construction,Requires selected liveness or personhood construction.,Task Force,normative predicate construction decision
 CT-UC006-NEG-01,BLOCKED-CONSTRUCTION-SELECTION,predicate-construction,Requires selected liveness or personhood construction.,Task Force,normative predicate construction decision
 CT-UC006-POS-02,BLOCKED-CONSTRUCTION-SELECTION,predicate-construction,Requires selected liveness or personhood construction.,Task Force,normative predicate construction decision
 CT-UC006-NEG-02,BLOCKED-CONSTRUCTION-SELECTION,predicate-construction,Requires selected liveness or personhood construction.,Task Force,normative predicate construction decision
-CT-UC017-POS-01,BLOCKED-FIXTURE,fixture,Expected behaviour is defined but no deterministic executable fixture exists.,Conformance editors,canonical fixture and assertion mapping
-CT-UC017-NEG-01,BLOCKED-FIXTURE,fixture,Expected behaviour is defined but no deterministic executable fixture exists.,Conformance editors,canonical fixture and assertion mapping
-CT-UC017-POS-02,BLOCKED-FIXTURE,fixture,Expected behaviour is defined but no deterministic executable fixture exists.,Conformance editors,canonical fixture and assertion mapping
-CT-UC017-NEG-02,BLOCKED-FIXTURE,fixture,Expected behaviour is defined but no deterministic executable fixture exists.,Conformance editors,canonical fixture and assertion mapping
+CT-UC017-POS-01,EXECUTABLE,,Deterministic construction-neutral semantic fixture available.,Conformance editors,semantic-fixture-manifest.json
+CT-UC017-NEG-01,EXECUTABLE,,Deterministic construction-neutral semantic fixture available.,Conformance editors,semantic-fixture-manifest.json
+CT-UC017-POS-02,EXECUTABLE,,Deterministic construction-neutral semantic fixture available.,Conformance editors,semantic-fixture-manifest.json
+CT-UC017-NEG-02,EXECUTABLE,,Deterministic construction-neutral semantic fixture available.,Conformance editors,semantic-fixture-manifest.json
 CT-UC020-POS-01,BLOCKED-CONSTRUCTION-SELECTION,predicate-construction,Requires selected liveness or personhood construction.,Task Force,normative predicate construction decision
 CT-UC020-NEG-01,BLOCKED-CONSTRUCTION-SELECTION,predicate-construction,Requires selected liveness or personhood construction.,Task Force,normative predicate construction decision
 CT-UC020-NEG-02,BLOCKED-CONSTRUCTION-SELECTION,predicate-construction,Requires selected liveness or personhood construction.,Task Force,normative predicate construction decision
@@ -77,12 +77,12 @@ CT-UC030-POS-02,BLOCKED-CONSTRUCTION-SELECTION,cryptographic-construction,Requir
 CT-UC030-NEG-02,BLOCKED-CONSTRUCTION-SELECTION,cryptographic-construction,Requires real independent implementations or construction-specific vectors.,Task Force,profile and interoperable fixtures
 CT-SEC-BOUNDARY-POS-01,BLOCKED-CONSTRUCTION-SELECTION,predicate-construction,Requires selected liveness or personhood construction.,Task Force,normative predicate construction decision
 CT-SEC-BOUNDARY-NEG-01,BLOCKED-CONSTRUCTION-SELECTION,predicate-construction,Requires selected liveness or personhood construction.,Task Force,normative predicate construction decision
-CT-SEC-SCHEMA-POS-01,BLOCKED-FIXTURE,fixture,Expected behaviour is defined but no deterministic executable fixture exists.,Conformance editors,canonical fixture and assertion mapping
-CT-SEC-SCHEMA-NEG-01,BLOCKED-FIXTURE,fixture,Expected behaviour is defined but no deterministic executable fixture exists.,Conformance editors,canonical fixture and assertion mapping
-CT-SEC-CTX-POS-01,BLOCKED-FIXTURE,fixture,Expected behaviour is defined but no deterministic executable fixture exists.,Conformance editors,canonical fixture and assertion mapping
-CT-SEC-CTX-NEG-01,BLOCKED-FIXTURE,fixture,Expected behaviour is defined but no deterministic executable fixture exists.,Conformance editors,canonical fixture and assertion mapping
-CT-SEC-LIFE-POS-01,BLOCKED-FIXTURE,fixture,Expected behaviour is defined but no deterministic executable fixture exists.,Conformance editors,canonical fixture and assertion mapping
-CT-SEC-LIFE-NEG-01,BLOCKED-FIXTURE,fixture,Expected behaviour is defined but no deterministic executable fixture exists.,Conformance editors,canonical fixture and assertion mapping
+CT-SEC-SCHEMA-POS-01,EXECUTABLE,,Deterministic construction-neutral semantic fixture available.,Conformance editors,semantic-fixture-manifest.json
+CT-SEC-SCHEMA-NEG-01,EXECUTABLE,,Deterministic construction-neutral semantic fixture available.,Conformance editors,semantic-fixture-manifest.json
+CT-SEC-CTX-POS-01,EXECUTABLE,,Deterministic construction-neutral semantic fixture available.,Conformance editors,semantic-fixture-manifest.json
+CT-SEC-CTX-NEG-01,EXECUTABLE,,Deterministic construction-neutral semantic fixture available.,Conformance editors,semantic-fixture-manifest.json
+CT-SEC-LIFE-POS-01,EXECUTABLE,,Deterministic construction-neutral semantic fixture available.,Conformance editors,semantic-fixture-manifest.json
+CT-SEC-LIFE-NEG-01,EXECUTABLE,,Deterministic construction-neutral semantic fixture available.,Conformance editors,semantic-fixture-manifest.json
 CT-SEC-MED-POS-01,BLOCKED-CONSTRUCTION-SELECTION,cryptographic-construction,Requires real independent implementations or construction-specific vectors.,Task Force,profile and interoperable fixtures
 CT-SEC-MED-NEG-01,BLOCKED-CONSTRUCTION-SELECTION,cryptographic-construction,Requires real independent implementations or construction-specific vectors.,Task Force,profile and interoperable fixtures
 CT-SEC-MIG-POS-01,BLOCKED-CONSTRUCTION-SELECTION,cryptographic-construction,Requires real independent implementations or construction-specific vectors.,Task Force,profile and interoperable fixtures
