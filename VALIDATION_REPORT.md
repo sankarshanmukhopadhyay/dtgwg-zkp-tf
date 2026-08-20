@@ -1,24 +1,14 @@
 # Validation report
 
-This report is generated for the Implementation and Interoperability Guide Maturity Programme. The v0.4.0 release adds governed DTG interoperability profiles and cross-specification assurance while preserving the repository's explicit authority boundaries. See `RELEASE_NOTES_v0.4.0.md`.
+This report is generated for the Implementation and Interoperability Guide Maturity Programme. The v0.5.0 release adds fixture-derived semantic evidence and complete release-integrity controls while preserving the repository's explicit authority and cryptographic-conformance boundaries. See `RELEASE_NOTES_v0.5.0.md`.
 
 ## Required checks
 
 Run the following commands from the repository root:
 
 ```sh
-python3 scripts/validate_docs.py
-python3 scripts/validate_conformance.py
-python3 scripts/validate_style.py
-python3 scripts/validate_links.py
-python3 scripts/validate_fixtures.py
-python3 scripts/validate_navigation.py
-python3 scripts/validate_diagrams.py
-python3 scripts/validate_operations.py
-python3 scripts/validate_threat_model.py
-python3 scripts/validate_deployment_profiles.py
-python3 scripts/validate_generated_counts.py
-python3 scripts/validate_interoperability.py
+python3 -m pip install pyyaml jsonschema pytest -e conformance-harness
+python3 scripts/validate_all.py --evidence-dir results
 python3 scripts/build_traceability.py
 ```
 
@@ -36,11 +26,39 @@ Conformance validation passed.
 96/96 test rows OK across 4 conformance levels.
 Style validation passed.
 Link validation passed.
-Fixture validation passed: 49 JSON files parsed.
+Fixture validation passed: 62 JSON files parsed.
 Traceability generated: 52 scenarios, 96 conformance references and 26 assurance references.
 ```
 
-This release also ran `validate_navigation.py`, `validate_diagrams.py`, `validate_operations.py`, `validate_threat_model.py`, `validate_deployment_profiles.py` and `validate_generated_counts.py`; all passed. Residual conformance-coverage gaps remain governed through explicit execution dispositions. This release expands both the scenario corpus and the test matrix while preserving the distinction between executable and governed non-executable cases.
+The complete gate runs 19 validators, six harness unit tests and both deterministic manifests. Residual conformance-coverage gaps remain governed through explicit execution dispositions. The release contains 27 executable and 69 construction-blocked protocol cases.
+
+## v0.5.0 executable evidence and release integrity — 2026-08-20
+
+- Complete validation is exposed through `scripts/validate_all.py` and the repository-quality workflow.
+- GitHub Pages now uses the same complete pre-render gate.
+- Upstream drift always produces a workflow summary and artifact; disabled Issues cause a visible failure after evidence preservation.
+- Ten tracked Python bytecode files were removed and generated interpreter/test artefacts are ignored.
+- The semantic fixture adapter confines paths to the configured root and records fixture digests in execution evidence.
+- Eleven fixture-only cases now execute from repository-owned inputs: one revocation-timing case, four constrained-device/mediated-proving cases and six schema/context/lifecycle cases.
+- Conformance execution increased from 16 to 27 cases; all remaining 69 cases are blocked on predicate or cryptographic construction selection.
+- The external-evidence register records MAGE as unlicensed experimental evidence with no vendoring, CI dependency or conformance credit.
+- Repository navigation covers 206 rendered Markdown pages, and 62 JSON fixtures/schemas parse successfully.
+
+Validation results:
+
+```text
+Complete validation passed: 19 validators and harness evidence.
+Conformance validation passed: 96/96 test rows across 4 levels.
+Conformance harness validation passed: 27 executable across 2 manifests, 69 governed non-executable cases.
+Fixture validation passed: 62 JSON files parsed.
+External evidence validation passed: 1 governed source.
+Navigation validation passed for 206 rendered Markdown pages.
+Threat-model validation passed: 52 canonical threats with controls and dispositions.
+Identifier register valid: 272 semantic IDs.
+Harness unit tests: 6 passed.
+Mock manifest: 16 executed, 0 failed, 0 blocked.
+Semantic fixture manifest: 11 executed, 0 failed, 0 blocked.
+```
 
 ## Security guardrails and RAHP adaptation — 2026-07-21
 
