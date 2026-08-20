@@ -1,0 +1,31 @@
+schema_version: "1.0"
+project:
+  name: dtgwg-zkp-tf
+  maturity: implementation-draft
+  lifecycle: active
+  operational_status: active-development
+  specification_status: working-draft
+  intended_use:
+    - fork-local-zkp-implementation-guidance
+    - deployment-risk-analysis
+    - dtg-interoperability-requirements
+  not_asserted:
+    - upstream-specification-authority
+    - upstream-adoption
+    - production-certification
+authority:
+  normative_scope:
+    - fork-local-zkp-implementation-guidance
+  does_not_own:
+    - trustoverip-upstream-specification
+    - upstream-release-governance
+    - external-deployment-policy
+  delegation: "Repository maintainers govern only fork-local additions and evidence; trustoverip/dtgwg-zkp-tf retains upstream normative and release authority."
+  revocation_or_supersession: "Fork-local guidance is superseded through explicit versioned changes or upstream adoption; historical fork evidence remains auditable."
+evidence:
+  validation_commands:
+    - git diff --check
+  evidence_outputs: []
+  known_limitations:
+    - upstream adoption of fork-local guidance is not asserted
+    - deployment-specific proof-system assurance remains outside repository authority
