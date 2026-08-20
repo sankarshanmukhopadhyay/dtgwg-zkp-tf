@@ -9,6 +9,11 @@ has_children: true
 
 This section treats interoperability as a governed evidence boundary. The ZKP workspace consumes externally governed semantics, state and evidence, but does not acquire authority over the repositories that define them.
 
+External laboratories and implementations are governed through the
+[`external evidence register`](external-evidence-governance.md). A recorded
+source does not become a release dependency, normative authority or source of
+conformance credit merely because its public results are relevant.
+
 {: .governance }
 A successful ZKP verification does not create credential semantics, delegated authority, task authority, ceremony authority, registry recognition or governance legitimacy. Those conclusions remain controlled by their owning specifications, runtime authorities and relying-party policy.
 
@@ -41,6 +46,8 @@ The portfolio is intentionally not mirrored wholesale into this repository.
 - [Authority and evidence boundaries](authority-and-evidence-boundaries.md)
 - [Portfolio alignment register](portfolio-alignment-register.yaml)
 - [Cross-specification assurance register](cross-spec-assurance-register.yaml)
+- [External evidence governance](external-evidence-governance.md)
+- [External evidence register](external-evidence-register.yaml)
 - [DTG ZKP dependency diagram](../diagrams/D-030-dtg-zkp-dependency-map.md)
 - [Cross-specification pressure tests](../pressure-tests/README.md)
 

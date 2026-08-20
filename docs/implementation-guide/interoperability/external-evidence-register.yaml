@@ -1,0 +1,29 @@
+schemaVersion: "1.0"
+sources:
+  - id: EXT-MAGE
+    name: DTGWG ZKP MAGE experimental lab
+    repository: https://github.com/mitchuski/dtgwg-zkp-mage
+    reviewedRevision: e40e7f47557a1ec275cb9f22ec08585e2cb9cc28
+    reviewedAt: "2026-08-20"
+    authority: experimental-evidence
+    evidenceTypes:
+      - benchmark-results
+      - circuits
+      - conformance-fixtures
+      - cross-language-consumers
+      - reference-models
+    licenseStatus: unverified
+    permittedUse: reference-and-independent-observation-only
+    vendoringPermitted: false
+    ciDependency: false
+    conformanceCredit: none
+    retestTriggers:
+      - repository license metadata changes
+      - reviewed source revision changes
+      - construction-selection gate advances
+      - evidence is independently reproduced under a verified licence
+    notes: >-
+      The repository README describes intended licensing, but the reviewed
+      repository state has no detected licence file. No source, fixtures,
+      circuits or generated artefacts are copied into or executed by this
+      fork. Descriptions are limited to public, independently observed facts.

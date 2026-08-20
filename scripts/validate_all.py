@@ -20,6 +20,7 @@ VALIDATORS = (
     "validate_fixtures.py",
     "validate_upstream_policy.py",
     "validate_interoperability.py",
+    "validate_external_evidence.py",
     "validate_conformance_harness.py",
     "validate_threat_model.py",
     "validate_deployment_profiles.py",
