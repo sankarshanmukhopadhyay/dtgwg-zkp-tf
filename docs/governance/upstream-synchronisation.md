@@ -4,7 +4,7 @@ title: Upstream synchronisation governance
 
 # Upstream synchronisation governance
 
-This repository uses a deliberately one-way control plane. The declared upstream, `trustoverip/dtgwg-zkp-tf`, is readable; this fork is the only writable target. Upstream changes are detected automatically, raised as evidence-backed issues, and integrated only through a draft pull request reviewed under normal branch protections.
+This repository uses a deliberately one-way control plane. The declared upstream, `trustoverip/dtgwg-zkp-tf`, is readable; this fork is the only writable target. Upstream changes are detected automatically and integrated only through a draft pull request reviewed under normal branch protections. Every monitor run publishes a workflow summary and evidence artifact. When repository Issues are enabled, detected drift is also raised as an evidence-backed issue.
 
 ## Preserved upstream project narrative
 
@@ -19,12 +19,13 @@ The workflows may fetch upstream, create or update issues in this fork, create a
 ## Procedure
 
 1. The monitor runs every ten days or on manual dispatch.
-2. A drift report distinguishes observed, reviewed and integrated commits.
-3. A maintainer runs **Upstream synchronisation** to prepare a merge-based draft pull request.
-4. Protected local paths and semantic conflicts receive human review.
-5. Existing validation and publication checks remain mandatory.
-6. Only a human-authorised merge integrates the upstream change.
+2. A drift report distinguishes observed, reviewed and integrated commits and is published as both a workflow summary and an artifact.
+3. If drift exists and Issues are enabled, the monitor creates or updates the governed drift issue. If Issues are disabled, the monitor fails visibly after preserving the evidence so that drift cannot be silently discarded.
+4. A maintainer runs **Upstream synchronisation** to prepare a merge-based draft pull request.
+5. Protected local paths and semantic conflicts receive human review.
+6. Existing validation and publication checks remain mandatory.
+7. Only a human-authorised merge integrates the upstream change.
 
 ## Revocation and evidence
 
-Disabling the policy or workflows, or removing write permissions, immediately revokes automation authority. Checkpoint data, workflow artifacts, issues, pull requests, checks and merge history form the audit chain.
+Disabling the policy or workflows, or removing write permissions, immediately revokes automation authority. Checkpoint data, workflow summaries, artifacts, optional issues, pull requests, checks and merge history form the audit chain. Issue creation is a notification convenience rather than the sole evidence channel.
