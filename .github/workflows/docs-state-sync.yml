@@ -1,23 +1,21 @@
 name: Synchronize composed-privacy documentation state
 
 on:
-  push:
-    branches:
-      - docs/synchronize-composed-privacy-state
-    paths:
-      - '.github/workflows/docs-state-sync.yml'
+  pull_request:
+    branches: [main]
 
 permissions:
   contents: write
 
 jobs:
   sync:
-    if: github.actor != 'github-actions[bot]'
+    if: github.actor != 'github-actions[bot]' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
         with:
-          ref: docs/synchronize-composed-privacy-state
+          ref: ${{ github.event.pull_request.head.ref }}
+          persist-credentials: true
       - name: Synchronize canonical documentation summaries
         shell: python
         run: |
@@ -71,4 +69,4 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add README.md PROJECT-STATUS.yaml RELEASE_NOTES_COMPOSED_PRESENTATION_PRIVACY.md RELEASE_NOTES_COMPOSED_PRIVACY_CONSTRUCTION_PROFILES.md docs/implementation-guide/README.md
           git commit -m 'docs: synchronize composed-privacy construction state'
-          git push origin HEAD:docs/synchronize-composed-privacy-state
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
