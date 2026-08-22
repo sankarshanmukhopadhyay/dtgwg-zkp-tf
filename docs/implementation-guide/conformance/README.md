@@ -22,6 +22,7 @@ has_toc: true
 | [`executable-harness.md`](./executable-harness.md) | Harness architecture, adapter boundary and CI isolation |
 | [`conformance-decision-backlog.csv`](./conformance-decision-backlog.csv) | Machine-readable blockers for non-executable cases |
 | [`fixtures/`](./fixtures/) | Illustrative, non-normative JSON fixtures (canonical transcript, issuer set, nullifier scope/epoch, delegation, registry snapshot) referenced by test cases |
+| [`composed-presentation-privacy-tests.md`](./composed-presentation-privacy-tests.md) | Construction-neutral negative tests for privacy failures introduced by status, delegation, registry/accreditation, enumerable binders, network resolution and cross-artifact composition |
 
 Validate all of the above with:
 
@@ -45,6 +46,8 @@ Predicate semantics, canonical transcript and encodings, lifecycle and
 status, cross-vendor interoperability, privacy against named adversaries,
 constrained devices, fallback and downgrade, and error consistency — see
 `levels.md` for how each of these maps onto [`CL-1`](../reference/identifier-register.md#cl-1) through [`CL-4`](../reference/identifier-register.md#cl-4).
+
+Privacy conformance also applies across the **complete evidence closure** of a verification predicate. A credential or proof that passes standalone selective-disclosure or unlinkability tests does not establish end-to-end privacy when required delegation, status, registry/accreditation, Trust Task or network-resolution evidence introduces an additional correlation surface. See [`composed-presentation-privacy-tests.md`](./composed-presentation-privacy-tests.md).
 
 ## Minimum plugfest topology
 
@@ -72,6 +75,8 @@ traceable to a real predicate, adversary and scenario, and that no
 conformance level is defined by assertion alone (rule 1 and rule 2 of
 `../../../DRAFTING-RULES.md`) — not cryptographic correctness.
 
+The composed-presentation cases are currently construction-neutral semantic tests. They define failure conditions that must eventually be represented in the machine-readable matrix or equivalent executable/assurance evidence as affected predicates and constructions mature.
+
 ## Known gaps
 
 - 11 of the 30 scenarios (all P1/P2) are not yet assigned to a conformance
@@ -82,6 +87,7 @@ conformance level is defined by assertion alone (rule 1 and rule 2 of
   `taxonomy/predicates.md` yet.
 - No cross-vendor plugfest ([`UC-030`](../reference/identifier-register.md#uc-030)) has run. [`CL-4`](../reference/identifier-register.md#cl-4)'s positive test cases
   assume two independent implementations exist; today there are zero.
+- The composed-presentation privacy cases have not yet been promoted into `test-matrix.csv`; construction-independent semantics are defined here first to avoid inventing predicate identifiers or executable claims prematurely.
 
 ## Evidence packaging
 
@@ -91,6 +97,7 @@ Use the implementation and profile statement templates and the JSON schemas in `
 
 A profile evidence bundle includes linked assurance and disclosure records, a field-level attestation schema assessment, applicable canonical threat IDs, control evidence, lifecycle bounds, migration behaviour and residual-risk decisions. The boundary-record schema and fixtures provide portable examples. Run `python3 scripts/validate_threat_model.py` with the existing validation suite.
 
+For composed predicates, the bundle should also identify the minimum evidence closure, cross-artifact relationship inputs and verifier-originated external observations that materially affect the privacy class.
 
 ## Security assurance
 
