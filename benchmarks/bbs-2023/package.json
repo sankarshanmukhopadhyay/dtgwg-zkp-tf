@@ -1,0 +1,11 @@
+{
+  "name": "dtgwg-zkp-bbs-2023-benchmark",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@digitalbazaar/bls12-381-multikey": "2.2.0"
+  },
+  "scripts": {
+    "benchmark": "node benchmark.mjs"
+  }
+}
