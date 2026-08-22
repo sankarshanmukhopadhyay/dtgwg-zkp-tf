@@ -1,0 +1,43 @@
+profile_id: EXP-PR-REL-SIGMA-01
+status: experimental
+normative: false
+predicate: PR-REL
+purpose: prove equality of a hidden scalar across two independently authenticated commitments
+construction:
+  relation: |
+    C1 = m*G + r1*H
+    C2 = m*G + r2*H
+  group: ristretto255
+  commitment_family: Pedersen-style
+  sigma_protocol:
+    specification: draft-irtf-cfrg-sigma-protocols-03
+    published: 2026-08-17
+    url: https://www.ietf.org/archive/id/draft-irtf-cfrg-sigma-protocols-03.html
+  non_interactive_transform:
+    specification: draft-irtf-cfrg-fiat-shamir-03
+    published: 2026-08-16
+    url: https://www.ietf.org/archive/id/draft-irtf-cfrg-fiat-shamir-03.html
+  implementation_dependency:
+    package: '@noble/curves'
+    version: 2.3.0
+    primitive: ristretto255
+context_binding:
+  required: true
+  profile_domain: DTG-PR-REL-SIGMA-v1
+commitment_authentication:
+  required: true
+  rule: each commitment must be authenticated by the artifact that contributes it to the evidence closure
+coverage:
+  PR-REL: experimental-supported
+  PR-CMP: partial
+  PR-HID: partial
+  PR-DEL: partial
+external_related_work:
+  - specification: draft-bormann-jwp-modular-bbs-00
+    role: related commit-and-prove architecture; not adopted by this profile
+claims_not_made:
+  - universal DTG construction selection
+  - delegation-chain validity
+  - arbitrary non-linear predicates
+  - canonical safe encoding of every DTG value into a field scalar
+  - independent implementation interoperability for this exact profile

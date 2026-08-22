@@ -1,0 +1,42 @@
+name: PR-REL construction evidence
+
+on:
+  pull_request:
+    paths:
+      - 'benchmarks/pr-rel-sigma/**'
+      - 'docs/implementation-guide/conformance/experimental-pr-rel-sigma-profile.*'
+      - '.github/workflows/pr-rel-construction-evidence.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  relationship-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: benchmarks/pr-rel-sigma
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - name: Install pinned curve dependency
+        run: npm install --ignore-scripts --no-audit --no-fund
+      - name: Execute deterministic PR-REL vectors
+        run: npm test
+      - name: Execute PR-REL benchmark
+        run: npm run benchmark
+        env:
+          PR_REL_BENCH_WARMUP: '5'
+          PR_REL_BENCH_ITERATIONS: '50'
+      - name: Upload relationship-proof evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-rel-sigma-construction-evidence
+          path: |
+            benchmarks/pr-rel-sigma/pr-rel-sigma-vector.json
+            benchmarks/pr-rel-sigma/pr-rel-sigma-benchmark.json
+          if-no-files-found: error

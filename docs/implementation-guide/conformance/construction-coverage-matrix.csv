@@ -3,6 +3,10 @@ EXP-BBS-2023-01,PR-CMP,bbs-2023,partial,"W3C vectors; local BBS benchmark; CP-PR
 EXP-BBS-2023-01,PR-HLD,bbs-2023 anonymous_holder_binding,supported-for-credential-layer,"W3C holder-binding vectors; external interoperability report",profile governance and representative-device evidence
 EXP-BBS-2023-01,PR-ISS,bbs-2023,partial,"BBS signature/derived-proof evidence",private issuer-set membership when exact issuer disclosure is unnecessary
 EXP-BBS-2023-01,PR-DEL,bbs-2023 selective disclosure,partial,"credential-layer selective disclosure; CP-PRIV-002 semantic case",arbitrary cross-artifact or ancestry authority proof construction
-EXP-BBS-2023-01,PR-REL,unselected,open-construction-slot,"semantic fixture CP-PRIV-002",select composition/equality/relationship proof construction
+EXP-BBS-2023-01,PR-REL,separate-profile,delegated-to-EXP-PR-REL-SIGMA-01,"semantic fixture CP-PRIV-002",authenticate commitments and apply explicit relationship-proof profile
 EXP-BBS-2023-01,PR-HID,unselected,open-construction-slot,"semantic fixture CP-PRIV-003",select hiding commitment/binder construction
 EXP-BBS-2023-01,PR-RES,profile architecture,architecture-property,"semantic fixtures CP-PRIV-001 and CP-PRIV-006",select carried/cached/private resolution mechanism for profiles requiring stronger privacy
+EXP-PR-REL-SIGMA-01,PR-REL,"Ristretto255 linear-relation Sigma proof + Fiat-Shamir",experimental-supported,"deterministic positive/negative vectors; local benchmark; CP-PRIV-002 semantic case",independent implementation interoperability and governed encoding profiles
+EXP-PR-REL-SIGMA-01,PR-CMP,"same-hidden-value proof across authenticated commitments",partial,"context-bound equality proof; CP-PRIV semantic corpus",verify complete evidence closure does not reveal another correlator
+EXP-PR-REL-SIGMA-01,PR-HID,"Pedersen-style commitments",partial,"commitment relation exercised by PR-REL vectors",dedicated low-entropy encoding/hiding-binder profile
+EXP-PR-REL-SIGMA-01,PR-DEL,"relationship proof over committed authority inputs",partial,"PR-REL construction evidence",delegation scope/lifecycle/governance and ancestry semantics remain separate
