@@ -1,0 +1,78 @@
+profiles:
+  - profile_id: RES-BSL-CACHE-01
+    status: experimental
+    predicate: PR-RES
+    applicable_semantics:
+      - credential_status
+    mechanism:
+      type: shared_status_list
+      specification: W3C Bitstring Status List v1.0
+      specification_url: https://www.w3.org/TR/vc-bitstring-status-list/
+      specification_status: W3C Recommendation 15 May 2025
+    privacy:
+      verifier_originated_subject_specific_lookup: false
+      retrieval_scope: whole_shared_list
+      cache_or_shared_distribution_required: true
+      correlation_claim: reduced_not_eliminated
+    freshness:
+      max_age_seconds: 300
+      stale_behavior: fail_closed
+    requirements:
+      - validate_status_list_credential_authenticity
+      - validate_status_purpose
+      - validate_index_and_bounds
+      - enforce_cache_age
+      - do_not_query_authority_by_credential_or_subject_identifier
+
+  - profile_id: RES-CARRIED-SNAPSHOT-01
+    status: experimental
+    predicate: PR-RES
+    applicable_semantics:
+      - status
+      - registry_membership
+      - accreditation
+    mechanism:
+      type: holder_carried_authenticated_snapshot
+      specification: profile-defined
+    privacy:
+      verifier_originated_subject_specific_lookup: false
+      verifier_originated_authoritative_lookup: false
+      correlation_claim: no_verifier_to_authority_observation_during_verification
+    freshness:
+      max_age_seconds: 300
+      stale_behavior: fail_closed
+    requirements:
+      - snapshot_is_authenticated_by_authoritative_source
+      - snapshot_identifies_semantic_type_and_policy_version
+      - evidence_binding_is_verified
+      - enforce_snapshot_age
+
+  - profile_id: RES-LIVE-DECLARED-01
+    status: experimental
+    predicate: PR-RES
+    applicable_semantics:
+      - deployment_defined
+    mechanism:
+      type: live_authoritative_lookup
+    privacy:
+      verifier_originated_subject_specific_lookup: permitted_when_governed
+      authority_can_observe_verification: true
+      privacy_degradation: required_declared
+      correlation_claim: degraded
+    freshness:
+      max_age_seconds: 0
+      stale_behavior: not_applicable
+    requirements:
+      - governance_explicitly_permits_live_lookup
+      - privacy_profile_declares_authority_observation
+      - verifier_does_not_claim_no_authority_observation
+      - query_minimization_applied_where_possible
+
+semantic_separation:
+  rule: shared proof or set representation does not imply shared semantics
+  distinct_semantics:
+    - credential_status
+    - registry_membership
+    - accreditation
+    - authorization
+    - anchoring
