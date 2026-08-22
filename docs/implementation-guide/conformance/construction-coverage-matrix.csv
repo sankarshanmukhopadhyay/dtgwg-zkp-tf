@@ -4,9 +4,12 @@ EXP-BBS-2023-01,PR-HLD,bbs-2023 anonymous_holder_binding,supported-for-credentia
 EXP-BBS-2023-01,PR-ISS,bbs-2023,partial,"BBS signature/derived-proof evidence",private issuer-set membership when exact issuer disclosure is unnecessary
 EXP-BBS-2023-01,PR-DEL,bbs-2023 selective disclosure,partial,"credential-layer selective disclosure; CP-PRIV-002 semantic case",arbitrary cross-artifact or ancestry authority proof construction
 EXP-BBS-2023-01,PR-REL,separate-profile,delegated-to-EXP-PR-REL-SIGMA-01,"semantic fixture CP-PRIV-002",authenticate commitments and apply explicit relationship-proof profile
-EXP-BBS-2023-01,PR-HID,unselected,open-construction-slot,"semantic fixture CP-PRIV-003",select hiding commitment/binder construction
+EXP-BBS-2023-01,PR-HID,separate-profile,delegated-to-EXP-PR-HID-PEDERSEN-01,"semantic fixture CP-PRIV-003",apply governed value encoding and authenticated proof-input interface
 EXP-BBS-2023-01,PR-RES,profile architecture,architecture-property,"semantic fixtures CP-PRIV-001 and CP-PRIV-006",select carried/cached/private resolution mechanism for profiles requiring stronger privacy
 EXP-PR-REL-SIGMA-01,PR-REL,"Ristretto255 linear-relation Sigma proof + Fiat-Shamir",experimental-supported,"deterministic positive/negative vectors; local benchmark; CP-PRIV-002 semantic case",independent implementation interoperability and governed encoding profiles
 EXP-PR-REL-SIGMA-01,PR-CMP,"same-hidden-value proof across authenticated commitments",partial,"context-bound equality proof; CP-PRIV semantic corpus",verify complete evidence closure does not reveal another correlator
-EXP-PR-REL-SIGMA-01,PR-HID,"Pedersen-style commitments",partial,"commitment relation exercised by PR-REL vectors",dedicated low-entropy encoding/hiding-binder profile
+EXP-PR-REL-SIGMA-01,PR-HID,"Pedersen-style commitments",delegated-to-EXP-PR-HID-PEDERSEN-01,"commitment relation exercised by PR-REL vectors",use dedicated low-entropy encoding/hiding-binder profile
 EXP-PR-REL-SIGMA-01,PR-DEL,"relationship proof over committed authority inputs",partial,"PR-REL construction evidence",delegation scope/lifecycle/governance and ancestry semantics remain separate
+EXP-PR-HID-PEDERSEN-01,PR-HID,"Ristretto255 Pedersen-style commitment",experimental-supported,"opening vectors; enumerable-digest regression; unlinkability check; local benchmark",canonical value profiles and independent interoperability evidence
+EXP-PR-HID-PEDERSEN-01,PR-REL,"compatible committed scalar input",composable,"shared commitment representation with EXP-PR-REL-SIGMA-01",authenticate source artifacts and use explicit PR-REL proof rather than co-possession inference
+EXP-PR-HID-PEDERSEN-01,PR-CMP,"fresh randomized confidential binder",partial,"same-value fresh-commitment distinctness; CP-PRIV-003 semantic case",complete evidence closure must still be assessed for other correlators

@@ -1,0 +1,43 @@
+name: PR-HID construction evidence
+
+on:
+  pull_request:
+    paths:
+      - 'benchmarks/pr-hid-pedersen/**'
+      - 'docs/implementation-guide/conformance/experimental-pr-hid-pedersen-profile.*'
+      - 'docs/implementation-guide/conformance/construction-coverage-matrix.csv'
+      - '.github/workflows/pr-hid-construction-evidence.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  hiding-binder:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: benchmarks/pr-hid-pedersen
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - name: Install pinned curve dependency
+        run: npm install --ignore-scripts --no-audit --no-fund
+      - name: Execute deterministic PR-HID vectors
+        run: npm test
+      - name: Execute PR-HID benchmark
+        run: npm run benchmark
+        env:
+          PR_HID_BENCH_WARMUP: '10'
+          PR_HID_BENCH_ITERATIONS: '100'
+      - name: Upload hiding-binder evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-hid-pedersen-construction-evidence
+          path: |
+            benchmarks/pr-hid-pedersen/pr-hid-pedersen-vector.json
+            benchmarks/pr-hid-pedersen/pr-hid-pedersen-benchmark.json
+          if-no-files-found: error
