@@ -1,0 +1,12 @@
+{
+  "name": "dtgwg-pr-rel-sigma-evidence",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node relationship-proof.mjs --test",
+    "benchmark": "node relationship-proof.mjs --benchmark"
+  },
+  "dependencies": {
+    "@noble/curves": "2.3.0"
+  }
+}
