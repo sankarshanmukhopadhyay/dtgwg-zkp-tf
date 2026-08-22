@@ -1,0 +1,70 @@
+profile_id: EXP-BBS-2023-01
+status: experimental
+normative: false
+purpose: >-
+  Concrete construction experiment for credential-side selective disclosure,
+  unlinkability and holder binding without making BBS mandatory for DTG.
+construction:
+  proof_format: DataIntegrityProof
+  cryptosuite: bbs-2023
+  signature_scheme: BBS
+  curve: BLS12-381
+  hash_variant: SHA-256
+specification:
+  name: Data Integrity BBS Cryptosuites v1.0
+  status: W3C Candidate Recommendation Draft
+  published: 2026-04-07
+  version: https://www.w3.org/TR/2026/CRD-vc-di-bbs-20260407/
+  latest: https://www.w3.org/TR/vc-di-bbs/
+upstream_vectors:
+  repository: w3c/vc-di-bbs
+  revision: d1036535bc9da24919548831db3ddd487dfce83f
+  path: TestVectors
+  evidence_scope:
+    - baseline
+    - anonymous_holder_binding
+    - pseudonym
+    - holder_binding_pseudonym
+external_interoperability:
+  report: https://w3c.github.io/vc-di-bbs-test-suite/
+  observed_report_date: 2026-08-02
+  evidence_type: independently-maintained implementation report
+  claim_boundary: >-
+    External evidence may support BBS construction interoperability claims;
+    local adapters MUST NOT be described as independent implementations.
+predicate_coverage:
+  PR-CMP:
+    status: partial
+    rationale: >-
+      Derived proofs support unlinkable selective disclosure, but surrounding
+      evidence closure can still introduce correlation.
+  PR-HLD:
+    status: supported-for-credential-layer
+    feature: anonymous_holder_binding
+  PR-ISS:
+    status: partial
+    rationale: >-
+      Signature validity is covered; privacy-preserving issuer-set membership
+      is a separate construction problem when exact issuer disclosure is not required.
+  PR-DEL:
+    status: partial
+    rationale: >-
+      Selective disclosure can minimise delegation fields, but arbitrary
+      delegation-chain or cross-artifact authority predicates are not solved by BBS alone.
+  PR-REL:
+    status: open-construction-slot
+  PR-HID:
+    status: open-construction-slot
+  PR-RES:
+    status: profile-architecture-property
+benchmark:
+  path: benchmarks/bbs-2023/benchmark.mjs
+  output: bbs-2023-benchmark.json
+  thresholds_normative: false
+promotion_gates:
+  - governance-selection
+  - explicit-coverage-for-every-required-predicate
+  - current-upstream-status-review
+  - pinned-vector-compatibility
+  - representative-device-benchmarks
+  - independent-interoperability-for-claimed-features
