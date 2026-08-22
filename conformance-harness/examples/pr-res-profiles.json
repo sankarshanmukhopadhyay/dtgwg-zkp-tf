@@ -1,0 +1,144 @@
+{
+  "cases": [
+    {
+      "id": "PR-RES-001",
+      "profile_id": "RES-BSL-CACHE-01",
+      "predicate_ids": ["PR-RES"],
+      "inputs": {
+        "evidence_age_seconds": 120,
+        "max_age_seconds": 300,
+        "whole_shared_list": true,
+        "subject_specific_lookup": false,
+        "live_authoritative_lookup": false,
+        "authority_observation_declared": false,
+        "semantic_type": "credential_status",
+        "representation_semantics_collapsed": false
+      },
+      "expected": "pass"
+    },
+    {
+      "id": "PR-RES-002",
+      "profile_id": "RES-BSL-CACHE-01",
+      "predicate_ids": ["PR-RES"],
+      "inputs": {
+        "evidence_age_seconds": 600,
+        "max_age_seconds": 300,
+        "whole_shared_list": true,
+        "subject_specific_lookup": false,
+        "live_authoritative_lookup": false,
+        "authority_observation_declared": false,
+        "semantic_type": "credential_status",
+        "representation_semantics_collapsed": false
+      },
+      "expected": "fail"
+    },
+    {
+      "id": "PR-RES-003",
+      "profile_id": "RES-BSL-CACHE-01",
+      "predicate_ids": ["PR-RES"],
+      "inputs": {
+        "evidence_age_seconds": 60,
+        "max_age_seconds": 300,
+        "whole_shared_list": false,
+        "subject_specific_lookup": true,
+        "live_authoritative_lookup": true,
+        "authority_observation_declared": false,
+        "semantic_type": "credential_status",
+        "representation_semantics_collapsed": false
+      },
+      "expected": "fail"
+    },
+    {
+      "id": "PR-RES-004",
+      "profile_id": "RES-CARRIED-SNAPSHOT-01",
+      "predicate_ids": ["PR-RES"],
+      "inputs": {
+        "evidence_age_seconds": 180,
+        "max_age_seconds": 300,
+        "snapshot_authenticated": true,
+        "evidence_binding_verified": true,
+        "live_authoritative_lookup": false,
+        "authority_observation_declared": false,
+        "semantic_type": "registry_membership",
+        "representation_semantics_collapsed": false
+      },
+      "expected": "pass"
+    },
+    {
+      "id": "PR-RES-005",
+      "profile_id": "RES-CARRIED-SNAPSHOT-01",
+      "predicate_ids": ["PR-RES"],
+      "inputs": {
+        "evidence_age_seconds": 450,
+        "max_age_seconds": 300,
+        "snapshot_authenticated": true,
+        "evidence_binding_verified": true,
+        "live_authoritative_lookup": false,
+        "authority_observation_declared": false,
+        "semantic_type": "registry_membership",
+        "representation_semantics_collapsed": false
+      },
+      "expected": "fail"
+    },
+    {
+      "id": "PR-RES-006",
+      "profile_id": "RES-CARRIED-SNAPSHOT-01",
+      "predicate_ids": ["PR-RES"],
+      "inputs": {
+        "evidence_age_seconds": 450,
+        "max_age_seconds": 300,
+        "snapshot_authenticated": true,
+        "evidence_binding_verified": true,
+        "live_authoritative_lookup": true,
+        "authority_observation_declared": false,
+        "semantic_type": "registry_membership",
+        "representation_semantics_collapsed": false
+      },
+      "expected": "fail"
+    },
+    {
+      "id": "PR-RES-007",
+      "profile_id": "RES-LIVE-DECLARED-01",
+      "predicate_ids": ["PR-RES"],
+      "inputs": {
+        "governance_permits_live_lookup": true,
+        "live_authoritative_lookup": true,
+        "authority_observation_declared": true,
+        "privacy_claim": "degraded",
+        "semantic_type": "credential_status",
+        "representation_semantics_collapsed": false
+      },
+      "expected": "pass"
+    },
+    {
+      "id": "PR-RES-008",
+      "profile_id": "RES-LIVE-DECLARED-01",
+      "predicate_ids": ["PR-RES"],
+      "inputs": {
+        "governance_permits_live_lookup": true,
+        "live_authoritative_lookup": true,
+        "authority_observation_declared": false,
+        "privacy_claim": "no_authority_observation",
+        "semantic_type": "credential_status",
+        "representation_semantics_collapsed": false
+      },
+      "expected": "fail"
+    },
+    {
+      "id": "PR-RES-009",
+      "profile_id": "RES-CARRIED-SNAPSHOT-01",
+      "predicate_ids": ["PR-RES"],
+      "inputs": {
+        "evidence_age_seconds": 60,
+        "max_age_seconds": 300,
+        "snapshot_authenticated": true,
+        "evidence_binding_verified": true,
+        "live_authoritative_lookup": false,
+        "authority_observation_declared": false,
+        "semantic_type": "authorization",
+        "representation_semantics_collapsed": true
+      },
+      "expected": "fail"
+    }
+  ]
+}
