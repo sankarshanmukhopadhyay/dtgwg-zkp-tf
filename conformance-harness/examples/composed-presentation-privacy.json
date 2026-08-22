@@ -1,0 +1,60 @@
+{
+  "cases": [
+    {
+      "id": "CP-PRIV-001",
+      "predicate_ids": ["PR-RES", "PR-CMP"],
+      "scenario_id": "UC-012",
+      "adversary_id": "ADV-R",
+      "inputs": {"stable_lookup_reference": true, "lookup_linkable": true, "declared_correlation": false},
+      "expected": "fail"
+    },
+    {
+      "id": "CP-PRIV-002",
+      "predicate_ids": ["PR-DEL", "PR-REL", "PR-CMP"],
+      "scenario_id": "UC-009",
+      "adversary_id": "ADV-IV",
+      "inputs": {"ancestry_disclosed": true, "ancestry_cross_context_linkable": true, "governance_requires_ancestry": false},
+      "expected": "fail"
+    },
+    {
+      "id": "CP-PRIV-003",
+      "predicate_ids": ["PR-HID"],
+      "scenario_id": "UC-025",
+      "adversary_id": "ADV-V",
+      "inputs": {"deterministic_digest_only": true, "input_feasibly_enumerable": true},
+      "expected": "fail"
+    },
+    {
+      "id": "CP-PRIV-004",
+      "predicate_ids": ["PR-ISS", "PR-CMP"],
+      "scenario_id": "UC-025",
+      "adversary_id": "ADV-V",
+      "inputs": {"predicate_requires_set_membership_only": true, "exact_issuer_disclosed": true, "governance_requires_exact_issuer": false},
+      "expected": "fail"
+    },
+    {
+      "id": "CP-PRIV-005",
+      "predicate_ids": ["PR-CMP"],
+      "scenario_id": "UC-025",
+      "adversary_id": "ADV-IV",
+      "inputs": {"components_private_standalone": true, "shared_cross_context_handle": true},
+      "expected": "fail"
+    },
+    {
+      "id": "CP-PRIV-006",
+      "predicate_ids": ["PR-RES", "PR-CMP"],
+      "scenario_id": "UC-014",
+      "adversary_id": "ADV-R",
+      "inputs": {"verifier_originated_live_lookup": true, "service_observes_verification": true, "observation_declared": false},
+      "expected": "fail"
+    },
+    {
+      "id": "CP-PRIV-007",
+      "predicate_ids": ["PR-CMP"],
+      "scenario_id": "UC-025",
+      "adversary_id": "ADV-G",
+      "inputs": {"shared_proof_primitive": true, "semantics_collapsed": true},
+      "expected": "fail"
+    }
+  ]
+}

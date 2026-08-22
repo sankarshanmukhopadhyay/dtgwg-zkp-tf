@@ -62,7 +62,11 @@ Conformance test IDs (`CT-*`), diagram IDs (`D-*`), assurance/disclosure boundar
 | <a id="pr-per"></a>`PR-PER` | personhood policy | [definition](../taxonomy/predicates.md) |
 | <a id="pr-rng"></a>`PR-RNG` | range predicate | [definition](../taxonomy/predicates.md) |
 | <a id="pr-unq"></a>`PR-UNQ` | scoped uniqueness | [definition](../taxonomy/predicates.md) |
-| <a id="pr-del"></a>`PR-DEL` | **Reserved/open gap:** proposed delegation-evidence predicate; semantics are not yet defined | [open gap](../conformance/levels.md) |
+| <a id="pr-del"></a>`PR-DEL` | delegated/current authority | [definition](../taxonomy/predicates.md) |
+| <a id="pr-cmp"></a>`PR-CMP` | composed-presentation privacy across the complete evidence closure | [definition](../taxonomy/predicates.md) |
+| <a id="pr-rel"></a>`PR-REL` | privacy-preserving relationship proof across artefacts/evidence | [definition](../taxonomy/predicates.md) |
+| <a id="pr-hid"></a>`PR-HID` | confidential binding with an explicit hiding property | [definition](../taxonomy/predicates.md) |
+| <a id="pr-res"></a>`PR-RES` | privacy-preserving external resolution | [definition](../taxonomy/predicates.md) |
 
 ## Adversary
 
