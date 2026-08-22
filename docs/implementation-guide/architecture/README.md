@@ -21,3 +21,4 @@ The architecture is proof-system agnostic and exposes the authority, information
 9. [Protocol viewpoint](09-protocol-viewpoint.md)
 10. [Deployment viewpoint](10-deployment-viewpoint.md)
 11. [Operational viewpoint](11-operational-viewpoint.md)
+12. [Composed proof responsibility model](12-composed-proof-responsibility-model.md)
