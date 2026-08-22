@@ -19,7 +19,7 @@ The guide is intentionally proof-system agnostic. It defines the semantic, gover
 | Publication status | Non-normative implementation workspace |
 | Decision authority | DTGWG ZKP Task Force and applicable upstream governance bodies |
 | Fork status | Implemented working baseline for review, experimentation and contribution |
-| Construction status | Specific proof constructions remain deferred pending the construction-selection gate and independently supportable benchmark evidence |
+| Construction status | Construction-neutral requirements remain authoritative in this fork; separate experimental BBS, `PR-REL`, `PR-HID` and `PR-RES` profiles now provide executable pressure-test evidence, but none is normative or production-promoted |
 | Primary profiles | Minimum Liveness Profile and Extended Personhood Profile |
 | Core architectural rule | Cryptography carries privacy; issuer accreditation and governance carry assurance |
 | Conformance approach | Profile-specific claims supported by positive and negative evidence |
@@ -463,7 +463,7 @@ The guide tracks the foundational and open Task Force decisions separately from 
 - amendment and supersession history;
 - decision authority and source discussion.
 
-The two most load-bearing working positions remain context delimitation and the issuer-verifier collusion target. Discussion #13 moves them from open questions to adopted working positions for v0.4; construction selection remains downstream of their evidence-backed application and the construction-selection gate. See [decisions](decisions/README.md), [decision register](decisions/decision-register.md) and [upstream crosswalk](decisions/upstream-decision-crosswalk.md).
+The two most load-bearing working positions remain context delimitation and the issuer-verifier collusion target. Discussion #13 moves them from open questions to adopted working positions for v0.4. Governed production construction selection remains downstream of their evidence-backed application; experimental construction profiles may pressure-test those interfaces without becoming normative. See [decisions](decisions/README.md), [decision register](decisions/decision-register.md) and [upstream crosswalk](decisions/upstream-decision-crosswalk.md).
 
 ## Guided routes
 
@@ -554,7 +554,7 @@ The guide does not yet settle:
 
 - final Task Force ratification of the context delimiter;
 - final Task Force ratification of the issuer-verifier collusion target;
-- selection of specific proof constructions;
+- governed promotion of any experimental proof construction into a production or upstream profile;
 - normative wire formats for every object;
 - accredited certification or compliance processes;
 - jurisdiction-specific legal sufficiency;

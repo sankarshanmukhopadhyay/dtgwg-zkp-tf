@@ -24,8 +24,16 @@ authority:
   revocation_or_supersession: "Fork-local guidance is superseded through explicit versioned changes or upstream adoption; historical fork evidence remains auditable."
 evidence:
   validation_commands:
-    - git diff --check
-  evidence_outputs: []
+    - python3 scripts/validate_all.py
+    - pytest -q conformance-harness/tests
+  evidence_outputs:
+    - conformance-harness deterministic evidence
+    - experimental BBS construction evidence
+    - experimental PR-REL construction evidence
+    - experimental PR-HID construction evidence
+    - executable PR-RES profile fixtures
   known_limitations:
     - upstream adoption of fork-local guidance is not asserted
+    - experimental construction profiles are non-normative and not production-certified
+    - independent interoperability is incomplete for DTG-specific PR-REL, PR-HID and PR-RES profiles
     - deployment-specific proof-system assurance remains outside repository authority

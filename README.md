@@ -46,9 +46,22 @@ The fork's v0.4 working draft advances the upstream v0.3 material by adding:
 - privacy requirements expressed against named adversaries and correlation horizons;
 - failure and degraded-mode semantics;
 - minimum interoperability evidence and conformance expectations; and
-- a decision backlog separating specification choices from construction choices.
+- a decision backlog separating specification choices from construction choices;
+- composed-presentation privacy over the complete evidence closure; and
+- executable semantic conformance for cross-artifact, hiding-binder and external-resolution privacy predicates.
 
-It remains a working draft and deliberately does **not** select a proof system or claim that cryptography proves the correctness of a biometric determination.
+It remains a working draft and deliberately does **not** make any experimental proof construction normative or claim that cryptography proves the correctness of a biometric determination.
+
+### Experimental construction pressure tests
+
+The construction-neutral requirements are now pressure-tested by separate, explicitly non-normative profiles under [`docs/implementation-guide/conformance/`](./docs/implementation-guide/conformance/README.md):
+
+- `EXP-BBS-2023-01` for credential-side selective disclosure and holder-binding capabilities;
+- `EXP-PR-REL-SIGMA-01` for privacy-preserving equality/relationship proofs across authenticated commitments;
+- `EXP-PR-HID-PEDERSEN-01` for randomized confidential binders over low-entropy/enumerable values; and
+- `PR-RES` resolution profiles for cached/shared status evidence, carried snapshots and explicitly declared live lookup.
+
+These profiles provide construction and conformance evidence without changing the semantic requirements or implying upstream adoption.
 
 ## Start here
 

@@ -12,10 +12,19 @@ This change set carries the composition/privacy boundary identified in DTG Crede
 - adds a four-layer responsibility model spanning governance, semantic predicates, evidence interfaces and private proof construction; and
 - adds construction-neutral negative conformance cases for composition failures.
 
-## Deliberate non-decisions
+## Deliberate non-decisions and downstream validation
 
-The change does not select a ZK system, commitment scheme, accumulator, Merkle construction, selective-disclosure suite, revocation architecture or delegation-chain format. It preserves the v0.4 principle that semantic/privacy requirements are resolved before construction selection.
+The requirements change itself does not select a ZK system, commitment scheme, accumulator, Merkle construction, selective-disclosure suite, revocation architecture or delegation-chain format. It preserves the v0.4 principle that semantic/privacy requirements are resolved before construction selection.
+
+After those requirements were completed, separate downstream pressure tests validated the interfaces without changing the semantic layer:
+
+- #7 added experimental W3C `bbs-2023` credential-side construction evidence;
+- #8 added an experimental `PR-REL` hidden-equality/relationship proof;
+- #10 added an experimental `PR-HID` randomized confidential-binder construction; and
+- #11 added explicit executable `PR-RES` resolution profiles rather than one universal status/registry construction.
+
+All of these remain non-normative experiments with their own promotion and interoperability gates.
 
 ## Tracking
 
-Addresses the implementation scope tracked in issue #4. The issue body is intentionally left unchanged; commits and the pull request provide implementation traceability.
+Issue #4 is complete and closed against its original construction-neutral acceptance criteria. Downstream construction/profile experiments were tracked separately in issue #9, which is also complete and closed.
