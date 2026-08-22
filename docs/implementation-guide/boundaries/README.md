@@ -15,6 +15,8 @@ A conformant profile analyses every predicate through two linked views.
 
 The issuer attestation schema is the shared input to both views. A field that is necessary to establish policy version or assurance class may simultaneously create a correlation surface. Boundary analysis therefore occurs before construction selection and before schema stabilization.
 
+For composed transactions, the boundary extends across the complete **evidence closure** needed to establish the verification predicate. Selective disclosure on an individual credential does not establish end-to-end privacy when delegation ancestry, Trust Task artefacts, status resolution, registry membership, accreditation evidence or protocol metadata creates an additional correlation surface. See [Composed-presentation privacy and evidence closure](composed-presentation-privacy.md).
+
 ## Required claim form
 
 Every material claim is complete only when it states:
@@ -29,3 +31,4 @@ Every material claim is complete only when it states:
 - [Disclosure-boundary template](disclosure-boundary-template.md)
 - [Context decision record](context-decision-record.md)
 - [Predicate boundary register](predicate-boundary-register.md)
+- [Composed-presentation privacy and evidence closure](composed-presentation-privacy.md)
