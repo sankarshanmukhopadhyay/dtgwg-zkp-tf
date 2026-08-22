@@ -5,6 +5,7 @@ on:
     paths:
       - 'benchmarks/bbs-2023/**'
       - 'docs/implementation-guide/conformance/experimental-bbs-2023-construction-profile.*'
+      - 'docs/implementation-guide/conformance/construction-evidence-bbs-2023.json'
       - '.github/workflows/bbs-construction-evidence.yml'
   workflow_dispatch:
 
@@ -23,8 +24,6 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: '22'
-          cache: npm
-          cache-dependency-path: benchmarks/bbs-2023/package.json
       - name: Install pinned BBS dependency
         run: npm install --ignore-scripts --no-audit --no-fund
       - name: Execute BBS correctness smoke test and benchmark
