@@ -1,0 +1,35 @@
+profile_id: EXP-PR-HID-PEDERSEN-01
+status: experimental
+normative: false
+predicate: PR-HID
+construction:
+  family: Pedersen-style commitment
+  group: ristretto255
+  value_encoding:
+    method: hash_to_scalar
+    domain: DTG_PR_HID_VALUE_TO_SCALAR_V1
+    context_bound: true
+  blinding:
+    source: CSPRNG
+    fresh_per_commitment: true
+  generator_h:
+    derivation_label: DTG-PR-HID-PEDERSEN-H-v1
+implementation_evidence:
+  package: '@noble/curves'
+  version: 2.3.0
+  executable: benchmarks/pr-hid-pedersen/hiding-binder.mjs
+required_tests:
+  - valid_opening
+  - wrong_value_rejected
+  - wrong_blinding_rejected
+  - same_value_fresh_commitments_distinct
+  - deterministic_digest_dictionary_recoverable
+claims:
+  confidential_binding_for_enumerable_values: experimental-supported
+  artifact_authentication: not_provided
+  cross_artifact_equality_proof: delegated_to_PR-REL
+promotion_gates:
+  - canonical_value_encoding_governed
+  - exact_serialization_defined
+  - representative_device_benchmarks
+  - independent_interoperability_evidence
