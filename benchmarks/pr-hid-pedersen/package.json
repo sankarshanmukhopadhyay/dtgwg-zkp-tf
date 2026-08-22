@@ -1,0 +1,12 @@
+{
+  "name": "dtg-pr-hid-pedersen-evidence",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node hiding-binder.mjs --test",
+    "benchmark": "node hiding-binder.mjs --benchmark"
+  },
+  "dependencies": {
+    "@noble/curves": "2.3.0"
+  }
+}
