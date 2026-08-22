@@ -1,0 +1,40 @@
+name: BBS construction evidence
+
+on:
+  pull_request:
+    paths:
+      - 'benchmarks/bbs-2023/**'
+      - 'docs/implementation-guide/conformance/experimental-bbs-2023-construction-profile.*'
+      - '.github/workflows/bbs-construction-evidence.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: benchmarks/bbs-2023
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: benchmarks/bbs-2023/package.json
+      - name: Install pinned BBS dependency
+        run: npm install --ignore-scripts --no-audit --no-fund
+      - name: Execute BBS correctness smoke test and benchmark
+        run: npm run benchmark
+        env:
+          BBS_BENCH_WARMUP: '3'
+          BBS_BENCH_ITERATIONS: '20'
+      - name: Upload benchmark evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: bbs-2023-construction-evidence
+          path: benchmarks/bbs-2023/bbs-2023-benchmark.json
+          if-no-files-found: error
