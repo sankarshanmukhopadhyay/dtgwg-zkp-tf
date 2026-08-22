@@ -1,0 +1,49 @@
+{
+  "profile_id": "EXP-BBS-2023-01",
+  "captured_on": "2026-08-22",
+  "specification": {
+    "name": "Data Integrity BBS Cryptosuites v1.0",
+    "status": "W3C Candidate Recommendation Draft",
+    "published": "2026-04-07",
+    "version": "https://www.w3.org/TR/2026/CRD-vc-di-bbs-20260407/"
+  },
+  "test_vectors": {
+    "repository": "https://github.com/w3c/vc-di-bbs",
+    "revision": "d1036535bc9da24919548831db3ddd487dfce83f",
+    "path": "TestVectors",
+    "includes": [
+      "baseline",
+      "anonymous_holder_binding",
+      "pseudonym",
+      "holder_binding_pseudonym"
+    ]
+  },
+  "independent_interoperability": {
+    "report": "https://w3c.github.io/vc-di-bbs-test-suite/",
+    "report_run_date": "2026-08-02",
+    "observed_issuer_implementations": [
+      "Digital Bazaar, Inc.",
+      "Grotto Networking",
+      "Procivis One Core",
+      "SpruceID",
+      "Trential"
+    ],
+    "observed_verifier_implementations": [
+      "Digital Bazaar, Inc.",
+      "Grotto Networking",
+      "Netis",
+      "Procivis One Core",
+      "SpruceID",
+      "Trential"
+    ],
+    "provenance": "external-w3c-generated-report",
+    "local_independence_claim": false
+  },
+  "local_evidence": {
+    "workflow": ".github/workflows/bbs-construction-evidence.yml",
+    "benchmark": "benchmarks/bbs-2023/benchmark.mjs",
+    "artifact": "bbs-2023-construction-evidence",
+    "timings_are_normative": false
+  },
+  "claim_boundary": "This evidence supports only the BBS features exercised by the cited specification, vectors, implementations and local benchmark. It does not close PR-REL, PR-HID, PR-RES or arbitrary delegation-composition requirements by itself."
+}
