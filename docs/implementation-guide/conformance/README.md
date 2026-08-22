@@ -26,8 +26,10 @@ has_toc: true
 | [`composed-presentation-privacy-tests.md`](./composed-presentation-privacy-tests.md) | Human-readable construction-neutral negative semantics for composed-presentation privacy |
 | `../../../conformance-harness/examples/composed-presentation-privacy.json` | Executable semantic fixtures corresponding one-to-one with the composed-presentation matrix |
 | [`experimental-bbs-2023-construction-profile.md`](./experimental-bbs-2023-construction-profile.md) | Experimental concrete credential-side construction profile using W3C `bbs-2023` |
-| [`experimental-bbs-2023-construction-profile.yaml`](./experimental-bbs-2023-construction-profile.yaml) | Machine-readable construction selection, upstream pins and promotion gates |
-| [`construction-evidence-bbs-2023.json`](./construction-evidence-bbs-2023.json) | Pinned external vector and independent-interoperability evidence record |
+| [`experimental-bbs-2023-construction-profile.yaml`](./experimental-bbs-2023-construction-profile.yaml) | Machine-readable BBS construction selection, upstream pins and promotion gates |
+| [`experimental-pr-rel-sigma-profile.md`](./experimental-pr-rel-sigma-profile.md) | Experimental `PR-REL` equality/relationship proof over authenticated commitments |
+| [`experimental-pr-rel-sigma-profile.yaml`](./experimental-pr-rel-sigma-profile.yaml) | Machine-readable Sigma/Fiat-Shamir construction selection and boundaries |
+| [`construction-evidence-bbs-2023.json`](./construction-evidence-bbs-2023.json) | Pinned external BBS vector and independent-interoperability evidence record |
 | [`construction-coverage-matrix.csv`](./construction-coverage-matrix.csv) | Predicate-by-predicate construction coverage and remaining gates |
 
 Validate the aggregate semantic corpus with:
@@ -58,13 +60,15 @@ The composed-presentation corpus makes that rule executable before a cryptograph
 
 ## Construction evidence
 
-The repository now carries one deliberately **experimental** concrete profile: `EXP-BBS-2023-01`.
+The repository carries separate deliberately **experimental** construction profiles rather than selecting one proof system for every predicate.
 
-That profile selects W3C `bbs-2023` with BLS12-381/SHA-256 for credential-side selective disclosure, unlinkable derived proofs and anonymous holder binding. It pins the W3C 7 April 2026 Candidate Recommendation Draft and an immutable upstream test-vector revision, records external W3C interoperability evidence, and runs a local correctness smoke test plus performance benchmark in CI.
+`EXP-BBS-2023-01` selects W3C `bbs-2023` with BLS12-381/SHA-256 for credential-side selective disclosure, unlinkable derived proofs and anonymous holder binding. It pins the W3C 7 April 2026 Candidate Recommendation Draft and an immutable upstream test-vector revision, records external W3C interoperability evidence, and runs a local correctness smoke test plus performance benchmark in CI.
 
-The profile is intentionally not treated as a universal construction choice. `construction-coverage-matrix.csv` distinguishes predicates supported by BBS, predicates only partially addressed, and predicates that still require another construction or profile mechanism. Cryptographic success MUST NOT silently upgrade an unsupported evidence-closure predicate.
+`EXP-PR-REL-SIGMA-01` addresses the separate cross-artifact relationship predicate. It uses a Ristretto255 linear-relation Sigma proof, transformed non-interactively with a context-bound Fiat-Shamir challenge, to prove that two independently authenticated Pedersen-style commitments contain the same hidden scalar. Its CI evidence includes a deterministic positive vector, wrong-value and wrong-context negatives, fresh-proof checks, and proof/verification benchmarks.
 
-The local benchmark is evidence-producing but non-normative: GitHub-hosted runner timing is too variable for hard performance thresholds. Promotion requires representative constrained-device and server-class measurements.
+Neither profile is treated as a universal construction choice. `construction-coverage-matrix.csv` distinguishes predicates fully or partially covered by each experiment and keeps unsupported construction slots explicit. Cryptographic success MUST NOT silently upgrade an unsupported evidence-closure predicate.
+
+Local benchmark timings are evidence-producing but non-normative: GitHub-hosted runner performance is too variable for hard performance thresholds. Promotion requires representative constrained-device and server-class measurements.
 
 ## Minimum plugfest topology
 
@@ -76,11 +80,13 @@ The local benchmark is evidence-producing but non-normative: GitHub-hosted runne
 
 This matches [`UC-030`](../reference/identifier-register.md#uc-030), whose independent-implementation evidence remains the exit criterion for the strongest interoperability claim.
 
-For `EXP-BBS-2023-01`, external independent implementation evidence is sourced from the W3C BBS interoperability report rather than synthesized from two local adapters. This can support claims about the BBS features actually covered by that report; it does not establish interoperability for DTG-specific cross-artifact relationship, status-resolution or delegation-composition predicates.
+For `EXP-BBS-2023-01`, external independent implementation evidence is sourced from the W3C BBS interoperability report rather than synthesized from two local adapters. This can support claims about the BBS features actually covered by that report.
+
+For `EXP-PR-REL-SIGMA-01`, the exact DTG relationship statement, transcript binding and serialization still require independent implementation interoperability before the profile can move beyond experimental status. Local independent code paths are not counted as independent implementations.
 
 ## What this suite is, and is not
 
-This suite defines **expected behaviour** for a conformant implementation. The semantic layer is executable now and a credential-side construction experiment is executable for the BBS-covered subset.
+This suite defines **expected behaviour** for a conformant implementation. The semantic layer is executable now, and concrete construction experiments are executable for credential-side BBS capabilities and the `PR-REL` equality-of-committed-value predicate.
 
 The evidence layers are intentionally separate:
 
@@ -94,9 +100,11 @@ Passing semantic tests does not establish cryptographic soundness. Conversely, a
 
 - 11 P1/P2 scenarios remain outside the four-level profile assignment and are tracked in `matrices/maturity-map.csv`.
 - No DTG-specific cross-vendor plugfest ([`UC-030`](../reference/identifier-register.md#uc-030)) has run; the strongest end-to-end DTG interoperability claim therefore remains unavailable.
-- `EXP-BBS-2023-01` closes a concrete construction track for credential-side selective disclosure/unlinkability and holder binding, but [`PR-REL`](../reference/identifier-register.md#pr-rel) and [`PR-HID`](../reference/identifier-register.md#pr-hid) remain explicit open construction slots.
+- `EXP-BBS-2023-01` closes a concrete credential-side selective-disclosure/unlinkability track.
+- `EXP-PR-REL-SIGMA-01` closes the first executable construction slot for [`PR-REL`](../reference/identifier-register.md#pr-rel), subject to independent implementation evidence and governed value-encoding profiles.
+- [`PR-HID`](../reference/identifier-register.md#pr-hid) remains the next explicit construction slot for low-entropy/confidential binders.
 - [`PR-RES`](../reference/identifier-register.md#pr-res) remains a profile/architecture selection problem: stronger privacy profiles still need a carried, cached or privacy-preserving state mechanism rather than an undeclared verifier-originated lookup.
-- [`PR-DEL`](../reference/identifier-register.md#pr-del) is only partially covered by credential-side selective disclosure; arbitrary cross-artifact or ancestry authority proofs still require a selected composition construction where the profile needs them.
+- [`PR-DEL`](../reference/identifier-register.md#pr-del) is only partially covered: relationship proof over committed authority inputs does not itself establish delegation scope, lifecycle, ancestry semantics or governance authorization.
 
 The previous taxonomy gap for delegation evidence is closed: `PR-DEL` expresses current delegated authority and `PR-REL` expresses the separately testable cross-artifact relationship.
 
@@ -106,7 +114,7 @@ Use the implementation and profile statement templates and the JSON schemas in `
 
 For composed predicates, the evidence bundle also identifies the minimum evidence closure, cross-artifact relationship inputs, verifier-originated external observations, declared adversary and privacy horizon, and the executed composed-presentation fixture cases.
 
-For construction-specific claims, include the construction profile identifier, upstream specification/vector revision, local benchmark artifact, and provenance of independent interoperability evidence.
+For construction-specific claims, include the construction profile identifier, upstream specification/vector revision where applicable, local test/benchmark artifact, and provenance of independent interoperability evidence.
 
 ## Security assurance
 
