@@ -1,0 +1,52 @@
+{
+  "cases": [
+    {
+      "id": "AE-PRIV-001",
+      "predicate_ids": ["PR-REL", "PR-HID", "PR-CMP"],
+      "scenario_id": "UC-ASYM-EDGE",
+      "claim_subject": "credential-half",
+      "inputs": {"private_half_hidden": true, "public_half_exposed": true, "reusable_private_binder": false},
+      "expected": "pass"
+    },
+    {
+      "id": "AE-PRIV-002",
+      "predicate_ids": ["PR-REL", "PR-CMP"],
+      "scenario_id": "UC-ASYM-EDGE",
+      "claim_subject": "relationship",
+      "inputs": {"private_half_hidden": true, "public_half_exposed": true, "claim_relationship_unlinkable": true},
+      "expected": "fail"
+    },
+    {
+      "id": "AE-PRIV-003",
+      "predicate_ids": ["PR-REL", "PR-HID", "PR-CMP"],
+      "scenario_id": "UC-ASYM-EDGE",
+      "claim_subject": "identifier",
+      "inputs": {"proof_valid": true, "reusable_private_binder": true, "cross_context_comparison": true},
+      "expected": "fail"
+    },
+    {
+      "id": "AE-PRIV-004",
+      "predicate_ids": ["PR-REL", "PR-CMP"],
+      "scenario_id": "UC-ASYM-EDGE",
+      "claim_subject": "contextual-graph",
+      "inputs": {"proof_valid": true, "private_half_hidden": true, "public_graph_joinable": true, "claim_context_unlinkable": true},
+      "expected": "fail"
+    },
+    {
+      "id": "AE-PRIV-005",
+      "predicate_ids": ["PR-REL", "PR-RES", "PR-CMP"],
+      "scenario_id": "UC-ASYM-EDGE",
+      "claim_subject": "trust-context",
+      "inputs": {"proof_valid": true, "common_vtn_evidenced": false, "claim_common_vtn": true},
+      "expected": "indeterminate"
+    },
+    {
+      "id": "AE-PRIV-006",
+      "predicate_ids": ["PR-REL", "PR-HID", "PR-CMP"],
+      "scenario_id": "UC-ASYM-EDGE",
+      "claim_subject": "presentation",
+      "inputs": {"both_halves_privately_proven": true, "reusable_binder": false, "contradictory_public_context": false, "construction_evidence_complete": true},
+      "expected": "pass"
+    }
+  ]
+}
