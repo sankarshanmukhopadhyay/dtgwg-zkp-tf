@@ -55,6 +55,54 @@
       "adversary_id": "ADV-G",
       "inputs": {"shared_proof_primitive": true, "semantics_collapsed": true},
       "expected": "fail"
+    },
+    {
+      "id": "CP-PRIV-008",
+      "predicate_ids": ["PR-REL", "PR-HID", "PR-CMP"],
+      "scenario_id": "UC-025",
+      "adversary_id": "ADV-IV",
+      "inputs": {"private_half_hidden": true, "public_half_exposed": true, "reusable_private_binder": false, "claim_subject": "credential-half"},
+      "expected": "pass"
+    },
+    {
+      "id": "CP-PRIV-009",
+      "predicate_ids": ["PR-REL", "PR-CMP"],
+      "scenario_id": "UC-025",
+      "adversary_id": "ADV-IV",
+      "inputs": {"private_half_hidden": true, "public_half_exposed": true, "claim_relationship_unlinkable": true},
+      "expected": "fail"
+    },
+    {
+      "id": "CP-PRIV-010",
+      "predicate_ids": ["PR-REL", "PR-HID", "PR-CMP"],
+      "scenario_id": "UC-025",
+      "adversary_id": "ADV-IV",
+      "inputs": {"proof_valid": true, "reusable_private_binder": true, "cross_context_comparison": true},
+      "expected": "fail"
+    },
+    {
+      "id": "CP-PRIV-011",
+      "predicate_ids": ["PR-REL", "PR-CMP"],
+      "scenario_id": "UC-025",
+      "adversary_id": "ADV-V",
+      "inputs": {"proof_valid": true, "private_half_hidden": true, "public_graph_joinable": true, "claim_context_unlinkable": true},
+      "expected": "fail"
+    },
+    {
+      "id": "CP-PRIV-012",
+      "predicate_ids": ["PR-REL", "PR-RES", "PR-CMP"],
+      "scenario_id": "UC-025",
+      "adversary_id": "ADV-G",
+      "inputs": {"proof_valid": true, "common_vtn_evidenced": false, "claim_common_vtn": true},
+      "expected": "indeterminate"
+    },
+    {
+      "id": "CP-PRIV-013",
+      "predicate_ids": ["PR-REL", "PR-HID", "PR-CMP"],
+      "scenario_id": "UC-025",
+      "adversary_id": "ADV-IV",
+      "inputs": {"both_halves_privately_proven": true, "reusable_binder": false, "contradictory_public_context": false, "construction_evidence_complete": true},
+      "expected": "pass"
     }
   ]
 }
