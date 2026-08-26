@@ -1,3 +1,9 @@
+---
+layout: default
+title: "Community-Anchored Proof"
+parent: "Scenarios"
+nav_order: 20
+---
 # Community-Anchored Proof (ADR-001)
 
 Status: experimental implementation target  
