@@ -1,0 +1,54 @@
+{
+  "source": "https://docs.fpp.storm.ws/dtg-community-anchored-proof-adr.html",
+  "cases": [
+    {
+      "id": "CAP-001",
+      "name": "ACCEPTS",
+      "predicate_ids": ["PR-REL", "PR-HID", "PR-RES", "PR-CMP"],
+      "inputs": {"holder_relationship_credential": true, "holder_membership_same_community": true, "counterparty_membership_same_community": true, "third_party_membership_evidence_checkable": true, "holder_bound": true, "challenge_bound": true, "credentials_current": true, "status_private": true, "reusable_binder": false},
+      "expected": "pass"
+    },
+    {
+      "id": "CAP-002",
+      "name": "REJECTS",
+      "predicate_ids": ["PR-REL", "PR-CMP"],
+      "inputs": {"holder_relationship_credential": true, "holder_membership_same_community": true, "counterparty_membership_same_community": false, "third_party_membership_evidence_checkable": true, "holder_bound": true, "challenge_bound": true, "credentials_current": true, "status_private": true, "reusable_binder": false},
+      "expected": "fail"
+    },
+    {
+      "id": "CAP-003",
+      "name": "UNLINKABLE",
+      "predicate_ids": ["PR-REL", "PR-HID", "PR-CMP"],
+      "inputs": {"holder_relationship_credential": true, "holder_membership_same_community": true, "counterparty_membership_same_community": true, "third_party_membership_evidence_checkable": true, "holder_bound": true, "challenge_bound": true, "credentials_current": true, "status_private": true, "reusable_binder": true, "cross_verifier_comparison": true},
+      "expected": "fail"
+    },
+    {
+      "id": "CAP-004",
+      "name": "CURRENT",
+      "predicate_ids": ["PR-RES", "PR-CMP"],
+      "inputs": {"holder_relationship_credential": true, "holder_membership_same_community": true, "counterparty_membership_same_community": true, "third_party_membership_evidence_checkable": true, "holder_bound": true, "challenge_bound": true, "credentials_current": false, "revocation_bound_exceeded": true, "status_private": true, "reusable_binder": false},
+      "expected": "fail"
+    },
+    {
+      "id": "CAP-005",
+      "name": "CHALLENGE-BOUND",
+      "predicate_ids": ["PR-CMP"],
+      "inputs": {"holder_relationship_credential": true, "holder_membership_same_community": true, "counterparty_membership_same_community": true, "third_party_membership_evidence_checkable": true, "holder_bound": true, "challenge_bound": false, "credentials_current": true, "status_private": true, "reusable_binder": false},
+      "expected": "fail"
+    },
+    {
+      "id": "CAP-006",
+      "name": "CLAUSE-3-DEPENDENCY",
+      "predicate_ids": ["PR-REL", "PR-CMP"],
+      "inputs": {"holder_relationship_credential": true, "holder_membership_same_community": true, "counterparty_membership_same_community": true, "third_party_membership_evidence_checkable": false, "holder_bound": true, "challenge_bound": true, "credentials_current": true, "status_private": true, "reusable_binder": false},
+      "expected": "indeterminate"
+    },
+    {
+      "id": "CAP-007",
+      "name": "STATUS-PRIVACY",
+      "predicate_ids": ["PR-RES", "PR-CMP"],
+      "inputs": {"holder_relationship_credential": true, "holder_membership_same_community": true, "counterparty_membership_same_community": true, "third_party_membership_evidence_checkable": true, "holder_bound": true, "challenge_bound": true, "credentials_current": true, "status_private": false, "reusable_binder": false},
+      "expected": "fail"
+    }
+  ]
+}
