@@ -1,3 +1,9 @@
+---
+layout: default
+title: "Pressure Test — Asymmetric Cross-Community Relationship Edge"
+parent: "Cross-Specification Pressure Tests"
+nav_order: 8
+---
 # Asymmetric cross-community relationship edge
 
 Status: experimental pressure test  
