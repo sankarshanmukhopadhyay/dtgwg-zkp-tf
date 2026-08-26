@@ -1,11 +1,20 @@
-# Privacy-Preserving Proof of Liveness — Requirements (fork working draft v0.4)
+# Privacy-Preserving Proof of Liveness — Requirements (v0.4)
 
-**Status:** Fork working draft for pressure testing and possible upstream contribution. It develops the upstream v0.3 requirements but is **not** a settled DTG ZKP specification and does not override upstream decisions.
+**Status:** Proposed Task Force Working Draft. This version extends v0.3 with
+implementation, interoperability, assurance, lifecycle, privacy, and
+conformance requirements.
 
-**Upstream author:** Scott Jones (Realeyes), Chair, DTG ZKP Task Force  
-**Fork expansion:** Maintained implementation/interoperability working draft based on upstream v0.3.
+**Version:** 0.4
 
-**Primary cryptographic reference:** [*A Cryptographic Framework for Proof of Personhood*](https://eprint.iacr.org/2026/333) — Choudhuri, Garg, Lee, Montgomery, Policharla, Sinha (IACR ePrint 2026/333). The paper formalises Sybil resistance, authenticated personhood and unlinkability across contexts, including the tension between Sybil resistance and stronger unlinkability goals.
+**Author:** Scott Jones (Realeyes), Chair, DTG ZKP Task Force
+
+**Contributors/reviewers:** @sankarshanmukhopadhyay and @mitchuski
+
+**Revision history:** v0.3 was revised following review by
+@sankarshanmukhopadhyay and @mitchuski. The v0.4 changelog is at the end.
+
+**Normative reference:** [*A Cryptographic Framework for Proof of Personhood*](https://eprint.iacr.org/2026/333) — Choudhuri, Garg, Lee, Montgomery, Policharla, Sinha (IACR ePrint 2026/333). Formalises Sybil-resistance, authenticated personhood, and **unlinkability across contexts**, and establishes why full unlinkability is unreachable. This work should align to it rather than reinvent it.
+
 
 ---
 
@@ -69,7 +78,6 @@ The following terms represent different claims and should not be used as synonym
 | **Scoped uniqueness** | Evidence that the same enrolled secret/subject cannot exercise a defined action more than allowed within a scope and epoch. | One natural person globally. |
 | **Freshness** | Evidence that a proof or upstream determination falls within a verifier-required time/session boundary. | Liveness by itself. |
 | **Agent authority** | Evidence that an agent is authorised to act for a principal under defined scope, duration and revocation conditions. | Holder binding or liveness alone. |
-| **Evidence closure** | The minimum complete set of credentials, artefacts, relationships, external state and protocol observations required to establish a requested verification predicate under a selected profile. | That every element must be disclosed; privacy analysis applies to the complete closure, including hidden or externally resolved elements. |
 | **F_PoP** | The normative reference's first-person proof-of-personhood framing: a proof property concerning a first-person personhood assertion under explicit system assumptions. | Civil identity, global uniqueness, or agent authority. |
 | **f-distinct** | The normative reference's distinct-human property: evidence that two relevant attestations correspond to two distinct humans under the stated construction and assumptions. | Merely proving that two pseudonyms, keys, credentials, or issuer records differ. |
 
@@ -133,7 +141,9 @@ If a deployment cannot substantiate one of those resistance claims, it **MUST** 
 
 A statement such as “unlinkable across verifiers” is therefore incomplete until it states the governed contexts, who may collude, what auxiliary information is available, and for how long correlation resistance is expected to hold.
 
-For the operational context record, disclosure analysis and change-control method, see [`docs/implementation-guide/boundaries/predicate-assurance-boundary-decision.md`](docs/implementation-guide/boundaries/predicate-assurance-boundary-decision.md). For composed transactions, see [`docs/implementation-guide/boundaries/composed-presentation-privacy.md`](docs/implementation-guide/boundaries/composed-presentation-privacy.md).
+For a non-normative operational context record, disclosure analysis and
+change-control method, see the maintained fork's
+[`predicate-assurance-boundary-decision.md`](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/blob/4034bd23f9c4421bd87d000f787cb7f2afaddf77/docs/implementation-guide/boundaries/predicate-assurance-boundary-decision.md).
 
 ## 7. Actors and trust model
 
@@ -178,11 +188,11 @@ The identifiers below are stable handles for review, scenarios and conformance m
 
 **LIV-CLAIM-04 — Uniqueness separation.** Scoped uniqueness **MUST NOT** be represented as global natural-person uniqueness.
 
-**LIV-CLAIM-05 — Agent authority separation.** Holder binding or liveness **MUST NOT** be interpreted as authorisation for an agent action. Agent authority requires separately verifiable delegation/mandate evidence. “Separately verifiable” does not imply that the verifier must receive or resolve a durable delegation ancestry: where the governing profile requires stronger privacy, the delegation interface **MUST** permit the required current-authority relationship to be established without unnecessary disclosure of cross-context correlators.
+**LIV-CLAIM-05 — Agent authority separation.** Holder binding or liveness **MUST NOT** be interpreted as authorisation for an agent action. Agent authority requires separately verifiable delegation/mandate evidence.
 
 ### 9.2 Attestation and policy
 
-**LIV-ATT-01 — Issuer authenticity.** The proof **MUST** demonstrate possession of an attestation whose issuer is acceptable under the selected profile, without disclosing more issuer information than that profile requires. Where acceptance depends only on membership in an approved issuer set, exact issuer disclosure **SHOULD NOT** be required unless the governing profile needs it for an explicit relying-party purpose.
+**LIV-ATT-01 — Issuer authenticity.** The proof **MUST** demonstrate possession of an attestation whose issuer is acceptable under the selected profile, without disclosing more issuer information than that profile requires.
 
 **LIV-ATT-02 — Policy binding.** The attestation **MUST** be bound to an identifiable liveness/personhood policy version and assurance class.
 
@@ -190,7 +200,7 @@ The identifiers below are stable handles for review, scenarios and conformance m
 
 **LIV-ATT-04 — Method semantics.** Where multiple liveness methods or assurance classes are accepted, the profile **MUST** define whether method identity is disclosed, hidden within an approved set, or reduced to a policy predicate.
 
-**LIV-ATT-05 — Accreditation state.** If verifier acceptance depends on issuer accreditation, the proof flow **MUST** bind the relevant accreditation framework/policy identifier and permit the verifier to evaluate its applicable status. The flow **SHOULD** support an accreditation-membership predicate without revealing the exact issuer where exact issuer identity is not required by the governing profile.
+**LIV-ATT-05 — Accreditation state.** If verifier acceptance depends on issuer accreditation, the proof flow **MUST** bind the relevant accreditation framework/policy identifier and permit the verifier to evaluate its applicable status.
 
 ### 9.3 Session, transcript and replay resistance
 
@@ -239,8 +249,6 @@ At minimum, the transcript must commit to:
 
 **LIV-STAT-05 — Status privacy.** Status checking **SHOULD** avoid creating a verifier-to-subject correlation channel. Where privacy-preserving status is not available, the disclosure/correlation impact must be documented.
 
-**LIV-STAT-06 — External-resolution privacy.** Privacy-preserving profiles **SHOULD** permit verification without verifier-originated network interactions that disclose the subject, credential, presentation or verification event to an authoritative third party. Where live resolution is required for current status, authorisation, accreditation or other fresh state, the profile **MUST** document what the contacted service learns, the identifier/linkability surface, retention assumptions and the effect on the declared privacy class. This requirement does not prohibit live lookup where the selected profile legitimately requires it.
-
 ### 9.6 Holder binding and continuity
 
 **LIV-BIND-01 — Holder-key proof.** Where holder binding is required, the presentation **MUST** prove control of the bound holder key/secret and bind that proof to the canonical transcript.
@@ -265,7 +273,7 @@ At minimum, the transcript must commit to:
 
 **LIV-UNIQ-06 — Distinct-human semantics.** Where a profile claims `f-distinct`, it **MUST** define the evidence and assumptions under which two attestations are treated as originating from two distinct humans. Distinct pseudonyms, keys, credentials, issuer records, or enrolment identifiers are not sufficient by themselves.
 
-**LIV-UNIQ-07 — Attester-independence boundary.** Where a profile relies on multiple issuers or attesters, any independence claim **MUST** state the correlated-failure or collusion risk that the independence assumption is intended to bound. Attester independence **MUST NOT** be represented as evidence that any individual attester's underlying determination was correct, honest, or factually grounded. Cryptographic soundness binds a proof to its valid witness under the selected construction; it does not, by itself, bind the witness to external reality.
+**LIV-UNIQ-07 — Attester-independence boundary.** Where a profile relies on multiple issuers or attesters, any independence claim **MUST** state the correlated-failure or collusion risk it is intended to bound. Attester independence **MUST NOT** be represented as evidence that any individual attester's underlying determination was correct, honest, or factually grounded. Cryptographic soundness establishes that a valid proof satisfies the construction with an admissible witness; it does not by itself establish that the witness corresponds to external reality.
 
 ### 9.8 Privacy and disclosure
 
@@ -279,17 +287,9 @@ At minimum, the transcript must commit to:
 
 **LIV-PRIV-05 — Binding artefact protection.** Biometric-derived binding artefacts **MUST** be designed and evaluated for irreversibility/non-invertibility appropriate to their threat model. “Hashed biometric” is not sufficient terminology by itself.
 
-**LIV-PRIV-06 — Evidence-closure composition review.** A deployment combining a liveness/personhood proof with credentials, Trust Task artefacts, delegation evidence, registry/status information, accreditation evidence, policy state or other external material **MUST** assess joint correlation and reconstruction risk across the complete evidence closure required to establish the requested predicate. An end-to-end privacy claim **MUST NOT** be inferred from standalone privacy properties of individual credentials or proofs.
+**LIV-PRIV-06 — Composition review.** A deployment combining multiple individually privacy-preserving proofs **MUST** assess joint correlation and reconstruction risk across the combined transcript and external metadata.
 
 **LIV-PRIV-07 — Mediated proving.** A mediated proving profile **MUST** define witness exposure, retention, logging, operator access, transport protection, deletion and compromise assumptions. Mediation must not be presented as privacy-equivalent to local proving without evidence.
-
-**LIV-PRIV-08 — Provable relationship interface.** Where the liveness/personhood predicate depends semantically on another DTG artefact or external evidence source, the relevant interface **MUST** expose sufficient authenticated cryptographic material for the required relationship to be proven without requiring disclosure of a durable cross-context correlator, unless such disclosure is explicitly required by the governing profile.
-
-**LIV-PRIV-09 — Predicate-oriented modelling.** Privacy-preserving profiles **SHOULD** define the proposition a verifier must establish independently of the representation or proof construction used to establish it. A profile **SHOULD NOT** require disclosure of an exact identifier, complete scope, delegation ancestry or other data when a narrower membership, range, authority or relationship predicate satisfies the relying-party decision.
-
-**LIV-PRIV-10 — Confidential binder semantics.** A value intended to provide confidential binding **MUST NOT** rely solely on a deterministic digest where the underlying input is feasibly enumerable. A profile **MUST** distinguish integrity binding from hiding/confidential commitment and state the hiding property required before construction selection.
-
-**LIV-PRIV-11 — Primitive reuse does not collapse semantics.** Reuse of a common proof primitive across registry membership, accreditation, anchoring, revocation, authorisation or other predicates **MUST NOT** imply equivalence of their governance authority, lifecycle, freshness requirements, accountability model or failure semantics.
 
 ### 9.9 Algorithm and implementation agility
 
@@ -335,7 +335,10 @@ Lifecycle controls bind the semantic claim to the period during which its assump
 
 **LIV-LCM-06 — Historical evidence.** Where a relying regime requires long-term audit or historical verification, the retained evidence **MUST** make clear what was valid as of the original evaluation time and what, if anything, remains verifiable at the later audit time.
 
-See [`docs/implementation-guide/lifecycle/cryptoperiod-and-assurance-horizon.md`](docs/implementation-guide/lifecycle/cryptoperiod-and-assurance-horizon.md) and [`docs/implementation-guide/adr/ADR-009-cryptoperiod-assurance-horizon.md`](docs/implementation-guide/adr/ADR-009-cryptoperiod-assurance-horizon.md).
+For non-normative implementation guidance, see the maintained fork's
+[`cryptoperiod-and-assurance-horizon.md`](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/blob/4034bd23f9c4421bd87d000f787cb7f2afaddf77/docs/implementation-guide/lifecycle/cryptoperiod-and-assurance-horizon.md)
+and
+[`ADR-009-cryptoperiod-assurance-horizon.md`](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/blob/4034bd23f9c4421bd87d000f787cb7f2afaddf77/docs/implementation-guide/adr/ADR-009-cryptoperiod-assurance-horizon.md).
 
 ## 11. Predicate and disclosure matrix
 
@@ -397,8 +400,6 @@ Where an agent initiates or presents a proof on behalf of a principal, the liven
 - evidence linking the delegation decision to the appropriate human-authorisation event.
 
 The two evidence sets **MAY** be cryptographically composed, but their semantics **MUST** remain separable. This document defines the composition boundary only; the delegation protocol and authority semantics remain owned by the applicable delegation or Trust Task work.
-
-A privacy-preserving delegation profile **SHOULD** allow the verifier to establish the current-authority predicate without receiving the complete delegation ancestry where that ancestry is not itself required by governance. Single-hop or principal-originating delegation may be used as a simplifying profile, but this document does not prohibit governed sub-delegation. Where sub-delegation is supported, authority to delegate **MUST** itself be explicit, bounded and provable.
 
 ## 13. Use-case requirements
 
@@ -466,21 +467,24 @@ A candidate profile should not be called interoperable without evidence. Before 
 5. explicit status/revocation test cases;
 6. replay, wrong-audience and wrong-context negative tests;
 7. downgrade/version-negotiation negative tests;
-8. privacy/disclosure review against the declared adversary model and complete evidence closure;
+8. privacy/disclosure review against the declared adversary model;
 9. mobile/browser or target-platform performance measurements for the intended deployment class;
-10. failure-code interoperability tests;
-11. evidence that recovery, rotation and migration rules do not silently break uniqueness or privacy guarantees; and
-12. composed-presentation negative tests covering correlation introduced by status resolution, delegation evidence, registry/accreditation evidence, low-entropy binders and other supporting artefacts.
+10. failure-code interoperability tests; and
+11. evidence that recovery, rotation and migration rules do not silently break uniqueness or privacy guarantees.
 
 Proof-system performance alone is not sufficient interoperability evidence.
-
-The construction-neutral composed-presentation test cases are recorded in [`docs/implementation-guide/conformance/composed-presentation-privacy-tests.md`](docs/implementation-guide/conformance/composed-presentation-privacy-tests.md).
 
 ### 16.1 Construction-selection gate and circuit evidence
 
 A cryptographic construction **MUST NOT** be promoted into a profile merely because a circuit or prototype is functionally feasible. Selection is gated on approval of the exact statement, negative meaning, context/scope/epoch inputs, adversary and horizon, attestation fields and disclosure modes, composition assumptions, lifecycle, accountability path, performance envelope, and conformance evidence.
 
-The detailed gate is defined in [`docs/implementation-guide/boundaries/predicate-assurance-boundary-decision.md#25-construction-selection-gate`](docs/implementation-guide/boundaries/predicate-assurance-boundary-decision.md#25-construction-selection-gate). Experimental lab or circuit benchmarks **MAY** be used as evidence input to that gate, but until independently reproduced or otherwise independently verified they **MUST** be labelled experimental and **MUST NOT** by themselves support an interoperability, assurance, or production-readiness claim.
+The maintained fork provides a non-normative
+[`construction-selection gate`](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/blob/4034bd23f9c4421bd87d000f787cb7f2afaddf77/docs/implementation-guide/boundaries/predicate-assurance-boundary-decision.md#25-construction-selection-gate)
+that can be used to evaluate candidate evidence. Experimental lab or circuit
+benchmarks **MAY** be used as evidence input to that gate, but until
+independently reproduced or otherwise independently verified they **MUST** be
+labelled experimental and **MUST NOT** by themselves support an
+interoperability, assurance, or production-readiness claim.
 
 ## 17. Security and privacy acceptance questions
 
@@ -489,9 +493,6 @@ Before deployment, an implementer should be able to answer:
 - Who can correlate two presentations and under what conditions?
 - Can issuer and verifier collusion defeat the intended context boundary?
 - What stable metadata remains even when credential attributes are hidden?
-- What is the minimum evidence closure required to establish each material predicate?
-- Do delegation, Trust Task, status, registry or accreditation artefacts expose a correlator that the primary credential hides?
-- Which verifier-originated network interactions reveal that verification occurred, and to whom?
 - What happens after issuer-key compromise?
 - What happens after holder-key compromise?
 - What happens after a liveness policy or model is withdrawn?
@@ -501,7 +502,6 @@ Before deployment, an implementer should be able to answer:
 - Can a verifier force a weaker privacy/suite profile through negotiation?
 - Can multiple successful proofs be combined to reconstruct information that no single proof reveals?
 - What evidence supports the claimed biometric-derived artefact irreversibility?
-- Are any deterministic digests being treated as confidential binders despite feasibly enumerable input domains?
 
 A deployment that cannot answer these questions has an assurance gap even if every proof verifies cryptographically.
 
@@ -521,9 +521,6 @@ The following are incompatible with this draft's requirements unless a future pr
 - untyped `true/false` verification results that hide status or policy failure;
 - silent fallback to weaker assurance/privacy;
 - undocumented composition of multiple proofs;
-- inheriting an end-to-end privacy claim solely from the standalone privacy labels of component credentials or proofs;
-- treating a deterministic digest of feasibly enumerable input as a confidential commitment;
-- treating common cryptographic machinery as evidence that registry, revocation, accreditation and authorisation have interchangeable semantics;
 - proprietary verifier-only formats without interoperable evidence; and
 - hard-coding one cryptographic algorithm into the semantic claim model.
 
@@ -543,7 +540,6 @@ B1 and B2 are no longer treated as open questions in this working draft. Their a
 6. **B8 — Agent composition:** ownership boundary between this work and Trust Task Protocols for delegation composition.
 7. **B9 — Offline mode:** what assurance/status horizon permits disconnected verification?
 8. **B10 — Privacy class:** whether profiles expose a standard privacy/disclosure classification usable during negotiation.
-9. **B11 — Evidence-closure governance:** which composed evidence classes are permitted for each privacy profile, and when an external-resolution or delegation disclosure requires a weaker declared privacy class.
 
 ### 19.2 Construction and engineering decisions
 
@@ -571,9 +567,9 @@ A practical sequence is:
 3. **Ratify the Minimum Liveness Profile semantics.** This can progress without the uniqueness trade curve.
 4. **Define the attestation and verification outcome contracts.** Make upstream biometric inputs and downstream verifier semantics testable.
 5. **Apply the construction-selection gate before selecting MLP constructions.** Use experimental circuit benchmarks as inputs, then require independent verification/reproduction before stronger readiness claims.
-6. **Resolve EPP uniqueness/continuity governance.** Include enrolment dedup quality, `f-distinct` semantics where relevant, and biometric-provider independence before selecting scoped-nullifier/multi-issuer mechanisms. Keep independence claims explicitly scoped to correlated-failure and collusion risk rather than individual-attester correctness.
+6. **Resolve EPP uniqueness/continuity governance.** Include enrolment dedup quality, `f-distinct` semantics where relevant, and biometric-provider independence before selecting scoped-nullifier/multi-issuer mechanisms.
 7. **Pressure-test lifecycle and migration.** Cover bounded epochs, cryptoperiods, post-quantum migration, long-retention evidence, revocation cadence, recovery, policy withdrawal and offline verification.
-8. **Pressure-test agent and evidence composition.** Keep human-related predicates separate from delegated authority, evaluate the complete evidence closure, and treat privacy failures introduced by delegation/status/registry/Trust Task evidence as first-class protocol states.
+8. **Pressure-test agent composition.** Keep human-related predicates separate from delegated authority and treat failures as first-class protocol states.
 9. **Cross-map every proposed normative requirement to conformance evidence.** A requirement with no observable test or assurance evidence should be explicitly identified as governance-only rather than accidentally untestable.
 
 ## 21. Maintained follow-up and upstreaming backlog
@@ -582,10 +578,9 @@ The original “immediate next steps” list has been retired. Repository work c
 
 | Work item | Status | Durable evidence / next gate |
 |---|---|---|
-| Map `LIV-LCM-*`, `LIV-ALG-*` and `LIV-UNIQ-06..07` into predicate, scenario and assurance coverage | **completed** | [`requirements-assurance-map.csv`](docs/implementation-guide/matrices/requirements-assurance-map.csv) provides direct requirement-to-scenario/control/guardrail/test traceability. |
-| Pressure-test long retention, revocation cadence, post-quantum migration, enrolment-dedup failure and correlated multi-issuer biometric dependencies | **completed as test definitions; evidence remains deployment-dependent** | [`RAHP v1.1 refresh`](docs/implementation-guide/pressure-tests/rahp-v1.1-refresh.md) records the five focused tests, expected evidence and retest triggers. |
+| Map `LIV-LCM-*`, `LIV-ALG-*` and `LIV-UNIQ-06` into predicate, scenario and assurance coverage | **completed** | The maintained fork's non-normative [`requirements-assurance-map.csv`](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/blob/4034bd23f9c4421bd87d000f787cb7f2afaddf77/docs/implementation-guide/matrices/requirements-assurance-map.csv) provides direct requirement-to-scenario/control/guardrail/test traceability. |
+| Pressure-test long retention, revocation cadence, post-quantum migration, enrolment-dedup failure and correlated multi-issuer biometric dependencies | **completed as test definitions; evidence remains deployment-dependent** | The maintained fork's non-normative [`RAHP v1.1 refresh`](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/blob/4034bd23f9c4421bd87d000f787cb7f2afaddf77/docs/implementation-guide/pressure-tests/rahp-v1.1-refresh.md) records the five focused tests, expected evidence and retest triggers. |
 | Keep B1/B2 status synchronized through decision governance | **implemented and ongoing** | The decision register and B1/B2 conformance cases remain the authority. A change to either working position requires an explicit governed decision rather than prose drift. |
-| Maintain composed-presentation privacy coverage across PoL and implementation guidance | **implemented as construction-neutral requirements; executable evidence remains open** | `LIV-PRIV-06` and `LIV-PRIV-08..11`, the composed-presentation boundary guide and the negative conformance cases define the semantic baseline; machine-readable/executable cases follow as predicate identifiers and constructions mature. |
 | Collect construction/circuit benchmarks and independent reproduction evidence | **open evidence gate** | Construction selection remains deferred. Experimental benchmarks may inform the gate but do not support readiness claims until independently reproduced or otherwise independently verified. |
 | Prepare a concise upstream contribution separating semantic improvements from fork-specific implementation machinery | **open upstream action** | Upstreaming should package broadly reusable requirements and decision semantics separately from this fork's validators, deployment profiles, runbooks and local assurance machinery. |
 
@@ -613,14 +608,8 @@ The RAHP refresh is deliberately **not** treated as a transfer of normative auth
 - Added post-quantum migration readiness, security-horizon and hash-chain continuity guardrails.
 - Added lifecycle requirements covering bounded epochs, cryptoperiods, retention, revocation cadence and historical evidence.
 - Strengthened biometric-provider inputs for enrolment-dedup quality and multi-issuer biometric independence.
-- Clarified that attester independence bounds correlated-failure and collusion risk but does not establish the correctness, honesty, or external-world truth of any individual attester determination (`LIV-UNIQ-07`).
 - Added `F_PoP` and `f-distinct` terminology alignment with the primary cryptographic reference.
 - Tightened the separation of agent authority into mandatory structured delegation evidence when relied upon.
-- Defined evidence closure and strengthened composition privacy so unlinkability is evaluated across credential, Trust Task, delegation, status, registry/accreditation and protocol-resolution evidence (`LIV-PRIV-06`).
-- Added proof-input composability, predicate-oriented modelling, low-entropy confidential-binder semantics and semantic separation when proof primitives are reused (`LIV-PRIV-08..11`).
-- Generalised status privacy into an external-resolution privacy requirement without making offline verification universally mandatory (`LIV-STAT-06`).
-- Clarified that private delegation need not disclose durable ancestry, while preserving governed sub-delegation as a valid profile choice.
-- Added composed-presentation negative conformance expectations and an evidence-closure governance backlog item.
 - Split the remaining backlog into semantic/governance decisions and construction/engineering decisions.
 - Preserved the v0.3 assurance-boundary correction: cryptography proves attestation properties under the V1 model; it does not prove the underlying biometric determination was correct.
 
