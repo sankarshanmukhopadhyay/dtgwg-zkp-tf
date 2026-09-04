@@ -1,0 +1,44 @@
+schema_version: "1.0"
+items:
+  - issue: 14
+    title: "Community-Anchored Proof ADR-001"
+    state: waiting_external
+    priority: 90
+    impact: very_high
+    last_verified_at: "2026-09-04T03:26:00Z"
+    dependency:
+      kind: external
+      authority:
+        - repository: trustoverip/dtgwg-cred-spec
+          issue: 9
+          condition: interoperable relationship-issuer/counterparty binding usable as a proof witness
+        - repository: trustoverip/dtgwg-cred-spec
+          issue: 21
+          condition: trust-context semantics sufficient to bound edge-verifiability claims
+        - repository: trustoverip/dtgwg-cred-spec
+          issue: 24
+          condition: cross-context edge-verifiability semantics sufficiently defined
+        - repository: trustoverip/dtgwg-cred-spec
+          issue: 25
+          condition: relationship-policy discovery semantics sufficiently defined
+        - repository: trustoverip/dtgwg-trust-tasks-tf
+          condition: any Trust Task evidence used by the proof follows the owning workstream mechanisms
+      unblock_conditions:
+        - independently checkable counterparty membership/currentness representation usable while the counterparty is offline
+        - defined freshness and revocation rule with observable registry state sufficient to exercise CURRENT
+        - enough trust-context semantics to distinguish cryptographic proof validity from stronger VTN, edge, relationship, or governance claims
+    evidence:
+      state: verified
+      source_issue: "https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/issues/14"
+      input_contract: "docs/implementation-guide/interoperability/community-anchored-proof-input-contract.md"
+    resume_sequence:
+      - concrete Clause 3 construction
+      - reference prover/verifier
+      - cross-verifier unlinkability run
+      - revocation/currentness run
+      - interoperability evidence
+      - DPIP evidence binding
+    invariants:
+      - missing dependency evidence must not be interpreted as ready or pass
+      - this repository must not invent Credential or Registry semantics owned elsewhere
+      - proof validity must not be upgraded into a stronger relationship or governance assurance claim
