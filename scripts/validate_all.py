@@ -32,6 +32,7 @@ VALIDATORS = (
     "validate_decision_governance.py",
     "validate_security_assurance.py",
     "validate_identifier_register.py",
+    "validate_construction_evidence.py",
 )
 
 
