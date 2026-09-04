@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0",
+  "profiles": [
+    {
+      "profile_id": "EXP-BBS-2023-01",
+      "claim_layer": "construction",
+      "normative_status": "non-normative",
+      "evidence_state": "verified",
+      "execution": {
+        "workflow": ".github/workflows/bbs-construction-evidence.yml",
+        "artifact_state": "produced_by_ci",
+        "artifact": "bbs-2023-construction-evidence",
+        "evidence_file": "docs/implementation-guide/conformance/construction-evidence-bbs-2023.json"
+      },
+      "interoperability": {
+        "state": "verified",
+        "independent": true,
+        "evidence": "External W3C BBS interoperability report referenced by construction-evidence-bbs-2023.json"
+      },
+      "provenance": [
+        "docs/implementation-guide/conformance/experimental-bbs-2023-construction-profile.md",
+        "docs/implementation-guide/conformance/construction-evidence-bbs-2023.json"
+      ],
+      "claim_boundary": "Evidence is limited to the cited BBS capabilities and does not close PR-REL, PR-HID, PR-RES or DTG-wide interoperability claims."
+    },
+    {
+      "profile_id": "EXP-PR-REL-SIGMA-01",
+      "claim_layer": "construction",
+      "normative_status": "non-normative",
+      "evidence_state": "partially_verified",
+      "execution": {
+        "workflow": ".github/workflows/pr-rel-construction-evidence.yml",
+        "artifact_state": "produced_by_ci",
+        "artifact": "pr-rel-construction-evidence",
+        "evidence_file": "docs/implementation-guide/conformance/experimental-pr-rel-sigma-profile.md"
+      },
+      "interoperability": {
+        "state": "evidence_required",
+        "independent": false,
+        "evidence": "Independent interoperability for the exact DTG relation and serialization remains a promotion gate."
+      },
+      "provenance": [
+        "docs/implementation-guide/conformance/experimental-pr-rel-sigma-profile.md",
+        ".github/workflows/pr-rel-construction-evidence.yml"
+      ],
+      "claim_boundary": "Local proof generation and verification evidence does not establish independent interoperability or source-artifact authenticity."
+    },
+    {
+      "profile_id": "EXP-PR-HID-PEDERSEN-01",
+      "claim_layer": "construction",
+      "normative_status": "non-normative",
+      "evidence_state": "partially_verified",
+      "execution": {
+        "workflow": ".github/workflows/pr-hid-construction-evidence.yml",
+        "artifact_state": "produced_by_ci",
+        "artifact": "pr-hid-construction-evidence",
+        "evidence_file": "docs/implementation-guide/conformance/experimental-pr-hid-pedersen-profile.md"
+      },
+      "interoperability": {
+        "state": "evidence_required",
+        "independent": false,
+        "evidence": "Governed canonical encoding and independent interoperability remain promotion gates."
+      },
+      "provenance": [
+        "docs/implementation-guide/conformance/experimental-pr-hid-pedersen-profile.md",
+        ".github/workflows/pr-hid-construction-evidence.yml"
+      ],
+      "claim_boundary": "Commitment/opening evidence does not authenticate source artifacts or prove arbitrary relationships."
+    },
+    {
+      "profile_id": "PR-RES",
+      "claim_layer": "profile",
+      "normative_status": "non-normative",
+      "evidence_state": "partially_verified",
+      "execution": {
+        "workflow": ".github/workflows/conformance-harness.yml",
+        "artifact_state": "produced_by_ci",
+        "artifact": "conformance-evidence",
+        "evidence_file": "docs/implementation-guide/conformance/pr-res-resolution-profiles.yaml"
+      },
+      "interoperability": {
+        "state": "evidence_required",
+        "independent": false,
+        "evidence": "Exact mechanism/serialization and independent interoperability remain profile-specific promotion gates."
+      },
+      "provenance": [
+        "docs/implementation-guide/conformance/pr-res-resolution-profiles.md",
+        "docs/implementation-guide/conformance/pr-res-resolution-profiles.yaml"
+      ],
+      "claim_boundary": "Resolution-profile evidence establishes declared freshness/fallback/privacy behaviour; it does not make status, membership, accreditation and authorization equivalent semantics."
+    }
+  ]
+}

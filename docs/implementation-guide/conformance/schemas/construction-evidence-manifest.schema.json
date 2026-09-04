@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sankarshanmukhopadhyay.github.io/dtgwg-zkp-tf/schemas/construction-evidence-manifest.schema.json",
+  "title": "DTG ZKP construction evidence manifest",
+  "type": "object",
+  "required": ["schema_version", "profiles"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "profiles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["profile_id", "claim_layer", "normative_status", "evidence_state", "execution", "interoperability", "provenance", "claim_boundary"],
+        "properties": {
+          "profile_id": {"type": "string", "minLength": 1},
+          "claim_layer": {"enum": ["semantic", "construction", "profile"]},
+          "normative_status": {"enum": ["non-normative", "normative"]},
+          "evidence_state": {"enum": ["unverified", "partially_verified", "verified", "execution_evidence_pending", "complete"]},
+          "execution": {
+            "type": "object",
+            "required": ["workflow", "artifact_state"],
+            "properties": {
+              "workflow": {"type": "string", "minLength": 1},
+              "artifact_state": {"enum": ["produced", "produced_by_ci", "pending", "not_applicable"]},
+              "artifact": {"type": "string"},
+              "evidence_file": {"type": "string"}
+            },
+            "additionalProperties": false
+          },
+          "interoperability": {
+            "type": "object",
+            "required": ["state", "independent"],
+            "properties": {
+              "state": {"enum": ["unverified", "evidence_required", "verified", "complete"]},
+              "independent": {"type": "boolean"},
+              "evidence": {"type": "string"}
+            },
+            "additionalProperties": false
+          },
+          "provenance": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+          "claim_boundary": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
