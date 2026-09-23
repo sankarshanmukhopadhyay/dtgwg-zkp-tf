@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "profile": "record-003-transcript-binding",
+  "profile": "CL-3",
   "implementation": {
     "name": "downstream-record-003-semantic-adapter",
     "version": "1.0",
@@ -8,7 +8,7 @@
   },
   "tests": [
     {
-      "test_id": "R003-POS-001",
+      "test_id": "CT-R003-POS-001",
       "operation": "evaluate_transcript_binding",
       "required_capability": "transcript-binding",
       "expected_status": "accepted",
@@ -26,7 +26,7 @@
       }
     },
     {
-      "test_id": "R003-NEG-001",
+      "test_id": "CT-R003-NEG-001",
       "operation": "evaluate_transcript_binding",
       "required_capability": "transcript-binding",
       "expected_status": "rejected",
@@ -44,7 +44,7 @@
       }
     },
     {
-      "test_id": "R003-NEG-002",
+      "test_id": "CT-R003-NEG-002",
       "operation": "evaluate_transcript_binding",
       "required_capability": "transcript-binding",
       "expected_status": "rejected",
@@ -62,7 +62,7 @@
       }
     },
     {
-      "test_id": "R003-NEG-003",
+      "test_id": "CT-R003-NEG-003",
       "operation": "evaluate_transcript_binding",
       "required_capability": "transcript-binding",
       "expected_status": "rejected",
@@ -80,7 +80,7 @@
       }
     },
     {
-      "test_id": "R003-NEG-004",
+      "test_id": "CT-R003-NEG-004",
       "operation": "evaluate_transcript_binding",
       "required_capability": "transcript-binding",
       "expected_status": "rejected",
@@ -98,7 +98,7 @@
       }
     },
     {
-      "test_id": "R003-NEG-005",
+      "test_id": "CT-R003-NEG-005",
       "operation": "evaluate_transcript_binding",
       "required_capability": "transcript-binding",
       "expected_status": "rejected",
@@ -116,7 +116,7 @@
       }
     },
     {
-      "test_id": "R003-NEG-006",
+      "test_id": "CT-R003-NEG-006",
       "operation": "evaluate_transcript_binding",
       "required_capability": "transcript-binding",
       "expected_status": "rejected",
@@ -134,7 +134,7 @@
       }
     },
     {
-      "test_id": "R003-NEG-007",
+      "test_id": "CT-R003-NEG-007",
       "operation": "evaluate_transcript_binding",
       "required_capability": "transcript-binding",
       "expected_status": "rejected",
@@ -152,7 +152,7 @@
       }
     },
     {
-      "test_id": "R003-NEG-008",
+      "test_id": "CT-R003-NEG-008",
       "operation": "evaluate_transcript_binding",
       "required_capability": "transcript-binding",
       "expected_status": "rejected",
@@ -169,5 +169,6 @@
         "replay_seen": false
       }
     }
-  ]
+  ],
+  "specificationRevision": "trustoverip/dtgwg-zkp-spec@cfd94063e5cfee7ba6df4dcfd28c10399a0ffd0a:record-003"
 }
