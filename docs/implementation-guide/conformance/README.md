@@ -119,3 +119,8 @@ Use the [upstream construction record crosswalk](upstream-construction-record-cr
 ## Canonical common-control compatibility
 
 [Record 007 identifier and key-profile compatibility](record-007-identifier-compatibility.md) classifies current identifier/key shapes without conflating common control with hidden-field equality.
+
+
+## Canonical blinded-binder evidence
+
+[Record 008 blinded-binder and correlation evidence](record-008-blinded-binder.md) reuses PR-HID construction evidence while separating plaintext hiding, commitment binding and presentation unlinkability.

@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "1.0",
+  "authority": {
+    "upstream_repository": "trustoverip/dtgwg-zkp-spec",
+    "upstream_commit": "cfd94063e5cfee7ba6df4dcfd28c10399a0ffd0a",
+    "record": "008"
+  },
+  "cases": [
+    {
+      "id": "R008-POS-OPEN",
+      "expected": [
+        "accepted",
+        "binder-opening-accepted"
+      ],
+      "input": {
+        "source_artifact_authenticated": true,
+        "plaintext_citation_visible": false,
+        "opening_valid": true,
+        "deterministic_low_entropy_binder": false,
+        "visible_stable_commitment": false,
+        "claim_unlinkable": true,
+        "claim_task_completed": false
+      }
+    },
+    {
+      "id": "R008-NEG-WRONG-OPENING",
+      "expected": [
+        "rejected",
+        "binder-mismatch"
+      ],
+      "input": {
+        "source_artifact_authenticated": true,
+        "plaintext_citation_visible": false,
+        "opening_valid": false,
+        "deterministic_low_entropy_binder": false,
+        "visible_stable_commitment": false,
+        "claim_unlinkable": false,
+        "claim_task_completed": false
+      }
+    },
+    {
+      "id": "R008-NEG-PLAINTEXT",
+      "expected": [
+        "rejected",
+        "binder-plaintext-present"
+      ],
+      "input": {
+        "source_artifact_authenticated": true,
+        "plaintext_citation_visible": true,
+        "opening_valid": true,
+        "deterministic_low_entropy_binder": false,
+        "visible_stable_commitment": false,
+        "claim_unlinkable": false,
+        "claim_task_completed": false
+      }
+    },
+    {
+      "id": "R008-NEG-ENUMERABLE",
+      "expected": [
+        "rejected",
+        "enumerable-binder-recoverable"
+      ],
+      "input": {
+        "source_artifact_authenticated": true,
+        "plaintext_citation_visible": false,
+        "opening_valid": true,
+        "deterministic_low_entropy_binder": true,
+        "visible_stable_commitment": false,
+        "claim_unlinkable": false,
+        "claim_task_completed": false
+      }
+    },
+    {
+      "id": "R008-NEG-STABLE-CORRELATION",
+      "expected": [
+        "rejected",
+        "stable-binder-correlatable"
+      ],
+      "input": {
+        "source_artifact_authenticated": true,
+        "plaintext_citation_visible": false,
+        "opening_valid": true,
+        "deterministic_low_entropy_binder": false,
+        "visible_stable_commitment": true,
+        "claim_unlinkable": true,
+        "claim_task_completed": false
+      }
+    },
+    {
+      "id": "R008-POS-VISIBLE-NARROW-CLAIM",
+      "expected": [
+        "accepted",
+        "binder-opening-accepted"
+      ],
+      "input": {
+        "source_artifact_authenticated": true,
+        "plaintext_citation_visible": false,
+        "opening_valid": true,
+        "deterministic_low_entropy_binder": false,
+        "visible_stable_commitment": true,
+        "claim_unlinkable": false,
+        "claim_task_completed": false
+      }
+    },
+    {
+      "id": "R008-NEG-UNAUTHENTICATED-SOURCE",
+      "expected": [
+        "rejected",
+        "source-artifact-unauthenticated"
+      ],
+      "input": {
+        "source_artifact_authenticated": false,
+        "plaintext_citation_visible": false,
+        "opening_valid": true,
+        "deterministic_low_entropy_binder": false,
+        "visible_stable_commitment": false,
+        "claim_unlinkable": false,
+        "claim_task_completed": false
+      }
+    },
+    {
+      "id": "R008-NEG-TASK-COMPLETION",
+      "expected": [
+        "rejected",
+        "task-completion-not-established"
+      ],
+      "input": {
+        "source_artifact_authenticated": true,
+        "plaintext_citation_visible": false,
+        "opening_valid": true,
+        "deterministic_low_entropy_binder": false,
+        "visible_stable_commitment": false,
+        "claim_unlinkable": false,
+        "claim_task_completed": true
+      }
+    }
+  ]
+}
