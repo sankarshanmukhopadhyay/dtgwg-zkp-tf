@@ -8,6 +8,10 @@ nav_order: 15
 
 **Status:** Experimental / non-normative
 
+## Canonical semantic mapping
+
+This profile is retained as downstream construction evidence for canonical upstream **record 008 — Blinded binder** at `trustoverip/dtgwg-zkp-spec@cfd94063e5cfee7ba6df4dcfd28c10399a0ffd0a`. The `PR-HID` label is an evidence locator, not a competing semantic authority.
+
 `EXP-PR-HID-PEDERSEN-01` pressure-tests a concrete confidential binder for low-entropy or feasibly enumerable values. It is downstream of the construction-neutral requirement in `PR-HID`; it does not alter that predicate's semantics.
 
 ## Construction
