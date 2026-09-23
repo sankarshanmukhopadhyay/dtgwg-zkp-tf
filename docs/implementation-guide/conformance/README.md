@@ -124,3 +124,8 @@ Use the [upstream construction record crosswalk](upstream-construction-record-cr
 ## Canonical blinded-binder evidence
 
 [Record 008 blinded-binder and correlation evidence](record-008-blinded-binder.md) reuses PR-HID construction evidence while separating plaintext hiding, commitment binding and presentation unlinkability.
+
+
+## Canonical VAC authority-chain assurance
+
+[Record 021 VAC authority-chain assurance](record-021-vac-authority-chain.md) composes the reusable transcript/currentness evidence and makes authority-vs-delegation, chain-shape privacy and status-observation boundaries executable.
