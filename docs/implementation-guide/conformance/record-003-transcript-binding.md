@@ -14,14 +14,14 @@ It tests the boundary between **proof binding to a supplied transcript digest** 
 
 | Surface | Evidence | Result |
 |---|---|---|
-| proof constrains the supplied transcript digest | R003-POS-001 / NEG-001 | accept exact digest; reject substituted digest |
-| audience binding | R003-NEG-002 | reject mismatched audience even when proof digest binding is otherwise valid |
-| governed context binding | R003-NEG-003 | reject mismatched context |
-| challenge binding | R003-NEG-004 | reject mismatched challenge |
-| freshness | R003-NEG-005 | reject expiry as verifier policy, not as a property inferred from digest binding |
-| replay | R003-NEG-006 | reject a previously seen transcript under replay policy |
-| canonical encoding | R003-NEG-007 | reject an incorrectly derived/canonicalized digest even when the proof constrains that supplied scalar |
-| predicate/profile acceptance | R003-NEG-008 | reject an unknown/unaccepted predicate identifier independently of digest binding |
+| proof constrains the supplied transcript digest | CT-INT-TASK-POS-01 plus adapter unit negative | accept exact digest; reject substituted digest |
+| audience binding | adapter unit negative | reject mismatched audience even when proof digest binding is otherwise valid |
+| governed context binding | adapter unit negative | reject mismatched context |
+| challenge binding | adapter unit negative | reject mismatched challenge |
+| freshness | adapter unit negative | reject expiry as verifier policy, not as a property inferred from digest binding |
+| replay | CT-INT-TASK-NEG-01 | reject a previously seen transcript under replay policy |
+| canonical encoding | adapter unit negative | reject an incorrectly derived/canonicalized digest even when the proof constrains that supplied scalar |
+| predicate/profile acceptance | adapter unit negative | reject an unknown/unaccepted predicate identifier independently of digest binding |
 
 ## Assurance boundary
 
