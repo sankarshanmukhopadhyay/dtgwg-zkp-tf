@@ -16,11 +16,14 @@ project:
 authority:
   normative_scope:
     - fork-local-zkp-implementation-guidance
+  upstream_semantic_authority:
+    - trustoverip/dtgwg-zkp-spec
+    - trustoverip/dtgwg-zkp-tf
   does_not_own:
     - trustoverip-upstream-specification
     - upstream-release-governance
     - external-deployment-policy
-  delegation: "Repository maintainers govern only fork-local additions and evidence; trustoverip/dtgwg-zkp-tf retains upstream normative and release authority."
+  delegation: "Repository maintainers govern only fork-local additions and evidence; trustoverip/dtgwg-zkp-spec is canonical for overlapping ZKP specification semantics where it speaks, while trustoverip/dtgwg-zkp-tf retains task-force requirements, discussion and decision authority."
   revocation_or_supersession: "Fork-local guidance is superseded through explicit versioned changes or upstream adoption; historical fork evidence remains auditable."
 evidence:
   validation_commands:
