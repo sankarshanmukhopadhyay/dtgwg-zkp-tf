@@ -114,3 +114,8 @@ Use the [upstream construction record crosswalk](upstream-construction-record-cr
 ## Canonical status-root/currentness evidence
 
 [Record 006 currentness and status-root evidence](record-006-currentness.md) separates non-revocation proof validity from root authority, freshness, distribution privacy and registry governance.
+
+
+## Canonical common-control compatibility
+
+[Record 007 identifier and key-profile compatibility](record-007-identifier-compatibility.md) classifies current identifier/key shapes without conflating common control with hidden-field equality.
