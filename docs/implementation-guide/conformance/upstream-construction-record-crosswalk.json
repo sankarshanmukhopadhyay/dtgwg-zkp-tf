@@ -1,0 +1,280 @@
+{
+  "schema_version": "1.0",
+  "authority": {
+    "upstream_repository": "trustoverip/dtgwg-zkp-spec",
+    "upstream_commit": "cfd94063e5cfee7ba6df4dcfd28c10399a0ffd0a",
+    "rule": "Upstream construction records are canonical where they define overlapping ZKP semantics. This file maps downstream evidence; it does not redefine upstream records."
+  },
+  "local_predicate_labels": {
+    "status": "legacy-local-evidence-index",
+    "rule": "PR-* labels remain useful for locating historical fixtures and profiles but MUST NOT be treated as canonical semantic primitives when an upstream construction record defines the overlapping proposition."
+  },
+  "mappings": [
+    {
+      "asset": "docs/implementation-guide/conformance/experimental-pr-rel-sigma-profile.yaml",
+      "local_id": "EXP-PR-REL-SIGMA-01",
+      "disposition": "reuse_evidence",
+      "upstream_records": [
+        {
+          "id": "009",
+          "relation": "direct",
+          "confidence": "high",
+          "note": "Equality of a hidden scalar across authenticated commitments is construction evidence for hidden-value equality when the authenticated-field/opening contract is satisfied."
+        },
+        {
+          "id": "007",
+          "relation": "conditional",
+          "confidence": "medium",
+          "note": "The same relation can support common-control evidence only when the hidden scalar is explicitly the controller secret under the selected identifier/key profile; the local profile alone does not establish those credential/key semantics."
+        }
+      ],
+      "limits": [
+        "does not establish credential authenticity by itself",
+        "does not establish canonical DTG field-to-scalar encoding",
+        "does not establish independent interoperability for the exact DTG profile"
+      ]
+    },
+    {
+      "asset": "docs/implementation-guide/conformance/experimental-pr-hid-pedersen-profile.yaml",
+      "local_id": "EXP-PR-HID-PEDERSEN-01",
+      "disposition": "reuse_evidence",
+      "upstream_records": [
+        {
+          "id": "008",
+          "relation": "direct",
+          "confidence": "high",
+          "note": "Pedersen-style commitment/opening evidence maps to the blinded-binder construction family, including the local negative case that deterministic/visible binders can remain correlatable."
+        }
+      ],
+      "limits": [
+        "commitment opening does not authenticate the source credential",
+        "fresh blinding does not by itself establish presentation unlinkability",
+        "record 022 is not part of the pinned canonical main and is therefore not mapped here"
+      ]
+    },
+    {
+      "asset": "docs/implementation-guide/conformance/pr-res-resolution-profiles.yaml",
+      "local_id": "PR-RES",
+      "disposition": "retain_downstream_extension",
+      "upstream_records": [
+        {
+          "id": "006",
+          "relation": "partial",
+          "confidence": "high",
+          "note": "Credential-status freshness and privacy-preserving status evidence overlap non-revocation/currentness semantics."
+        },
+        {
+          "id": "001",
+          "relation": "partial",
+          "confidence": "medium",
+          "note": "Authenticated carried snapshots can supply roots used by set-membership proofs, but registry authority and semantic type remain external to the proof."
+        }
+      ],
+      "limits": [
+        "registry membership, accreditation, authorization and credential status remain distinct semantics",
+        "live lookup privacy degradation is deployment guidance rather than a construction record",
+        "authoritative freshness rules remain externally governed"
+      ]
+    },
+    {
+      "asset": "docs/implementation-guide/conformance/experimental-bbs-2023-construction-profile.yaml",
+      "local_id": "EXP-BBS-2023-01",
+      "disposition": "retain_downstream_extension",
+      "upstream_records": [
+        {
+          "id": "004",
+          "relation": "supporting-not-equivalent",
+          "confidence": "medium",
+          "note": "Anonymous holder-binding evidence is relevant to holder binding, but the pinned record 004 requires a specific same-secret/key-derivation relation that BBS evidence does not automatically establish."
+        },
+        {
+          "id": "011",
+          "relation": "supporting-not-equivalent",
+          "confidence": "low",
+          "note": "Selective disclosure and unlinkability evidence may support a pairwise-edge profile, but record 011 composes additional co-control, revocation and transcript semantics not supplied by BBS alone."
+        }
+      ],
+      "limits": [
+        "BBS selective disclosure is not a substitute for DTG relation semantics",
+        "external BBS interoperability does not establish interoperability for composed DTG records"
+      ]
+    },
+    {
+      "asset": "conformance-harness/examples/community-anchored-proof.json",
+      "local_id": "CAP",
+      "disposition": "reuse_evidence",
+      "upstream_records": [
+        {
+          "id": "010",
+          "relation": "direct",
+          "confidence": "high",
+          "note": "Primary positive/negative outcome fixture family for Community-Anchored Proof."
+        },
+        {
+          "id": "001",
+          "relation": "component",
+          "confidence": "high",
+          "note": "Membership-root conditions."
+        },
+        {
+          "id": "002",
+          "relation": "component",
+          "confidence": "medium",
+          "note": "Scoped reuse/nullifier cases where the context requests reuse detection."
+        },
+        {
+          "id": "003",
+          "relation": "component",
+          "confidence": "high",
+          "note": "Challenge/transcript-binding negative case."
+        },
+        {
+          "id": "004",
+          "relation": "component",
+          "confidence": "high",
+          "note": "Holder-binding condition."
+        },
+        {
+          "id": "005",
+          "relation": "component",
+          "confidence": "medium",
+          "note": "Distinct-member/self-vouch boundary."
+        },
+        {
+          "id": "006",
+          "relation": "component",
+          "confidence": "high",
+          "note": "Current/revocation cases."
+        },
+        {
+          "id": "007",
+          "relation": "component",
+          "confidence": "high",
+          "note": "Presenter/voucher identifier co-control where identifiers differ."
+        }
+      ],
+      "limits": [
+        "the harness is semantic evidence, not proof-system execution evidence",
+        "CAP-006 remains indeterminate when third-party membership linkage evidence is unavailable"
+      ]
+    },
+    {
+      "asset": "conformance-harness/examples/composed-presentation-privacy.json",
+      "local_id": "CP-PRIV",
+      "disposition": "retain_downstream_extension",
+      "upstream_records": [
+        {
+          "id": "008",
+          "relation": "negative-space",
+          "confidence": "high",
+          "note": "Stable visible binder/equality correlation pressure tests reinforce record 008's explicit non-unlinkability boundary."
+        },
+        {
+          "id": "012",
+          "relation": "composition-boundary",
+          "confidence": "medium",
+          "note": "Tests against accidental cross-context correlation complement intentional-correlation semantics."
+        },
+        {
+          "id": "020",
+          "relation": "negative-space",
+          "confidence": "medium",
+          "note": "Delegation ancestry disclosure/linkability tests are additive assurance evidence."
+        },
+        {
+          "id": "021",
+          "relation": "negative-space",
+          "confidence": "medium",
+          "note": "Authority-chain ancestry/status correlation tests are additive assurance evidence."
+        }
+      ],
+      "limits": [
+        "privacy-pressure tests do not redefine record statements or disclosure sets",
+        "local adversary classes remain downstream assurance vocabulary"
+      ]
+    },
+    {
+      "asset": "conformance-harness/examples/asymmetric-edge-privacy.json",
+      "local_id": "AE-PRIV",
+      "disposition": "retain_downstream_extension",
+      "upstream_records": [
+        {
+          "id": "013",
+          "relation": "pressure-test",
+          "confidence": "medium",
+          "note": "Useful adversarial evidence for mutual-edge admissibility, but canonical main still holds record 013 at requested state."
+        }
+      ],
+      "limits": [
+        "do not freeze placeholder record-013 semantics",
+        "relationship-level unlinkability must not be inferred from privacy of one credential half"
+      ]
+    },
+    {
+      "asset": "docs/implementation-guide/interoperability/trust-task-zkp-profile.md",
+      "local_id": "trust-task-zkp",
+      "disposition": "retain_downstream_extension",
+      "upstream_records": [
+        {
+          "id": "003",
+          "relation": "integration",
+          "confidence": "high",
+          "note": "Task request/challenge/audience semantics depend on transcript binding."
+        },
+        {
+          "id": "008",
+          "relation": "integration",
+          "confidence": "high",
+          "note": "Task-context hiding/citation correlation maps to the blinded-binder seam."
+        },
+        {
+          "id": "020",
+          "relation": "integration",
+          "confidence": "medium",
+          "note": "Delegation-chain invocation is distinct from proof of delegation authority and remains a task/framework integration concern."
+        },
+        {
+          "id": "021",
+          "relation": "integration",
+          "confidence": "medium",
+          "note": "Authority proof does not establish action completion; task outcome evidence remains external."
+        }
+      ],
+      "limits": [
+        "task completion and receipts are framework artifacts, not ZKP proof results"
+      ]
+    }
+  ],
+  "retirement_candidates": [
+    {
+      "local_surface": "PR-REL as a canonical predicate abstraction",
+      "action": "retire_semantic_authority",
+      "replacement": "Use upstream record 009 for hidden-value equality; use record 007 only when common-control semantics are actually present."
+    },
+    {
+      "local_surface": "PR-HID as a canonical predicate abstraction",
+      "action": "retire_semantic_authority",
+      "replacement": "Use upstream record 008 for the blinded-binder proposition; retain local implementation labels only as evidence identifiers."
+    },
+    {
+      "local_surface": "PR-RES as a single semantic bucket",
+      "action": "narrow",
+      "replacement": "Use record 006 for non-revocation/currentness proof semantics and keep registry/accreditation/authorization resolution behavior as explicit downstream/external profiles."
+    },
+    {
+      "local_surface": "local evidence-state vocabulary as normative lifecycle",
+      "action": "do_not_promote",
+      "replacement": "Map to upstream requested → specified → constructed → run → vetted → published where applicable; preserve stronger downstream assurance gates only as additive local evidence controls."
+    }
+  ],
+  "intentionally_unmapped": [
+    {
+      "surface": "deployment, operations, RAHP/DPIP assurance, incident, redress and risk-acceptance fixtures",
+      "reason": "These are downstream implementation/assurance extensions and do not correspond one-to-one with an upstream construction record."
+    },
+    {
+      "surface": "semantic resource/fallback fixtures",
+      "reason": "Operational capability and fallback policy are not cryptographic construction semantics."
+    }
+  ]
+}
