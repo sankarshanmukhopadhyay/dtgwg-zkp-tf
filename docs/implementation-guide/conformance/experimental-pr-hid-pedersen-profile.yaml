@@ -2,6 +2,11 @@ profile_id: EXP-PR-HID-PEDERSEN-01
 status: experimental
 normative: false
 predicate: PR-HID
+upstream_record:
+  repository: trustoverip/dtgwg-zkp-spec
+  commit: cfd94063e5cfee7ba6df4dcfd28c10399a0ffd0a
+  id: "008"
+  disposition: reuse_evidence
 construction:
   family: Pedersen-style commitment
   group: ristretto255
