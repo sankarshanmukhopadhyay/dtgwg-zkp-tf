@@ -68,6 +68,7 @@ These profiles provide construction and conformance evidence without changing th
 Choose the path that matches what you are trying to do:
 
 - **Understand the upstream task force:** [`UPSTREAM_README.md`](./UPSTREAM_README.md)
+- **Review the upstream runnable-evidence working practice:** [`AGENT-RUNTIMES.md`](./AGENT-RUNTIMES.md)
 - **Review liveness/personhood requirements:** [`proof-of-liveness-requirements.md`](./proof-of-liveness-requirements.md)
 - **Navigate the implementation workspace:** [`docs/implementation-guide/README.md`](./docs/implementation-guide/README.md)
 - **Review DTG cross-repository dependencies:** [`docs/implementation-guide/interoperability/README.md`](./docs/implementation-guide/interoperability/README.md)
