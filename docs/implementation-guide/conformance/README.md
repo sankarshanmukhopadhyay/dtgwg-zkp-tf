@@ -109,3 +109,8 @@ Use the [upstream construction record crosswalk](upstream-construction-record-cr
 ## Canonical transcript-binding evidence
 
 [Record 003 transcript-binding evidence](record-003-transcript-binding.md) provides executable downstream tests for digest binding, audience/context/challenge mutation, replay, freshness, canonicalization and predicate-policy boundaries.
+
+
+## Canonical status-root/currentness evidence
+
+[Record 006 currentness and status-root evidence](record-006-currentness.md) separates non-revocation proof validity from root authority, freshness, distribution privacy and registry governance.

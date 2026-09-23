@@ -1,0 +1,165 @@
+{
+  "schemaVersion": "1.0",
+  "upstream": {
+    "repository": "trustoverip/dtgwg-zkp-spec",
+    "commit": "cfd94063e5cfee7ba6df4dcfd28c10399a0ffd0a",
+    "record": "006"
+  },
+  "cases": [
+    {
+      "id": "R006-POS-CACHED",
+      "expected": [
+        "accepted",
+        "non-revoked-at-accepted-root-state"
+      ],
+      "input": {
+        "root_known": true,
+        "root_authentic": true,
+        "root_age_seconds": 120,
+        "max_age_seconds": 300,
+        "proof_non_membership_valid": true,
+        "handle_revoked": false,
+        "acquisition_mode": "shared-cache",
+        "authority_observation_declared": false
+      }
+    },
+    {
+      "id": "R006-NEG-STALE",
+      "expected": [
+        "rejected",
+        "rl-root-stale"
+      ],
+      "input": {
+        "root_known": true,
+        "root_authentic": true,
+        "root_age_seconds": 600,
+        "max_age_seconds": 300,
+        "proof_non_membership_valid": true,
+        "handle_revoked": false,
+        "acquisition_mode": "shared-cache",
+        "authority_observation_declared": false
+      }
+    },
+    {
+      "id": "R006-NEG-REVOKED",
+      "expected": [
+        "rejected",
+        "handle-revoked"
+      ],
+      "input": {
+        "root_known": true,
+        "root_authentic": true,
+        "root_age_seconds": 60,
+        "max_age_seconds": 300,
+        "proof_non_membership_valid": false,
+        "handle_revoked": true,
+        "acquisition_mode": "shared-cache",
+        "authority_observation_declared": false
+      }
+    },
+    {
+      "id": "R006-NEG-UNKNOWN-ROOT",
+      "expected": [
+        "rejected",
+        "status-root-unknown"
+      ],
+      "input": {
+        "root_known": false,
+        "root_authentic": false,
+        "root_age_seconds": 60,
+        "max_age_seconds": 300,
+        "proof_non_membership_valid": true,
+        "handle_revoked": false,
+        "acquisition_mode": "shared-cache",
+        "authority_observation_declared": false
+      }
+    },
+    {
+      "id": "R006-NEG-UNAUTHENTIC-ROOT",
+      "expected": [
+        "rejected",
+        "status-root-unauthenticated"
+      ],
+      "input": {
+        "root_known": true,
+        "root_authentic": false,
+        "root_age_seconds": 60,
+        "max_age_seconds": 300,
+        "proof_non_membership_valid": true,
+        "handle_revoked": false,
+        "acquisition_mode": "shared-cache",
+        "authority_observation_declared": false
+      }
+    },
+    {
+      "id": "R006-POS-CARRIED",
+      "expected": [
+        "accepted",
+        "non-revoked-at-accepted-root-state"
+      ],
+      "input": {
+        "root_known": true,
+        "root_authentic": true,
+        "root_age_seconds": 180,
+        "max_age_seconds": 300,
+        "proof_non_membership_valid": true,
+        "handle_revoked": false,
+        "acquisition_mode": "holder-carried",
+        "snapshot_authenticated": true,
+        "authority_observation_declared": false
+      }
+    },
+    {
+      "id": "R006-NEG-CARRIED-AUTH",
+      "expected": [
+        "rejected",
+        "carried-snapshot-unauthenticated"
+      ],
+      "input": {
+        "root_known": true,
+        "root_authentic": true,
+        "root_age_seconds": 180,
+        "max_age_seconds": 300,
+        "proof_non_membership_valid": true,
+        "handle_revoked": false,
+        "acquisition_mode": "holder-carried",
+        "snapshot_authenticated": false,
+        "authority_observation_declared": false
+      }
+    },
+    {
+      "id": "R006-POS-LIVE-DECLARED",
+      "expected": [
+        "accepted",
+        "non-revoked-at-accepted-root-state"
+      ],
+      "input": {
+        "root_known": true,
+        "root_authentic": true,
+        "root_age_seconds": 0,
+        "max_age_seconds": 0,
+        "proof_non_membership_valid": true,
+        "handle_revoked": false,
+        "acquisition_mode": "live-subject-specific",
+        "authority_observation_declared": true
+      }
+    },
+    {
+      "id": "R006-NEG-LIVE-UNDECLARED",
+      "expected": [
+        "rejected",
+        "status-privacy-degradation-undeclared"
+      ],
+      "input": {
+        "root_known": true,
+        "root_authentic": true,
+        "root_age_seconds": 0,
+        "max_age_seconds": 0,
+        "proof_non_membership_valid": true,
+        "handle_revoked": false,
+        "acquisition_mode": "live-subject-specific",
+        "authority_observation_declared": false
+      }
+    }
+  ]
+}
