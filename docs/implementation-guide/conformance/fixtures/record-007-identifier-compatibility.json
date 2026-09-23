@@ -1,0 +1,133 @@
+{
+  "schemaVersion": "1.0",
+  "authority": {
+    "upstream_repository": "trustoverip/dtgwg-zkp-spec",
+    "upstream_commit": "cfd94063e5cfee7ba6df4dcfd28c10399a0ffd0a",
+    "record": "007",
+    "credential_spec_observed_commit": "1152a523c85febfb6b9b0b597a0783b6cdab884a"
+  },
+  "cases": [
+    {
+      "id": "R007-SAME-ID",
+      "expected": [
+        "accepted",
+        "record-007-not-required"
+      ],
+      "input": {
+        "same_identifier": true,
+        "relation": "common-control",
+        "controller_secret_available": true,
+        "identifier_method": "any",
+        "document_extensible": true,
+        "zk_openable_commitment_present": false
+      }
+    },
+    {
+      "id": "R007-DID-KEY-ED25519",
+      "expected": [
+        "rejected",
+        "identifier-not-zk-openable"
+      ],
+      "input": {
+        "same_identifier": false,
+        "relation": "common-control",
+        "controller_secret_available": true,
+        "identifier_method": "did:key-ed25519",
+        "document_extensible": false,
+        "zk_openable_commitment_present": false
+      }
+    },
+    {
+      "id": "R007-DID-PEER-0",
+      "expected": [
+        "rejected",
+        "identifier-not-zk-openable"
+      ],
+      "input": {
+        "same_identifier": false,
+        "relation": "common-control",
+        "controller_secret_available": true,
+        "identifier_method": "did:peer-numalgo-0",
+        "document_extensible": false,
+        "zk_openable_commitment_present": false
+      }
+    },
+    {
+      "id": "R007-DID-WEBVH-NO-COMMITMENT",
+      "expected": [
+        "blocked",
+        "zk-openable-commitment-evidence-required"
+      ],
+      "input": {
+        "same_identifier": false,
+        "relation": "common-control",
+        "controller_secret_available": true,
+        "identifier_method": "did:webvh",
+        "document_extensible": true,
+        "zk_openable_commitment_present": false
+      }
+    },
+    {
+      "id": "R007-EXTENSIBLE-WITH-COMMITMENT",
+      "expected": [
+        "accepted",
+        "record-007-compatible"
+      ],
+      "input": {
+        "same_identifier": false,
+        "relation": "common-control",
+        "controller_secret_available": true,
+        "identifier_method": "extensible-did-profile",
+        "document_extensible": true,
+        "zk_openable_commitment_present": true
+      }
+    },
+    {
+      "id": "R007-HIDDEN-EQUALITY",
+      "expected": [
+        "rejected",
+        "use-record-009-not-007"
+      ],
+      "input": {
+        "same_identifier": false,
+        "relation": "hidden-field-equality",
+        "controller_secret_available": false,
+        "identifier_method": "credential-field",
+        "document_extensible": false,
+        "zk_openable_commitment_present": false
+      }
+    },
+    {
+      "id": "R007-COUNTERPARTY-NO-WITNESS",
+      "expected": [
+        "rejected",
+        "controller-witness-unavailable"
+      ],
+      "input": {
+        "same_identifier": false,
+        "relation": "common-control",
+        "controller_secret_available": false,
+        "counterparty_produced_linkage": false,
+        "identifier_method": "counterparty-identifier",
+        "document_extensible": true,
+        "zk_openable_commitment_present": true
+      }
+    },
+    {
+      "id": "R007-COUNTERPARTY-ATTESTATION",
+      "expected": [
+        "accepted",
+        "counterparty-linkage-artifact-required"
+      ],
+      "input": {
+        "same_identifier": false,
+        "relation": "common-control",
+        "controller_secret_available": false,
+        "counterparty_produced_linkage": true,
+        "identifier_method": "counterparty-identifier",
+        "document_extensible": true,
+        "zk_openable_commitment_present": true
+      }
+    }
+  ]
+}
