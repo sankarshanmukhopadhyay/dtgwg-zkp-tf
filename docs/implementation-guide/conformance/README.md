@@ -99,3 +99,8 @@ For composed predicates, evidence also identifies the minimum evidence closure, 
 ## Decision conformance
 
 The [decision conformance tests](decision-conformance-tests.md) operationalise the governed-context and privacy-class baseline for B1 and B2.
+
+
+## Upstream construction-record mapping
+
+Use the [upstream construction record crosswalk](upstream-construction-record-crosswalk.md) to map fork-local profiles, fixtures and pressure tests to the canonical `trustoverip/dtgwg-zkp-spec` record model. The crosswalk is an evidence index; it does not create a parallel construction schema.
