@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1.0",
+  "specificationRevision": "trustoverip/dtgwg-zkp-spec@cfd94063e5cfee7ba6df4dcfd28c10399a0ffd0a:record-003",
+  "profile": "CL-3",
+  "implementation": {
+    "name": "downstream-record-003-semantic-adapter",
+    "version": "1.0",
+    "adapter": "transcript-binding"
+  },
+  "tests": [
+    {
+      "test_id": "CT-INT-TASK-POS-01",
+      "operation": "evaluate_transcript_binding",
+      "required_capability": "transcript-binding",
+      "expected_status": "accepted",
+      "expected_reason": "transcript-bound-and-policy-accepted",
+      "request": {
+        "proof_transcript_digest": "sha256:abc",
+        "supplied_transcript_digest": "sha256:abc",
+        "canonical_encoding_valid": true,
+        "predicate_accepted": true,
+        "audience_match": true,
+        "context_match": true,
+        "challenge_match": true,
+        "expired": false,
+        "replay_seen": false
+      }
+    },
+    {
+      "test_id": "CT-INT-TASK-NEG-01",
+      "operation": "evaluate_transcript_binding",
+      "required_capability": "transcript-binding",
+      "expected_status": "rejected",
+      "expected_reason": "transcript-replay",
+      "request": {
+        "proof_transcript_digest": "sha256:abc",
+        "supplied_transcript_digest": "sha256:abc",
+        "canonical_encoding_valid": true,
+        "predicate_accepted": true,
+        "audience_match": true,
+        "context_match": true,
+        "challenge_match": true,
+        "expired": false,
+        "replay_seen": true
+      }
+    }
+  ]
+}

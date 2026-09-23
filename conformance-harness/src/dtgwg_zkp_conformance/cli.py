@@ -4,6 +4,7 @@ from .manifest import load_manifest
 from .runner import run_manifest
 from .adapters.fixture import FixtureAdapter
 from .adapters.mock import MockAdapter
+from .adapters.transcript import TranscriptBindingAdapter
 from .reporters import json_reporter, markdown_reporter
 
 def main():
@@ -18,6 +19,7 @@ def main():
     adapters={
         "mock": MockAdapter,
         "semantic-fixture": lambda: FixtureAdapter(Path(args.fixture_root)),
+        "transcript-binding": TranscriptBindingAdapter,
     }
     if adapter_name not in adapters:
         ap.error(f"unsupported adapter: {adapter_name}")

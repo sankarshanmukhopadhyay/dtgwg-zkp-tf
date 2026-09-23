@@ -104,3 +104,8 @@ The [decision conformance tests](decision-conformance-tests.md) operationalise t
 ## Upstream construction-record mapping
 
 Use the [upstream construction record crosswalk](upstream-construction-record-crosswalk.md) to map fork-local profiles, fixtures and pressure tests to the canonical `trustoverip/dtgwg-zkp-spec` record model. The crosswalk is an evidence index; it does not create a parallel construction schema.
+
+
+## Canonical transcript-binding evidence
+
+[Record 003 transcript-binding evidence](record-003-transcript-binding.md) provides executable downstream tests for digest binding, audience/context/challenge mutation, replay, freshness, canonicalization and predicate-policy boundaries.
