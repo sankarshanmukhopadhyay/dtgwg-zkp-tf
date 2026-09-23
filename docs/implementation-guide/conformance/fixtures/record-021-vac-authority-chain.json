@@ -1,0 +1,730 @@
+{
+  "schemaVersion": "1.0",
+  "authority": {
+    "upstream_repository": "trustoverip/dtgwg-zkp-spec",
+    "upstream_commit": "cfd94063e5cfee7ba6df4dcfd28c10399a0ffd0a",
+    "record": "021"
+  },
+  "cases": [
+    {
+      "id": "R021-POS-001",
+      "expected": [
+        "accepted",
+        "vac-authority-chain-accepted"
+      ],
+      "input": {
+        "action_conferred": true,
+        "scope_widened": false,
+        "validity_extended": false,
+        "depth": 3,
+        "attenuation_limit_ok": true,
+        "link_issuer_matches_parent_subject": true,
+        "parent_digest_matches": true,
+        "signatures_valid": true,
+        "root_governing": true,
+        "leaf_key_match": true,
+        "claim_delegation": false,
+        "claim_task_completed": false,
+        "claim_chain_length_hidden": false,
+        "fixed_or_padded_shape": false,
+        "claim_hidden_from_registry": false,
+        "status": {
+          "root_known": true,
+          "root_authentic": true,
+          "root_age_seconds": 60,
+          "max_age_seconds": 300,
+          "proof_non_membership_valid": true,
+          "handle_revoked": false,
+          "acquisition_mode": "shared-cache",
+          "authority_observation_declared": false
+        },
+        "transcript": {
+          "proof_transcript_digest": "sha256:vac",
+          "supplied_transcript_digest": "sha256:vac",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        }
+      }
+    },
+    {
+      "id": "R021-NEG-ACTION",
+      "expected": [
+        "rejected",
+        "action-not-conferred"
+      ],
+      "input": {
+        "action_conferred": false,
+        "scope_widened": false,
+        "validity_extended": false,
+        "depth": 3,
+        "attenuation_limit_ok": true,
+        "link_issuer_matches_parent_subject": true,
+        "parent_digest_matches": true,
+        "signatures_valid": true,
+        "root_governing": true,
+        "leaf_key_match": true,
+        "claim_delegation": false,
+        "claim_task_completed": false,
+        "claim_chain_length_hidden": false,
+        "fixed_or_padded_shape": false,
+        "claim_hidden_from_registry": false,
+        "status": {
+          "root_known": true,
+          "root_authentic": true,
+          "root_age_seconds": 60,
+          "max_age_seconds": 300,
+          "proof_non_membership_valid": true,
+          "handle_revoked": false,
+          "acquisition_mode": "shared-cache",
+          "authority_observation_declared": false
+        },
+        "transcript": {
+          "proof_transcript_digest": "sha256:vac",
+          "supplied_transcript_digest": "sha256:vac",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        }
+      }
+    },
+    {
+      "id": "R021-NEG-WIDEN",
+      "expected": [
+        "rejected",
+        "attenuation-widens"
+      ],
+      "input": {
+        "action_conferred": true,
+        "scope_widened": true,
+        "validity_extended": false,
+        "depth": 3,
+        "attenuation_limit_ok": true,
+        "link_issuer_matches_parent_subject": true,
+        "parent_digest_matches": true,
+        "signatures_valid": true,
+        "root_governing": true,
+        "leaf_key_match": true,
+        "claim_delegation": false,
+        "claim_task_completed": false,
+        "claim_chain_length_hidden": false,
+        "fixed_or_padded_shape": false,
+        "claim_hidden_from_registry": false,
+        "status": {
+          "root_known": true,
+          "root_authentic": true,
+          "root_age_seconds": 60,
+          "max_age_seconds": 300,
+          "proof_non_membership_valid": true,
+          "handle_revoked": false,
+          "acquisition_mode": "shared-cache",
+          "authority_observation_declared": false
+        },
+        "transcript": {
+          "proof_transcript_digest": "sha256:vac",
+          "supplied_transcript_digest": "sha256:vac",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        }
+      }
+    },
+    {
+      "id": "R021-NEG-LIMIT",
+      "expected": [
+        "rejected",
+        "attenuation-limit-exceeded"
+      ],
+      "input": {
+        "action_conferred": true,
+        "scope_widened": false,
+        "validity_extended": false,
+        "depth": 3,
+        "attenuation_limit_ok": false,
+        "link_issuer_matches_parent_subject": true,
+        "parent_digest_matches": true,
+        "signatures_valid": true,
+        "root_governing": true,
+        "leaf_key_match": true,
+        "claim_delegation": false,
+        "claim_task_completed": false,
+        "claim_chain_length_hidden": false,
+        "fixed_or_padded_shape": false,
+        "claim_hidden_from_registry": false,
+        "status": {
+          "root_known": true,
+          "root_authentic": true,
+          "root_age_seconds": 60,
+          "max_age_seconds": 300,
+          "proof_non_membership_valid": true,
+          "handle_revoked": false,
+          "acquisition_mode": "shared-cache",
+          "authority_observation_declared": false
+        },
+        "transcript": {
+          "proof_transcript_digest": "sha256:vac",
+          "supplied_transcript_digest": "sha256:vac",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        }
+      }
+    },
+    {
+      "id": "R021-NEG-DEPTH",
+      "expected": [
+        "rejected",
+        "depth-ceiling-exceeded"
+      ],
+      "input": {
+        "action_conferred": true,
+        "scope_widened": false,
+        "validity_extended": false,
+        "depth": 9,
+        "attenuation_limit_ok": true,
+        "link_issuer_matches_parent_subject": true,
+        "parent_digest_matches": true,
+        "signatures_valid": true,
+        "root_governing": true,
+        "leaf_key_match": true,
+        "claim_delegation": false,
+        "claim_task_completed": false,
+        "claim_chain_length_hidden": false,
+        "fixed_or_padded_shape": false,
+        "claim_hidden_from_registry": false,
+        "status": {
+          "root_known": true,
+          "root_authentic": true,
+          "root_age_seconds": 60,
+          "max_age_seconds": 300,
+          "proof_non_membership_valid": true,
+          "handle_revoked": false,
+          "acquisition_mode": "shared-cache",
+          "authority_observation_declared": false
+        },
+        "transcript": {
+          "proof_transcript_digest": "sha256:vac",
+          "supplied_transcript_digest": "sha256:vac",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        }
+      }
+    },
+    {
+      "id": "R021-NEG-ISSUER",
+      "expected": [
+        "rejected",
+        "link-issuer-mismatch"
+      ],
+      "input": {
+        "action_conferred": true,
+        "scope_widened": false,
+        "validity_extended": false,
+        "depth": 3,
+        "attenuation_limit_ok": true,
+        "link_issuer_matches_parent_subject": false,
+        "parent_digest_matches": true,
+        "signatures_valid": true,
+        "root_governing": true,
+        "leaf_key_match": true,
+        "claim_delegation": false,
+        "claim_task_completed": false,
+        "claim_chain_length_hidden": false,
+        "fixed_or_padded_shape": false,
+        "claim_hidden_from_registry": false,
+        "status": {
+          "root_known": true,
+          "root_authentic": true,
+          "root_age_seconds": 60,
+          "max_age_seconds": 300,
+          "proof_non_membership_valid": true,
+          "handle_revoked": false,
+          "acquisition_mode": "shared-cache",
+          "authority_observation_declared": false
+        },
+        "transcript": {
+          "proof_transcript_digest": "sha256:vac",
+          "supplied_transcript_digest": "sha256:vac",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        }
+      }
+    },
+    {
+      "id": "R021-NEG-PARENT",
+      "expected": [
+        "rejected",
+        "parent-digest-mismatch"
+      ],
+      "input": {
+        "action_conferred": true,
+        "scope_widened": false,
+        "validity_extended": false,
+        "depth": 3,
+        "attenuation_limit_ok": true,
+        "link_issuer_matches_parent_subject": true,
+        "parent_digest_matches": false,
+        "signatures_valid": true,
+        "root_governing": true,
+        "leaf_key_match": true,
+        "claim_delegation": false,
+        "claim_task_completed": false,
+        "claim_chain_length_hidden": false,
+        "fixed_or_padded_shape": false,
+        "claim_hidden_from_registry": false,
+        "status": {
+          "root_known": true,
+          "root_authentic": true,
+          "root_age_seconds": 60,
+          "max_age_seconds": 300,
+          "proof_non_membership_valid": true,
+          "handle_revoked": false,
+          "acquisition_mode": "shared-cache",
+          "authority_observation_declared": false
+        },
+        "transcript": {
+          "proof_transcript_digest": "sha256:vac",
+          "supplied_transcript_digest": "sha256:vac",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        }
+      }
+    },
+    {
+      "id": "R021-NEG-SIG",
+      "expected": [
+        "rejected",
+        "link-signature-invalid"
+      ],
+      "input": {
+        "action_conferred": true,
+        "scope_widened": false,
+        "validity_extended": false,
+        "depth": 3,
+        "attenuation_limit_ok": true,
+        "link_issuer_matches_parent_subject": true,
+        "parent_digest_matches": true,
+        "signatures_valid": false,
+        "root_governing": true,
+        "leaf_key_match": true,
+        "claim_delegation": false,
+        "claim_task_completed": false,
+        "claim_chain_length_hidden": false,
+        "fixed_or_padded_shape": false,
+        "claim_hidden_from_registry": false,
+        "status": {
+          "root_known": true,
+          "root_authentic": true,
+          "root_age_seconds": 60,
+          "max_age_seconds": 300,
+          "proof_non_membership_valid": true,
+          "handle_revoked": false,
+          "acquisition_mode": "shared-cache",
+          "authority_observation_declared": false
+        },
+        "transcript": {
+          "proof_transcript_digest": "sha256:vac",
+          "supplied_transcript_digest": "sha256:vac",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        }
+      }
+    },
+    {
+      "id": "R021-NEG-ROOT",
+      "expected": [
+        "rejected",
+        "root-not-governing"
+      ],
+      "input": {
+        "action_conferred": true,
+        "scope_widened": false,
+        "validity_extended": false,
+        "depth": 3,
+        "attenuation_limit_ok": true,
+        "link_issuer_matches_parent_subject": true,
+        "parent_digest_matches": true,
+        "signatures_valid": true,
+        "root_governing": false,
+        "leaf_key_match": true,
+        "claim_delegation": false,
+        "claim_task_completed": false,
+        "claim_chain_length_hidden": false,
+        "fixed_or_padded_shape": false,
+        "claim_hidden_from_registry": false,
+        "status": {
+          "root_known": true,
+          "root_authentic": true,
+          "root_age_seconds": 60,
+          "max_age_seconds": 300,
+          "proof_non_membership_valid": true,
+          "handle_revoked": false,
+          "acquisition_mode": "shared-cache",
+          "authority_observation_declared": false
+        },
+        "transcript": {
+          "proof_transcript_digest": "sha256:vac",
+          "supplied_transcript_digest": "sha256:vac",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        }
+      }
+    },
+    {
+      "id": "R021-NEG-KEY",
+      "expected": [
+        "rejected",
+        "leaf-key-mismatch"
+      ],
+      "input": {
+        "action_conferred": true,
+        "scope_widened": false,
+        "validity_extended": false,
+        "depth": 3,
+        "attenuation_limit_ok": true,
+        "link_issuer_matches_parent_subject": true,
+        "parent_digest_matches": true,
+        "signatures_valid": true,
+        "root_governing": true,
+        "leaf_key_match": false,
+        "claim_delegation": false,
+        "claim_task_completed": false,
+        "claim_chain_length_hidden": false,
+        "fixed_or_padded_shape": false,
+        "claim_hidden_from_registry": false,
+        "status": {
+          "root_known": true,
+          "root_authentic": true,
+          "root_age_seconds": 60,
+          "max_age_seconds": 300,
+          "proof_non_membership_valid": true,
+          "handle_revoked": false,
+          "acquisition_mode": "shared-cache",
+          "authority_observation_declared": false
+        },
+        "transcript": {
+          "proof_transcript_digest": "sha256:vac",
+          "supplied_transcript_digest": "sha256:vac",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        }
+      }
+    },
+    {
+      "id": "R021-NEG-REVOKED",
+      "expected": [
+        "rejected",
+        "link-revoked"
+      ],
+      "input": {
+        "action_conferred": true,
+        "scope_widened": false,
+        "validity_extended": false,
+        "depth": 3,
+        "attenuation_limit_ok": true,
+        "link_issuer_matches_parent_subject": true,
+        "parent_digest_matches": true,
+        "signatures_valid": true,
+        "root_governing": true,
+        "leaf_key_match": true,
+        "claim_delegation": false,
+        "claim_task_completed": false,
+        "claim_chain_length_hidden": false,
+        "fixed_or_padded_shape": false,
+        "claim_hidden_from_registry": false,
+        "status": {
+          "root_known": true,
+          "root_authentic": true,
+          "root_age_seconds": 60,
+          "max_age_seconds": 300,
+          "proof_non_membership_valid": false,
+          "handle_revoked": true,
+          "acquisition_mode": "shared-cache",
+          "authority_observation_declared": false
+        },
+        "transcript": {
+          "proof_transcript_digest": "sha256:vac",
+          "supplied_transcript_digest": "sha256:vac",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        }
+      }
+    },
+    {
+      "id": "R021-NEG-TRANSCRIPT",
+      "expected": [
+        "rejected",
+        "transcript-digest-mismatch"
+      ],
+      "input": {
+        "action_conferred": true,
+        "scope_widened": false,
+        "validity_extended": false,
+        "depth": 3,
+        "attenuation_limit_ok": true,
+        "link_issuer_matches_parent_subject": true,
+        "parent_digest_matches": true,
+        "signatures_valid": true,
+        "root_governing": true,
+        "leaf_key_match": true,
+        "claim_delegation": false,
+        "claim_task_completed": false,
+        "claim_chain_length_hidden": false,
+        "fixed_or_padded_shape": false,
+        "claim_hidden_from_registry": false,
+        "status": {
+          "root_known": true,
+          "root_authentic": true,
+          "root_age_seconds": 60,
+          "max_age_seconds": 300,
+          "proof_non_membership_valid": true,
+          "handle_revoked": false,
+          "acquisition_mode": "shared-cache",
+          "authority_observation_declared": false
+        },
+        "transcript": {
+          "proof_transcript_digest": "sha256:vac",
+          "supplied_transcript_digest": "sha256:other",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        }
+      }
+    },
+    {
+      "id": "R021-NEG-DELEGATION",
+      "expected": [
+        "rejected",
+        "delegation-not-established"
+      ],
+      "input": {
+        "action_conferred": true,
+        "scope_widened": false,
+        "validity_extended": false,
+        "depth": 3,
+        "attenuation_limit_ok": true,
+        "link_issuer_matches_parent_subject": true,
+        "parent_digest_matches": true,
+        "signatures_valid": true,
+        "root_governing": true,
+        "leaf_key_match": true,
+        "claim_delegation": true,
+        "claim_task_completed": false,
+        "claim_chain_length_hidden": false,
+        "fixed_or_padded_shape": false,
+        "claim_hidden_from_registry": false,
+        "status": {
+          "root_known": true,
+          "root_authentic": true,
+          "root_age_seconds": 60,
+          "max_age_seconds": 300,
+          "proof_non_membership_valid": true,
+          "handle_revoked": false,
+          "acquisition_mode": "shared-cache",
+          "authority_observation_declared": false
+        },
+        "transcript": {
+          "proof_transcript_digest": "sha256:vac",
+          "supplied_transcript_digest": "sha256:vac",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        }
+      }
+    },
+    {
+      "id": "R021-NEG-TASK",
+      "expected": [
+        "rejected",
+        "task-completion-not-established"
+      ],
+      "input": {
+        "action_conferred": true,
+        "scope_widened": false,
+        "validity_extended": false,
+        "depth": 3,
+        "attenuation_limit_ok": true,
+        "link_issuer_matches_parent_subject": true,
+        "parent_digest_matches": true,
+        "signatures_valid": true,
+        "root_governing": true,
+        "leaf_key_match": true,
+        "claim_delegation": false,
+        "claim_task_completed": true,
+        "claim_chain_length_hidden": false,
+        "fixed_or_padded_shape": false,
+        "claim_hidden_from_registry": false,
+        "status": {
+          "root_known": true,
+          "root_authentic": true,
+          "root_age_seconds": 60,
+          "max_age_seconds": 300,
+          "proof_non_membership_valid": true,
+          "handle_revoked": false,
+          "acquisition_mode": "shared-cache",
+          "authority_observation_declared": false
+        },
+        "transcript": {
+          "proof_transcript_digest": "sha256:vac",
+          "supplied_transcript_digest": "sha256:vac",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        }
+      }
+    },
+    {
+      "id": "R021-NEG-CHAIN-LENGTH",
+      "expected": [
+        "rejected",
+        "chain-length-leakage-unmitigated"
+      ],
+      "input": {
+        "action_conferred": true,
+        "scope_widened": false,
+        "validity_extended": false,
+        "depth": 3,
+        "attenuation_limit_ok": true,
+        "link_issuer_matches_parent_subject": true,
+        "parent_digest_matches": true,
+        "signatures_valid": true,
+        "root_governing": true,
+        "leaf_key_match": true,
+        "claim_delegation": false,
+        "claim_task_completed": false,
+        "claim_chain_length_hidden": true,
+        "fixed_or_padded_shape": false,
+        "claim_hidden_from_registry": false,
+        "status": {
+          "root_known": true,
+          "root_authentic": true,
+          "root_age_seconds": 60,
+          "max_age_seconds": 300,
+          "proof_non_membership_valid": true,
+          "handle_revoked": false,
+          "acquisition_mode": "shared-cache",
+          "authority_observation_declared": false
+        },
+        "transcript": {
+          "proof_transcript_digest": "sha256:vac",
+          "supplied_transcript_digest": "sha256:vac",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        }
+      }
+    },
+    {
+      "id": "R021-NEG-REGISTRY-PRIVACY",
+      "expected": [
+        "rejected",
+        "registry-observation-not-hidden"
+      ],
+      "input": {
+        "action_conferred": true,
+        "scope_widened": false,
+        "validity_extended": false,
+        "depth": 3,
+        "attenuation_limit_ok": true,
+        "link_issuer_matches_parent_subject": true,
+        "parent_digest_matches": true,
+        "signatures_valid": true,
+        "root_governing": true,
+        "leaf_key_match": true,
+        "claim_delegation": false,
+        "claim_task_completed": false,
+        "claim_chain_length_hidden": false,
+        "fixed_or_padded_shape": false,
+        "claim_hidden_from_registry": true,
+        "status": {
+          "root_known": true,
+          "root_authentic": true,
+          "root_age_seconds": 0,
+          "max_age_seconds": 0,
+          "proof_non_membership_valid": true,
+          "handle_revoked": false,
+          "acquisition_mode": "live-subject-specific",
+          "authority_observation_declared": true
+        },
+        "transcript": {
+          "proof_transcript_digest": "sha256:vac",
+          "supplied_transcript_digest": "sha256:vac",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        }
+      }
+    }
+  ]
+}
