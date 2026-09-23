@@ -24,7 +24,7 @@ The guide is intentionally proof-system agnostic. It defines the semantic, gover
 | Core architectural rule | Cryptography carries privacy; issuer accreditation and governance carry assurance |
 | Conformance approach | Profile-specific claims supported by positive and negative evidence |
 
-The root [`proof-of-liveness-requirements.md`](../../proof-of-liveness-requirements.md) is the fork's semantic source of truth for predicate/profile meaning. This guide operationalises those requirements and must not silently strengthen them. The [decision register](decisions/decision-register.md) separates ratified foundations, adopted working positions, unresolved upstream decisions and the maturity of their implementation in this fork.
+`trustoverip/dtgwg-zkp-spec` is the canonical ZKP specification authority wherever it defines overlapping construction semantics, terminology, conformance records, integration boundaries or evidence lifecycle. The upstream [`proof-of-liveness-requirements.md`](https://github.com/trustoverip/dtgwg-zkp-tf/blob/main/proof-of-liveness-requirements.md) remains an important requirements source for the personhood/liveness use-case family; it is not the universal semantic baseline for all DTG ZKP work. This downstream guide operationalises authoritative upstream semantics and retains fork-local implementation, deployment, interoperability, pressure-test and assurance extensions only where upstream is silent. It must not silently strengthen, redefine or contradict upstream requirements. The [decision register](decisions/decision-register.md) separates upstream authority, adopted working positions, unresolved decisions and the maturity of their implementation in this fork.
 
 ## What this guide is for
 

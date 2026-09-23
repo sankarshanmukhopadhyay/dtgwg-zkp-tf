@@ -41,11 +41,12 @@ Readers should be able to enter through a path or landing page without understan
 
 This fork distinguishes sources by authority:
 
-1. [`proof-of-liveness-requirements.md`](../../proof-of-liveness-requirements.md) is the fork's semantic requirements baseline.
-2. Ratified upstream decisions and authoritative external specifications govern the subjects within their scope.
-3. [Decision records](decisions/README.md) and [ADRs](adr/README.md) state how this fork interprets or implements those requirements.
-4. Implementation/deployment/operations guidance operationalises the above without silently strengthening upstream requirements.
-5. Scenarios, tests, matrices and generated artifacts are evidence and traceability views; they do not create authority by themselves.
+1. [`trustoverip/dtgwg-zkp-spec`](https://github.com/trustoverip/dtgwg-zkp-spec) is canonical for ZKP specification semantics, construction records, conformance semantics and integration boundaries wherever it speaks.
+2. [`trustoverip/dtgwg-zkp-tf`](https://github.com/trustoverip/dtgwg-zkp-tf) owns task-force requirements, discussions and decisions; `proof-of-liveness-requirements.md` is a requirements source for the personhood/liveness use-case family rather than a universal ZKP semantic baseline.
+3. Other authoritative DTG specifications and ratified upstream decisions govern the subjects within their scope.
+4. [Decision records](decisions/README.md) and [ADRs](adr/README.md) state how this downstream repository interprets or implements those authoritative inputs and identify any fork-local extension.
+5. Implementation/deployment/operations guidance operationalises the above without silently strengthening or redefining upstream requirements.
+6. Scenarios, tests, matrices and generated artifacts are evidence and traceability views; they do not create authority by themselves.
 
 ## Machine-verifiable navigation
 
