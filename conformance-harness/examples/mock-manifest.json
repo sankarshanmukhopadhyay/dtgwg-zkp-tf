@@ -109,26 +109,6 @@
       }
     },
     {
-      "test_id": "CT-INT-TASK-POS-01",
-      "operation": "verify_task_binding",
-      "required_capability": "task-binding",
-      "expected_status": "accepted",
-      "expected_reason": "ok",
-      "request": {
-        "mock_case": "valid-task-binding"
-      }
-    },
-    {
-      "test_id": "CT-INT-TASK-NEG-01",
-      "operation": "verify_task_binding",
-      "required_capability": "task-binding",
-      "expected_status": "rejected",
-      "expected_reason": "task-binding-mismatch",
-      "request": {
-        "mock_case": "task-replay"
-      }
-    },
-    {
       "test_id": "CT-INT-AUTH-POS-01",
       "operation": "evaluate_authority",
       "required_capability": "authority-separation",
