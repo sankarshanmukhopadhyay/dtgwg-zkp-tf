@@ -1,0 +1,242 @@
+{
+  "schema_version": "1.0",
+  "authority": {
+    "upstream_repository": "trustoverip/dtgwg-zkp-spec",
+    "upstream_commit": "cfd94063e5cfee7ba6df4dcfd28c10399a0ffd0a",
+    "upstream_lifecycle": [
+      "requested",
+      "specified",
+      "constructed",
+      "run",
+      "vetted",
+      "published"
+    ],
+    "rule": "Downstream evidence labels are additive assurance metadata and MUST NOT advance or imply an upstream construction-record state."
+  },
+  "downstream_labels": {
+    "implemented": {
+      "requires": [
+        "semantic_or_construction_artifact",
+        "local_repeatable_execution",
+        "provenance"
+      ],
+      "does_not_imply": [
+        "independent_reproduction",
+        "cross_implementation_interoperability",
+        "upstream_vetted",
+        "upstream_published"
+      ]
+    },
+    "independently_reproduced": {
+      "requires": [
+        "implemented",
+        "independent_operator_or_implementation",
+        "reproduction_evidence",
+        "provenance"
+      ],
+      "does_not_imply": [
+        "cross_implementation_interoperability",
+        "upstream_vetted",
+        "upstream_published"
+      ]
+    },
+    "interoperable": {
+      "requires": [
+        "implemented",
+        "two_or_more_independently_maintained_implementations",
+        "shared_vectors_or_protocol_exchange",
+        "agreement_on_expected_outcomes",
+        "provenance"
+      ],
+      "does_not_imply": [
+        "security_audit",
+        "privacy_assurance",
+        "upstream_vetted",
+        "upstream_published"
+      ]
+    },
+    "assurance_reviewed": {
+      "requires": [
+        "claim_scoped_review",
+        "explicit_adversary_or_assurance_scope",
+        "review_provenance",
+        "residual_risks"
+      ],
+      "does_not_imply": [
+        "independent_reproduction",
+        "interoperability",
+        "upstream_vetted",
+        "upstream_published"
+      ]
+    }
+  },
+  "evidence_classes": {
+    "deterministic_semantic": {
+      "independence": "same_operator_allowed",
+      "claim_scope": "semantic/proposition behavior only"
+    },
+    "cryptographic_execution": {
+      "independence": "same_operator_allowed",
+      "claim_scope": "specific construction execution"
+    },
+    "independent_reproduction": {
+      "independence": "required",
+      "claim_scope": "repeatability of named result"
+    },
+    "cross_implementation": {
+      "independence": "required",
+      "claim_scope": "interoperability for exact vectors/profile"
+    },
+    "privacy_adversarial": {
+      "independence": "recommended",
+      "claim_scope": "named privacy/adversary claim only"
+    },
+    "currentness_status": {
+      "independence": "policy_authority_external",
+      "claim_scope": "named root/state/freshness assumptions"
+    },
+    "performance": {
+      "independence": "environment_scoped",
+      "claim_scope": "measured environment only"
+    },
+    "audit_security_review": {
+      "independence": "reviewer_independent",
+      "claim_scope": "reviewed surface only"
+    }
+  },
+  "current_evidence": [
+    {
+      "record": "003",
+      "assets": [
+        "docs/implementation-guide/conformance/record-003-transcript-binding.md",
+        "conformance-harness/src/dtgwg_zkp_conformance/adapters/transcript.py"
+      ],
+      "classes": [
+        "deterministic_semantic"
+      ],
+      "labels": [
+        "implemented"
+      ],
+      "gaps": [
+        "independent_reproduction",
+        "cross_implementation"
+      ]
+    },
+    {
+      "record": "006",
+      "assets": [
+        "docs/implementation-guide/conformance/record-006-currentness.md",
+        "conformance-harness/src/dtgwg_zkp_conformance/adapters/status_root.py"
+      ],
+      "classes": [
+        "deterministic_semantic",
+        "currentness_status"
+      ],
+      "labels": [
+        "implemented",
+        "assurance_reviewed"
+      ],
+      "gaps": [
+        "authoritative_freshness_policy",
+        "independent_reproduction",
+        "cross_implementation"
+      ]
+    },
+    {
+      "record": "007",
+      "assets": [
+        "docs/implementation-guide/conformance/record-007-identifier-compatibility.md"
+      ],
+      "classes": [
+        "deterministic_semantic"
+      ],
+      "labels": [
+        "assurance_reviewed"
+      ],
+      "gaps": [
+        "normative_commitment_profile",
+        "cryptographic_execution",
+        "independent_reproduction",
+        "cross_implementation"
+      ]
+    },
+    {
+      "record": "008",
+      "assets": [
+        "docs/implementation-guide/conformance/record-008-blinded-binder.md",
+        "docs/implementation-guide/conformance/experimental-pr-hid-pedersen-profile.md"
+      ],
+      "classes": [
+        "deterministic_semantic",
+        "cryptographic_execution",
+        "privacy_adversarial",
+        "performance"
+      ],
+      "labels": [
+        "implemented",
+        "assurance_reviewed"
+      ],
+      "gaps": [
+        "independent_reproduction",
+        "cross_implementation",
+        "credential_member_profile"
+      ]
+    },
+    {
+      "record": "021",
+      "assets": [
+        "docs/implementation-guide/conformance/record-021-vac-authority-chain.md"
+      ],
+      "classes": [
+        "deterministic_semantic",
+        "privacy_adversarial",
+        "currentness_status"
+      ],
+      "labels": [
+        "implemented",
+        "assurance_reviewed"
+      ],
+      "gaps": [
+        "production_construction",
+        "independent_reproduction",
+        "cross_implementation",
+        "cryptographic_implementation_correspondence"
+      ]
+    },
+    {
+      "record": "010",
+      "assets": [
+        "conformance-harness/examples/community-anchored-proof.json",
+        "docs/implementation-guide/scenarios/community-anchored-proof.md"
+      ],
+      "classes": [
+        "deterministic_semantic"
+      ],
+      "labels": [],
+      "gaps": [
+        "clause_3_witness_contract",
+        "cryptographic_execution",
+        "independent_reproduction",
+        "cross_implementation",
+        "performance"
+      ]
+    }
+  ],
+  "independent_reproduction_contract": {
+    "minimum": [
+      "different maintainer/operator or independently maintained implementation",
+      "immutable source revision",
+      "exact vector/profile identifier",
+      "environment/runtime declaration",
+      "verifier-observable result and reason codes",
+      "evidence artifact digest",
+      "statement of what was not reproduced"
+    ],
+    "prohibited_shortcuts": [
+      "two code paths maintained by the same operator counted as independent",
+      "CI rerun counted as independent reproduction",
+      "semantic fixture pass counted as cryptographic interoperability",
+      "external library interoperability counted as DTG composed-record interoperability without DTG vectors"
+    ]
+  }
+}
