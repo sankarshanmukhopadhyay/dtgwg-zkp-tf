@@ -31,13 +31,13 @@ This repository models the target as a composed predicate set rather than invent
 | 3 | relationship-issuer binding + third-party membership/set predicate | sound evidence binding the relationship issuer to current membership in the same `C` |
 | composed result | `PR-CMP` | verifier challenge, public inputs, deliberately disclosed attributes, registry/currentness state |
 
-Existing experimental families such as `PR-REL`, `PR-HID`, and `PR-RES` may contribute to a construction. Their presence does not imply that Clause 3 is already solved.
+Canonical record 010 and component records 001–007 now define the semantic decomposition. Fork-local `PR-*` labels may still locate historical evidence, but they are not the semantic authority.
 
 ## Clause 3 dependency boundary
 
-Clause 3 is the critical unresolved seam. A conforming implementation needs a sound, independently checkable way for the presenter to prove a fact about the counterparty's membership while the counterparty is offline.
+Clause 3 now has a canonical semantic witness path: the voucher's VMC grant/path under `root_C`, plus either one `directed` identifier reused across the relevant VMC/VRC context or an authenticated record-007 co-control linkage artifact produced at issuance. The remaining gap is concrete construction execution, not an undefined predicate.
 
-This repository MUST NOT simulate that property with an ordinary holder assertion or a stable registry lookup identifier. Until the credential/registry layers expose sufficient proof input — for example a suitable commitment, witness, accumulator input, or another construction-neutral equivalent — the Clause 3 construction is reported as **INDETERMINATE / external dependency**, not as a cryptographic PASS.
+This repository MUST NOT simulate that property with an ordinary holder assertion or a stable registry lookup identifier. If the required voucher membership witness/path or linkage artifact is unavailable, the local result is **BLOCKED**, not a cryptographic PASS. Where those inputs exist, the semantic composition can be exercised, but the repository still does not claim an end-to-end cryptographic construction.
 
 Any required issuance-time material is an explicit X3 dependency and must be surfaced before a construction is promoted.
 
