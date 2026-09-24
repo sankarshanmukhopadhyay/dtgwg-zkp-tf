@@ -35,7 +35,7 @@ This separation keeps the original upstream project identity intact while allowi
 
 The principal normative-adjacent work item is [`proof-of-liveness-requirements.md`](./proof-of-liveness-requirements.md).
 
-The fork's v0.4 working draft advances the upstream v0.3 material by adding:
+The current downstream **v0.6 baseline** combines the existing liveness/personhood requirements with canonical ZKP construction-record evidence, evidence-state controls and composed-proof assurance. The working material includes:
 
 - explicit liveness, personhood, continuity and uniqueness terminology;
 - an actor and trust model;
@@ -48,9 +48,13 @@ The fork's v0.4 working draft advances the upstream v0.3 material by adding:
 - minimum interoperability evidence and conformance expectations; and
 - a decision backlog separating specification choices from construction choices;
 - composed-presentation privacy over the complete evidence closure; and
-- executable semantic conformance for cross-artifact, hiding-binder and external-resolution privacy predicates.
+- executable semantic conformance for cross-artifact, hiding-binder and external-resolution privacy predicates;
+- canonical downstream evidence surfaces for ZKP records 003, 006, 007, 008 and 021;
+- explicit downstream evidence-state promotion gates that cannot be mistaken for upstream lifecycle advancement;
+- current Credential Specification correlation-scope vocabulary (`pairwise / directed / public`); and
+- a canonical record-010 Community-Anchored Proof semantic composition baseline, with concrete cryptographic construction and independent interoperability tracked separately.
 
-It remains a working draft and deliberately does **not** make any experimental proof construction normative or claim that cryptography proves the correctness of a biometric determination.
+It remains a working implementation/assurance baseline and deliberately does **not** make any experimental proof construction normative, advance upstream construction-record states, or claim that cryptography proves the correctness of a biometric determination.
 
 ### Experimental construction pressure tests
 
