@@ -124,8 +124,34 @@ jobs:
             --notes-file "${{ steps.release.outputs.file }}" \
             --latest
 
-      - name: Verify published release
+      - name: Reconcile release metadata and latest status
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release view "${{ steps.release.outputs.tag }}" --json tagName,name,isLatest,isDraft,isPrerelease,url
+          gh release edit "${{ steps.release.outputs.tag }}" \
+            --title "${{ steps.release.outputs.title }}" \
+            --notes-file "${{ steps.release.outputs.file }}" \
+            --latest
+
+      - name: Verify published release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          release_json="$(gh release view "${{ steps.release.outputs.tag }}" --json tagName,name,isDraft,isPrerelease,targetCommitish,url)"
+          echo "$release_json"
+
+          latest_tag="$(gh api "repos/${{ github.repository }}/releases/latest" --jq '.tag_name')"
+          if [[ "$latest_tag" != "${{ steps.release.outputs.tag }}" ]]; then
+            echo "Expected latest tag ${{ steps.release.outputs.tag }}, got $latest_tag"
+            exit 1
+          fi
+
+          draft="$(echo "$release_json" | jq -r '.isDraft')"
+          prerelease="$(echo "$release_json" | jq -r '.isPrerelease')"
+          if [[ "$draft" != "false" || "$prerelease" != "false" ]]; then
+            echo "Release is unexpectedly draft or prerelease."
+            exit 1
+          fi
