@@ -1,0 +1,89 @@
+name: Publish release
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'RELEASE_NOTES_v*.md'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install validation and harness dependencies
+        run: >-
+          python -m pip install --disable-pip-version-check
+          pyyaml jsonschema pytest -e conformance-harness
+
+      - name: Run complete validation suite
+        run: python scripts/validate_all.py --evidence-dir results
+
+      - name: Resolve release notes and version
+        id: release
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            file="$(ls RELEASE_NOTES_v*.md | sort -V | tail -n 1)"
+          else
+            file="$(git diff-tree --no-commit-id --name-only -r HEAD | grep -E '^RELEASE_NOTES_v[0-9]+\.[0-9]+\.[0-9]+\.md$' | sort -V | tail -n 1 || true)"
+          fi
+
+          if [[ -z "${file:-}" || ! -f "$file" ]]; then
+            echo "No versioned release-notes file found for this run."
+            exit 1
+          fi
+
+          version="${file#RELEASE_NOTES_}"
+          version="${version%.md}"
+          tag="$version"
+
+          title="$(head -n 1 "$file" | sed -E 's/^# +//')"
+          if [[ -z "$title" ]]; then
+            echo "Release title could not be derived from $file"
+            exit 1
+          fi
+
+          echo "file=$file" >> "$GITHUB_OUTPUT"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          echo "title=$title" >> "$GITHUB_OUTPUT"
+
+      - name: Check whether release already exists
+        id: existing
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "${{ steps.release.outputs.tag }}" >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Publish GitHub Release
+        if: steps.existing.outputs.exists != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ steps.release.outputs.tag }}" \
+            --target "${{ github.sha }}" \
+            --title "${{ steps.release.outputs.title }}" \
+            --notes-file "${{ steps.release.outputs.file }}" \
+            --latest
+
+      - name: Verify published release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view "${{ steps.release.outputs.tag }}" --json tagName,name,isLatest,isDraft,isPrerelease,url
