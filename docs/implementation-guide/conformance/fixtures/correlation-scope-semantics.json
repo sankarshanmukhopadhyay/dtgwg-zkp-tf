@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0",
+  "authority": {
+    "upstream_repository": "trustoverip/dtgwg-cred-spec",
+    "observed_term_source": "spec/terms-definitions/correlation_scope.md",
+    "unresolved_serialization_issue": 46
+  },
+  "values": [
+    "pairwise",
+    "directed",
+    "public"
+  ],
+  "cases": [
+    {
+      "id": "CS-POS-PAIRWISE",
+      "expected": [
+        "accepted",
+        "correlation-scope-accepted"
+      ],
+      "input": {
+        "declared_scope": "pairwise",
+        "role": "relationship-counterparty",
+        "scope_inferred_from_role": false,
+        "required_max_scope": "pairwise"
+      }
+    },
+    {
+      "id": "CS-POS-DIRECTED",
+      "expected": [
+        "accepted",
+        "correlation-scope-accepted"
+      ],
+      "input": {
+        "declared_scope": "directed",
+        "role": "member",
+        "scope_inferred_from_role": false,
+        "required_max_scope": "directed"
+      }
+    },
+    {
+      "id": "CS-POS-PUBLIC",
+      "expected": [
+        "accepted",
+        "correlation-scope-accepted"
+      ],
+      "input": {
+        "declared_scope": "public",
+        "role": "issuer",
+        "scope_inferred_from_role": false,
+        "required_max_scope": "public"
+      }
+    },
+    {
+      "id": "CS-NEG-ROLE-INFERENCE",
+      "expected": [
+        "rejected",
+        "role-scope-conflation"
+      ],
+      "input": {
+        "declared_scope": "directed",
+        "role": "member",
+        "scope_inferred_from_role": true,
+        "required_max_scope": "directed"
+      }
+    },
+    {
+      "id": "CS-NEG-LEGACY-COMMUNITY",
+      "expected": [
+        "rejected",
+        "invalid-correlation-scope"
+      ],
+      "input": {
+        "declared_scope": "community",
+        "role": "member",
+        "scope_inferred_from_role": false,
+        "required_max_scope": "directed"
+      }
+    },
+    {
+      "id": "CS-NEG-OVERBROAD",
+      "expected": [
+        "rejected",
+        "scope-too-broad-for-context"
+      ],
+      "input": {
+        "declared_scope": "public",
+        "role": "relationship-counterparty",
+        "scope_inferred_from_role": false,
+        "required_max_scope": "pairwise"
+      }
+    }
+  ]
+}
