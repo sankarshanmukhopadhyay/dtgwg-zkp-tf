@@ -90,6 +90,6 @@ Proof validity does not itself establish governance recognition of the community
 
 ## Current disposition
 
-The ZKP fork can now test the semantic contract and reject/mark indeterminate unsupported Clause 3 claims. A production reference prover/verifier for Clause 3 remains blocked until the owning Credential/Registry layers expose a concrete, interoperable representation satisfying this contract.
+The ZKP fork can now test the semantic contract and reject/mark indeterminate unsupported Clause 3 claims. A production reference prover/verifier remains blocked on the exact cryptographic construction/profile and interoperable credential/registry representation. The canonical semantic path itself is now pinned by record 010: voucher membership under `root_C` plus directed identifier reuse or an authenticated record-007 co-control linkage artifact.
 
 That limitation is intentional: the repository should demonstrate the boundary rather than manufacture missing semantics.

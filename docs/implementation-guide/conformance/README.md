@@ -139,3 +139,8 @@ Use the [upstream construction record crosswalk](upstream-construction-record-cr
 ## Correlation-scope vocabulary
 
 [Correlation-scope vocabulary](correlation-scope-vocabulary.md) fixes downstream semantic use to `pairwise / directed / public`, rejects role-to-scope inference, and leaves wire serialization blocked on Credential Spec #46.
+
+
+## Canonical Community-Anchored Proof evidence
+
+[Record 010 Community-Anchored Proof evidence](record-010-community-anchored-proof.md) composes records 001–007 semantically, replaces the generic Clause-3 dependency with explicit canonical witness routes, and records the remaining cryptographic/interoperability gates.

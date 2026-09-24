@@ -1,0 +1,869 @@
+{
+  "schemaVersion": "1.0",
+  "authority": {
+    "upstream_repository": "trustoverip/dtgwg-zkp-spec",
+    "upstream_commit": "cfd94063e5cfee7ba6df4dcfd28c10399a0ffd0a",
+    "record": "010",
+    "state": "specified"
+  },
+  "cases": [
+    {
+      "id": "CAP-R010-POS-001",
+      "name": "ACCEPTS-DIRECTED",
+      "expected": [
+        "accepted",
+        "community-anchored-proof-semantics-satisfied"
+      ],
+      "input": {
+        "relationship_credential_authentic": true,
+        "presenter_membership_path_valid": true,
+        "voucher_membership_path_valid": true,
+        "same_community_root": true,
+        "voucher_linkage_mode": "directed-same-identifier",
+        "voucher_linkage_artifact_valid": false,
+        "presenter_linkage_valid": true,
+        "distinct_member_leaves": true,
+        "holder_binding_valid": true,
+        "statuses": [
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          },
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          },
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          }
+        ],
+        "transcript": {
+          "proof_transcript_digest": "sha256:cap",
+          "supplied_transcript_digest": "sha256:cap",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        },
+        "reuse_detection_declared": false,
+        "scoped_nullifier_present": false,
+        "reusable_cross_context_binder": false,
+        "claim_counterparty_consent_to_disclosure": false
+      }
+    },
+    {
+      "id": "CAP-R010-POS-002",
+      "name": "ACCEPTS-COCONTROL",
+      "expected": [
+        "accepted",
+        "community-anchored-proof-semantics-satisfied"
+      ],
+      "input": {
+        "relationship_credential_authentic": true,
+        "presenter_membership_path_valid": true,
+        "voucher_membership_path_valid": true,
+        "same_community_root": true,
+        "voucher_linkage_mode": "co-control-attestation",
+        "voucher_linkage_artifact_valid": true,
+        "presenter_linkage_valid": true,
+        "distinct_member_leaves": true,
+        "holder_binding_valid": true,
+        "statuses": [
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          },
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          },
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          }
+        ],
+        "transcript": {
+          "proof_transcript_digest": "sha256:cap",
+          "supplied_transcript_digest": "sha256:cap",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        },
+        "reuse_detection_declared": false,
+        "scoped_nullifier_present": false,
+        "reusable_cross_context_binder": false,
+        "claim_counterparty_consent_to_disclosure": false
+      }
+    },
+    {
+      "id": "CAP-R010-NEG-001",
+      "name": "VOUCHER-NOT-MEMBER",
+      "expected": [
+        "rejected",
+        "voucher-not-member"
+      ],
+      "input": {
+        "relationship_credential_authentic": true,
+        "presenter_membership_path_valid": true,
+        "voucher_membership_path_valid": false,
+        "same_community_root": true,
+        "voucher_linkage_mode": "directed-same-identifier",
+        "voucher_linkage_artifact_valid": false,
+        "presenter_linkage_valid": true,
+        "distinct_member_leaves": true,
+        "holder_binding_valid": true,
+        "statuses": [
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          },
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          },
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          }
+        ],
+        "transcript": {
+          "proof_transcript_digest": "sha256:cap",
+          "supplied_transcript_digest": "sha256:cap",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        },
+        "reuse_detection_declared": false,
+        "scoped_nullifier_present": false,
+        "reusable_cross_context_binder": false,
+        "claim_counterparty_consent_to_disclosure": false
+      }
+    },
+    {
+      "id": "CAP-R010-NEG-002",
+      "name": "SELF-VOUCH",
+      "expected": [
+        "rejected",
+        "self-vouch"
+      ],
+      "input": {
+        "relationship_credential_authentic": true,
+        "presenter_membership_path_valid": true,
+        "voucher_membership_path_valid": true,
+        "same_community_root": true,
+        "voucher_linkage_mode": "directed-same-identifier",
+        "voucher_linkage_artifact_valid": false,
+        "presenter_linkage_valid": true,
+        "distinct_member_leaves": false,
+        "holder_binding_valid": true,
+        "statuses": [
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          },
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          },
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          }
+        ],
+        "transcript": {
+          "proof_transcript_digest": "sha256:cap",
+          "supplied_transcript_digest": "sha256:cap",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        },
+        "reuse_detection_declared": false,
+        "scoped_nullifier_present": false,
+        "reusable_cross_context_binder": false,
+        "claim_counterparty_consent_to_disclosure": false
+      }
+    },
+    {
+      "id": "CAP-R010-NEG-003",
+      "name": "LINKAGE-MISSING",
+      "expected": [
+        "blocked",
+        "voucher-linkage-unavailable"
+      ],
+      "input": {
+        "relationship_credential_authentic": true,
+        "presenter_membership_path_valid": true,
+        "voucher_membership_path_valid": true,
+        "same_community_root": true,
+        "voucher_linkage_mode": "none",
+        "voucher_linkage_artifact_valid": false,
+        "presenter_linkage_valid": true,
+        "distinct_member_leaves": true,
+        "holder_binding_valid": true,
+        "statuses": [
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          },
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          },
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          }
+        ],
+        "transcript": {
+          "proof_transcript_digest": "sha256:cap",
+          "supplied_transcript_digest": "sha256:cap",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        },
+        "reuse_detection_declared": false,
+        "scoped_nullifier_present": false,
+        "reusable_cross_context_binder": false,
+        "claim_counterparty_consent_to_disclosure": false
+      }
+    },
+    {
+      "id": "CAP-R010-NEG-004",
+      "name": "LINKAGE-SWAPPED",
+      "expected": [
+        "rejected",
+        "voucher-linkage-invalid"
+      ],
+      "input": {
+        "relationship_credential_authentic": true,
+        "presenter_membership_path_valid": true,
+        "voucher_membership_path_valid": true,
+        "same_community_root": true,
+        "voucher_linkage_mode": "co-control-attestation",
+        "voucher_linkage_artifact_valid": false,
+        "presenter_linkage_valid": true,
+        "distinct_member_leaves": true,
+        "holder_binding_valid": true,
+        "statuses": [
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          },
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          },
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          }
+        ],
+        "transcript": {
+          "proof_transcript_digest": "sha256:cap",
+          "supplied_transcript_digest": "sha256:cap",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        },
+        "reuse_detection_declared": false,
+        "scoped_nullifier_present": false,
+        "reusable_cross_context_binder": false,
+        "claim_counterparty_consent_to_disclosure": false
+      }
+    },
+    {
+      "id": "CAP-R010-NEG-005",
+      "name": "HOLDER-BINDING",
+      "expected": [
+        "rejected",
+        "holder-binding-invalid"
+      ],
+      "input": {
+        "relationship_credential_authentic": true,
+        "presenter_membership_path_valid": true,
+        "voucher_membership_path_valid": true,
+        "same_community_root": true,
+        "voucher_linkage_mode": "directed-same-identifier",
+        "voucher_linkage_artifact_valid": false,
+        "presenter_linkage_valid": true,
+        "distinct_member_leaves": true,
+        "holder_binding_valid": false,
+        "statuses": [
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          },
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          },
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          }
+        ],
+        "transcript": {
+          "proof_transcript_digest": "sha256:cap",
+          "supplied_transcript_digest": "sha256:cap",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        },
+        "reuse_detection_declared": false,
+        "scoped_nullifier_present": false,
+        "reusable_cross_context_binder": false,
+        "claim_counterparty_consent_to_disclosure": false
+      }
+    },
+    {
+      "id": "CAP-R010-NEG-006",
+      "name": "REVOKED",
+      "expected": [
+        "rejected",
+        "handle-revoked"
+      ],
+      "input": {
+        "relationship_credential_authentic": true,
+        "presenter_membership_path_valid": true,
+        "voucher_membership_path_valid": true,
+        "same_community_root": true,
+        "voucher_linkage_mode": "directed-same-identifier",
+        "voucher_linkage_artifact_valid": false,
+        "presenter_linkage_valid": true,
+        "distinct_member_leaves": true,
+        "holder_binding_valid": true,
+        "statuses": [
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          },
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": false,
+            "handle_revoked": true,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          },
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          }
+        ],
+        "transcript": {
+          "proof_transcript_digest": "sha256:cap",
+          "supplied_transcript_digest": "sha256:cap",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        },
+        "reuse_detection_declared": false,
+        "scoped_nullifier_present": false,
+        "reusable_cross_context_binder": false,
+        "claim_counterparty_consent_to_disclosure": false
+      }
+    },
+    {
+      "id": "CAP-R010-NEG-007",
+      "name": "TRANSCRIPT",
+      "expected": [
+        "rejected",
+        "transcript-digest-mismatch"
+      ],
+      "input": {
+        "relationship_credential_authentic": true,
+        "presenter_membership_path_valid": true,
+        "voucher_membership_path_valid": true,
+        "same_community_root": true,
+        "voucher_linkage_mode": "directed-same-identifier",
+        "voucher_linkage_artifact_valid": false,
+        "presenter_linkage_valid": true,
+        "distinct_member_leaves": true,
+        "holder_binding_valid": true,
+        "statuses": [
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          },
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          },
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          }
+        ],
+        "transcript": {
+          "proof_transcript_digest": "sha256:cap",
+          "supplied_transcript_digest": "sha256:other",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        },
+        "reuse_detection_declared": false,
+        "scoped_nullifier_present": false,
+        "reusable_cross_context_binder": false,
+        "claim_counterparty_consent_to_disclosure": false
+      }
+    },
+    {
+      "id": "CAP-R010-NEG-008",
+      "name": "UNDECLARED-NULLIFIER",
+      "expected": [
+        "rejected",
+        "undeclared-nullifier-present"
+      ],
+      "input": {
+        "relationship_credential_authentic": true,
+        "presenter_membership_path_valid": true,
+        "voucher_membership_path_valid": true,
+        "same_community_root": true,
+        "voucher_linkage_mode": "directed-same-identifier",
+        "voucher_linkage_artifact_valid": false,
+        "presenter_linkage_valid": true,
+        "distinct_member_leaves": true,
+        "holder_binding_valid": true,
+        "statuses": [
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          },
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          },
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          }
+        ],
+        "transcript": {
+          "proof_transcript_digest": "sha256:cap",
+          "supplied_transcript_digest": "sha256:cap",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        },
+        "reuse_detection_declared": false,
+        "scoped_nullifier_present": true,
+        "reusable_cross_context_binder": false,
+        "claim_counterparty_consent_to_disclosure": false
+      }
+    },
+    {
+      "id": "CAP-R010-NEG-009",
+      "name": "MISSING-DECLARED-NULLIFIER",
+      "expected": [
+        "rejected",
+        "scoped-nullifier-missing"
+      ],
+      "input": {
+        "relationship_credential_authentic": true,
+        "presenter_membership_path_valid": true,
+        "voucher_membership_path_valid": true,
+        "same_community_root": true,
+        "voucher_linkage_mode": "directed-same-identifier",
+        "voucher_linkage_artifact_valid": false,
+        "presenter_linkage_valid": true,
+        "distinct_member_leaves": true,
+        "holder_binding_valid": true,
+        "statuses": [
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          },
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          },
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          }
+        ],
+        "transcript": {
+          "proof_transcript_digest": "sha256:cap",
+          "supplied_transcript_digest": "sha256:cap",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        },
+        "reuse_detection_declared": true,
+        "scoped_nullifier_present": false,
+        "reusable_cross_context_binder": false,
+        "claim_counterparty_consent_to_disclosure": false
+      }
+    },
+    {
+      "id": "CAP-R010-NEG-010",
+      "name": "CROSS-CONTEXT-BINDER",
+      "expected": [
+        "rejected",
+        "cross-context-linkability"
+      ],
+      "input": {
+        "relationship_credential_authentic": true,
+        "presenter_membership_path_valid": true,
+        "voucher_membership_path_valid": true,
+        "same_community_root": true,
+        "voucher_linkage_mode": "directed-same-identifier",
+        "voucher_linkage_artifact_valid": false,
+        "presenter_linkage_valid": true,
+        "distinct_member_leaves": true,
+        "holder_binding_valid": true,
+        "statuses": [
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          },
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          },
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          }
+        ],
+        "transcript": {
+          "proof_transcript_digest": "sha256:cap",
+          "supplied_transcript_digest": "sha256:cap",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        },
+        "reuse_detection_declared": false,
+        "scoped_nullifier_present": false,
+        "reusable_cross_context_binder": true,
+        "claim_counterparty_consent_to_disclosure": false
+      }
+    },
+    {
+      "id": "CAP-R010-NEG-011",
+      "name": "COUNTERPARTY-CONSENT",
+      "expected": [
+        "rejected",
+        "counterparty-consent-not-established"
+      ],
+      "input": {
+        "relationship_credential_authentic": true,
+        "presenter_membership_path_valid": true,
+        "voucher_membership_path_valid": true,
+        "same_community_root": true,
+        "voucher_linkage_mode": "directed-same-identifier",
+        "voucher_linkage_artifact_valid": false,
+        "presenter_linkage_valid": true,
+        "distinct_member_leaves": true,
+        "holder_binding_valid": true,
+        "statuses": [
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          },
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          },
+          {
+            "root_known": true,
+            "root_authentic": true,
+            "root_age_seconds": 60,
+            "max_age_seconds": 300,
+            "proof_non_membership_valid": true,
+            "handle_revoked": false,
+            "acquisition_mode": "shared-cache",
+            "authority_observation_declared": false
+          }
+        ],
+        "transcript": {
+          "proof_transcript_digest": "sha256:cap",
+          "supplied_transcript_digest": "sha256:cap",
+          "canonical_encoding_valid": true,
+          "predicate_accepted": true,
+          "audience_match": true,
+          "context_match": true,
+          "challenge_match": true,
+          "expired": false,
+          "replay_seen": false
+        },
+        "reuse_detection_declared": false,
+        "scoped_nullifier_present": false,
+        "reusable_cross_context_binder": false,
+        "claim_counterparty_consent_to_disclosure": true
+      }
+    }
+  ]
+}

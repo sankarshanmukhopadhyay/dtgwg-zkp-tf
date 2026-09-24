@@ -1,0 +1,245 @@
+{
+  "schemaVersion": "1.0",
+  "canonical_record": "010",
+  "upstream_commit": "cfd94063e5cfee7ba6df4dcfd28c10399a0ffd0a",
+  "requirements": [
+    {
+      "id": "P1",
+      "status": "supported-semantic",
+      "evidence": [
+        "CAP-R010-POS-001",
+        "CAP-R010-NEG-010"
+      ],
+      "remaining": [
+        "production proof disclosure audit"
+      ]
+    },
+    {
+      "id": "P2",
+      "status": "supported-semantic",
+      "evidence": [
+        "CAP-R010-POS-001",
+        "CAP-R010-NEG-003",
+        "CAP-R010-NEG-004"
+      ],
+      "remaining": [
+        "construction correspondence"
+      ]
+    },
+    {
+      "id": "P3",
+      "status": "supported-semantic",
+      "evidence": [
+        "CAP-R010-POS-001"
+      ],
+      "remaining": [
+        "production disclosure profile"
+      ]
+    },
+    {
+      "id": "P4",
+      "status": "supported-semantic",
+      "evidence": [
+        "CAP-R010-NEG-010"
+      ],
+      "remaining": [
+        "cross-verifier cryptographic vectors",
+        "independent implementation"
+      ]
+    },
+    {
+      "id": "P5",
+      "status": "supported-semantic",
+      "evidence": [
+        "CAP-R010-POS-001"
+      ],
+      "remaining": [
+        "production disclosure audit"
+      ]
+    },
+    {
+      "id": "S1",
+      "status": "supported-semantic",
+      "evidence": [
+        "CAP-R010-NEG-001",
+        "CAP-R010-NEG-003"
+      ],
+      "remaining": [
+        "cryptographic soundness evidence"
+      ]
+    },
+    {
+      "id": "S2",
+      "status": "supported-semantic",
+      "evidence": [
+        "CAP-R010-NEG-001",
+        "CAP-R010-NEG-003",
+        "CAP-R010-NEG-004"
+      ],
+      "remaining": [
+        "concrete clause-3 construction execution"
+      ]
+    },
+    {
+      "id": "S3",
+      "status": "supported-by-contract",
+      "evidence": [
+        "CAP-R010-POS-001",
+        "CAP-R010-POS-002"
+      ],
+      "remaining": [
+        "production prover evidence with voucher offline"
+      ]
+    },
+    {
+      "id": "S4",
+      "status": "supported-semantic",
+      "evidence": [
+        "CAP-R010-NEG-005"
+      ],
+      "remaining": [
+        "record-004 construction execution"
+      ]
+    },
+    {
+      "id": "S5",
+      "status": "supported-semantic",
+      "evidence": [
+        "CAP-R010-NEG-007"
+      ],
+      "remaining": [
+        "production transcript implementation"
+      ]
+    },
+    {
+      "id": "C1",
+      "status": "supported-semantic",
+      "evidence": [
+        "CAP-R010-NEG-006"
+      ],
+      "remaining": [
+        "authoritative status semantics"
+      ]
+    },
+    {
+      "id": "C2",
+      "status": "supported-by-contract",
+      "evidence": [
+        "record-006-currentness"
+      ],
+      "remaining": [
+        "profile state serialization"
+      ]
+    },
+    {
+      "id": "C3",
+      "status": "supported-semantic",
+      "evidence": [
+        "record-006-currentness"
+      ],
+      "remaining": [
+        "deployment observation evidence"
+      ]
+    },
+    {
+      "id": "C4",
+      "status": "external-governance",
+      "evidence": [],
+      "remaining": [
+        "published revocation propagation bound"
+      ]
+    },
+    {
+      "id": "T1",
+      "status": "external-interface",
+      "evidence": [],
+      "remaining": [
+        "community-recognition authority"
+      ]
+    },
+    {
+      "id": "T2",
+      "status": "supported-by-contract",
+      "evidence": [
+        "CAP-R010-POS-001"
+      ],
+      "remaining": [
+        "production root authentication profile"
+      ]
+    },
+    {
+      "id": "T3",
+      "status": "supported-semantic",
+      "evidence": [
+        "CAP-R010-POS-001"
+      ],
+      "remaining": [
+        "cross-implementation verification"
+      ]
+    },
+    {
+      "id": "T4",
+      "status": "supported-by-contract",
+      "evidence": [
+        "community-anchored-proof-input-contract"
+      ],
+      "remaining": [
+        "concrete interoperable registry profile"
+      ]
+    },
+    {
+      "id": "D1",
+      "status": "blocked-construction",
+      "evidence": [],
+      "remaining": [
+        "reference prover measurement"
+      ]
+    },
+    {
+      "id": "D2",
+      "status": "blocked-construction",
+      "evidence": [],
+      "remaining": [
+        "reference verifier measurement"
+      ]
+    },
+    {
+      "id": "D3",
+      "status": "blocked-construction",
+      "evidence": [],
+      "remaining": [
+        "proof/transport size measurement"
+      ]
+    },
+    {
+      "id": "X1",
+      "status": "supported-semantic",
+      "evidence": [
+        "record-010-semantic-fixtures"
+      ],
+      "remaining": [
+        "cryptographic vectors"
+      ]
+    },
+    {
+      "id": "X2",
+      "status": "blocked-independent",
+      "evidence": [],
+      "remaining": [
+        "second independently maintained implementation",
+        "shared profile vectors"
+      ]
+    },
+    {
+      "id": "X3",
+      "status": "identified",
+      "evidence": [
+        "record-007-identifier-compatibility",
+        "community-anchored-proof-input-contract"
+      ],
+      "remaining": [
+        "credential-owned commitment/linkage profile"
+      ]
+    }
+  ]
+}
