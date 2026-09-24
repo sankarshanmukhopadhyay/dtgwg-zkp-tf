@@ -134,3 +134,8 @@ Use the [upstream construction record crosswalk](upstream-construction-record-cr
 ## Downstream evidence-state promotion gates
 
 [Downstream evidence-state promotion gates](evidence-promotion-gates.md) defines additive local maturity labels and an explicit firewall against implying upstream construction-record state advancement.
+
+
+## Correlation-scope vocabulary
+
+[Correlation-scope vocabulary](correlation-scope-vocabulary.md) fixes downstream semantic use to `pairwise / directed / public`, rejects role-to-scope inference, and leaves wire serialization blocked on Credential Spec #46.
