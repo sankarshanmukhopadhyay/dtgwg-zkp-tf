@@ -150,7 +150,7 @@ The release workflow runs the complete repository validation suite before public
 
 The v0.6.0 tranche was developed through issue/branch/PR flow, with Repository Quality and Conformance Harness gates passing before merge for the substantive work.
 
-The GitHub Release is created from the merged `main` revision associated with this release-notes file and is marked as the latest release. Publication is performed by `.github/workflows/release.yml`, including the merged-release-note PR trigger used for this release.
+The GitHub Release is created from an already-merged `main` baseline and is marked as the latest release. Publication is performed by `.github/workflows/release.yml` through a dedicated release-request PR that validates and tags the request PR's base `main` SHA; the request marker itself is not part of the released baseline.
 
 ## Release boundary
 
