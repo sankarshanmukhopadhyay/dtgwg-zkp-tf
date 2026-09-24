@@ -129,3 +129,8 @@ Use the [upstream construction record crosswalk](upstream-construction-record-cr
 ## Canonical VAC authority-chain assurance
 
 [Record 021 VAC authority-chain assurance](record-021-vac-authority-chain.md) composes the reusable transcript/currentness evidence and makes authority-vs-delegation, chain-shape privacy and status-observation boundaries executable.
+
+
+## Downstream evidence-state promotion gates
+
+[Downstream evidence-state promotion gates](evidence-promotion-gates.md) defines additive local maturity labels and an explicit firewall against implying upstream construction-record state advancement.
