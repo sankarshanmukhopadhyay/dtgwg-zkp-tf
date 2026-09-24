@@ -5,27 +5,64 @@ on:
     branches: [main]
     paths:
       - 'RELEASE_NOTES_v*.md'
-  pull_request:
-    types: [closed]
-    branches: [main]
-    paths:
-      - 'RELEASE_NOTES_v*.md'
+  issue_comment:
+    types: [created]
   workflow_dispatch:
 
 permissions:
   contents: write
+  pull-requests: read
 
 jobs:
   validate-and-release:
     if: >-
-      github.event_name != 'pull_request' ||
-      github.event.pull_request.merged == true
+      github.event_name != 'issue_comment' ||
+      (
+        github.event.issue.pull_request &&
+        github.event.comment.body == '/publish-release' &&
+        (
+          github.event.comment.author_association == 'OWNER' ||
+          github.event.comment.author_association == 'MEMBER' ||
+          github.event.comment.author_association == 'COLLABORATOR'
+        )
+      )
     runs-on: ubuntu-latest
     steps:
+      - name: Resolve source revision
+        id: source
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ "${{ github.event_name }}" == "issue_comment" ]]; then
+            pr="${{ github.event.issue.number }}"
+            merged_at="$(gh pr view "$pr" --repo "${{ github.repository }}" --json mergedAt --jq '.mergedAt // ""')"
+            base_ref="$(gh pr view "$pr" --repo "${{ github.repository }}" --json baseRefName --jq '.baseRefName')"
+            merge_sha="$(gh pr view "$pr" --repo "${{ github.repository }}" --json mergeCommit --jq '.mergeCommit.oid // ""')"
+            release_file="$(gh pr view "$pr" --repo "${{ github.repository }}" --json files --jq '.files[].path' | grep -E '^RELEASE_NOTES_v[0-9]+\.[0-9]+\.[0-9]+\.md$' | sort -V | tail -n 1 || true)"
+
+            if [[ -z "$merged_at" || "$base_ref" != "main" || -z "$merge_sha" ]]; then
+              echo "Release command requires a PR already merged to main."
+              exit 1
+            fi
+            if [[ -z "$release_file" ]]; then
+              echo "Merged PR does not contain a versioned release-notes file."
+              exit 1
+            fi
+
+            echo "ref=$merge_sha" >> "$GITHUB_OUTPUT"
+            echo "release_file=$release_file" >> "$GITHUB_OUTPUT"
+          else
+            echo "ref=${{ github.sha }}" >> "$GITHUB_OUTPUT"
+          fi
+
       - uses: actions/checkout@v6
         with:
           fetch-depth: 0
-          ref: ${{ github.event.pull_request.merge_commit_sha || github.sha }}
+          ref: ${{ steps.source.outputs.ref }}
+
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
@@ -44,10 +81,13 @@ jobs:
         run: |
           set -euo pipefail
 
-          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+          if [[ "${{ github.event_name }}" == "issue_comment" ]]; then
+            file="${{ steps.source.outputs.release_file }}"
+          elif [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             file="$(ls RELEASE_NOTES_v*.md | sort -V | tail -n 1)"
           else
-            file="$(git diff-tree --no-commit-id --name-only -r HEAD | grep -E '^RELEASE_NOTES_v[0-9]+\.[0-9]+\.[0-9]+\.md
+            file="$(git diff-tree --no-commit-id --name-only -r HEAD | grep -E '^RELEASE_NOTES_v[0-9]+\.[0-9]+\.[0-9]+\.md$' | sort -V | tail -n 1 || true)"
+          fi
 
           if [[ -z "${file:-}" || ! -f "$file" ]]; then
             echo "No versioned release-notes file found for this run."
@@ -57,8 +97,8 @@ jobs:
           version="${file#RELEASE_NOTES_}"
           version="${version%.md}"
           tag="$version"
-
           title="$(head -n 1 "$file" | sed -E 's/^# +//')"
+
           if [[ -z "$title" ]]; then
             echo "Release title could not be derived from $file"
             exit 1
@@ -86,55 +126,6 @@ jobs:
         run: |
           gh release create "${{ steps.release.outputs.tag }}" \
             --target "$(git rev-parse HEAD)" \
-            --title "${{ steps.release.outputs.title }}" \
-            --notes-file "${{ steps.release.outputs.file }}" \
-            --latest
-
-      - name: Verify published release
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh release view "${{ steps.release.outputs.tag }}" --json tagName,name,isLatest,isDraft,isPrerelease,url
- | sort -V | tail -n 1 || true)"
-          fi
-
-          if [[ -z "${file:-}" || ! -f "$file" ]]; then
-            echo "No versioned release-notes file found for this run."
-            exit 1
-          fi
-
-          version="${file#RELEASE_NOTES_}"
-          version="${version%.md}"
-          tag="$version"
-
-          title="$(head -n 1 "$file" | sed -E 's/^# +//')"
-          if [[ -z "$title" ]]; then
-            echo "Release title could not be derived from $file"
-            exit 1
-          fi
-
-          echo "file=$file" >> "$GITHUB_OUTPUT"
-          echo "tag=$tag" >> "$GITHUB_OUTPUT"
-          echo "title=$title" >> "$GITHUB_OUTPUT"
-
-      - name: Check whether release already exists
-        id: existing
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          if gh release view "${{ steps.release.outputs.tag }}" >/dev/null 2>&1; then
-            echo "exists=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "exists=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Publish GitHub Release
-        if: steps.existing.outputs.exists != 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh release create "${{ steps.release.outputs.tag }}" \
-            --target "${{ github.sha }}" \
             --title "${{ steps.release.outputs.title }}" \
             --notes-file "${{ steps.release.outputs.file }}" \
             --latest
