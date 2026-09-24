@@ -18,7 +18,7 @@ It does **not** define a new Credential-spec identifier taxonomy, a VTN policy m
 ## Scenario
 
 - `half-a` is deliberately public or correlatable.
-- `half-b` uses a pairwise/private identifier.
+- `half-b` uses an identifier whose declared correlation scope is `pairwise`.
 - both relationship artifacts are authentic;
 - a verifier needs evidence of the required relationship predicate;
 - the proof must not expose more about `half-b` than the predicate requires.
@@ -40,7 +40,7 @@ A conforming experimental implementation of this pressure test:
 - MUST identify the subject and scope of every privacy claim;
 - MUST NOT infer relationship-level or contextual unlinkability from proof-level hiding alone;
 - MUST NOT introduce a reusable cross-context binder for the private half when a less correlatable relation can establish the required predicate;
-- MUST distinguish declared, observable, and effective correlation scope;
+- MUST distinguish declared (`pairwise` / `directed` / `public`), observable, and effective correlation scope;
 - MUST record residual graph/context correlation separately from cryptographic proof properties; and
 - MUST NOT treat proof verification as evidence of common VTN anchoring, cross-VTN policy acceptance, or DTG-edge conformance without separate evidence.
 
