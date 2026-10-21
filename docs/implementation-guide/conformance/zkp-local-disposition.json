@@ -1,0 +1,109 @@
+{
+  "schema_version": "1.0",
+  "authority": {
+    "repo": "trustoverip/dtgwg-zkp-spec",
+    "canonical_revision": "cfd94063e5cfee7ba6df4dcfd28c10399a0ffd0a",
+    "control_issue": 30,
+    "downstream_only": true
+  },
+  "release": {
+    "target": "v0.7.0",
+    "disposition": "defer",
+    "reason": "End-to-end privacy-preserving CAP execution and complete attributable evidence lifecycle are not yet demonstrated; external independent reproduction is absent."
+  },
+  "issues": [
+    {
+      "issue": 54,
+      "status": "local_unmet",
+      "statement": "Complete authenticated, privacy-preserving record-010 CAP prover/verifier",
+      "evidence": [
+        "benchmarks/pr-rel-sigma/cap-hidden-witness.test.mjs",
+        "benchmarks/pr-rel-sigma/cap-authenticated-commitments.test.mjs",
+        "benchmarks/pr-rel-sigma/cap-merkle-membership.test.mjs"
+      ],
+      "met": [
+        "offline_receipt_binding_component",
+        "hidden_scalar_equality_component",
+        "signed_merkle_inclusion_component"
+      ],
+      "unmet": [
+        "private_membership_path",
+        "canonical_credential_relationship_witness",
+        "complete_composed_prover_verifier",
+        "environment_scoped_d1_d3",
+        "cryptographic_end_to_end_vectors"
+      ],
+      "external_dependencies": [
+        26,
+        27
+      ],
+      "forbidden_claims": [
+        "cap_proven",
+        "interoperable",
+        "upstream_vetted"
+      ],
+      "next_action": "Keep issue open; execute or falsify a complete joint membership-and-relationship circuit under pinned experimental assumptions; do not substitute disclosed Merkle inclusion."
+    },
+    {
+      "issue": 67,
+      "status": "local_unmet",
+      "statement": "Unified attributable evidence and end-to-end proof-claim assurance programme",
+      "evidence": [
+        "docs/implementation-guide/conformance/evidence-dashboard.md",
+        "scripts/evidence_registry.py",
+        "docs/implementation-guide/conformance/proof-claim-generated.md"
+      ],
+      "met": [
+        "generated_dashboard",
+        "asset_digest_projection",
+        "seed_negative_inference_tests"
+      ],
+      "unmet": [
+        "attributable_execution_result_schema",
+        "cross_dependency_retest_invalidation",
+        "independent_provenance_checks",
+        "integrated_cap_verifier_claim_boundary"
+      ],
+      "external_dependencies": [
+        54,
+        30
+      ],
+      "forbidden_claims": [
+        "full_evidence_lifecycle",
+        "complete_assurance",
+        "release_ready"
+      ],
+      "next_action": "Keep issue open; require attributable expected/observed outcomes and invalidation triggers before evidence promotion."
+    },
+    {
+      "issue": 32,
+      "status": "local_partial",
+      "statement": "Construction-neutral record-013 adverse response and protocol-ordering tests",
+      "evidence": [
+        "scripts/record013_pressure.py",
+        "scripts/tests/test_record013_pressure.py",
+        "docs/implementation-guide/conformance/record-013-policy-pressure.md"
+      ],
+      "met": [
+        "synthetic_policy_oracle",
+        "abort_and_replay_models",
+        "stale_epoch_model",
+        "asymmetry_model"
+      ],
+      "unmet": [
+        "concurrency_and_collusion_tests",
+        "canonical_clause_reconciliation",
+        "assurance_evidence_registration"
+      ],
+      "external_dependencies": [
+        30
+      ],
+      "forbidden_claims": [
+        "canonical_record013_prover",
+        "fair_exchange",
+        "policy_confidentiality_guarantee"
+      ],
+      "next_action": "Complete remaining construction-neutral cases and classify canonical mapping; construction-specific implementation waits for upstream authority."
+    }
+  ]
+}

@@ -40,6 +40,7 @@ VALIDATORS = (
     "validate_proof_claim_boundaries.py",
     "generate_claim_boundary_guide.py",
     "validate_cap_selection.py",
+    "validate_zkp_disposition.py",
     "validate_external_dependencies.py",
     "reconcile_canonical_evidence.py",
     "validate_canonical_correspondence.py",
