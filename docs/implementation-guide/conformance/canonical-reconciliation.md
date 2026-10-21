@@ -21,7 +21,7 @@ python3 -m pytest -q scripts/tests
 python3 scripts/validate_all.py
 ```
 
-The first command writes a generated JSON view and Markdown dashboard from the reviewed impact manifest plus the existing evidence-promotion inventory. The complete repository validator invokes this validator and the new tests.
+The first command writes a generated JSON view and Markdown dashboard from the reviewed impact manifest plus the existing evidence-promotion inventory. Each existing evidence asset is checked for existence and recorded with its SHA-256 and byte length. Missing assets and paths escaping the repository fail validation. Asset digests provide byte-level provenance for the local checkout; they do **not** show upstream proposition correspondence, test execution, independence, or evidence freshness. The complete repository validator invokes this validator and the new tests.
 
 ## Record 013 bounded adversarial evidence
 
