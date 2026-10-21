@@ -33,6 +33,7 @@ VALIDATORS = (
     "validate_security_assurance.py",
     "validate_identifier_register.py",
     "validate_construction_evidence.py",
+    "construction_evidence_index.py",
     "validate_evidence_promotion.py",
     "validate_external_dependencies.py",
     "reconcile_canonical_evidence.py",
@@ -55,7 +56,10 @@ def main() -> None:
     args = parser.parse_args()
 
     for validator in VALIDATORS:
-        run(sys.executable, str(ROOT / "scripts" / validator))
+        if validator == "construction_evidence_index.py":
+            run(sys.executable, str(ROOT / "scripts" / validator), "--check")
+        else:
+            run(sys.executable, str(ROOT / "scripts" / validator))
 
     run(sys.executable, "-m", "pytest", "-q", "conformance-harness/tests", "scripts/tests")
 
