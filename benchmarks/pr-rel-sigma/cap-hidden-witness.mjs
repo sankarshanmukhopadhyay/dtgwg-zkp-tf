@@ -34,7 +34,7 @@ function combination(m, r) {
 }
 
 function boundBytes(commitments, announcements, context) {
-  if (!context || typeof context !== 'string' || !context.isAscii?.() && /[^\\x00-\\x7f]/.test(context)) {
+  if (typeof context !== 'string' || context.length === 0 || [...context].some(ch => ch.charCodeAt(0) < 32 || ch.charCodeAt(0) > 126)) {
     throw new Error('context must be a nonempty ASCII string');
   }
   const chunks = [encoder.encode(DOMAIN), Uint8Array.from([0]), encoder.encode(context)];
