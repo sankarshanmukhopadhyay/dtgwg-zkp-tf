@@ -42,3 +42,24 @@ The first command writes a generated JSON view and Markdown dashboard from the r
 - Advance the task-force content checkpoint only through the governed synchronization workflow.
 
 No new release is justified by these validation and assurance scaffolds alone.
+
+
+## Per-run execution provenance and dependency invalidation
+
+The `scripts/evidence_run.py` runner records the **actual exit status** of a named local command along with a UTC start/end timestamp, declared operator and implementation, Python/platform metadata, upstream canonical revision and conservative record impact, plus SHA-256 and byte length for declared repository-local dependencies. It fingerprints dependencies again after execution to reject in-run drift. Captured stdout/stderr are represented by digests and lengths, not raw output, to reduce the risk of exposing sensitive transcripts.
+
+Example, from repository root (an *illustrative* local command, not a conformance claim):
+
+```sh
+python3 scripts/evidence_run.py run \
+  --record 013 --operator local --implementation record013-synthetic \
+  --dependency scripts/record013_pressure_tests.py \
+  --output /tmp/record013-run.json -- \
+  python3 -m pytest -q scripts/tests/test_record013_pressure_tests.py
+
+python3 scripts/evidence_run.py verify /tmp/record013-run.json
+```
+
+The first command can succeed and produce an execution record; the second deliberately returns an invalidated/unproven result while the canonical record's evidence disposition remains `stale`. A successful local process is **not** sufficient evidence of canonical correspondence. Changing the upstream revision, the recorded canonical impact, any dependency bytes, or the report digest invalidates the record. Missing or unsafe paths fail closed; prior evidence files are never silently overwritten. Generated reports are local artifacts, not committed authoritative claims.
+
+Limitations: this is a bounded execution-provenance facility, not a signed attestation, hermetic build or independent operator identity proof. A caller must declare all consequential dependencies; undeclared environment and network inputs are not detectable. Canonical freshness requires governed proposition-level assessment and retest. No automatic advancement to `implemented`, `vetted` or `published` is supported.
