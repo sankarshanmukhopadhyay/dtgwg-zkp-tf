@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Downstream proof claim boundaries",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "authority",
+    "records"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source",
+        "kind",
+        "upstream_state_unchanged"
+      ],
+      "properties": {
+        "source": {
+          "const": "docs/implementation-guide/conformance/evidence-promotion-gates.json"
+        },
+        "kind": {
+          "const": "downstream-non-normative"
+        },
+        "upstream_state_unchanged": {
+          "const": true
+        }
+      }
+    },
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "record",
+          "establishes",
+          "does_not_establish"
+        ],
+        "properties": {
+          "record": {
+            "type": "string",
+            "pattern": "^[0-9]{3}$"
+          },
+          "establishes": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_]*$"
+            }
+          },
+          "does_not_establish": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "claim",
+                "reason"
+              ],
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*$"
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 12
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
