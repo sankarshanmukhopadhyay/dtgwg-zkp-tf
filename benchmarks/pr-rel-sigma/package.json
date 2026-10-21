@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node relationship-proof.mjs --test",
+    "test": "node relationship-proof.mjs --test && node --test cap-hidden-witness.test.mjs",
     "benchmark": "node relationship-proof.mjs --benchmark"
   },
   "dependencies": {

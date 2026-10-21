@@ -37,6 +37,10 @@ pytest conformance-harness/tests
 
 [Construction evidence index](construction-evidence-index.md) documents the generated, digest-bound view of the existing local construction manifest. Regenerate with `python3 scripts/construction_evidence_index.py`; the complete validation suite checks it for stale evidence. The derived index does not advance upstream lifecycle or independent-interoperability claims.
 
+## CAP hidden-witness feasibility
+
+[Hidden-witness equality feasibility](cap-hidden-witness-spike.md) exercises a real Ristretto255 proof across three blinded commitments while retaining explicit authentication, membership and authority gaps.
+
 ## CAP cryptographic feasibility spike
 
 [Voucher-offline signed-receipt experiment](cap-offline-voucher-spike.md) tests an issuance-time binding invariant with real signatures while explicitly withholding any ZKP, hidden-witness or privacy claim.
