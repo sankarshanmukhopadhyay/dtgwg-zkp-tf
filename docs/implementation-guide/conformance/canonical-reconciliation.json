@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "observed_at": "2026-10-21",
+  "canonical": {
+    "repository": "trustoverip/dtgwg-zkp-spec",
+    "prior_revision": "cfd94063e5cfee7ba6df4dcfd28c10399a0ffd0a",
+    "current_revision": "aa4e285bbed35ecb2cacb660f798968c9a9793b5",
+    "last_semantic_revision": "e9b366765b809a2d36d368507176f0664e3c9926"
+  },
+  "companion": {
+    "repository": "trustoverip/dtgwg-zkp-tf",
+    "prior_revision": "a42bf8c06875cde7c2c9b578279c1be2c682f8ba",
+    "current_revision": "14a347bf5d75b6d8212c595247e767076d978f31"
+  },
+  "record_impacts": [
+    {
+      "record": "003",
+      "change": "formal-and-metadata",
+      "disposition": "retest_required",
+      "reason": "Canonical record changed; transcript-binding evidence must be checked against the current proposition."
+    },
+    {
+      "record": "006",
+      "change": "issuance-and-formal",
+      "disposition": "retest_required",
+      "reason": "Status-root evidence must be reassessed against sorted-handle/root commitments."
+    },
+    {
+      "record": "007",
+      "change": "identifier-commitment-and-rotation",
+      "disposition": "stale",
+      "reason": "Prior identifier compatibility analysis predates the canonical key-profile/rotation horizon."
+    },
+    {
+      "record": "008",
+      "change": "issuance-and-formal",
+      "disposition": "retest_required",
+      "reason": "Bounded binder evidence needs input/profile comparison."
+    },
+    {
+      "record": "009",
+      "change": "formal-and-metadata",
+      "disposition": "retest_required",
+      "reason": "Relationship equality evidence must be evaluated against the current record."
+    },
+    {
+      "record": "010",
+      "change": "composition-and-issuance",
+      "disposition": "stale",
+      "reason": "CAP semantic profile predates current clauses and rotation dependencies."
+    },
+    {
+      "record": "013",
+      "change": "requested-to-specified",
+      "disposition": "stale",
+      "reason": "Earlier construction-neutral assumptions no longer represent canonical state."
+    },
+    {
+      "record": "021",
+      "change": "formal-and-metadata",
+      "disposition": "retest_required",
+      "reason": "VAC evidence must be checked against the current proposition."
+    },
+    {
+      "record": "022",
+      "change": "new-record",
+      "disposition": "not_assessed",
+      "reason": "No downstream record-specific execution evidence has been established."
+    },
+    {
+      "record": "023",
+      "change": "new-record",
+      "disposition": "not_assessed",
+      "reason": "No downstream record-specific execution evidence has been established."
+    },
+    {
+      "record": "024",
+      "change": "new-record-and-enrolment",
+      "disposition": "not_assessed",
+      "reason": "No downstream record-specific execution evidence has been established."
+    },
+    {
+      "record": "025",
+      "change": "new-record-and-rotation",
+      "disposition": "not_assessed",
+      "reason": "No downstream record-specific execution evidence has been established."
+    }
+  ],
+  "limitations": [
+    "Impact classification is a conservative review of changed canonical record files, not a claim that any downstream test was executed.",
+    "Additional changed records require comparison before declaring unaffected.",
+    "No record here is promoted to upstream run, vetted or published."
+  ]
+}
