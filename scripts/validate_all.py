@@ -36,6 +36,7 @@ VALIDATORS = (
     "construction_evidence_index.py",
     "validate_evidence_promotion.py",
     "validate_proof_claim_boundaries.py",
+    "validate_cap_selection.py",
     "validate_external_dependencies.py",
     "reconcile_canonical_evidence.py",
     "validate_canonical_correspondence.py",
