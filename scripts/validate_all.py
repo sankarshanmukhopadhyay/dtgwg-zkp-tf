@@ -38,6 +38,7 @@ VALIDATORS = (
     "generate_evidence_dashboard.py",
     "evidence_registry.py",
     "validate_proof_claim_boundaries.py",
+    "generate_claim_boundary_guide.py",
     "validate_cap_selection.py",
     "validate_external_dependencies.py",
     "reconcile_canonical_evidence.py",
@@ -60,7 +61,9 @@ def main() -> None:
     args = parser.parse_args()
 
     for validator in VALIDATORS:
-        if validator in ("construction_evidence_index.py", "generate_evidence_dashboard.py"):
+        if validator == "generate_claim_boundary_guide.py":
+            run(sys.executable, "-m", "scripts.generate_claim_boundary_guide", "--check")
+        elif validator in ("construction_evidence_index.py", "generate_evidence_dashboard.py"):
             run(sys.executable, str(ROOT / "scripts" / validator), "--check")
         else:
             run(sys.executable, str(ROOT / "scripts" / validator))
