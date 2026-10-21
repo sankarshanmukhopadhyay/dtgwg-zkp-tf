@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "authority": {
+    "source": "docs/implementation-guide/conformance/evidence-promotion-gates.json",
+    "kind": "downstream-non-normative",
+    "upstream_state_unchanged": true
+  },
+  "records": [
+    {
+      "record": "003",
+      "establishes": [
+        "transcript_binding"
+      ],
+      "does_not_establish": [
+        {
+          "claim": "policy_acceptance",
+          "reason": "Binding to a transcript does not validate relying-party policy."
+        },
+        {
+          "claim": "source_authenticity",
+          "reason": "A bound digest does not authenticate the source document."
+        }
+      ]
+    },
+    {
+      "record": "006",
+      "establishes": [
+        "status_proof_validity"
+      ],
+      "does_not_establish": [
+        {
+          "claim": "authoritative_freshness",
+          "reason": "Valid status proof does not establish that the chosen root is current."
+        },
+        {
+          "claim": "registry_authorization",
+          "reason": "Status validity is not authorization by a registry."
+        }
+      ]
+    },
+    {
+      "record": "008",
+      "establishes": [
+        "hidden_value_commitment"
+      ],
+      "does_not_establish": [
+        {
+          "claim": "presentation_unlinkability",
+          "reason": "Visible metadata and reuse may correlate presentations."
+        },
+        {
+          "claim": "source_authenticity",
+          "reason": "Commitment validity does not authenticate the committed source."
+        }
+      ]
+    },
+    {
+      "record": "010",
+      "establishes": [
+        "cap_semantic_composition"
+      ],
+      "does_not_establish": [
+        {
+          "claim": "voucher_consent",
+          "reason": "Voucher membership and linkage do not establish consent to the current request."
+        },
+        {
+          "claim": "unique_human",
+          "reason": "Distinct membership leaves do not establish distinct persons."
+        },
+        {
+          "claim": "cryptographic_cap_execution",
+          "reason": "The existing CAP adapter exercises semantics, not the complete proof construction."
+        }
+      ]
+    },
+    {
+      "record": "021",
+      "establishes": [
+        "vac_chain_semantics"
+      ],
+      "does_not_establish": [
+        {
+          "claim": "delegation",
+          "reason": "Acting as a principal under a chain is not a separate delegated authority grant."
+        },
+        {
+          "claim": "task_completion",
+          "reason": "Authority to act is not evidence of a completed task."
+        }
+      ]
+    }
+  ]
+}

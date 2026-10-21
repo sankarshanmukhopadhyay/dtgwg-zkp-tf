@@ -37,6 +37,10 @@ pytest conformance-harness/tests
 
 [Construction evidence index](construction-evidence-index.md) documents the generated, digest-bound view of the existing local construction manifest. Regenerate with `python3 scripts/construction_evidence_index.py`; the complete validation suite checks it for stale evidence. The derived index does not advance upstream lifecycle or independent-interoperability claims.
 
+## Proof-claim boundaries
+
+[Executable non-implication tests](proof-claim-boundaries.md) reject unsupported stronger claims from semantic premises. Unknown mappings remain indeterminate, not successful.
+
 ## Evidence pipeline
 
 [D-038 — Conformance and Assurance Evidence Pipeline](../diagrams/D-038-conformance-assurance-evidence-pipeline.md) distinguishes internal repository validation, executable semantic/protocol cases, construction evidence, security assurance and cross-implementation evidence. A claim should never imply a stronger evidence layer than was actually executed.
