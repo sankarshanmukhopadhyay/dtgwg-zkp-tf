@@ -33,6 +33,10 @@ python3 scripts/validate_conformance.py
 pytest conformance-harness/tests
 ```
 
+## Machine-verifiable evidence projection
+
+[Evidence registry projection](evidence-registry-projection.md) computes artifact digests and preserves explicit absent evidence without inferring an independent execution result.
+
 ## Generated evidence dashboard
 
 [Canonical-record evidence dashboard](evidence-dashboard.md) shows registered classes, declared gaps and explicitly unregistered records. Regenerate it from the existing evidence-promotion source; it is not a new authority.
