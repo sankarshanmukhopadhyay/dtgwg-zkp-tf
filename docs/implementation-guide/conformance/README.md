@@ -33,6 +33,10 @@ python3 scripts/validate_conformance.py
 pytest conformance-harness/tests
 ```
 
+## Record 013 construction-neutral adversarial tests
+
+[Policy oracle, fairness and state-pressure experiments](record-013-policy-pressure.md) model observable response leakage, abort, replay, epoch drift and asymmetric outcomes without defining upstream record-013 cryptographic semantics.
+
 ## Machine-verifiable evidence projection
 
 [Evidence registry projection](evidence-registry-projection.md) computes artifact digests and preserves explicit absent evidence without inferring an independent execution result.
