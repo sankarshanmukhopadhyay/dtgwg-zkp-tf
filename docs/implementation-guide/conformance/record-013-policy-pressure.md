@@ -31,6 +31,18 @@ python3 scripts/validate_all.py
 
 These tests evaluate assumptions about response-channel information, protocol ordering and currentness, **not cryptographic soundness or zero-knowledge**. In a real deployment, timing, metadata, cross-verifier correlation and external authoritative state require separate evidence. Recording an adversarial counterexample does not prove the deployed protocol is vulnerable; it falsifies the broader inference under the documented model.
 
+
+## Additional falsifiable adversary traces
+
+The expanded regression suite tests **cross-epoch threshold inference**, **concurrent negotiations**, **repeated negotiation identifiers** and **colluding observers that share visible results**. A coalition view is deliberately a simple model of metadata pooling; it does not establish a real verifier network, a deployed correlation vulnerability or exposure of any hidden proof witness.
+
+- A threshold change between epochs is inferable under a synthetic monotone yes/no oracle.
+- Concurrent local acceptances still do not establish atomic publication or fair exchange.
+- Identifier reuse between concurrent negotiations creates an ambiguous context and fails closed in the model.
+- Multiple observers can combine separately visible Boolean outcomes for the same negotiation. This is a response/metadata channel, **not** leakage from proof internals.
+
+The model does not resolve record-013's authoritative policy-root schema or verifier protocol, and these additional tests must remain classified as `retain_downstream_extension` or `retest_when_canonical` until #30 confirms upstream semantics.
+
 ## Evidence disposition
 
 Retain as a downstream adversarial assurance extension for [#32](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/issues/32). Reassess the applicability of the model when upstream record 013 becomes sufficiently specified, under canonical authority control [#30](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/issues/30).

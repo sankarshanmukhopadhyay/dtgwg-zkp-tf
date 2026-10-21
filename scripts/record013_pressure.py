@@ -45,3 +45,31 @@ def leakage_example(secret: int, domain: range) -> dict:
         probes.append((test, reply))
         candidates = possible_thresholds(probes, domain)
     return {"probes": probes, "remaining": candidates, "domain_size": len(domain)}
+
+
+def cross_epoch_oracle(secret_by_epoch: dict[int, int], domain: range) -> dict[int, dict]:
+    """Demonstrate policy-delta leakage from repeated *synthetic* yes/no queries."""
+    if not secret_by_epoch or any(threshold not in domain for threshold in secret_by_epoch.values()):
+        raise ValueError("threshold outside enumerated domain")
+    return {epoch: leakage_example(threshold, domain) for epoch, threshold in sorted(secret_by_epoch.items())}
+
+
+def assess_concurrent_negotiations(decisions: list[tuple[LocalDecision, LocalDecision]]) -> str:
+    """Treat concurrent local exchanges as independent; never infer atomic publication."""
+    seen = set()
+    for a, b in decisions:
+        if a.negotiation != b.negotiation or a.negotiation in seen:
+            return "REJECTED_CONTEXT_COLLISION"
+        seen.add(a.negotiation)
+        outcome = mutual_observation(a, b, expected_epoch=a.epoch, negotiation=a.negotiation)
+        if outcome != "LOCALLY_ACCEPTED_NOT_PUBLISHED":
+            return outcome
+    return "NO_ATOMIC_PUBLICATION_ASSURANCE"
+
+
+def coalition_view(observed: list[tuple[str, str, bool]]) -> dict[str, set[tuple[str, bool]]]:
+    """Show colluding observers can pool visible response-channel metadata."""
+    result: dict[str, set[tuple[str, bool]]] = {}
+    for observer, negotiation, response in observed:
+        result.setdefault(negotiation, set()).add((observer, response))
+    return result

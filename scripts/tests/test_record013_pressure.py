@@ -1,7 +1,9 @@
 """Negative-space evidence for policy oracles, fairness, replay and asymmetry."""
 import unittest
 
-from scripts.record013_pressure import LocalDecision, leakage_example, mutual_observation
+from scripts.record013_pressure import (LocalDecision, leakage_example, mutual_observation,
+                                        cross_epoch_oracle, assess_concurrent_negotiations,
+                                        coalition_view)
 
 
 class PressureTests(unittest.TestCase):
@@ -39,6 +41,32 @@ class PressureTests(unittest.TestCase):
     def test_asymmetric_community_admission(self):
         self.assertEqual(mutual_observation(self.decision(), self.decision(accepted=False),
                                             expected_epoch=5, negotiation="n-1"), "NOT_MUTUALLY_ACCEPTED")
+
+    def test_cross_epoch_oracle_exposes_policy_delta(self):
+        results = cross_epoch_oracle({5: 19, 6: 31}, range(64))
+        self.assertEqual(results[5]["remaining"], {19})
+        self.assertEqual(results[6]["remaining"], {31})
+        self.assertNotEqual(results[5]["remaining"], results[6]["remaining"])
+
+    def test_concurrent_positive_negotiations_do_not_establish_atomicity(self):
+        conversations = [
+            (self.decision(negotiation="n-1"), self.decision(negotiation="n-1")),
+            (self.decision(negotiation="n-2"), self.decision(negotiation="n-2")),
+        ]
+        self.assertEqual(assess_concurrent_negotiations(conversations), "NO_ATOMIC_PUBLICATION_ASSURANCE")
+
+    def test_concurrent_reuse_of_negotiation_identifier_is_rejected(self):
+        pair = (self.decision(), self.decision())
+        self.assertEqual(assess_concurrent_negotiations([pair, pair]), "REJECTED_CONTEXT_COLLISION")
+
+    def test_colluding_observers_pool_yes_no_results(self):
+        view = coalition_view([("v1", "n-1", True), ("v2", "n-1", False)])
+        self.assertEqual(len(view["n-1"]), 2)
+        self.assertIn(("v2", False), view["n-1"])
+
+    def test_cross_epoch_invalid_threshold_rejected(self):
+        with self.assertRaises(ValueError):
+            cross_epoch_oracle({1: 99}, range(64))
 
     def test_two_rejections_do_not_become_mutual_acceptance(self):
         self.assertEqual(mutual_observation(self.decision(False), self.decision(False),
