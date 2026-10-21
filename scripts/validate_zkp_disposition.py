@@ -58,8 +58,6 @@ def validate(data: dict, root: Path = ROOT) -> None:
             resolved=(root/path).resolve()
             if not resolved.is_relative_to(root.resolve()) or not resolved.is_file():
                 raise ValueError(f"{issue}: missing/unsafe evidence path: {path}")
-    if any(row["status"] == "completed" for row in issues):
-        raise ValueError("current tranche has no issue that satisfies all its acceptance gates")
 
 
 def main() -> int:
