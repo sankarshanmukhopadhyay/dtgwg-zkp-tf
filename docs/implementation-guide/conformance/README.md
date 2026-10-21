@@ -69,6 +69,10 @@ pytest conformance-harness/tests
 
 [Record 010 construction selection](cap-construction-selection.md) compares feasible cryptographic routes against the canonical clause matrix and records why the experimental profile is not yet frozen.
 
+## Generated proof-claim assurance matrix
+
+[Generated proof-claim matrix](proof-claim-generated.md) renders permitted premises and prohibited stronger inference from the versioned claim catalogue, with explicit non-claims.
+
 ## Proof-claim boundaries
 
 [Executable non-implication tests](proof-claim-boundaries.md) reject unsupported stronger claims from semantic premises. Unknown mappings remain indeterminate, not successful.
