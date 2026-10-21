@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "record": "010",
+  "upstream_commit": "cfd94063e5cfee7ba6df4dcfd28c10399a0ffd0a",
+  "authority": "downstream-experimental-selection-only",
+  "decision": "not_frozen",
+  "candidates": [
+    {
+      "id": "snark_circuit",
+      "status": "candidate",
+      "description": "Circuit-constrained authenticated credential and membership relations, plus bound statement/context",
+      "benefit": "Single composed verification circuit may cover membership, linkage and transcript constraints",
+      "risks": [
+        "Circuit and credential signature compatibility unresolved",
+        "Trusted setup or proof-system assumptions must be disclosed",
+        "Status-root authority remains external"
+      ],
+      "requires": [
+        "Credential and signature circuit feasibility",
+        "End-to-end clause 3 witness prototype",
+        "Proof and verifier measurements"
+      ]
+    },
+    {
+      "id": "commit_and_prove",
+      "status": "candidate",
+      "description": "Prove authenticated signature statements and linked commitment predicates with compatible components",
+      "benefit": "Potential reuse of existing credential signature and linkage construction profiles",
+      "risks": [
+        "Proof-system interoperability across constituent components not established",
+        "Aggregating receipts is not equivalent to proving joint witness consistency",
+        "Canonical record-007 serialization unresolved"
+      ],
+      "requires": [
+        "Witness-consistency demonstration",
+        "Offline voucher linkage prototype",
+        "Credential profile assumptions and rejection vectors"
+      ]
+    },
+    {
+      "id": "hybrid_bound_receipts",
+      "status": "candidate",
+      "description": "Explicitly verify several cryptographic subproofs and bind their shared statement, context and authenticated roots",
+      "benefit": "Can isolate component assumptions and give earlier inspectable evidence",
+      "risks": [
+        "Verifier orchestration can silently fail to enforce cross-proof witness equality",
+        "Transcript and context binding must cover every component",
+        "May not satisfy the single composed proof properties of record 010"
+      ],
+      "requires": [
+        "Formal equivalence mapping to every record-010 clause",
+        "Cross-proof binding and substitution-negative cases",
+        "Privacy and correlation impact evaluation"
+      ]
+    }
+  ],
+  "gates": [
+    {
+      "id": "G01",
+      "requirement": "P1-P5",
+      "check": "Disclosed statement and correlation scope map to the canonical record without oversharing"
+    },
+    {
+      "id": "G02",
+      "requirement": "S1-S5",
+      "check": "Actual proof and witness binding, voucher offline Clause 3, and transcript anti-replay verified"
+    },
+    {
+      "id": "G03",
+      "requirement": "C1-C4",
+      "check": "Status evidence, root authentication and observation/freshness assumptions explicit"
+    },
+    {
+      "id": "G04",
+      "requirement": "T1-T4",
+      "check": "Authority, community recognition and external credential/registry claims remain externally owned"
+    },
+    {
+      "id": "G05",
+      "requirement": "D1-D3",
+      "check": "Measured prover/verifier/transport characteristics with reproducible environment"
+    },
+    {
+      "id": "G06",
+      "requirement": "X1-X3",
+      "check": "Machine-readable vectors, externally owned profile constraints, and independent evidence gate explicit"
+    }
+  ],
+  "selection_requirements": [
+    "Every gate must have an attributable disposition and falsifiable evidence",
+    "Record 010 offline voucher path must execute cryptographically",
+    "False stronger-inference requests remain rejected by proof-claim framework",
+    "No unsupported Credential or Registry semantics are frozen",
+    "Selection record must name exact construction version and dependency lock"
+  ]
+}
