@@ -33,6 +33,10 @@ python3 scripts/validate_conformance.py
 pytest conformance-harness/tests
 ```
 
+## Generated evidence dashboard
+
+[Canonical-record evidence dashboard](evidence-dashboard.md) shows registered classes, declared gaps and explicitly unregistered records. Regenerate it from the existing evidence-promotion source; it is not a new authority.
+
 ## Reproducible construction evidence index
 
 [Construction evidence index](construction-evidence-index.md) documents the generated, digest-bound view of the existing local construction manifest. Regenerate with `python3 scripts/construction_evidence_index.py`; the complete validation suite checks it for stale evidence. The derived index does not advance upstream lifecycle or independent-interoperability claims.

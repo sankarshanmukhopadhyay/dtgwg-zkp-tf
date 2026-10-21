@@ -33,7 +33,7 @@ jobs:
       - name: Install validation dependencies
         run: >-
           python -m pip install --disable-pip-version-check
-          pyyaml jsonschema pytest -e conformance-harness
+          pyyaml jsonschema pytest 'cryptography>=44,<49' -e conformance-harness
 
       - name: Validate repository
         run: python scripts/validate_all.py
