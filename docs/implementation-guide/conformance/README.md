@@ -37,6 +37,10 @@ pytest conformance-harness/tests
 
 [Construction evidence index](construction-evidence-index.md) documents the generated, digest-bound view of the existing local construction manifest. Regenerate with `python3 scripts/construction_evidence_index.py`; the complete validation suite checks it for stale evidence. The derived index does not advance upstream lifecycle or independent-interoperability claims.
 
+## CAP signed-root membership feasibility
+
+[Signed-root Merkle inclusion experiment](cap-signed-root-membership-spike.md) connects a commitment to an explicitly configured, signed experimental root, while withholding any privacy-preserving membership or Registry authority claim.
+
 ## CAP authenticated-commitment feasibility
 
 [Authenticated commitment boundary](cap-authenticated-commitment-spike.md) verifies signed, role-bound experimental inputs before hidden-equality proof validation, without claiming trusted issuance or canonical Credential/Registry representation.
