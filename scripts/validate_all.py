@@ -35,6 +35,7 @@ VALIDATORS = (
     "validate_construction_evidence.py",
     "validate_evidence_promotion.py",
     "validate_external_dependencies.py",
+    "reconcile_canonical_evidence.py",
 )
 
 
@@ -55,7 +56,7 @@ def main() -> None:
     for validator in VALIDATORS:
         run(sys.executable, str(ROOT / "scripts" / validator))
 
-    run(sys.executable, "-m", "pytest", "-q", "conformance-harness/tests")
+    run(sys.executable, "-m", "pytest", "-q", "conformance-harness/tests", "scripts/tests")
 
     if args.evidence_dir:
         evidence_dir = args.evidence_dir.resolve()
