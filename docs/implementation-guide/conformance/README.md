@@ -69,6 +69,10 @@ pytest conformance-harness/tests
 
 [Record 010 construction selection](cap-construction-selection.md) compares feasible cryptographic routes against the canonical clause matrix and records why the experimental profile is not yet frozen.
 
+## ZKP v0.7 completion gates
+
+[Locally controlled completion and release disposition](zkp-local-completion.md) distinguishes bounded experimental evidence from unresolved full CAP, lifecycle and adversarial requirements.
+
 ## Generated proof-claim assurance matrix
 
 [Generated proof-claim matrix](proof-claim-generated.md) renders permitted premises and prohibited stronger inference from the versioned claim catalogue, with explicit non-claims.
