@@ -15,7 +15,7 @@ The [machine-readable disposition](zkp-local-disposition.json) is validated by `
 |---|---|---|
 | [#54](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/issues/54) | `local_unmet` | Complete privacy-preserving record-010 membership + relationship prover/verifier, end-to-end vectors, D1–D3 |
 | [#67](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/issues/67) | `local_unmet` | Attributable execution evidence, dependency-aware invalidation and completed CAP inference controls |
-| [#32](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/issues/32) | `local_partial` | Broader construction-neutral adversarial traces, canonical checkpoint mapping and evidence registration |
+| [#32](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/issues/32) | `local_partial` | Canonical clause-to-construction evidence and attributable adversarial evidence registration |
 
 ## Why the current experiments cannot be promoted
 
@@ -31,7 +31,7 @@ Continue engineering only where a falsifiable local proposition remains:
 
 1. For #54, build or decisively fail a complete privacy-preserving membership/relationship circuit against pinned **experimental** Credential/Registry assumptions; retain actual positive and adversarial negative proof evidence and measured environment. No synthetic membership-path disclosure may be presented as privacy-preserving.
 2. For #67, require attributable execution records (observed/expected outcomes, environment, producer, cryptographic profile, digest, adversary/privacy horizon where applicable) and invalidate evidence on semantic/dependency changes before any status promotion.
-3. For #32, complete named concurrency/collusion and cross-epoch oracle cases and map each finding to a *current* canonical authority checkpoint. Never turn a construction-neutral model into a provisional upstream proof statement.
+3. For #32, the construction-neutral concurrency/collusion and cross-epoch cases are now present, and record 013 is **specified** at observed upstream `aa4e285bbed35ecb2cacb660f798968c9a9793b5`. Finish clause-level executable correspondence and attributable adversarial evidence only against a reviewed adopted authority baseline; model counterexamples alone do not complete the proof profile.
 4. For #55, obtain a genuinely independent operator/implementation after a frozen profile exists; same-operator CI does not qualify.
 
 Under [#30](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/issues/30), upstream remains authoritative. [#26](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/issues/26) and [#27](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/issues/27) remain external profile constraints, not a blanket excuse for unimplemented local work.

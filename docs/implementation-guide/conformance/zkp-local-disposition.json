@@ -4,7 +4,14 @@
     "repo": "trustoverip/dtgwg-zkp-spec",
     "canonical_revision": "cfd94063e5cfee7ba6df4dcfd28c10399a0ffd0a",
     "control_issue": 30,
-    "downstream_only": true
+    "downstream_only": true,
+    "observed_upstream": {
+      "revision": "aa4e285bbed35ecb2cacb660f798968c9a9793b5",
+      "record_013_state": "specified",
+      "spec_pr_12": "merged",
+      "spec_pr_12_merged_at": "2026-09-30",
+      "adopted_in_downstream": false
+    }
   },
   "release": {
     "target": "v0.7.0",
@@ -88,12 +95,16 @@
         "synthetic_policy_oracle",
         "abort_and_replay_models",
         "stale_epoch_model",
-        "asymmetry_model"
+        "asymmetry_model",
+        "cross_epoch_oracle_model",
+        "concurrency_context_model",
+        "colluding_observer_model",
+        "canonical_specification_recheck"
       ],
       "unmet": [
-        "concurrency_and_collusion_tests",
-        "canonical_clause_reconciliation",
-        "assurance_evidence_registration"
+        "canonical_clauses_1_to_4_executable_correspondence",
+        "attributable_adversarial_evidence_registration",
+        "canonical_013_cryptographic_vectors_and_profile"
       ],
       "external_dependencies": [
         30
@@ -103,7 +114,7 @@
         "fair_exchange",
         "policy_confidentiality_guarantee"
       ],
-      "next_action": "Complete remaining construction-neutral cases and classify canonical mapping; construction-specific implementation waits for upstream authority."
+      "next_action": "Record 013 is now specified upstream: map current model findings to canonical clauses and non-claims; develop construction-specific evidence only against an adopted pinned authoritative profile."
     }
   ]
 }

@@ -7,7 +7,7 @@ nav_order: 56
 
 # Construction-neutral policy and fairness pressure tests
 
-**Authority:** downstream assurance experiment only. This is **not** a construction or specification for canonical record 013, and must not import unmerged upstream proposal semantics.
+**Authority checkpoint (21 October 2026):** canonical `trustoverip/dtgwg-zkp-spec@aa4e285bbed35ecb2cacb660f798968c9a9793b5`, record 013 **`specified`**. Upstream PR #12 merged on 30 September 2026. The downstream *adopted evidence baseline* remains separately pinned under #30; observing a newer revision does not implicitly migrate all evidence. This test model is not a construction for record 013.
 
 The [executable test suite](../../../scripts/tests/test_record013_pressure.py) uses a **synthetic** Boolean admission response, two local parties, a negotiation identifier, an epoch, and whether an exchange was committed. It tests what a consumer **cannot** infer from apparently favourable local observations. These values are model inputs, not a proposed DTG public-input or wire format.
 
@@ -41,10 +41,26 @@ The expanded regression suite tests **cross-epoch threshold inference**, **concu
 - Identifier reuse between concurrent negotiations creates an ambiguous context and fails closed in the model.
 - Multiple observers can combine separately visible Boolean outcomes for the same negotiation. This is a response/metadata channel, **not** leakage from proof internals.
 
-The model does not resolve record-013's authoritative policy-root schema or verifier protocol, and these additional tests must remain classified as `retain_downstream_extension` or `retest_when_canonical` until #30 confirms upstream semantics.
+The current canonical record specifies the proof relation and external exchange ordering. These tests must remain classified as `retain_downstream_extension` or `retest_when_canonical` until they are reconciled against the actual statement, profile and executable construction; they do not supply canonical cryptographic vectors.
 
 ## Evidence disposition
 
-Retain as a downstream adversarial assurance extension for [#32](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/issues/32). Reassess the applicability of the model when upstream record 013 becomes sufficiently specified, under canonical authority control [#30](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/issues/30).
+Retain as a downstream adversarial assurance extension for [#32](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/issues/32). Reassess the model against the now-specified canonical record under authority-change control [#30](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/issues/30).
+
+## Mapping to current canonical record 013
+
+| Canonical property at observed SHA | Existing local test/pressure evidence | Disposition |
+|---|---|---|
+| Clause 1: committed half opens to canonical bytes under salt (record 022) | Negotiation replay and context-collision models; no cryptographic commitment-opening proof | `retest_when_canonical`; construction correspondence missing |
+| Clause 2: proposed half's form is a policy-root member | Synthetic Boolean threshold oracle and cross-epoch leakage model; no actual set-membership witness | `retain_downstream_extension` for response-channel leakage |
+| Clause 3: subject membership proven if claimed | Synthetic asymmetric admission; no authenticated member-grant circuit | `retest_when_canonical`; missing cryptographic evidence |
+| Clause 4: transcript bound across both commitments and challenge (record 003) | Local replay rejection and concurrency context-model negatives | `retest_when_canonical`; reuse existing record-003 transcript evidence |
+| Exchange ordering: both commitments, both yes, then reveal | Incomplete/abort and concurrent negotiation tests | `retain_downstream_extension`, consistent with explicit upstream `doesNotEstablish` fairness |
+| Policy-root currentness and confidentiality | Synthetic stale-epoch and adaptive oracle models | `retain_downstream_extension`, not a normative freshness rule or proof-system leakage assertion |
+
+**Canonical non-claims confirmed:** record 013 does not establish fair exchange, currentness beyond its stated version, policy privacy or eventual acceptance/publication. The current record explicitly notes that a one-form accepted set can reveal the form from a yes answer. Our general Boolean threshold model is **not evidence that the canonical protocol implements a threshold**.
+
+**Unmet locally controlled work:** construction/profile correspondence to specified clauses, attributable evidence registration, and any selected cryptographic vectors. This issue is no longer blocked merely by an unspecified upstream statement, but it is not complete.
+
 
 No upstream lifecycle state is promoted. No Credential or Registry authority is invented. No policy confidentiality or exchange fairness claim should be made solely because individual cryptographic predicates succeed.

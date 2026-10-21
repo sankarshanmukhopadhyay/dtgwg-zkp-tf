@@ -39,6 +39,18 @@ class DispositionTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate(value)
 
+    def test_observed_upstream_does_not_replace_adopted_revision(self):
+        self.assertNotEqual(self.data["authority"]["canonical_revision"],
+                            self.data["authority"]["observed_upstream"]["revision"])
+        self.assertFalse(self.data["authority"]["observed_upstream"]["adopted_in_downstream"])
+        validate(self.data)
+
+    def test_silent_upstream_baseline_promotion_rejected(self):
+        value=copy.deepcopy(self.data)
+        value["authority"]["observed_upstream"]["adopted_in_downstream"]=True
+        with self.assertRaises(ValueError):
+            validate(value)
+
     def test_duplicate_issue_rejected(self):
         value=copy.deepcopy(self.data)
         value["issues"].append(copy.deepcopy(value["issues"][0]))
