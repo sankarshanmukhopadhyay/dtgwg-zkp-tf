@@ -1,5 +1,8 @@
 ---
-title: Canonical evidence reconciliation and record-013 pressure tests
+layout: default
+title: "Canonical evidence reconciliation and record-013 pressure tests"
+parent: "Conformance"
+nav_order: 49
 ---
 
 # Canonical evidence reconciliation and record-013 pressure tests
