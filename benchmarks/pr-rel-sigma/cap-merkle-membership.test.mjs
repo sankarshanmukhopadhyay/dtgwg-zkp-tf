@@ -73,3 +73,26 @@ test('membership proof for another commitment cannot replace issued envelope', (
   v.bound.commitments[0] = v.bound.commitments[1];
   assert.equal(assessBoundProof(v.bound), 'REJECTED_BINDING');
 });
+
+test('two verifier presentations reveal a stable leaf and membership path', () => {
+  // Falsification: a fresh hidden-equality transcript is insufficient to hide
+  // the Merkle leaf/path transmitted by the membership component.
+  const v = setup();
+  const presentationA = {
+    leaf: v.members.commitment,
+    path: v.members.path.map(step => ({ ...step })),
+    proof: proveSharedWitness({ ...v.bound, context: 'verifier-A|challenge-1' }),
+  };
+  const presentationB = {
+    leaf: v.members.commitment,
+    path: v.members.path.map(step => ({ ...step })),
+    proof: proveSharedWitness({ ...v.bound, context: 'verifier-B|challenge-2' }),
+  };
+  assert.equal(presentationA.leaf, presentationB.leaf);
+  assert.deepEqual(presentationA.path, presentationB.path);
+  assert.notDeepEqual(
+    presentationA.proof.announcements.map(p => Buffer.from(p.toBytes()).toString('hex')),
+    presentationB.proof.announcements.map(p => Buffer.from(p.toBytes()).toString('hex')),
+  );
+  assert.equal(verifyMembership(v.members), true);
+});
