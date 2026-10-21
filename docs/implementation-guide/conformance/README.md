@@ -37,6 +37,10 @@ pytest conformance-harness/tests
 
 [Policy oracle, fairness and state-pressure experiments](record-013-policy-pressure.md) model observable response leakage, abort, replay, epoch drift and asymmetric outcomes without defining upstream record-013 cryptographic semantics.
 
+## Evidence change impact
+
+[Conservative retest-impact calculator](evidence-retest-impact.md) identifies authority, source, classification and asset changes that require reassessment without manufacturing assurance outcomes.
+
 ## Machine-verifiable evidence projection
 
 [Evidence registry projection](evidence-registry-projection.md) computes artifact digests and preserves explicit absent evidence without inferring an independent execution result.
