@@ -48,3 +48,12 @@ The evidence is intended to be reused by:
 - record 013 mutual-edge admissibility once its canonical clauses advance beyond `requested`.
 
 No upstream evidence-state advancement is claimed by these downstream tests.
+
+
+## Pinned construction reproduction path (2026-10-21)
+
+The authoritative record 003 at `trustoverip/dtgwg-zkp-spec@aa4e285bbed35ecb2cacb660f798968c9a9793b5` points to a separate experimental construction laboratory. The laboratory is available at `mitchuski/dtgwg-zkp-mage@1be94c809da595f5eac76f6d99c7195a574b20db`. Its `runtimes/canonical/test.mjs` checks descriptor/transcript encoding, while `runtimes/circom-gadget/test.mjs` includes genuine Groth16 proof verification, particularly **Z9** (transcript scalar substitution fails) and **Z10** (the nullifier remains stable across transcripts).
+
+The dedicated [pinned laboratory workflow](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/blob/main/.github/workflows/upstream-record003-lab.yml) checks out that exact lab revision, runs canonical encoder tests, builds a **lab-only** proving setup and attempts Z9/Z10 within the upstream suite. The workflow outcome, not the existence of this document, is the execution evidence.
+
+**Scope:** The reference gadget uses a local, fixed-entropy single-contributor setup, not a production trusted ceremony. Its binding is to a supplied scalar with a dummy-square constraint; this is not a blanket claim about transcript bytes, verifier policy or simulation extractability. The canonical record and lab live in distinct repositories with distinct authority. No downstream `current` promotion occurs unless the pinned workflow has passed and explicit clause-specific review resolves the remaining non-implications.

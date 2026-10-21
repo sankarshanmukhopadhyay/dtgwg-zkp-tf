@@ -57,3 +57,10 @@ Those remain external governance/specification inputs under #27.
 ## Reuse
 
 The status-root adapter and fixture suite can be consumed by record 010 Community-Anchored Proof (#14), record 021 VAC assurance (#33), and other composed constructions without treating a valid non-membership proof as proof of current governance authority.
+
+
+## Current-canonical sortedness counterexample (2026-10-21)
+
+The upstream record 006 at `aa4e285bbed35ecb2cacb660f798968c9a9793b5` explicitly requires the issued `rl_root` to commit strictly sorted handles. The executable [sortedness cases](fixtures/record-006-sortedness.json) demonstrate the failure: with the unsorted list `[1, 7, 5, 9]`, adjacent neighbours `1, 7` bracket `5` even though `5` is actually present. Additional fixtures reject duplicates and invalid handle types.
+
+The cases exercise a semantic precondition only. They **do not** construct or verify an authenticated Merkle/accumulator root, and they cannot attest that a real registry's issued root commits strictly sorted leaves. Therefore record 006 remains `retest_required` pending construction correspondence, independently established root commitments and actual proof verification. These tests prevent the previously uncovered *counterexample* from being left undocumented; they do not close the complete issuance assurance gap.

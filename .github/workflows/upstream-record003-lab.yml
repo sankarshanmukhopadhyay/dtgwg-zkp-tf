@@ -1,0 +1,48 @@
+name: Upstream record 003 construction reproduction
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/upstream-record003-lab.yml'
+      - 'conformance-harness/tests/test_sorted_neighbours.py'
+      - 'docs/implementation-guide/conformance/fixtures/record-006-sortedness.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pinned-lab:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout pinned external construction laboratory
+        uses: actions/checkout@v4
+        with:
+          repository: mitchuski/dtgwg-zkp-mage
+          ref: 1be94c809da595f5eac76f6d99c7195a574b20db
+          path: upstream-lab
+          persist-credentials: false
+      - name: Confirm exact external revision
+        run: |
+          actual="$(git -C upstream-lab rev-parse HEAD)"
+          test "$actual" = "1be94c809da595f5eac76f6d99c7195a574b20db"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Reproduce canonical encoder tests
+        working-directory: upstream-lab
+        run: node runtimes/canonical/test.mjs
+      - name: Install Circom 2 compiler
+        run: |
+          npm install --global circom2
+          mkdir -p "$HOME/.local/bin"
+          printf '#!/bin/sh\nexec circom2 "$@"\n' > "$HOME/.local/bin/circom"
+          chmod +x "$HOME/.local/bin/circom"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: Install lab dependencies from lockfile
+        working-directory: upstream-lab/runtimes/circom-gadget
+        run: npm ci --ignore-scripts
+      - name: Reproduce real Groth16 transcript-binding test Z9 and Z10
+        working-directory: upstream-lab/runtimes/circom-gadget
+        run: node test.mjs
