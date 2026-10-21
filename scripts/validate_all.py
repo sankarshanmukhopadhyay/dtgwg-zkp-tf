@@ -35,6 +35,7 @@ VALIDATORS = (
     "validate_construction_evidence.py",
     "construction_evidence_index.py",
     "validate_evidence_promotion.py",
+    "generate_evidence_dashboard.py",
     "validate_proof_claim_boundaries.py",
     "validate_cap_selection.py",
     "validate_external_dependencies.py",
@@ -58,7 +59,7 @@ def main() -> None:
     args = parser.parse_args()
 
     for validator in VALIDATORS:
-        if validator == "construction_evidence_index.py":
+        if validator in ("construction_evidence_index.py", "generate_evidence_dashboard.py"):
             run(sys.executable, str(ROOT / "scripts" / validator), "--check")
         else:
             run(sys.executable, str(ROOT / "scripts" / validator))
