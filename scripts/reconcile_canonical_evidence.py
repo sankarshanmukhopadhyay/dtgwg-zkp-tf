@@ -6,6 +6,7 @@ as current solely because an older local test once passed.
 """
 import argparse
 import json
+import hashlib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,7 +14,25 @@ DELTA = ROOT / "docs/implementation-guide/conformance/canonical-reconciliation.j
 GATES = ROOT / "docs/implementation-guide/conformance/evidence-promotion-gates.json"
 ALLOWED = {"current", "retest_required", "stale", "superseded", "not_assessed"}
 
-def reconcile(delta, gates):
+def fingerprint_assets(paths, *, root=ROOT):
+    """Fingerprint only repository-contained regular files; never claim semantic freshness."""
+    out = []
+    for path in paths:
+        if not isinstance(path, str) or not path or "\\x00" in path:
+            raise ValueError("Invalid evidence asset path")
+        candidate = root / path
+        resolved_root = root.resolve()
+        resolved = candidate.resolve()
+        if not resolved.is_relative_to(resolved_root):
+            raise ValueError("Evidence asset escapes repository: " + path)
+        if not candidate.is_file():
+            raise ValueError("Missing evidence asset: " + path)
+        data = resolved.read_bytes()
+        out.append({"path": path, "sha256": hashlib.sha256(data).hexdigest(),
+                    "bytes": len(data)})
+    return out
+
+def reconcile(delta, gates, *, root=ROOT):
     canonical = delta["canonical"]
     if canonical["prior_revision"] == canonical["current_revision"]:
         raise ValueError("Current and prior canonical revisions are identical")
@@ -32,18 +51,23 @@ def reconcile(delta, gates):
             raise ValueError("Every impact disposition needs a rationale")
         records[rid] = row
     result = []
+    seen_assets = set()
     for entry in gates["current_evidence"]:
+        if entry["record"] in seen_assets:
+            raise ValueError("Duplicate evidence inventory record: " + entry["record"])
+        seen_assets.add(entry["record"])
         rid = entry["record"]
         row = records.get(rid)
         # A missing assessment is UNKNOWN, not current/PASS.
         state = row["disposition"] if row else "not_assessed"
         result.append({"record":rid, "state":state, "evidence_assets":entry["assets"],
                        "prior_labels":entry["labels"],
+                       "asset_fingerprints":fingerprint_assets(entry["assets"], root=root),
                        "note":row["reason"] if row else "No canonical delta assessment exists."})
     for rid, row in records.items():
         if rid not in {e["record"] for e in gates["current_evidence"]}:
             result.append({"record":rid, "state":row["disposition"], "evidence_assets":[],
-                           "prior_labels":[], "note":row["reason"]})
+                           "prior_labels":[], "asset_fingerprints":[], "note":row["reason"]})
     return {"canonical_revision":canonical["current_revision"],
             "prior_revision":canonical["prior_revision"],
             "assessments":sorted(result, key=lambda x:x["record"])}
