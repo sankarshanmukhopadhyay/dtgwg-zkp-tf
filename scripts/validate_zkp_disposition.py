@@ -23,6 +23,12 @@ def validate(data: dict, root: Path = ROOT) -> None:
         raise ValueError("upstream authority must remain externally controlled")
     if len(authority.get("canonical_revision","")) != 40:
         raise ValueError("canonical checkpoint must be pinned")
+    observed = authority.get("observed_upstream", {})
+    if observed:
+        if len(observed.get("revision", "")) != 40 or observed.get("record_013_state") != "specified":
+            raise ValueError("observed record 013 checkpoint malformed")
+        if observed.get("adopted_in_downstream") is not False:
+            raise ValueError("observed upstream revision cannot silently supersede adopted baseline")
     release = data.get("release", {})
     if release.get("target") != "v0.7.0" or release.get("disposition") != "defer" or not release.get("reason"):
         raise ValueError("release gate must explicitly defer while criteria remain open")
