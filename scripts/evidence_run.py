@@ -59,7 +59,7 @@ def execute(*, record, command, dependencies, output, root=ROOT, operator, imple
         "execution": {
             "stdout_sha256": hashlib.sha256(completed.stdout.encode()).hexdigest(),
             "stderr_sha256": hashlib.sha256(completed.stderr.encode()).hexdigest(),
-            "stdout": completed.stdout[-4000:], "stderr": completed.stderr[-4000:]},
+            "stdout_bytes": len(completed.stdout.encode()), "stderr_bytes": len(completed.stderr.encode())},
     }
     report["result"] = "execution_passed" if completed.returncode == 0 and not drift else "execution_failed"
     report["snapshot_sha256"] = _digest(report)
