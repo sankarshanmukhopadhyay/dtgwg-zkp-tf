@@ -37,6 +37,10 @@ pytest conformance-harness/tests
 
 [Construction evidence index](construction-evidence-index.md) documents the generated, digest-bound view of the existing local construction manifest. Regenerate with `python3 scripts/construction_evidence_index.py`; the complete validation suite checks it for stale evidence. The derived index does not advance upstream lifecycle or independent-interoperability claims.
 
+## CAP construction selection gate
+
+[Record 010 construction selection](cap-construction-selection.md) compares feasible cryptographic routes against the canonical clause matrix and records why the experimental profile is not yet frozen.
+
 ## Proof-claim boundaries
 
 [Executable non-implication tests](proof-claim-boundaries.md) reject unsupported stronger claims from semantic premises. Unknown mappings remain indeterminate, not successful.
