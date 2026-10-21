@@ -63,3 +63,14 @@ python3 scripts/evidence_run.py verify /tmp/record013-run.json
 The first command can succeed and produce an execution record; the second deliberately returns an invalidated/unproven result while the canonical record's evidence disposition remains `stale`. A successful local process is **not** sufficient evidence of canonical correspondence. Changing the upstream revision, the recorded canonical impact, any dependency bytes, or the report digest invalidates the record. Missing or unsafe paths fail closed; prior evidence files are never silently overwritten. Generated reports are local artifacts, not committed authoritative claims.
 
 Limitations: this is a bounded execution-provenance facility, not a signed attestation, hermetic build or independent operator identity proof. A caller must declare all consequential dependencies; undeclared environment and network inputs are not detectable. Canonical freshness requires governed proposition-level assessment and retest. No automatic advancement to `implemented`, `vetted` or `published` is supported.
+
+
+## Source-reviewed proposition correspondence: records 003 and 006
+
+The bounded [record 003/006 correspondence packet](canonical-correspondence-003-006.json) is pinned to the authoritative `trustoverip/dtgwg-zkp-spec` commit and exact Git blob IDs for each record. It maps named canonical fields to existing downstream semantic/policy test identifiers, records residual assumptions and identifies genuinely uncovered obligations. `python3 scripts/validate_canonical_correspondence.py` validates the packet and is included in complete validation.
+
+Record 003 retains the canonical distinction between binding a **supplied transcript scalar** and authenticating/canonicalizing the underlying request, enforcing audience/challenge/replay policy and accepting a predicate identifier. The downstream adapter exercises portions of these policy boundaries, but it is not a current-canonical Groth16 construction rerun.
+
+Record 006 demonstrates the stronger limitation: root/epoch and policy-layer checks are covered semantically, whereas canonical `issuance[1]` explicitly requires the revocation root to commit **strictly sorted** handles for adjacent-neighbour non-membership. The existing named evidence does not verify that prerequisite. The packet marks it `uncovered` and does not relabel record 006 as current.
+
+This machine-checkable trace is a review aid, not a claim that the downstream test source was independently reproduced or that the exact canonical record source is fetched and rechecked on every CI run. The pinned upstream blob IDs must be compared against any later authoritative revision before treating the mapping as applicable. Both records remain `retest_required` in the canonical-impact manifest.
