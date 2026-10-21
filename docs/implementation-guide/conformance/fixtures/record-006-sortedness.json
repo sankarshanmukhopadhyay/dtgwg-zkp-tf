@@ -71,7 +71,7 @@
       ],
       "handle": 5,
       "index": 1,
-      "naive": false,
+      "naive": true,
       "guarded": false
     }
   ]
