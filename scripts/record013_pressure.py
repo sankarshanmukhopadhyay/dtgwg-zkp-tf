@@ -73,3 +73,39 @@ def coalition_view(observed: list[tuple[str, str, bool]]) -> dict[str, set[tuple
     for observer, negotiation, response in observed:
         result.setdefault(negotiation, set()).add((observer, response))
     return result
+
+
+@dataclass(frozen=True)
+class Exchange:
+    """Abstract protocol-ordering state, not canonical record-022 bytes."""
+    commitments: tuple[str | None, str | None] = (None, None)
+    answers: tuple[bool | None, bool | None] = (None, None)
+    revealed: tuple[bool, bool] = (False, False)
+
+
+def exchange_step(state: Exchange, *, party: int, event: str, value: str | bool) -> tuple[Exchange, str]:
+    """Conservative construction-neutral event transition.
+
+    A commitment is represented by an opaque immutable token. No cryptographic
+    binding, proof verification or fairness is established by this model.
+    """
+    if not isinstance(party, int) or party not in (0, 1):
+        return state, "REJECTED_PARTY"
+    c, a, r = list(state.commitments), list(state.answers), list(state.revealed)
+    if event == "commit":
+        if not isinstance(value, str) or not value or a[0] is not None or a[1] is not None:
+            return state, "REJECTED_RECOMMIT_AFTER_ANSWER"
+        if c[party] is not None:
+            return state, "REJECTED_DUPLICATE_COMMIT"
+        c[party] = value
+    elif event == "answer":
+        if not isinstance(value, bool) or None in c or a[party] is not None:
+            return state, "REJECTED_ANSWER_BEFORE_BOTH_COMMITMENTS"
+        a[party] = value
+    elif event == "reveal":
+        if value != c[party] or a != [True, True] or r[party]:
+            return state, "REJECTED_PREMATURE_OR_SUBSTITUTED_REVEAL"
+        r[party] = True
+    else:
+        return state, "REJECTED_UNKNOWN_EVENT"
+    return Exchange(tuple(c), tuple(a), tuple(r)), "ACCEPTED_MODEL_TRANSITION"

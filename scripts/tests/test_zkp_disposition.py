@@ -14,6 +14,12 @@ class DispositionTests(unittest.TestCase):
     def test_current_local_gates_fail_closed(self):
         validate(self.data)
 
+    def test_completed_record013_scope_has_no_unmet_local_gates(self):
+        record = next(row for row in self.data["issues"] if row["issue"] == 32)
+        self.assertEqual(record["status"], "completed")
+        self.assertFalse(record["unmet"])
+        validate(self.data)
+
     def test_cannot_complete_missing_cap(self):
         value=copy.deepcopy(self.data)
         value["issues"][0]["status"]="completed"

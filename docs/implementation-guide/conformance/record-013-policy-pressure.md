@@ -43,6 +43,12 @@ The expanded regression suite tests **cross-epoch threshold inference**, **concu
 
 The current canonical record specifies the proof relation and external exchange ordering. These tests must remain classified as `retain_downstream_extension` or `retest_when_canonical` until they are reconciled against the actual statement, profile and executable construction; they do not supply canonical cryptographic vectors.
 
+## Canonical exchange-ordering counterexamples (abstract model)
+
+The executable `Exchange` state machine now tests the ordering recorded in the **specified upstream record 013**: both commitments precede answers; a half cannot be re-committed after an answer; reveal is permitted only after both yes answers; and a reveal cannot substitute another abstract committed token. It also demonstrates the upstream **`no_fairness` non-claim**: even after both yes responses, neither party is forced to reveal.
+
+These are **abstract-token state transitions**, not a record-022 commitment-opening gadget, cryptographic proof, or formal verification equivalent to upstream Lean theorems. The positive test does not establish authenticated credential membership, policy acceptance, currentness or actual exchange completion. The upstream published statement remains authoritative for any real construction.
+
 ## Evidence disposition
 
 Retain as a downstream adversarial assurance extension for [#32](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/issues/32). Reassess the model against the now-specified canonical record under authority-change control [#30](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/issues/30).

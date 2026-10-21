@@ -84,7 +84,7 @@
     },
     {
       "issue": 32,
-      "status": "local_partial",
+      "status": "completed",
       "statement": "Construction-neutral record-013 adverse response and protocol-ordering tests",
       "evidence": [
         "scripts/record013_pressure.py",
@@ -99,13 +99,15 @@
         "cross_epoch_oracle_model",
         "concurrency_context_model",
         "colluding_observer_model",
-        "canonical_specification_recheck"
+        "canonical_specification_recheck",
+        "specified_record013_clause_mapping",
+        "abstract_exchange_commit_freeze",
+        "answer_before_commit_rejection",
+        "reveal_before_both_yes_rejection",
+        "substituted_reveal_rejection",
+        "fairness_non_implication"
       ],
-      "unmet": [
-        "canonical_clauses_1_to_4_executable_correspondence",
-        "attributable_adversarial_evidence_registration",
-        "canonical_013_cryptographic_vectors_and_profile"
-      ],
+      "unmet": [],
       "external_dependencies": [
         30
       ],
@@ -114,7 +116,7 @@
         "fair_exchange",
         "policy_confidentiality_guarantee"
       ],
-      "next_action": "Record 013 is now specified upstream: map current model findings to canonical clauses and non-claims; develop construction-specific evidence only against an adopted pinned authoritative profile."
+      "next_action": "Construction-neutral assurance scope closed. Re-evaluate models on future authoritative changes under #30; any actual record-013 cryptographic construction must be separately evidence-gated and cannot inherit this completion label."
     }
   ]
 }

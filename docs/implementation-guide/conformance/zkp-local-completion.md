@@ -7,7 +7,7 @@ nav_order: 59
 
 # ZKP v0.7 local completion and release disposition
 
-**Disposition: DEFER release; #54, #67 and #32 remain open.** This is a governed acceptance checkpoint, not a declaration that the ZKP programme is finished.
+**Disposition: DEFER release; #54 and #67 remain open. Construction-neutral #32 scope is completed after its acceptance tests; this does not include a cryptographic record-013 implementation.** This is a governed acceptance checkpoint, not a declaration that the ZKP programme is finished.
 
 The [machine-readable disposition](zkp-local-disposition.json) is validated by `python3 scripts/validate_zkp_disposition.py`; the complete repository suite also executes negative regression tests against unsupported issue closure, missing evidence and premature release. The ledger references the existing issue-owned evidence, and is not an alternative normative specification or canonical status registry.
 
@@ -15,7 +15,7 @@ The [machine-readable disposition](zkp-local-disposition.json) is validated by `
 |---|---|---|
 | [#54](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/issues/54) | `local_unmet` | Complete privacy-preserving record-010 membership + relationship prover/verifier, end-to-end vectors, D1–D3 |
 | [#67](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/issues/67) | `local_unmet` | Attributable execution evidence, dependency-aware invalidation and completed CAP inference controls |
-| [#32](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/issues/32) | `local_partial` | Canonical clause-to-construction evidence and attributable adversarial evidence registration |
+| [#32](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/issues/32) | `completed` (construction-neutral only) | Future construction-specific record-013 work is a separate proposition; not a completion prerequisite for this scoped assurance model |
 
 ## Why the current experiments cannot be promoted
 
@@ -31,7 +31,7 @@ Continue engineering only where a falsifiable local proposition remains:
 
 1. For #54, build or decisively fail a complete privacy-preserving membership/relationship circuit against pinned **experimental** Credential/Registry assumptions; retain actual positive and adversarial negative proof evidence and measured environment. No synthetic membership-path disclosure may be presented as privacy-preserving.
 2. For #67, require attributable execution records (observed/expected outcomes, environment, producer, cryptographic profile, digest, adversary/privacy horizon where applicable) and invalidate evidence on semantic/dependency changes before any status promotion.
-3. For #32, the construction-neutral concurrency/collusion and cross-epoch cases are now present, and record 013 is **specified** at observed upstream `aa4e285bbed35ecb2cacb660f798968c9a9793b5`. Finish clause-level executable correspondence and attributable adversarial evidence only against a reviewed adopted authority baseline; model counterexamples alone do not complete the proof profile.
+3. For #32, the construction-neutral concurrency/collusion, cross-epoch and commit/answer/reveal ordering cases are present, and upstream record 013 is **specified** at observed revision `aa4e285bbed35ecb2cacb660f798968c9a9793b5`. The **bounded model-assurance** acceptance criteria are complete; model counterexamples do not complete the separate cryptographic record-013 profile.
 4. For #55, obtain a genuinely independent operator/implementation after a frozen profile exists; same-operator CI does not qualify.
 
 Under [#30](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/issues/30), upstream remains authoritative. [#26](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/issues/26) and [#27](https://github.com/sankarshanmukhopadhyay/dtgwg-zkp-tf/issues/27) remain external profile constraints, not a blanket excuse for unimplemented local work.
