@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "canonical_repository": "trustoverip/dtgwg-zkp-spec",
+  "canonical_revision": "aa4e285bbed35ecb2cacb660f798968c9a9793b5",
+  "records": [
+    {
+      "record": "003",
+      "canonical_path": "conformance/records/003.json",
+      "canonical_blob_sha": "064846c3f732017e01ca2b2530afbf48e6ea6437",
+      "canonical_state": "constructed",
+      "downstream": "docs/implementation-guide/conformance/record-003-transcript-binding.md",
+      "mapping": [
+        {
+          "canonical_field": "relation[0].clause",
+          "obligation": "Proof constrains the supplied transcriptDigest public scalar",
+          "downstream_test": "CT-INT-TASK-POS-01 plus adapter digest-substitution negative",
+          "coverage": "semantic_adapter"
+        },
+        {
+          "canonical_field": "doesNotEstablish",
+          "obligation": "Verifier independently checks audience, challenge, freshness, replay and accepted predicate/profile",
+          "downstream_test": "Transcript adapter negatives and CT-INT-TASK-NEG-01",
+          "coverage": "policy_layer"
+        },
+        {
+          "canonical_field": "doesNotEstablish",
+          "obligation": "Canonical encoding and digest-to-scalar conversion are verifier/profile obligations",
+          "downstream_test": "Adapter noncanonical-digest negative",
+          "coverage": "policy_layer"
+        }
+      ],
+      "gaps": [
+        "No current-canonical proof rerun or upstream construction reproduction evidenced by this mapping.",
+        "Digest-to-scalar collision resistance, trusted encoding and registry acceptance remain external assumptions."
+      ],
+      "disposition": "retest_required"
+    },
+    {
+      "record": "006",
+      "canonical_path": "conformance/records/006.json",
+      "canonical_blob_sha": "7bdb4dc461795fb49f4ac5310e762842c358314b",
+      "canonical_state": "specified",
+      "downstream": "docs/implementation-guide/conformance/record-006-currentness.md",
+      "mapping": [
+        {
+          "canonical_field": "relation[0].clause",
+          "obligation": "Non-membership of scoped revocation handle against accepted rl_root",
+          "downstream_test": "R006-NEG-REVOKED and R006-POS-CACHED",
+          "coverage": "semantic_adapter"
+        },
+        {
+          "canonical_field": "publicInputs",
+          "obligation": "Root and epoch must be separately supplied and checked",
+          "downstream_test": "R006-NEG-STALE and R006-NEG-UNKNOWN-ROOT",
+          "coverage": "policy_layer"
+        },
+        {
+          "canonical_field": "issuance[1]",
+          "obligation": "Revocation root constructed over strictly sorted handles; neighbour non-membership is unsound otherwise",
+          "downstream_test": null,
+          "coverage": "uncovered"
+        },
+        {
+          "canonical_field": "doesNotEstablish",
+          "obligation": "ZKP does not establish registry decision correctness or absence of holder-specific live lookup",
+          "downstream_test": "R006-NEG-LIVE-UNDECLARED and R006-NEG-UNAUTHENTIC-ROOT",
+          "coverage": "policy_layer"
+        }
+      ],
+      "gaps": [
+        "Strict sortedness of committed revocation handles is not exercised by the listed semantic fixtures.",
+        "Authority, status freshness and live-lookup privacy remain policy inputs; no cryptographic non-membership reproduction."
+      ],
+      "disposition": "retest_required"
+    }
+  ],
+  "limitations": [
+    "Manual, source-reviewed clause mapping; no automatic upstream network retrieval or proof that the remote branch remains unchanged.",
+    "Evidence remains retest_required pending actual current-canonical fixture rerun and clause-gate review."
+  ]
+}
