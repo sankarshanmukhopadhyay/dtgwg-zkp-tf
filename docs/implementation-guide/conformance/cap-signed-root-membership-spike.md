@@ -31,6 +31,12 @@ Critically, the Merkle path and leaf commitment are disclosed to the verifier. T
 
 The test demonstrates only an additional component feasibility condition. It must not advance record 010 to downstream `implemented`, assert X2 interoperability, freeze a construction, or close issue #54.
 
+## Executable cross-verifier privacy counterexample
+
+The Node regression suite now reuses the same experimental membership witness in two presentations with **fresh transcript-specific hidden-equality proofs**, and compares the externally visible `leaf` and `path`. Both remain byte-identical even while proof announcements change. This demonstrates a **concrete stable correlator in the disclosed membership component**, not a theoretical concern. It does not establish an attack against a future ZK Merkle inclusion circuit because none is implemented here.
+
+**Disposition for #54:** this specific signed Merkle inclusion approach cannot satisfy a privacy-preserving membership claim without replacing the disclosed witness interface. Additional signatures or transcript binding do not fix this leakage. Until there is an executable private inclusion proof and full Credential/Registry composition, the record-010 construction must stay `not_frozen` and the issue must remain open.
+
 ## Decisive remaining work
 
 The next implementation gate is replacing the disclosed Merkle membership witness with a *privacy-preserving proof* of inclusion against a policy-authorized root, while binding issuer-authenticated relationship evidence, voucher-offline issuance linkage, subject distinctions and complete transcript/status assertions. A key assigned by this test suite cannot stand in for a verifiably authorized Registry operator.
