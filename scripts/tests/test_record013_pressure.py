@@ -3,7 +3,7 @@ import unittest
 
 from scripts.record013_pressure import (LocalDecision, leakage_example, mutual_observation,
                                         cross_epoch_oracle, assess_concurrent_negotiations,
-                                        coalition_view)
+                                        coalition_view, Exchange, exchange_step)
 
 
 class PressureTests(unittest.TestCase):
@@ -67,6 +67,51 @@ class PressureTests(unittest.TestCase):
     def test_cross_epoch_invalid_threshold_rejected(self):
         with self.assertRaises(ValueError):
             cross_epoch_oracle({1: 99}, range(64))
+
+    def test_exchange_answer_before_both_commitments_rejected(self):
+        state = Exchange()
+        next_state, outcome = exchange_step(state, party=0, event="answer", value=True)
+        self.assertEqual(outcome, "REJECTED_ANSWER_BEFORE_BOTH_COMMITMENTS")
+        self.assertEqual(next_state, state)
+
+    def test_exchange_cannot_recommit_after_first_answer(self):
+        state = Exchange()
+        state, _ = exchange_step(state, party=0, event="commit", value="C-A")
+        state, _ = exchange_step(state, party=1, event="commit", value="C-B")
+        state, _ = exchange_step(state, party=0, event="answer", value=True)
+        unchanged, code = exchange_step(state, party=1, event="commit", value="C-B2")
+        self.assertEqual(code, "REJECTED_RECOMMIT_AFTER_ANSWER")
+        self.assertEqual(unchanged, state)
+
+    def test_reveal_before_both_yes_rejected(self):
+        state = Exchange()
+        state, _ = exchange_step(state, party=0, event="commit", value="C-A")
+        state, _ = exchange_step(state, party=1, event="commit", value="C-B")
+        state, _ = exchange_step(state, party=0, event="answer", value=True)
+        unchanged, code = exchange_step(state, party=0, event="reveal", value="C-A")
+        self.assertEqual(code, "REJECTED_PREMATURE_OR_SUBSTITUTED_REVEAL")
+        self.assertEqual(unchanged, state)
+
+    def test_revealed_half_must_match_committed_token(self):
+        state = Exchange()
+        for actor, token in ((0, "C-A"), (1, "C-B")):
+            state, _ = exchange_step(state, party=actor, event="commit", value=token)
+        for actor in (0, 1):
+            state, _ = exchange_step(state, party=actor, event="answer", value=True)
+        unchanged, code = exchange_step(state, party=0, event="reveal", value="C-ATTACKER")
+        self.assertEqual(code, "REJECTED_PREMATURE_OR_SUBSTITUTED_REVEAL")
+        self.assertEqual(unchanged, state)
+
+    def test_both_yes_does_not_force_revelation(self):
+        state = Exchange()
+        for actor, token in ((0, "C-A"), (1, "C-B")):
+            state, _ = exchange_step(state, party=actor, event="commit", value=token)
+        for actor in (0, 1):
+            state, _ = exchange_step(state, party=actor, event="answer", value=True)
+        self.assertEqual(state.revealed, (False, False))
+        later, code = exchange_step(state, party=0, event="reveal", value="C-A")
+        self.assertEqual(code, "ACCEPTED_MODEL_TRANSITION")
+        self.assertEqual(later.revealed, (True, False))
 
     def test_two_rejections_do_not_become_mutual_acceptance(self):
         self.assertEqual(mutual_observation(self.decision(False), self.decision(False),
