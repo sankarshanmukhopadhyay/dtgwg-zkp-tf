@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "authority": "derived-index-only",
+  "source_manifest": "docs/implementation-guide/conformance/construction-evidence-manifest.json",
+  "manifest_digest": "sha256:a666a0c0a92a74927736d2775ed707223ada8343c775b1a9fbd2ef7fb775275c",
+  "profiles": [
+    {
+      "profile_id": "EXP-BBS-2023-01",
+      "claim_layer": "construction",
+      "evidence_state": "verified",
+      "interoperability_state": "verified",
+      "source_digests": {
+        "docs/implementation-guide/conformance/construction-evidence-bbs-2023.json": "sha256:1f6a8986870c58486ec653afa82d8e64b5b15ea578c886770f07cfff3d4ac6c8",
+        "docs/implementation-guide/conformance/experimental-bbs-2023-construction-profile.md": "sha256:90ba5ffa6af9238b831559fdaa6d179282447fb2da14c0de241e13b9fafc2f8a"
+      },
+      "claim_boundary": "Evidence is limited to the cited BBS capabilities and does not close PR-REL, PR-HID, PR-RES or DTG-wide interoperability claims."
+    },
+    {
+      "profile_id": "EXP-PR-HID-PEDERSEN-01",
+      "claim_layer": "construction",
+      "evidence_state": "partially_verified",
+      "interoperability_state": "evidence_required",
+      "source_digests": {
+        ".github/workflows/pr-hid-construction-evidence.yml": "sha256:9df73bda1afc45636819230d2a9d8ecd18bc9be6f78659d797e7f62dfbf4dc1a",
+        "docs/implementation-guide/conformance/experimental-pr-hid-pedersen-profile.md": "sha256:b251571525ad0ac8adc0857309a1f12d86c2e700ef0663191d4506129907e01e"
+      },
+      "claim_boundary": "Commitment/opening evidence does not authenticate source artifacts or prove arbitrary relationships."
+    },
+    {
+      "profile_id": "EXP-PR-REL-SIGMA-01",
+      "claim_layer": "construction",
+      "evidence_state": "partially_verified",
+      "interoperability_state": "evidence_required",
+      "source_digests": {
+        ".github/workflows/pr-rel-construction-evidence.yml": "sha256:d517ef4f7f95d7abb64957c35a82ee62a035f7b8e244b55285d5d9a07773e5d7",
+        "docs/implementation-guide/conformance/experimental-pr-rel-sigma-profile.md": "sha256:846503cfca6acb660334aa6fcb40a19e4cf0e7ca145c1f0ee32853b0a1b2f683"
+      },
+      "claim_boundary": "Local proof generation and verification evidence does not establish independent interoperability or source-artifact authenticity."
+    },
+    {
+      "profile_id": "PR-RES",
+      "claim_layer": "profile",
+      "evidence_state": "partially_verified",
+      "interoperability_state": "evidence_required",
+      "source_digests": {
+        "docs/implementation-guide/conformance/pr-res-resolution-profiles.md": "sha256:f204e47fff55fdf41a7f66877118e9003035dd310fddd65e1421ab35ed7f73eb",
+        "docs/implementation-guide/conformance/pr-res-resolution-profiles.yaml": "sha256:bd327eb84eb3168e2dfa433eaeee6177ab65f7d3f0bf66c4514424af6cabbaf6"
+      },
+      "claim_boundary": "Resolution-profile evidence establishes declared freshness/fallback/privacy behaviour; it does not make status, membership, accreditation and authorization equivalent semantics."
+    }
+  ]
+}
