@@ -9,7 +9,7 @@ nav_order: 49
 
 ## Authority and baseline
 
-The current authoritative specification is `trustoverip/dtgwg-zkp-spec@aa4e285bbed35ecb2cacb660f798968c9a9793b5`. The upstream task-force guide is `trustoverip/dtgwg-zkp-tf@14a347bf5d75b6d8212c595247e767076d978f31`. This downstream repository remains an implementation/assurance fork. Its pre-reconciliation evidence was pinned to `cfd94063e5cfee7ba6df4dcfd28c10399a0ffd0a`.
+The authoritative specification observed on 24 November 2026 is `trustoverip/dtgwg-zkp-spec@a8ff49292bc2dc7f2a1f8014b6e2268c0e483677`. The upstream task-force guide is `trustoverip/dtgwg-zkp-tf@3161398689d2f4e9feb210b92fa90ad22f9ea77f`. This downstream repository remains an implementation/assurance fork. Its pre-reconciliation evidence was pinned to `cfd94063e5cfee7ba6df4dcfd28c10399a0ffd0a`.
 
 The reviewed impact manifest is [canonical-reconciliation.json](canonical-reconciliation.json). The manifest is deliberately conservative. `stale` means material semantic change invalidates the old claim as a current-baseline assertion; `retest_required` means the old evidence can potentially be reused, but has not been demonstrated current; `not_assessed` means no successful assessment is asserted. The manifest does not claim all canonical records have been independently inspected clause by clause.
 
@@ -42,6 +42,10 @@ The first command writes a generated JSON view and Markdown dashboard from the r
 - Advance the task-force content checkpoint only through the governed synchronization workflow.
 
 No new release is justified by these validation and assurance scaffolds alone.
+
+## November 24 canonical update
+
+Upstream [PR 26](https://github.com/trustoverip/dtgwg-zkp-spec/pull/26) materially changes records 007, 009, 022, 024 and 025. Record 025 is constructed upstream, not independently reproduced here. Record 006 now identifies a range-leaf runtime. Existing evidence inventory and release pins remain historical; the impact manifest is the current observation and invalidation surface. The Credential specification owns the disposition of salt disclosure and identifier profiles. The canonical correspondence packet retains uncovered obligations, including cryptographic range-leaf execution. No local proof outcome or upstream lifecycle promotion is implied.
 
 
 ## Per-run execution provenance and dependency invalidation

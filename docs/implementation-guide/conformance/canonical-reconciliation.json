@@ -1,35 +1,59 @@
 {
   "schema_version": "1.0",
-  "observed_at": "2026-10-21",
+  "observed_at": "2026-11-24",
   "canonical": {
     "repository": "trustoverip/dtgwg-zkp-spec",
     "prior_revision": "cfd94063e5cfee7ba6df4dcfd28c10399a0ffd0a",
-    "current_revision": "aa4e285bbed35ecb2cacb660f798968c9a9793b5",
-    "last_semantic_revision": "e9b366765b809a2d36d368507176f0664e3c9926"
+    "current_revision": "a8ff49292bc2dc7f2a1f8014b6e2268c0e483677",
+    "last_semantic_revision": "a8ff49292bc2dc7f2a1f8014b6e2268c0e483677"
   },
   "companion": {
     "repository": "trustoverip/dtgwg-zkp-tf",
     "prior_revision": "a42bf8c06875cde7c2c9b578279c1be2c682f8ba",
-    "current_revision": "14a347bf5d75b6d8212c595247e767076d978f31"
+    "current_revision": "3161398689d2f4e9feb210b92fa90ad22f9ea77f"
   },
   "record_impacts": [
     {
+      "record": "001",
+      "change": "changed-canonical-record",
+      "disposition": "not_assessed",
+      "reason": "Reassess membership root assumptions before reuse."
+    },
+    {
+      "record": "002",
+      "change": "changed-canonical-record",
+      "disposition": "not_assessed",
+      "reason": "Reassess scoped nullifier assumptions before reuse."
+    },
+    {
       "record": "003",
-      "change": "formal-and-metadata",
+      "change": "quantum-horizon-and-metadata",
       "disposition": "retest_required",
-      "reason": "Canonical record changed; transcript-binding evidence must be checked against the current proposition."
+      "reason": "Transcript clause unchanged; revised quantum horizon does not promote existing scalar or request-binding evidence."
+    },
+    {
+      "record": "004",
+      "change": "changed-canonical-record",
+      "disposition": "not_assessed",
+      "reason": "Reassess holder-binding relation before reuse."
+    },
+    {
+      "record": "005",
+      "change": "changed-canonical-record",
+      "disposition": "not_assessed",
+      "reason": "Reassess distinct-member relation before reuse."
     },
     {
       "record": "006",
-      "change": "issuance-and-formal",
+      "change": "sorted-range-leaf-runtime",
       "disposition": "retest_required",
-      "reason": "Status-root evidence must be reassessed against sorted-handle/root commitments."
+      "reason": "Current record names a range-leaf runtime; local sortedness counterexamples do not establish authenticated root construction or cryptographic execution."
     },
     {
       "record": "007",
-      "change": "identifier-commitment-and-rotation",
+      "change": "identifier-control-and-salts",
       "disposition": "stale",
-      "reason": "Prior identifier compatibility analysis predates the canonical key-profile/rotation horizon."
+      "reason": "Reassess distinct fresh salts, hardened derivation, DID update authority and constrained record-003 transcript binding."
     },
     {
       "record": "008",
@@ -39,33 +63,51 @@
     },
     {
       "record": "009",
-      "change": "formal-and-metadata",
-      "disposition": "retest_required",
-      "reason": "Relationship equality evidence must be evaluated against the current record."
+      "change": "canonical-encoding-and-transcript",
+      "disposition": "stale",
+      "reason": "Hidden equality evidence does not establish canonical injective encoding, authenticated fields, hidden issuer verification or constrained transcript binding."
     },
     {
       "record": "010",
-      "change": "composition-and-issuance",
+      "change": "rotation-capable-composition",
       "disposition": "stale",
-      "reason": "CAP semantic profile predates current clauses and rotation dependencies."
+      "reason": "CAP depends on revised linkage and optional spent_root; current local prototypes do not establish rotation-capable presentation."
+    },
+    {
+      "record": "011",
+      "change": "changed-canonical-record",
+      "disposition": "not_assessed",
+      "reason": "Reassess pairwise-edge composition before reuse."
+    },
+    {
+      "record": "012",
+      "change": "changed-canonical-record",
+      "disposition": "not_assessed",
+      "reason": "Reassess intentional correlation before reuse."
     },
     {
       "record": "013",
-      "change": "requested-to-specified",
+      "change": "mutual-admissibility",
       "disposition": "stale",
-      "reason": "Earlier construction-neutral assumptions no longer represent canonical state."
+      "reason": "Local policy traces do not establish canonical committed-form membership, transcript binding or atomic publication."
+    },
+    {
+      "record": "020",
+      "change": "hidden-issuer-chain-dependency",
+      "disposition": "not_assessed",
+      "reason": "Review hidden issuer verification and record 009 dependencies."
     },
     {
       "record": "021",
-      "change": "formal-and-metadata",
+      "change": "hidden-issuer-and-chain",
       "disposition": "retest_required",
-      "reason": "VAC evidence must be checked against the current proposition."
+      "reason": "Review hidden issuer verification and revised record 009 before reusing authority-chain evidence."
     },
     {
       "record": "022",
-      "change": "new-record",
+      "change": "salted-canonical-digest",
       "disposition": "not_assessed",
-      "reason": "No downstream record-specific execution evidence has been established."
+      "reason": "No record-specific execution; evaluate salt disclosure enumeration and correlation; Credential-layer disposition remains external."
     },
     {
       "record": "023",
@@ -75,15 +117,15 @@
     },
     {
       "record": "024",
-      "change": "new-record-and-enrolment",
+      "change": "vetter-adversary-and-self-attestation",
       "disposition": "not_assessed",
-      "reason": "No downstream record-specific execution evidence has been established."
+      "reason": "No record-specific execution; anonymity is relative to non-colluding vetters and self-attestation assumptions."
     },
     {
       "record": "025",
-      "change": "new-record-and-rotation",
+      "change": "successor-secret-and-revocation",
       "disposition": "not_assessed",
-      "reason": "No downstream record-specific execution evidence has been established."
+      "reason": "Upstream constructed lab rotation does not establish local execution or presentation-side spent-tag absence."
     }
   ],
   "limitations": [
