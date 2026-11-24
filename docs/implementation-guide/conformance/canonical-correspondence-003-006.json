@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
   "canonical_repository": "trustoverip/dtgwg-zkp-spec",
-  "canonical_revision": "aa4e285bbed35ecb2cacb660f798968c9a9793b5",
+  "canonical_revision": "a8ff49292bc2dc7f2a1f8014b6e2268c0e483677",
   "records": [
     {
       "record": "003",
       "canonical_path": "conformance/records/003.json",
-      "canonical_blob_sha": "064846c3f732017e01ca2b2530afbf48e6ea6437",
+      "canonical_blob_sha": "4a762e689a2698a62c97d5e905448417cc82db84",
       "canonical_state": "constructed",
       "downstream": "docs/implementation-guide/conformance/record-003-transcript-binding.md",
       "mapping": [
@@ -38,7 +38,7 @@
     {
       "record": "006",
       "canonical_path": "conformance/records/006.json",
-      "canonical_blob_sha": "7bdb4dc461795fb49f4ac5310e762842c358314b",
+      "canonical_blob_sha": "c5226cc7aad2b0ff0317d247584e45373478aadb",
       "canonical_state": "specified",
       "downstream": "docs/implementation-guide/conformance/record-006-currentness.md",
       "mapping": [
@@ -65,11 +65,18 @@
           "obligation": "ZKP does not establish registry decision correctness or absence of holder-specific live lookup",
           "downstream_test": "R006-NEG-LIVE-UNDECLARED and R006-NEG-UNAUTHENTIC-ROOT",
           "coverage": "policy_layer"
+        },
+        {
+          "canonical_field": "issuance[2]",
+          "obligation": "Lab range-leaf commitment with sentinels, one inclusion proof and two range-checked comparisons",
+          "downstream_test": null,
+          "coverage": "uncovered"
         }
       ],
       "gaps": [
         "Strict sortedness of committed revocation handles is not exercised by the listed semantic fixtures.",
-        "Authority, status freshness and live-lookup privacy remain policy inputs; no cryptographic non-membership reproduction."
+        "Authority, status freshness and live-lookup privacy remain policy inputs; no cryptographic non-membership reproduction.",
+        "No local reproduction of the range-leaf cryptographic runtime is established by this packet."
       ],
       "disposition": "retest_required"
     }

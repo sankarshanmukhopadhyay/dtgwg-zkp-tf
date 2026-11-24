@@ -6,7 +6,7 @@
     "control_issue": 30,
     "downstream_only": true,
     "observed_upstream": {
-      "revision": "aa4e285bbed35ecb2cacb660f798968c9a9793b5",
+      "revision": "a8ff49292bc2dc7f2a1f8014b6e2268c0e483677",
       "record_013_state": "specified",
       "spec_pr_12": "merged",
       "spec_pr_12_merged_at": "2026-09-30",
