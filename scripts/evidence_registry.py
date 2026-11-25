@@ -13,8 +13,14 @@ import json
 from pathlib import Path
 import sys
 
+if __package__:
+    from .reconcile_canonical_evidence import reconcile
+else:
+    from reconcile_canonical_evidence import reconcile
+
 ROOT = Path(__file__).resolve().parents[1]
 SRC = Path("docs/implementation-guide/conformance/evidence-promotion-gates.json")
+RECONCILIATION = SRC.with_name("canonical-reconciliation.json")
 SCHEMA_VERSION = "1.0"
 EXPECTED = ("003", "006", "007", "008", "009", "010", "021")
 
@@ -82,6 +88,27 @@ def build(root: Path = ROOT) -> dict:
                 "observation_time": None,
                 "claim_boundary": "No registered evidence, not a negative proof result.",
             })
+    # The evidence register is a historical declaration, not a currentness decision.
+    # Use the reviewed canonical-impact contract rather than deriving a second one.
+    delta_raw = (root / RECONCILIATION).read_bytes()
+    delta = json.loads(delta_raw)
+    canonical = delta["canonical"]
+    if (delta.get("schema_version") != "1.0"
+            or canonical["repository"] != authority["upstream_repository"]
+            or canonical["prior_revision"] != commit):
+        raise RegistryError("canonical reconciliation does not match the evidence authority baseline")
+    if any(not isinstance(canonical[key], str)
+           or len(canonical[key]) != 40
+           or any(ch not in "0123456789abcdef" for ch in canonical[key])
+           for key in ("prior_revision", "current_revision", "last_semantic_revision")):
+        raise RegistryError("canonical reconciliation requires full hexadecimal revisions")
+    reviewed = reconcile(delta, source, root=root)
+    assessments = {row["record"]: row for row in reviewed["assessments"]}
+    for row in records:
+        assessment = assessments.get(row["record"])
+        row["canonical_disposition"] = assessment["state"] if assessment else "not_assessed"
+        row["canonical_disposition_reason"] = (assessment["note"] if assessment
+                                                else "No canonical delta assessment exists.")
     return {
         "schema_version": SCHEMA_VERSION,
         "source": SRC.as_posix(),
@@ -89,6 +116,13 @@ def build(root: Path = ROOT) -> dict:
         "authority": {"upstream_repository": authority["upstream_repository"],
                       "upstream_commit": commit,
                       "downstream_only": True},
+        "canonical_reconciliation": {
+            "source": RECONCILIATION.as_posix(),
+            "source_digest": "sha256:" + hashlib.sha256(delta_raw).hexdigest(),
+            "repository": canonical["repository"],
+            "prior_revision": canonical["prior_revision"],
+            "current_revision": canonical["current_revision"],
+        },
         "records": records,
     }
 
