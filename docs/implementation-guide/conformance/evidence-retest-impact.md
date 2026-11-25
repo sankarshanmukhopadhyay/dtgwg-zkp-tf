@@ -7,7 +7,7 @@ nav_order: 60
 
 # Evidence change-impact and retest
 
-The conservative [evidence change-impact calculator](../../../scripts/evidence_change_impact.py) compares two source-derived [evidence registry projections](evidence-registry-projection.md). It returns `RETEST_REQUIRED` when the pinned canonical authority, source register, evidence asset digests, recorded classes/labels/gaps or claimed independence changes. It never returns `PASS` for a cryptographic or governance proposition.
+The conservative [evidence change-impact calculator](../../../scripts/evidence_change_impact.py) compares two source-derived [evidence registry projections](evidence-registry-projection.md). It returns `RETEST_REQUIRED` when the pinned canonical authority, source register, reviewed canonical reconciliation, record disposition, evidence asset digests, recorded classes/labels/gaps or claimed independence changes. It never returns `PASS` for a cryptographic or governance proposition.
 
 ## Reproduce
 
@@ -24,7 +24,7 @@ python3 -m scripts.evidence_change_impact --before /tmp/zkp-before.json --output
 python3 -m pytest -q scripts/tests/test_evidence_change_impact.py
 ```
 
-The output identifies per-record reason codes and conservatively invalidates **all** records when the source register or upstream authority changes, since a more precise dependency graph has not yet been established. This errs toward reassessment over false confidence.
+The output identifies per-record reason codes and conservatively invalidates **all** records when the source register or upstream authority changes, since a more precise dependency graph has not yet been established. This errs toward reassessment over false confidence. A change to the reconciliation digest also triggers review of all records. Legacy snapshots without reconciliation metadata require review; a current snapshot without that metadata is rejected. Each result carries the current reviewed `canonical_disposition` and reason. `UNCHANGED` means no new difference was detected, not that a previously stale or retest-required record has become current.
 
 **Not yet implemented:** an event-level attributable execution record with immutable CI/job identity, measured environment, observed outcomes and external review; library dependency-manifest locking across all cryptographic components; selective dependency-graph invalidation; automated rerun orchestration; interpretation of upstream changes. A retest trigger is a *review requirement*, not an assertion that the underlying proof has failed.
 

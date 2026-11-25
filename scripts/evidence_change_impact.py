@@ -11,6 +11,7 @@ from pathlib import Path
 import sys
 
 from scripts.evidence_registry import EXPECTED, build
+from scripts.reconcile_canonical_evidence import ALLOWED
 
 def impact(before: dict, after: dict) -> dict:
     if before.get("schema_version") != "1.0" or after.get("schema_version") != "1.0":
@@ -31,10 +32,27 @@ def impact(before: dict, after: dict) -> dict:
         raise ValueError("cannot compare authoritative/lifecycle-promoting snapshots")
     drift = old_authority != new_authority
     source_drift = before.get("source_digest") != after.get("source_digest")
+    old_reconciliation = before.get("canonical_reconciliation")
+    new_reconciliation = after.get("canonical_reconciliation")
+    if not isinstance(new_reconciliation, dict) or not all(
+            new_reconciliation.get(key) for key in
+            ("source", "source_digest", "repository", "prior_revision", "current_revision")):
+        raise ValueError("current snapshot missing canonical reconciliation")
+    reconciliation_drift = old_reconciliation != new_reconciliation
     result = []
     for record in EXPECTED:
         previous, current = old[record], new[record]
+        disposition = current.get("canonical_disposition")
+        if disposition not in ALLOWED or not current.get("canonical_disposition_reason"):
+            raise ValueError("current snapshot missing/invalid canonical disposition: " + record)
         triggers = []
+        if old_reconciliation is None:
+            triggers.append("prior_canonical_reconciliation_missing")
+        elif reconciliation_drift:
+            triggers.append("canonical_reconciliation_changed")
+        if any(previous.get(field) != current.get(field)
+               for field in ("canonical_disposition", "canonical_disposition_reason")):
+            triggers.append("canonical_disposition_changed")
         if drift:
             triggers.append("upstream_authority_changed")
         if source_drift:
@@ -49,11 +67,15 @@ def impact(before: dict, after: dict) -> dict:
         if previous.get("producer_independence") != current.get("producer_independence"):
             triggers.append("independence_claim_changed")
         result.append({"record":record,
+                       "canonical_disposition":disposition,
+                       "canonical_disposition_reason":current["canonical_disposition_reason"],
                        "retest_required":bool(triggers),
                        "triggers":triggers,
                        "status":"RETEST_REQUIRED" if triggers else "UNCHANGED"})
     return {"schema_version":"1.0","authority":"downstream-retest-impact-only",
             "upstream_drift":drift,"source_register_drift":source_drift,
+            "canonical_reconciliation_drift":reconciliation_drift,
+            "canonical_reconciliation":new_reconciliation,
             "records":result}
 
 

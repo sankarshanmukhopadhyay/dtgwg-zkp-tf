@@ -15,6 +15,32 @@ class ChangeImpactTests(unittest.TestCase):
         result=impact(self.base,copy.deepcopy(self.base))
         self.assertFalse(any(r["retest_required"] for r in result["records"]))
 
+    def test_unchanged_does_not_mean_current(self):
+        result = impact(self.base, copy.deepcopy(self.base))
+        row = next(r for r in result["records"] if r["record"] == "010")
+        self.assertEqual(row["status"], "UNCHANGED")
+        self.assertEqual(row["canonical_disposition"], "stale")
+
+    def test_legacy_snapshot_requires_review(self):
+        previous = copy.deepcopy(self.base)
+        del previous["canonical_reconciliation"]
+        for row in previous["records"]:
+            del row["canonical_disposition"]
+            del row["canonical_disposition_reason"]
+        result = impact(previous, self.base)
+        self.assertTrue(result["canonical_reconciliation_drift"])
+        self.assertTrue(all(row["retest_required"] for row in result["records"]))
+        self.assertTrue(all("prior_canonical_reconciliation_missing" in row["triggers"]
+                            for row in result["records"]))
+        with self.assertRaises(ValueError):
+            impact(self.base, previous)
+
+    def test_missing_current_disposition_rejected(self):
+        current = copy.deepcopy(self.base)
+        del current["records"][0]["canonical_disposition"]
+        with self.assertRaises(ValueError):
+            impact(self.base, current)
+
     def test_artifact_mutation_invalidates_record(self):
         future=copy.deepcopy(self.base)
         next(r for r in future["records"] if r["record"]=="010")["assets"][0]["sha256"]="0"*64
